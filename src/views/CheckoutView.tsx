@@ -6,7 +6,7 @@ import { useCart } from '../context/CartContext';
 import { ChevronLeft, ShieldCheck, CreditCard, Lock, CheckCircle2 } from 'lucide-react';
 import GlowButton from '../components/GlowButton';
 
-const stripePromise = loadStripe(process.env.STRIPE_PUBLISHABLE_KEY!);
+const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY ?? '');
 
 interface CheckoutViewProps {
   onBack: () => void;
