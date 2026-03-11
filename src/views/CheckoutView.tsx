@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { motion } from 'motion/react';
 import { loadStripe } from '@stripe/stripe-js';
-import { Elements, CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
+import { Elements, CardNumberElement, CardExpiryElement, CardCvcElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import { useCart } from '../context/CartContext';
 import { ChevronLeft, ShieldCheck, CreditCard, Lock, CheckCircle2 } from 'lucide-react';
 import GlowButton from '../components/GlowButton';
@@ -31,7 +31,7 @@ function CheckoutForm({ onBack, onSuccess }: CheckoutViewProps) {
   const handlePayment = async () => {
     if (!stripe || !elements) return;
 
-    const cardElement = elements.getElement(CardElement);
+    const cardElement = elements.getElement(CardNumberElement);
     if (!cardElement) return;
 
     setIsProcessing(true);
@@ -147,20 +147,21 @@ function CheckoutForm({ onBack, onSuccess }: CheckoutViewProps) {
               <Lock size={12} className="ml-auto text-brand-gray-dark" />
             </div>
 
-            <div className="p-4 border border-brand-gray-light focus-within:border-brand-black transition-colors">
-              <CardElement
-                options={{
-                  style: {
-                    base: {
-                      fontSize: '14px',
-                      color: '#000000',
-                      fontFamily: 'Inter, sans-serif',
-                      '::placeholder': { color: '#AAAAAA' },
-                    },
-                    invalid: { color: '#e53e3e' },
-                  },
-                }}
-              />
+            <div className="space-y-3">
+              <div className="p-4 border border-brand-gray-light focus-within:border-brand-black transition-colors">
+                <p className="text-[9px] uppercase tracking-widest text-brand-gray-dark mb-2">Card Number</p>
+                <CardNumberElement options={{ style: { base: { fontSize: '14px', color: '#000000', fontFamily: 'Inter, sans-serif', '::placeholder': { color: '#AAAAAA' } }, invalid: { color: '#e53e3e' } } }} />
+              </div>
+              <div className="grid grid-cols-2 gap-3">
+                <div className="p-4 border border-brand-gray-light focus-within:border-brand-black transition-colors">
+                  <p className="text-[9px] uppercase tracking-widest text-brand-gray-dark mb-2">Expiry Date</p>
+                  <CardExpiryElement options={{ style: { base: { fontSize: '14px', color: '#000000', fontFamily: 'Inter, sans-serif', '::placeholder': { color: '#AAAAAA' } }, invalid: { color: '#e53e3e' } } }} />
+                </div>
+                <div className="p-4 border border-brand-gray-light focus-within:border-brand-black transition-colors">
+                  <p className="text-[9px] uppercase tracking-widest text-brand-gray-dark mb-2">CVC</p>
+                  <CardCvcElement options={{ style: { base: { fontSize: '14px', color: '#000000', fontFamily: 'Inter, sans-serif', '::placeholder': { color: '#AAAAAA' } }, invalid: { color: '#e53e3e' } } }} />
+                </div>
+              </div>
             </div>
 
             {errorMessage && (
