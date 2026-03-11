@@ -1,30 +1,81 @@
 import { useState } from 'react';
 import { motion } from 'motion/react';
+import { loadStripe } from '@stripe/stripe-js';
+import { Elements, CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import { useCart } from '../context/CartContext';
-import { ChevronLeft, ShieldCheck, CreditCard, Smartphone, Globe, Lock, CheckCircle2 } from 'lucide-react';
+import { ChevronLeft, ShieldCheck, CreditCard, Lock, CheckCircle2 } from 'lucide-react';
 import GlowButton from '../components/GlowButton';
+
+const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY);
 
 interface CheckoutViewProps {
   onBack: () => void;
   onSuccess: () => void;
 }
 
-type PaymentMethod = 'card' | 'apple' | 'paypal' | 'stripe';
-
-export default function CheckoutView({ onBack, onSuccess }: CheckoutViewProps) {
+function CheckoutForm({ onBack, onSuccess }: CheckoutViewProps) {
+  const stripe = useStripe();
+  const elements = useElements();
   const { cart, cartTotal, clearCart } = useCart();
-  const [paymentMethod, setPaymentMethod] = useState<PaymentMethod>('card');
   const [isProcessing, setIsProcessing] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
+  const [form, setForm] = useState({
+    firstName: '', lastName: '', email: '', address: '', city: '', postcode: ''
+  });
 
-  const handlePayment = () => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setForm(prev => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
+  const handlePayment = async () => {
+    if (!stripe || !elements) return;
+
+    const cardElement = elements.getElement(CardElement);
+    if (!cardElement) return;
+
     setIsProcessing(true);
-    // Simulate payment processing
-    setTimeout(() => {
+    setErrorMessage('');
+
+    try {
+      // Create payment intent on the server
+      const res = await fetch('/api/create-payment-intent', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ amount: cartTotal }),
+      });
+
+      const { clientSecret, error: serverError } = await res.json();
+      if (serverError) throw new Error(serverError);
+
+      // Confirm the payment with Stripe
+      const { error, paymentIntent } = await stripe.confirmCardPayment(clientSecret, {
+        payment_method: {
+          card: cardElement,
+          billing_details: {
+            name: `${form.firstName} ${form.lastName}`,
+            email: form.email,
+            address: {
+              line1: form.address,
+              city: form.city,
+              postal_code: form.postcode,
+              country: 'GB',
+            },
+          },
+        },
+      });
+
+      if (error) {
+        setErrorMessage(error.message ?? 'Payment failed. Please try again.');
+      } else if (paymentIntent?.status === 'succeeded') {
+        clearCart();
+        setIsSuccess(true);
+      }
+    } catch (err: any) {
+      setErrorMessage(err.message ?? 'Something went wrong. Please try again.');
+    } finally {
       setIsProcessing(false);
-      setIsSuccess(true);
-      clearCart();
-    }, 2500);
+    }
   };
 
   if (isSuccess) {
@@ -40,7 +91,7 @@ export default function CheckoutView({ onBack, onSuccess }: CheckoutViewProps) {
           </div>
           <h1 className="text-3xl font-bold uppercase tracking-[0.2em] mb-4">Order Confirmed</h1>
           <p className="text-brand-gray-dark mb-12">
-            Thank you for your purchase. Your order has been received and is being processed. 
+            Thank you for your purchase. Your order has been received and is being processed.
             A confirmation email will be sent to you shortly.
           </p>
           <GlowButton onClick={onSuccess} className="px-12 py-4 text-xs uppercase tracking-widest">
@@ -54,7 +105,7 @@ export default function CheckoutView({ onBack, onSuccess }: CheckoutViewProps) {
   return (
     <main className="pt-32 pb-24 max-w-7xl mx-auto px-6 md:px-12">
       <div className="flex items-center gap-4 mb-12">
-        <button 
+        <button
           onClick={onBack}
           className="flex items-center gap-2 text-[10px] uppercase tracking-widest font-bold hover:opacity-60 transition-opacity"
         >
@@ -75,72 +126,51 @@ export default function CheckoutView({ onBack, onSuccess }: CheckoutViewProps) {
               Shipping Information
             </h2>
             <div className="grid grid-cols-2 gap-4">
-              <input type="text" placeholder="First Name" className="col-span-1 p-4 bg-brand-gray-light/10 border border-brand-gray-light focus:border-brand-black outline-none transition-colors text-sm" />
-              <input type="text" placeholder="Last Name" className="col-span-1 p-4 bg-brand-gray-light/10 border border-brand-gray-light focus:border-brand-black outline-none transition-colors text-sm" />
-              <input type="email" placeholder="Email Address" className="col-span-2 p-4 bg-brand-gray-light/10 border border-brand-gray-light focus:border-brand-black outline-none transition-colors text-sm" />
-              <input type="text" placeholder="Address" className="col-span-2 p-4 bg-brand-gray-light/10 border border-brand-gray-light focus:border-brand-black outline-none transition-colors text-sm" />
-              <input type="text" placeholder="City" className="col-span-1 p-4 bg-brand-gray-light/10 border border-brand-gray-light focus:border-brand-black outline-none transition-colors text-sm" />
-              <input type="text" placeholder="Postcode" className="col-span-1 p-4 bg-brand-gray-light/10 border border-brand-gray-light focus:border-brand-black outline-none transition-colors text-sm" />
+              <input name="firstName" value={form.firstName} onChange={handleChange} type="text" placeholder="First Name" className="col-span-1 p-4 bg-brand-gray-light/10 border border-brand-gray-light focus:border-brand-black outline-none transition-colors text-sm" />
+              <input name="lastName" value={form.lastName} onChange={handleChange} type="text" placeholder="Last Name" className="col-span-1 p-4 bg-brand-gray-light/10 border border-brand-gray-light focus:border-brand-black outline-none transition-colors text-sm" />
+              <input name="email" value={form.email} onChange={handleChange} type="email" placeholder="Email Address" className="col-span-2 p-4 bg-brand-gray-light/10 border border-brand-gray-light focus:border-brand-black outline-none transition-colors text-sm" />
+              <input name="address" value={form.address} onChange={handleChange} type="text" placeholder="Address" className="col-span-2 p-4 bg-brand-gray-light/10 border border-brand-gray-light focus:border-brand-black outline-none transition-colors text-sm" />
+              <input name="city" value={form.city} onChange={handleChange} type="text" placeholder="City" className="col-span-1 p-4 bg-brand-gray-light/10 border border-brand-gray-light focus:border-brand-black outline-none transition-colors text-sm" />
+              <input name="postcode" value={form.postcode} onChange={handleChange} type="text" placeholder="Postcode" className="col-span-1 p-4 bg-brand-gray-light/10 border border-brand-gray-light focus:border-brand-black outline-none transition-colors text-sm" />
             </div>
           </section>
 
           <section>
             <h2 className="text-sm font-bold uppercase tracking-widest mb-8 flex items-center gap-3">
               <span className="w-6 h-6 bg-brand-black text-white rounded-full flex items-center justify-center text-[10px]">2</span>
-              Payment Method
+              Payment
             </h2>
-            <div className="grid grid-cols-2 gap-4">
-              <button 
-                onClick={() => setPaymentMethod('card')}
-                className={`p-6 border flex flex-col items-center gap-3 transition-all ${paymentMethod === 'card' ? 'border-brand-black bg-brand-black/5' : 'border-brand-gray-light hover:border-brand-black'}`}
-              >
-                <CreditCard size={24} />
-                <span className="text-[10px] uppercase tracking-widest font-bold">Credit Card</span>
-              </button>
-              <button 
-                onClick={() => setPaymentMethod('apple')}
-                className={`p-6 border flex flex-col items-center gap-3 transition-all ${paymentMethod === 'apple' ? 'border-brand-black bg-brand-black/5' : 'border-brand-gray-light hover:border-brand-black'}`}
-              >
-                <Smartphone size={24} />
-                <span className="text-[10px] uppercase tracking-widest font-bold">Apple Pay</span>
-              </button>
-              <button 
-                onClick={() => setPaymentMethod('paypal')}
-                className={`p-6 border flex flex-col items-center gap-3 transition-all ${paymentMethod === 'paypal' ? 'border-brand-black bg-brand-black/5' : 'border-brand-gray-light hover:border-brand-black'}`}
-              >
-                <Globe size={24} />
-                <span className="text-[10px] uppercase tracking-widest font-bold">PayPal</span>
-              </button>
-              <button 
-                onClick={() => setPaymentMethod('stripe')}
-                className={`p-6 border flex flex-col items-center gap-3 transition-all ${paymentMethod === 'stripe' ? 'border-brand-black bg-brand-black/5' : 'border-brand-gray-light hover:border-brand-black'}`}
-              >
-                <div className="flex items-center gap-1">
-                  <Lock size={12} />
-                  <span className="text-xs font-bold italic">Stripe</span>
-                </div>
-                <span className="text-[10px] uppercase tracking-widest font-bold">Direct Pay</span>
-              </button>
+
+            <div className="p-4 border border-brand-gray-light flex items-center gap-3 mb-6 bg-brand-black/5">
+              <CreditCard size={20} />
+              <span className="text-[10px] uppercase tracking-widest font-bold">Credit / Debit Card</span>
+              <Lock size={12} className="ml-auto text-brand-gray-dark" />
             </div>
 
-            {paymentMethod === 'card' && (
-              <motion.div 
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                className="mt-8 space-y-4"
-              >
-                <input type="text" placeholder="Card Number" className="w-full p-4 bg-brand-gray-light/10 border border-brand-gray-light focus:border-brand-black outline-none transition-colors text-sm" />
-                <div className="grid grid-cols-2 gap-4">
-                  <input type="text" placeholder="MM/YY" className="p-4 bg-brand-gray-light/10 border border-brand-gray-light focus:border-brand-black outline-none transition-colors text-sm" />
-                  <input type="text" placeholder="CVC" className="p-4 bg-brand-gray-light/10 border border-brand-gray-light focus:border-brand-black outline-none transition-colors text-sm" />
-                </div>
-              </motion.div>
+            <div className="p-4 border border-brand-gray-light focus-within:border-brand-black transition-colors">
+              <CardElement
+                options={{
+                  style: {
+                    base: {
+                      fontSize: '14px',
+                      color: '#000000',
+                      fontFamily: 'Inter, sans-serif',
+                      '::placeholder': { color: '#AAAAAA' },
+                    },
+                    invalid: { color: '#e53e3e' },
+                  },
+                }}
+              />
+            </div>
+
+            {errorMessage && (
+              <p className="text-red-500 text-xs mt-3">{errorMessage}</p>
             )}
           </section>
 
-          <GlowButton 
+          <GlowButton
             onClick={handlePayment}
-            disabled={isProcessing}
+            disabled={isProcessing || !stripe}
             className="w-full py-5 text-sm uppercase tracking-[0.2em] flex items-center justify-center gap-3"
           >
             {isProcessing ? (
@@ -152,7 +182,7 @@ export default function CheckoutView({ onBack, onSuccess }: CheckoutViewProps) {
               `Pay £${cartTotal.toFixed(2)}`
             )}
           </GlowButton>
-          
+
           <div className="flex items-center justify-center gap-2 text-[10px] text-brand-gray-dark uppercase tracking-widest">
             <ShieldCheck size={14} /> 256-bit SSL Encrypted Security
           </div>
@@ -182,7 +212,7 @@ export default function CheckoutView({ onBack, onSuccess }: CheckoutViewProps) {
                 </div>
               ))}
             </div>
-            
+
             <div className="space-y-4 pt-6 border-t border-brand-gray-light">
               <div className="flex justify-between text-[10px] uppercase tracking-widest">
                 <span className="text-brand-gray-dark">Subtotal</span>
@@ -201,5 +231,13 @@ export default function CheckoutView({ onBack, onSuccess }: CheckoutViewProps) {
         </div>
       </div>
     </main>
+  );
+}
+
+export default function CheckoutView({ onBack, onSuccess }: CheckoutViewProps) {
+  return (
+    <Elements stripe={stripePromise}>
+      <CheckoutForm onBack={onBack} onSuccess={onSuccess} />
+    </Elements>
   );
 }
