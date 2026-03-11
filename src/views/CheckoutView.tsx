@@ -47,7 +47,9 @@ function CheckoutForm({ onBack, onSuccess }: CheckoutViewProps) {
         body: JSON.stringify({ amount: cartTotal }),
       });
 
-      const { clientSecret, error: serverError } = await res.json();
+      const responseData = await res.json();
+      console.log('API response:', responseData);
+      const { clientSecret, error: serverError } = responseData;
       if (serverError) throw new Error(serverError);
 
       // Confirm the payment with Stripe
