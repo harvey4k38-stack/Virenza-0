@@ -72,6 +72,20 @@ function CheckoutForm({ onBack, onSuccess }: CheckoutViewProps) {
       if (error) {
         setErrorMessage(error.message ?? 'Payment failed. Please try again.');
       } else if (paymentIntent?.status === 'succeeded') {
+        await fetch('/api/send-order-email', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            firstName: form.firstName,
+            lastName: form.lastName,
+            email: form.email,
+            address: form.address,
+            city: form.city,
+            postcode: form.postcode,
+            cart,
+            total: cartTotal.toFixed(2),
+          }),
+        });
         clearCart();
         setIsSuccess(true);
       }
