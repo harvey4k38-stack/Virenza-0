@@ -42,16 +42,11 @@ export default function Home({ onProductClick, onNavigate }: HomeProps) {
             transition={{ duration: 1.2, ease: "easeOut" }}
             className="relative h-[60vh] md:h-[80vh]"
           >
-            <img 
-              src="https://picsum.photos/seed/virenza-hero/1200/1600" 
-              alt="Model wearing premium chain" 
-              referrerPolicy="no-referrer"
+            <img
+              src="/asset-8.png"
+              alt="Model wearing premium chain"
               className="w-full h-full object-cover rounded-sm shadow-2xl"
             />
-            <div className="absolute -bottom-6 -left-6 bg-white p-6 shadow-xl hidden lg:block">
-              <p className="text-[10px] uppercase tracking-widest font-bold mb-2">Featured Piece</p>
-              <p className="text-sm font-medium">Curb Chain 5mm — Silver</p>
-            </div>
           </motion.div>
         </div>
       </section>

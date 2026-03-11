@@ -8,7 +8,10 @@ export const PRODUCTS: Product[] = [
     description: 'Our signature tennis chain featuring hand-set stones. A timeless statement piece that exudes luxury and class.',
     category: 'chains',
     images: [
-      'input_file_1.png'
+      '/elite-img-1.png',
+      '/elite-img-2.png',
+      '/elite-img-3.png',
+      '/elite-img-4.png'
     ],
     thickness: ['3mm', '4mm', '5mm'],
     lengths: ['18"', '20"', '22"'],
@@ -23,7 +26,10 @@ export const PRODUCTS: Product[] = [
     description: 'An elite version of our tennis chain with larger stones and a more secure clasp for maximum brilliance.',
     category: 'chains',
     images: [
-      'input_file_3.png'
+      '/asset-2-1.png',
+      '/asset-2-2.png',
+      '/asset-2-3.png',
+      '/asset-2-4.png'
     ],
     thickness: ['4mm', '5mm'],
     lengths: ['18"', '20"'],
@@ -33,12 +39,15 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: '3',
-    name: 'Grand Master Tennis Chain',
+    name: 'Sovereign Cuban Chain',
     price: 49.95,
-    description: 'The pinnacle of our tennis collection. Unmatched brilliance and craftsmanship for those who demand the best.',
+    description: 'The pinnacle of our chain collection. A bold Cuban link crafted for those who demand the best — heavy, refined, and unmistakable.',
     category: 'chains',
     images: [
-      'input_file_4.png'
+      '/asset-67-1.png',
+      '/asset-67-2.png',
+      '/asset-67-3.png',
+      '/asset-67-4.png'
     ],
     thickness: ['5mm', '6mm'],
     lengths: ['20"', '22"'],
@@ -53,8 +62,10 @@ export const PRODUCTS: Product[] = [
     description: 'A classic tennis bracelet with hand-set stones. A timeless piece that adds a touch of elegance to any outfit.',
     category: 'bracelets',
     images: [
-      'input_file_5.png',
-      'input_file_6.png'
+      '/asset-6-1.png',
+      '/asset-6-2.png',
+      '/asset-6-3.png',
+      '/asset-6-4.png'
     ],
     thickness: ['3mm', '4mm'],
     lengths: ['7"', '8"'],
@@ -64,12 +75,15 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: '5',
-    name: 'Royal Iced Bracelet',
+    name: 'Sovereign Cuban Bracelet',
     price: 34.95,
-    description: 'A royal statement piece featuring high-clarity stones set in a premium polished finish.',
+    description: 'A bold Cuban link bracelet featuring iced-out stones set in a premium polished finish. Built for those who wear their confidence on their wrist.',
     category: 'bracelets',
     images: [
-      'input_file_7.png'
+      '/asset-68-1.png',
+      '/asset-68-2.png',
+      '/asset-68-3.png',
+      '/asset-68-4.png'
     ],
     thickness: ['4mm', '5mm'],
     lengths: ['7"', '8"'],
@@ -84,7 +98,10 @@ export const PRODUCTS: Product[] = [
     description: 'The executive choice. A bold yet sophisticated bracelet designed for the modern gentleman.',
     category: 'bracelets',
     images: [
-      'input_file_8.png'
+      '/asset-69-1.png',
+      '/asset-69-2.png',
+      '/asset-69-3.png',
+      '/asset-69-4.png'
     ],
     thickness: ['5mm'],
     lengths: ['7.5"', '8.5"'],
@@ -119,11 +136,11 @@ export const CATEGORIES: Category[] = [
   {
     id: 'chains',
     name: 'Chains',
-    image: 'input_file_0.png'
+    image: '/cat-chains.png'
   },
   {
     id: 'bracelets',
     name: 'Bracelets',
-    image: 'input_file_5.png'
+    image: '/cat-bracelets.png'
   }
 ];
