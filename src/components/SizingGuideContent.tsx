@@ -105,11 +105,10 @@ export default function SizingGuideContent() {
           </div>
           
           <div className="aspect-[3/4] bg-brand-gray-light/20 relative overflow-hidden rounded-sm">
-            <img 
-              src="https://images.unsplash.com/photo-1611085583191-a3b13b24424a?auto=format&fit=crop&q=80&w=800" 
-              alt="Chain Sizing Reference" 
+            <img
+              src="/elite-img-1.png"
+              alt="Chain Sizing Reference"
               className="w-full h-full object-cover"
-              referrerPolicy="no-referrer"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent flex flex-col justify-end p-8">
               <p className="text-white text-[10px] uppercase tracking-[0.3em] font-bold">Visual Reference</p>
