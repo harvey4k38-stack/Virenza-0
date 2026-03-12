@@ -146,7 +146,7 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: '10',
-    name: 'Silver Cuban Link Bracelet',
+    name: 'Classic Silver Bracelet',
     price: 36.95,
     description: 'A solid silver Cuban link bracelet with a polished finish. Bold, clean and built for the wrist that means business.',
     category: 'bracelets',
