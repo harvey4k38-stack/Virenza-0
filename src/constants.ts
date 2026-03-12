@@ -57,7 +57,7 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: '9',
-    name: 'Gold Box Chain',
+    name: 'Aurum Link Chain',
     price: 47.95,
     description: 'A sleek gold box chain with a clean geometric link structure. Minimal, precise and effortlessly luxurious.',
     category: 'chains',
