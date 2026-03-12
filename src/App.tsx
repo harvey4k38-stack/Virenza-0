@@ -10,12 +10,13 @@ import CheckoutView from './views/CheckoutView';
 import SizingGuide from './views/SizingGuide';
 import About from './views/About';
 import Contact from './views/Contact';
+import ShippingTracking from './views/ShippingTracking';
 import { Product } from './types';
 import { PRODUCTS } from './constants';
 import { CartProvider } from './context/CartContext';
 import { getLogo } from './services/logoService';
 
-type View = 'home' | 'product' | 'chains' | 'bracelets' | 'best-sellers' | 'cart' | 'checkout' | 'sizing-guide' | 'about' | 'contact';
+type View = 'home' | 'product' | 'chains' | 'bracelets' | 'best-sellers' | 'cart' | 'checkout' | 'sizing-guide' | 'about' | 'contact' | 'shipping-tracking';
 
 export default function App() {
   const [view, setView] = useState<View>('home');
@@ -161,6 +162,16 @@ export default function App() {
                 transition={{ duration: 0.5 }}
               >
                 <Contact onBack={handleHomeClick} />
+              </motion.div>
+            ) : view === 'shipping-tracking' ? (
+              <motion.div
+                key="shipping-tracking"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.5 }}
+              >
+                <ShippingTracking onBack={handleHomeClick} />
               </motion.div>
             ) : (
               <motion.div

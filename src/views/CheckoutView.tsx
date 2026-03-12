@@ -19,6 +19,7 @@ function CheckoutForm({ onBack, onSuccess }: CheckoutViewProps) {
   const { cart, cartTotal, clearCart } = useCart();
   const [isProcessing, setIsProcessing] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [orderNumber, setOrderNumber] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
   const [form, setForm] = useState({
     firstName: '', lastName: '', email: '', address: '', city: '', postcode: ''
@@ -68,7 +69,7 @@ function CheckoutForm({ onBack, onSuccess }: CheckoutViewProps) {
       if (error) {
         setErrorMessage(error.message ?? 'Payment failed. Please try again.');
       } else if (paymentIntent?.status === 'succeeded') {
-        await fetch('/api/send-order-email', {
+        const emailRes = await fetch('/api/send-order-email', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
@@ -82,6 +83,8 @@ function CheckoutForm({ onBack, onSuccess }: CheckoutViewProps) {
             total: cartTotal.toFixed(2),
           }),
         });
+        const emailData = await emailRes.json();
+        if (emailData.orderNumber) setOrderNumber(emailData.orderNumber);
         clearCart();
         setIsSuccess(true);
       }
@@ -104,9 +107,14 @@ function CheckoutForm({ onBack, onSuccess }: CheckoutViewProps) {
             <CheckCircle2 size={40} />
           </div>
           <h1 className="text-3xl font-bold uppercase tracking-[0.2em] mb-4">Order Confirmed</h1>
+          {orderNumber && (
+            <p className="text-[11px] uppercase tracking-[0.3em] font-bold bg-brand-gray-light/20 border border-brand-gray-light px-6 py-3 mb-6">
+              Order #{orderNumber}
+            </p>
+          )}
           <p className="text-brand-gray-dark mb-12">
             Thank you for your purchase. Your order has been received and is being processed.
-            A confirmation email will be sent to you shortly.
+            A confirmation email with your order number has been sent to you.
           </p>
           <GlowButton onClick={onSuccess} className="px-12 py-4 text-xs uppercase tracking-widest">
             Return to Store

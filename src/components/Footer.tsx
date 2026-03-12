@@ -76,16 +76,22 @@ export default function Footer({ logo, onNavigate }: {
           <div>
             <h4 className="text-[10px] uppercase tracking-[0.3em] font-bold mb-8">Support</h4>
             <ul className="space-y-4">
-              {['Contact Us'].map(item => (
-                <li key={item}>
-                  <button
-                    onClick={() => onNavigate?.('contact')}
-                    className="text-sm text-brand-gray-dark hover:text-brand-black transition-colors"
-                  >
-                    {item}
-                  </button>
-                </li>
-              ))}
+              <li>
+                <button
+                  onClick={() => onNavigate?.('contact')}
+                  className="text-sm text-brand-gray-dark hover:text-brand-black transition-colors"
+                >
+                  Contact Us
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => onNavigate?.('shipping-tracking')}
+                  className="text-sm text-brand-gray-dark hover:text-brand-black transition-colors"
+                >
+                  Shipping & Tracking
+                </button>
+              </li>
             </ul>
           </div>
         </div>
