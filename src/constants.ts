@@ -56,6 +56,24 @@ export const PRODUCTS: Product[] = [
     reviewCount: 42
   },
   {
+    id: '8',
+    name: 'Silver Rope Chain',
+    price: 42.95,
+    description: 'A classic silver rope chain with a twisted design that catches the light. Timeless, versatile and built for everyday wear.',
+    category: 'chains',
+    images: [
+      '/rope-chain-1.png',
+      '/rope-chain-2.png',
+      '/rope-chain-3.png',
+      '/rope-chain-4.png'
+    ],
+    thickness: ['3mm', '4mm', '5mm'],
+    lengths: ['18"', '20"', '22"'],
+    isBestSeller: false,
+    rating: 5.0,
+    reviewCount: 22
+  },
+  {
     id: '7',
     name: 'Gold Cuban Link Chain',
     price: 54.95,
