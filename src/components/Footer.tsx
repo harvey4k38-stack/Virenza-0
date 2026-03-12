@@ -80,7 +80,12 @@ export default function Footer({ logo, onNavigate }: {
             <ul className="space-y-4">
               {['Contact Us', 'Order Tracking', 'Privacy Policy', 'Terms of Service'].map(item => (
                 <li key={item}>
-                  <a href="#" className="text-sm text-brand-gray-dark hover:text-brand-black transition-colors">{item}</a>
+                  <button
+                    onClick={() => item === 'Contact Us' && onNavigate?.('contact')}
+                    className="text-sm text-brand-gray-dark hover:text-brand-black transition-colors"
+                  >
+                    {item}
+                  </button>
                 </li>
               ))}
             </ul>

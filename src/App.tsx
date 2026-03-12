@@ -9,12 +9,13 @@ import CartView from './views/CartView';
 import CheckoutView from './views/CheckoutView';
 import SizingGuide from './views/SizingGuide';
 import About from './views/About';
+import Contact from './views/Contact';
 import { Product } from './types';
 import { PRODUCTS } from './constants';
 import { CartProvider } from './context/CartContext';
 import { getLogo } from './services/logoService';
 
-type View = 'home' | 'product' | 'chains' | 'bracelets' | 'best-sellers' | 'cart' | 'checkout' | 'sizing-guide' | 'about';
+type View = 'home' | 'product' | 'chains' | 'bracelets' | 'best-sellers' | 'cart' | 'checkout' | 'sizing-guide' | 'about' | 'contact';
 
 export default function App() {
   const [view, setView] = useState<View>('home');
@@ -149,9 +150,17 @@ export default function App() {
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.5 }}
               >
-                <About 
-                  onBack={handleHomeClick}
-                />
+                <About onBack={handleHomeClick} />
+              </motion.div>
+            ) : view === 'contact' ? (
+              <motion.div
+                key="contact"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.5 }}
+              >
+                <Contact onBack={handleHomeClick} />
               </motion.div>
             ) : (
               <motion.div
