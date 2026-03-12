@@ -136,8 +136,7 @@ export const PRODUCTS: Product[] = [
     images: [
       '/rosegold-brace-1.png',
       '/rosegold-brace-2.png',
-      '/rosegold-brace-3.png',
-      '/rosegold-brace-4.png'
+      '/rosegold-brace-3.png'
     ],
     thickness: ['3mm', '4mm'],
     lengths: ['7"', '8"'],
