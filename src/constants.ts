@@ -4,7 +4,7 @@ export const PRODUCTS: Product[] = [
   {
     id: '1',
     name: 'Virenza Classic Tennis Chain',
-    price: 39.95,
+    price: 29.99,
     description: 'Our signature tennis chain featuring hand-set stones. A timeless statement piece that exudes luxury and class.',
     category: 'chains',
     images: [
@@ -22,7 +22,7 @@ export const PRODUCTS: Product[] = [
   {
     id: '2',
     name: 'Elite Iced Tennis Chain',
-    price: 44.95,
+    price: 27.99,
     description: 'An elite version of our tennis chain with larger stones and a more secure clasp for maximum brilliance.',
     category: 'chains',
     images: [
@@ -40,7 +40,7 @@ export const PRODUCTS: Product[] = [
   {
     id: '3',
     name: 'Sovereign Cuban Chain',
-    price: 49.95,
+    price: 24.99,
     description: 'The pinnacle of our chain collection. A bold Cuban link crafted for those who demand the best — heavy, refined, and unmistakable.',
     category: 'chains',
     images: [
@@ -58,7 +58,7 @@ export const PRODUCTS: Product[] = [
   {
     id: '9',
     name: 'Aurum Link Chain',
-    price: 47.95,
+    price: 22.99,
     description: 'A sleek gold box chain with a clean geometric link structure. Minimal, precise and effortlessly luxurious.',
     category: 'chains',
     images: [
@@ -76,7 +76,7 @@ export const PRODUCTS: Product[] = [
   {
     id: '8',
     name: 'Silver Rope Chain',
-    price: 42.95,
+    price: 19.99,
     description: 'A classic silver rope chain with a twisted design that catches the light. Timeless, versatile and built for everyday wear.',
     category: 'chains',
     images: [
@@ -94,7 +94,7 @@ export const PRODUCTS: Product[] = [
   {
     id: '7',
     name: 'Sovereign Link Chain',
-    price: 54.95,
+    price: 26.99,
     description: 'A bold gold Cuban link chain crafted for those who command attention. Heavy, warm-toned, and built to last.',
     category: 'chains',
     images: [
@@ -112,7 +112,7 @@ export const PRODUCTS: Product[] = [
   {
     id: '11',
     name: 'Iced Out Tennis Bracelet',
-    price: 33.95,
+    price: 21.99,
     description: 'A premium iced out tennis bracelet with hand-set stones that catch every light. Understated flex for the wrist.',
     category: 'bracelets',
     images: [
@@ -130,7 +130,7 @@ export const PRODUCTS: Product[] = [
   {
     id: '12',
     name: 'Rose Gold Tennis Bracelet',
-    price: 35.95,
+    price: 23.99,
     description: 'A warm rose gold tennis bracelet featuring brilliant-cut stones. Effortlessly elegant and built to turn heads.',
     category: 'bracelets',
     images: [
@@ -147,7 +147,7 @@ export const PRODUCTS: Product[] = [
   {
     id: '10',
     name: 'Classic Silver Bracelet',
-    price: 36.95,
+    price: 25.99,
     description: 'A solid silver Cuban link bracelet with a polished finish. Bold, clean and built for the wrist that means business.',
     category: 'bracelets',
     images: [
@@ -165,7 +165,7 @@ export const PRODUCTS: Product[] = [
   {
     id: '4',
     name: 'Signature Tennis Bracelet',
-    price: 31.95,
+    price: 19.99,
     description: 'A classic tennis bracelet with hand-set stones. A timeless piece that adds a touch of elegance to any outfit.',
     category: 'bracelets',
     images: [
@@ -183,7 +183,7 @@ export const PRODUCTS: Product[] = [
   {
     id: '5',
     name: 'Sovereign Cuban Bracelet',
-    price: 34.95,
+    price: 24.99,
     description: 'A bold Cuban link bracelet featuring iced-out stones set in a premium polished finish. Built for those who wear their confidence on their wrist.',
     category: 'bracelets',
     images: [
@@ -201,7 +201,7 @@ export const PRODUCTS: Product[] = [
   {
     id: '6',
     name: 'Executive Tennis Bracelet',
-    price: 37.95,
+    price: 28.99,
     description: 'The executive choice. A bold yet sophisticated bracelet designed for the modern gentleman.',
     category: 'bracelets',
     images: [
