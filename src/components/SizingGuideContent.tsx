@@ -87,8 +87,7 @@ export default function SizingGuideContent() {
           <h2 className="text-2xl uppercase tracking-widest font-bold">Chain Sizing</h2>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div className="space-y-6">
+        <div className="space-y-6">
             {chainSizes.map((chain, idx) => (
               <div key={idx} className="flex items-start gap-6 group">
                 <div className="text-xl font-bold tracking-tighter text-brand-gray-light group-hover:text-brand-black transition-colors">
@@ -103,19 +102,6 @@ export default function SizingGuideContent() {
               </div>
             ))}
           </div>
-          
-          <div className="aspect-[3/4] bg-brand-gray-light/20 relative overflow-hidden rounded-sm">
-            <img
-              src="/elite-img-1.png"
-              alt="Chain Sizing Reference"
-              className="w-full h-full object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent flex flex-col justify-end p-8">
-              <p className="text-white text-[10px] uppercase tracking-[0.3em] font-bold">Visual Reference</p>
-              <p className="text-white/90 text-xs mt-2 font-medium">Multi-angle view of our signature 20" (51cm) tennis chain.</p>
-            </div>
-          </div>
-        </div>
       </section>
     </div>
   );
