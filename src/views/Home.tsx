@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { PRODUCTS, CATEGORIES, REVIEWS } from '../constants';
 import ProductCard from '../components/ProductCard';
 import GlowButton from '../components/GlowButton';
@@ -12,6 +13,20 @@ interface HomeProps {
 }
 
 export default function Home({ onProductClick, onNavigate }: HomeProps) {
+  const [email, setEmail] = useState('');
+  const [subscribed, setSubscribed] = useState(false);
+
+  const handleSubscribe = async (e: React.FormEvent) => {
+    e.preventDefault();
+    await fetch('/api/newsletter', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email }),
+    });
+    setSubscribed(true);
+    setEmail('');
+  };
+
   return (
     <main className="pt-20">
       {/* Hero Section */}
@@ -150,6 +165,28 @@ export default function Home({ onProductClick, onNavigate }: HomeProps) {
         </div>
       </section>
 
+      {/* Newsletter Section */}
+      <section className="py-24 bg-brand-gray-light/30">
+        <div className="max-w-4xl mx-auto px-6 text-center">
+          <h2 className="text-3xl mb-4">Stay Updated</h2>
+          <p className="text-brand-gray-dark mb-10">Get updates on new releases and restocks.</p>
+          {subscribed ? (
+            <p className="text-sm font-bold uppercase tracking-widest text-emerald-600">Thanks for subscribing!</p>
+          ) : (
+            <form className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto" onSubmit={handleSubscribe}>
+              <input
+                type="email"
+                placeholder="Enter your email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+                className="flex-1 px-6 py-4 bg-white border border-brand-gray-light rounded-md focus:outline-none focus:border-brand-black transition-colors"
+              />
+              <GlowButton type="submit">Subscribe</GlowButton>
+            </form>
+          )}
+        </div>
+      </section>
     </main>
   );
 }
