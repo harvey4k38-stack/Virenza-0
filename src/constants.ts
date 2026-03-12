@@ -110,6 +110,42 @@ export const PRODUCTS: Product[] = [
     reviewCount: 18
   },
   {
+    id: '11',
+    name: 'Iced Out Tennis Bracelet',
+    price: 33.95,
+    description: 'A premium iced out tennis bracelet with hand-set stones that catch every light. Understated flex for the wrist.',
+    category: 'bracelets',
+    images: [
+      '/iced-brace-1.png',
+      '/iced-brace-2.png',
+      '/iced-brace-3.png',
+      '/iced-brace-4.png'
+    ],
+    thickness: ['3mm', '4mm'],
+    lengths: ['7"', '8"'],
+    isBestSeller: false,
+    rating: 5.0,
+    reviewCount: 29
+  },
+  {
+    id: '12',
+    name: 'Rose Gold Tennis Bracelet',
+    price: 35.95,
+    description: 'A warm rose gold tennis bracelet featuring brilliant-cut stones. Effortlessly elegant and built to turn heads.',
+    category: 'bracelets',
+    images: [
+      '/rosegold-brace-1.png',
+      '/rosegold-brace-2.png',
+      '/rosegold-brace-3.png',
+      '/rosegold-brace-4.png'
+    ],
+    thickness: ['3mm', '4mm'],
+    lengths: ['7"', '8"'],
+    isBestSeller: false,
+    rating: 5.0,
+    reviewCount: 17
+  },
+  {
     id: '10',
     name: 'Silver Cuban Link Bracelet',
     price: 36.95,
