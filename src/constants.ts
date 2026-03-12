@@ -56,6 +56,24 @@ export const PRODUCTS: Product[] = [
     reviewCount: 42
   },
   {
+    id: '9',
+    name: 'Gold Box Chain',
+    price: 47.95,
+    description: 'A sleek gold box chain with a clean geometric link structure. Minimal, precise and effortlessly luxurious.',
+    category: 'chains',
+    images: [
+      '/gold-box-1.png',
+      '/gold-box-2.png',
+      '/gold-box-3.png',
+      '/gold-box-4.png'
+    ],
+    thickness: ['3mm', '4mm'],
+    lengths: ['18"', '20"', '22"'],
+    isBestSeller: false,
+    rating: 5.0,
+    reviewCount: 14
+  },
+  {
     id: '8',
     name: 'Silver Rope Chain',
     price: 42.95,
