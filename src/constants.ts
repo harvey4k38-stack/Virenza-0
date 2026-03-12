@@ -148,7 +148,7 @@ export const PRODUCTS: Product[] = [
     id: '10',
     name: 'Classic Silver Bracelet',
     price: 16.95,
-    description: 'A solid silver Cuban link bracelet with a polished finish. Bold, clean and built for the wrist that means business.',
+    description: 'A solid silver bracelet with a polished finish. Bold, clean and built for the wrist that means business.',
     category: 'bracelets',
     images: [
       '/silver-cuban-brace-1.png',
@@ -184,7 +184,7 @@ export const PRODUCTS: Product[] = [
     id: '5',
     name: 'Sovereign Cuban Bracelet',
     price: 24.99,
-    description: 'A bold Cuban link bracelet featuring iced-out stones set in a premium polished finish. Built for those who wear their confidence on their wrist.',
+    description: 'A bold iced-out bracelet featuring premium stones set in a polished finish. Built for those who wear their confidence on their wrist.',
     category: 'bracelets',
     images: [
       '/asset-68-1.png',

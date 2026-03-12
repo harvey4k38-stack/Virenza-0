@@ -6,9 +6,7 @@ import { useCart } from '../context/CartContext';
 import { ChevronLeft, ShieldCheck, CreditCard, Lock, CheckCircle2 } from 'lucide-react';
 import GlowButton from '../components/GlowButton';
 
-const stripeKey = import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY ?? '';
-console.log('Stripe key starts with:', stripeKey.substring(0, 15));
-const stripePromise = loadStripe(stripeKey);
+const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY ?? '');
 
 interface CheckoutViewProps {
   onBack: () => void;
@@ -47,9 +45,7 @@ function CheckoutForm({ onBack, onSuccess }: CheckoutViewProps) {
         body: JSON.stringify({ amount: cartTotal }),
       });
 
-      const responseData = await res.json();
-      console.log('API response:', responseData);
-      const { clientSecret, error: serverError } = responseData;
+      const { clientSecret, error: serverError } = await res.json();
       if (serverError) throw new Error(serverError);
 
       // Confirm the payment with Stripe

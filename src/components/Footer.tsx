@@ -58,8 +58,6 @@ export default function Footer({ logo, onNavigate }: {
             <ul className="space-y-4">
               {[
                 { name: 'About Us', view: 'about' },
-                { name: 'Shipping & Returns', view: 'shipping' },
-                { name: 'FAQ', view: 'faq' },
                 { name: 'Sizing Guide', view: 'sizing-guide' }
               ].map(item => (
                 <li key={item.name}>
@@ -78,10 +76,10 @@ export default function Footer({ logo, onNavigate }: {
           <div>
             <h4 className="text-[10px] uppercase tracking-[0.3em] font-bold mb-8">Support</h4>
             <ul className="space-y-4">
-              {['Contact Us', 'Order Tracking', 'Privacy Policy', 'Terms of Service'].map(item => (
+              {['Contact Us'].map(item => (
                 <li key={item}>
                   <button
-                    onClick={() => item === 'Contact Us' && onNavigate?.('contact')}
+                    onClick={() => onNavigate?.('contact')}
                     className="text-sm text-brand-gray-dark hover:text-brand-black transition-colors"
                   >
                     {item}
