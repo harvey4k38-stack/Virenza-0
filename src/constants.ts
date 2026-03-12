@@ -93,7 +93,7 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: '7',
-    name: 'Gold Cuban Link Chain',
+    name: 'Sovereign Link Chain',
     price: 54.95,
     description: 'A bold gold Cuban link chain crafted for those who command attention. Heavy, warm-toned, and built to last.',
     category: 'chains',
