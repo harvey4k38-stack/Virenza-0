@@ -56,6 +56,24 @@ export const PRODUCTS: Product[] = [
     reviewCount: 42
   },
   {
+    id: '7',
+    name: 'Gold Cuban Link Chain',
+    price: 54.95,
+    description: 'A bold gold Cuban link chain crafted for those who command attention. Heavy, warm-toned, and built to last.',
+    category: 'chains',
+    images: [
+      '/gold-cuban-1.png',
+      '/gold-cuban-2.png',
+      '/gold-cuban-3.png',
+      '/gold-cuban-4.png'
+    ],
+    thickness: ['5mm', '6mm'],
+    lengths: ['18"', '20"', '22"'],
+    isBestSeller: false,
+    rating: 5.0,
+    reviewCount: 18
+  },
+  {
     id: '4',
     name: 'Signature Tennis Bracelet',
     price: 31.95,
