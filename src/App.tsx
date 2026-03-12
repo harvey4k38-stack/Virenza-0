@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Analytics } from '@vercel/analytics/react';
 import { motion, AnimatePresence } from 'motion/react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -197,6 +198,7 @@ export default function App() {
           onNavigate={(v) => setView(v as View)}
         />
       </div>
+      <Analytics />
     </CartProvider>
   );
 }
