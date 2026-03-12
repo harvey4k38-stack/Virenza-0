@@ -110,6 +110,24 @@ export const PRODUCTS: Product[] = [
     reviewCount: 18
   },
   {
+    id: '10',
+    name: 'Silver Cuban Link Bracelet',
+    price: 36.95,
+    description: 'A solid silver Cuban link bracelet with a polished finish. Bold, clean and built for the wrist that means business.',
+    category: 'bracelets',
+    images: [
+      '/silver-cuban-brace-1.png',
+      '/silver-cuban-brace-2.png',
+      '/silver-cuban-brace-3.png',
+      '/silver-cuban-brace-4.png'
+    ],
+    thickness: ['6mm', '8mm'],
+    lengths: ['7"', '8"'],
+    isBestSeller: false,
+    rating: 5.0,
+    reviewCount: 11
+  },
+  {
     id: '4',
     name: 'Signature Tennis Bracelet',
     price: 31.95,
