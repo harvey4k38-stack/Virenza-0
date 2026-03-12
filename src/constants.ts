@@ -69,7 +69,7 @@ export const PRODUCTS: Product[] = [
     ],
     thickness: ['3mm', '4mm'],
     lengths: ['18"', '20"', '22"'],
-    isBestSeller: false,
+    isBestSeller: true,
     rating: 5.0,
     reviewCount: 14
   },
