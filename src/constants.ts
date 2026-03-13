@@ -4,7 +4,7 @@ export const PRODUCTS: Product[] = [
   {
     id: '1',
     name: 'Virenza Classic Tennis Chain',
-    price: 29.99,
+    price: 19.95,
     description: 'Our signature tennis chain featuring hand-set stones. A timeless statement piece that exudes luxury and class.',
     category: 'chains',
     images: [
@@ -22,7 +22,7 @@ export const PRODUCTS: Product[] = [
   {
     id: '2',
     name: 'Elite Iced Tennis Chain',
-    price: 27.99,
+    price: 23.95,
     description: 'An elite version of our tennis chain with larger stones and a more secure clasp for maximum brilliance.',
     category: 'chains',
     images: [
