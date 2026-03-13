@@ -30,38 +30,24 @@ export default function Home({ onProductClick, onNavigate }: HomeProps) {
   return (
     <main className="pt-20">
       {/* Hero Section */}
-      <section className="relative h-[90vh] flex items-center overflow-hidden bg-white">
-        <div className="max-w-7xl mx-auto px-6 md:px-12 grid md:grid-cols-2 items-center gap-12 w-full">
+      <section className="relative flex items-center overflow-hidden bg-white py-24">
+        <div className="max-w-7xl mx-auto px-6 md:px-12 w-full text-center">
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="z-10"
           >
             <h1 className="text-5xl md:text-7xl font-bold leading-[1.1] mb-6">
               Jewelry That <br />
               <span className="text-brand-gray-dark">Speaks Quietly</span>
             </h1>
-            <p className="text-lg text-brand-gray-dark mb-10 max-w-md leading-relaxed">
+            <p className="text-lg text-brand-gray-dark mb-10 max-w-md mx-auto leading-relaxed">
               Minimal chains and bracelets designed for everyday wear. Refined aesthetics for the modern man.
             </p>
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-wrap gap-4 justify-center">
               <GlowButton onClick={() => onNavigate('chains')}>Shop Chains</GlowButton>
               <GlowButton variant="outline" onClick={() => onNavigate('bracelets')}>Shop Bracelets</GlowButton>
             </div>
-          </motion.div>
-          
-          <motion.div
-            initial={{ opacity: 0, scale: 1.1 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1.2, ease: "easeOut" }}
-            className="relative h-[60vh] md:h-[80vh]"
-          >
-            <img
-              src="/asset-8.png"
-              alt="Model wearing premium chain"
-              className="w-full h-full object-cover rounded-sm shadow-2xl"
-            />
           </motion.div>
         </div>
       </section>
