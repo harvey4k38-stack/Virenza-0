@@ -3,10 +3,14 @@ import { motion } from 'motion/react';
 import { loadStripe } from '@stripe/stripe-js';
 import { Elements, CardNumberElement, CardExpiryElement, CardCvcElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import { useCart } from '../context/CartContext';
-import { ChevronLeft, ShieldCheck, CreditCard, Lock, CheckCircle2 } from 'lucide-react';
+import { ChevronLeft, ShieldCheck, CreditCard, Lock, CheckCircle2, Tag } from 'lucide-react';
 import GlowButton from '../components/GlowButton';
 
 const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY ?? '');
+
+const DISCOUNT_CODE = 'VIRENZA10';
+const DISCOUNT_PERCENT = 0.10;
+const USED_CODES_KEY = 'virenza_used_discount';
 
 interface CheckoutViewProps {
   onBack: () => void;
@@ -24,9 +28,28 @@ function CheckoutForm({ onBack, onSuccess }: CheckoutViewProps) {
   const [form, setForm] = useState({
     firstName: '', lastName: '', email: '', address: '', city: '', postcode: ''
   });
+  const [discountInput, setDiscountInput] = useState('');
+  const [discountApplied, setDiscountApplied] = useState(false);
+  const [discountError, setDiscountError] = useState('');
+
+  const finalTotal = discountApplied ? cartTotal * (1 - DISCOUNT_PERCENT) : cartTotal;
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setForm(prev => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
+  const handleApplyDiscount = () => {
+    setDiscountError('');
+    if (discountInput.trim().toUpperCase() !== DISCOUNT_CODE) {
+      setDiscountError('Invalid discount code.');
+      return;
+    }
+    const usedEmails: string[] = JSON.parse(localStorage.getItem(USED_CODES_KEY) ?? '[]');
+    if (form.email && usedEmails.includes(form.email.toLowerCase())) {
+      setDiscountError('This code has already been used with this email.');
+      return;
+    }
+    setDiscountApplied(true);
   };
 
   const handlePayment = async () => {
@@ -35,21 +58,29 @@ function CheckoutForm({ onBack, onSuccess }: CheckoutViewProps) {
     const cardElement = elements.getElement(CardNumberElement);
     if (!cardElement) return;
 
+    // Final check: has this email already used the code?
+    if (discountApplied) {
+      const usedEmails: string[] = JSON.parse(localStorage.getItem(USED_CODES_KEY) ?? '[]');
+      if (usedEmails.includes(form.email.toLowerCase())) {
+        setDiscountApplied(false);
+        setDiscountError('This code has already been used with this email.');
+        return;
+      }
+    }
+
     setIsProcessing(true);
     setErrorMessage('');
 
     try {
-      // Create payment intent on the server
       const res = await fetch('/api/create-payment-intent', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ amount: cartTotal }),
+        body: JSON.stringify({ amount: finalTotal }),
       });
 
       const { clientSecret, error: serverError } = await res.json();
       if (serverError) throw new Error(serverError);
 
-      // Confirm the payment with Stripe
       const { error, paymentIntent } = await stripe.confirmCardPayment(clientSecret, {
         payment_method: {
           card: cardElement,
@@ -69,6 +100,13 @@ function CheckoutForm({ onBack, onSuccess }: CheckoutViewProps) {
       if (error) {
         setErrorMessage(error.message ?? 'Payment failed. Please try again.');
       } else if (paymentIntent?.status === 'succeeded') {
+        // Mark code as used for this email
+        if (discountApplied) {
+          const usedEmails: string[] = JSON.parse(localStorage.getItem(USED_CODES_KEY) ?? '[]');
+          usedEmails.push(form.email.toLowerCase());
+          localStorage.setItem(USED_CODES_KEY, JSON.stringify(usedEmails));
+        }
+
         const emailRes = await fetch('/api/send-order-email', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
@@ -80,7 +118,8 @@ function CheckoutForm({ onBack, onSuccess }: CheckoutViewProps) {
             city: form.city,
             postcode: form.postcode,
             cart,
-            total: cartTotal.toFixed(2),
+            total: finalTotal.toFixed(2),
+            discount: discountApplied ? `${DISCOUNT_PERCENT * 100}% off (${DISCOUNT_CODE})` : null,
           }),
         });
         const emailData = await emailRes.json();
@@ -160,6 +199,38 @@ function CheckoutForm({ onBack, onSuccess }: CheckoutViewProps) {
           <section>
             <h2 className="text-sm font-bold uppercase tracking-widest mb-8 flex items-center gap-3">
               <span className="w-6 h-6 bg-brand-black text-white rounded-full flex items-center justify-center text-[10px]">2</span>
+              Discount Code
+            </h2>
+            {discountApplied ? (
+              <div className="flex items-center gap-3 p-4 border border-emerald-400 bg-emerald-50">
+                <Tag size={16} className="text-emerald-600" />
+                <span className="text-xs font-bold uppercase tracking-widest text-emerald-700">
+                  {DISCOUNT_CODE} — 10% off applied
+                </span>
+              </div>
+            ) : (
+              <div className="flex gap-3">
+                <input
+                  type="text"
+                  value={discountInput}
+                  onChange={(e) => setDiscountInput(e.target.value)}
+                  placeholder="Enter discount code"
+                  className="flex-1 p-4 bg-brand-gray-light/10 border border-brand-gray-light focus:border-brand-black outline-none transition-colors text-sm"
+                />
+                <button
+                  onClick={handleApplyDiscount}
+                  className="px-6 py-4 border border-brand-black text-[10px] uppercase tracking-widest font-bold hover:bg-brand-black hover:text-white transition-colors"
+                >
+                  Apply
+                </button>
+              </div>
+            )}
+            {discountError && <p className="text-red-500 text-xs mt-2">{discountError}</p>}
+          </section>
+
+          <section>
+            <h2 className="text-sm font-bold uppercase tracking-widest mb-8 flex items-center gap-3">
+              <span className="w-6 h-6 bg-brand-black text-white rounded-full flex items-center justify-center text-[10px]">3</span>
               Payment
             </h2>
 
@@ -202,7 +273,7 @@ function CheckoutForm({ onBack, onSuccess }: CheckoutViewProps) {
                 Processing...
               </>
             ) : (
-              `Pay £${cartTotal.toFixed(2)}`
+              `Pay £${finalTotal.toFixed(2)}`
             )}
           </GlowButton>
 
@@ -241,13 +312,19 @@ function CheckoutForm({ onBack, onSuccess }: CheckoutViewProps) {
                 <span className="text-brand-gray-dark">Subtotal</span>
                 <span className="font-bold">£{cartTotal.toFixed(2)}</span>
               </div>
+              {discountApplied && (
+                <div className="flex justify-between text-[10px] uppercase tracking-widest">
+                  <span className="text-emerald-600">Discount (10%)</span>
+                  <span className="font-bold text-emerald-600">−£{(cartTotal * DISCOUNT_PERCENT).toFixed(2)}</span>
+                </div>
+              )}
               <div className="flex justify-between text-[10px] uppercase tracking-widest">
                 <span className="text-brand-gray-dark">Shipping</span>
                 <span className="font-bold text-emerald-600">Free</span>
               </div>
               <div className="flex justify-between text-xs uppercase tracking-widest pt-4 border-t border-brand-gray-light">
                 <span className="font-bold">Total</span>
-                <span className="text-xl font-bold">£{cartTotal.toFixed(2)}</span>
+                <span className="text-xl font-bold">£{finalTotal.toFixed(2)}</span>
               </div>
             </div>
           </div>
