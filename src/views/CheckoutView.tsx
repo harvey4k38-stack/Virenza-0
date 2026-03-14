@@ -8,8 +8,8 @@ import GlowButton from '../components/GlowButton';
 
 const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY ?? '');
 
-const DISCOUNT_CODE = 'VIRENZA10';
-const DISCOUNT_PERCENT = 0.10;
+const DISCOUNT_CODE = 'TENNIS30';
+const DISCOUNT_PERCENT = 0.30;
 const USED_CODES_KEY = 'virenza_used_discount';
 
 interface CheckoutViewProps {
@@ -205,7 +205,7 @@ function CheckoutForm({ onBack, onSuccess }: CheckoutViewProps) {
               <div className="flex items-center gap-3 p-4 border border-emerald-400 bg-emerald-50">
                 <Tag size={16} className="text-emerald-600" />
                 <span className="text-xs font-bold uppercase tracking-widest text-emerald-700">
-                  {DISCOUNT_CODE} — 10% off applied
+                  {DISCOUNT_CODE} — 30% off applied
                 </span>
               </div>
             ) : (
