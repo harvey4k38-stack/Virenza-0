@@ -44,7 +44,7 @@ export const PRODUCTS: Product[] = [
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'Kids S', 'Kids M', 'Kids L'],
     isBestSeller: true,
     nameVariants: JERSEY_NAME_VARIANTS,
-    rating: 4.5,
+    rating: 5.0,
     reviewCount: 12
   },
   {
