@@ -17,7 +17,7 @@ import { PRODUCTS } from './constants';
 import { CartProvider } from './context/CartContext';
 import { getLogo } from './services/logoService';
 
-type View = 'home' | 'product' | 'chains' | 'bracelets' | 'best-sellers' | 'cart' | 'checkout' | 'sizing-guide' | 'about' | 'contact' | 'shipping-tracking';
+type View = 'home' | 'product' | 'cart' | 'checkout' | 'sizing-guide' | 'about' | 'contact' | 'shipping-tracking' | (string & {});
 
 export default function App() {
   const [view, setView] = useState<View>('home');
@@ -47,22 +47,29 @@ export default function App() {
     setSelectedProduct(null);
   };
 
-  const handleCategoryClick = (category: 'chains' | 'bracelets' | 'best-sellers') => {
+  const handleCategoryClick = (category: string) => {
     setView(category);
     setSelectedProduct(null);
   };
 
   const getFilteredProducts = () => {
+    if (view === 'jerseys') return PRODUCTS.filter(p => p.category.startsWith('jersey-'));
     if (view === 'chains') return PRODUCTS.filter(p => p.category === 'chains');
     if (view === 'bracelets') return PRODUCTS.filter(p => p.category === 'bracelets');
     if (view === 'best-sellers') return PRODUCTS.filter(p => p.isBestSeller);
+    if (view.startsWith('jersey-')) return PRODUCTS.filter(p => p.category === view);
     return [];
   };
 
   const getTitle = () => {
+    if (view === 'jerseys') return 'All Jerseys';
     if (view === 'chains') return 'Chains';
     if (view === 'bracelets') return 'Bracelets';
     if (view === 'best-sellers') return 'Best Sellers';
+    if (view.startsWith('jersey-')) {
+      const product = PRODUCTS.find(p => p.category === view);
+      return product ? product.name : view;
+    }
     return '';
   };
 

@@ -5,7 +5,7 @@ import { useCart } from '../context/CartContext';
 
 export default function Navbar({ onHome, onNavigate, onCart, onAbout, logo }: { 
   onHome: () => void, 
-  onNavigate: (cat: 'chains' | 'bracelets' | 'best-sellers') => void,
+  onNavigate: (cat: string) => void,
   onCart: () => void,
   onAbout: () => void,
   logo: string | null
@@ -21,9 +21,10 @@ export default function Navbar({ onHome, onNavigate, onCart, onAbout, logo }: {
   }, []);
 
   const navItems = [
-    { name: 'Chains', id: 'chains' as const },
-    { name: 'Bracelets', id: 'bracelets' as const },
-    { name: 'Best Sellers', id: 'best-sellers' as const },
+    { name: 'Jerseys', id: 'jerseys' },
+    { name: 'Chains', id: 'chains' },
+    { name: 'Bracelets', id: 'bracelets' },
+    { name: 'Best Sellers', id: 'best-sellers' },
   ];
 
   return (

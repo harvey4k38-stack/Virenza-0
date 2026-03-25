@@ -1,4 +1,3 @@
-import { Instagram, Twitter, Facebook } from 'lucide-react';
 
 export default function Footer({ logo, onNavigate }: { 
   logo: string | null,
@@ -22,13 +21,8 @@ export default function Footer({ logo, onNavigate }: {
               <h3 className="text-2xl font-bold tracking-[0.4em] uppercase">Virenza</h3>
             </div>
             <p className="text-brand-gray-dark text-sm leading-relaxed max-w-xs">
-              Premium men's jewelry designed for the modern minimalist. Quality materials, refined aesthetics.
+              Premium England jerseys and minimalist accessories for the modern man.
             </p>
-            <div className="flex gap-6">
-              <a href="#" className="hover:opacity-60 transition-opacity"><Instagram size={20} /></a>
-              <a href="#" className="hover:opacity-60 transition-opacity"><Twitter size={20} /></a>
-              <a href="#" className="hover:opacity-60 transition-opacity"><Facebook size={20} /></a>
-            </div>
           </div>
 
           {/* Shop */}
@@ -36,6 +30,7 @@ export default function Footer({ logo, onNavigate }: {
             <h4 className="text-[10px] uppercase tracking-[0.3em] font-bold mb-8">Shop</h4>
             <ul className="space-y-4">
               {[
+                { name: 'Jerseys', view: 'jerseys' },
                 { name: 'Chains', view: 'chains' },
                 { name: 'Bracelets', view: 'bracelets' },
                 { name: 'Best Sellers', view: 'best-sellers' }
@@ -57,8 +52,7 @@ export default function Footer({ logo, onNavigate }: {
             <h4 className="text-[10px] uppercase tracking-[0.3em] font-bold mb-8">Information</h4>
             <ul className="space-y-4">
               {[
-                { name: 'About Us', view: 'about' },
-                { name: 'Sizing Guide', view: 'sizing-guide' }
+                { name: 'About Us', view: 'about' }
               ].map(item => (
                 <li key={item.name}>
                   <button 

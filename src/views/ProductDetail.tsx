@@ -6,6 +6,7 @@ import Modal from '../components/Modal';
 import SizingGuideContent from '../components/SizingGuideContent';
 import { ChevronLeft, ChevronRight, ShieldCheck, Truck, RefreshCw, Star, Check, Ruler } from 'lucide-react';
 import { useCart } from '../context/CartContext';
+import { JERSEY_REVIEWS, REVIEWS } from '../constants';
 
 interface ProductDetailProps {
   product: Product;
@@ -16,12 +17,24 @@ export default function ProductDetail({ product, onBack }: ProductDetailProps) {
   const [selectedImage, setSelectedImage] = useState(0);
   const [selectedThickness, setSelectedThickness] = useState(product.thickness[0]);
   const [selectedLength, setSelectedLength] = useState(product.lengths[0]);
+  const [selectedVariant, setSelectedVariant] = useState(product.nameVariants?.[0]?.label ?? null);
+  const [customName, setCustomName] = useState('');
+  const [customNumber, setCustomNumber] = useState<number | ''>(1);
+  const isJersey = product.category.startsWith('jersey-');
   const [isAdded, setIsAdded] = useState(false);
   const [isSizingModalOpen, setIsSizingModalOpen] = useState(false);
   const { addToCart } = useCart();
 
+  const KIDS_SIZES = ['Kids S', 'Kids M', 'Kids L'];
+  const isKidsSize = KIDS_SIZES.includes(selectedLength);
+  const displayPrice = isKidsSize ? product.price * 0.85 : product.price;
+
+  const adultSizes = product.lengths.filter(l => !KIDS_SIZES.includes(l));
+  const kidsSizes = product.lengths.filter(l => KIDS_SIZES.includes(l));
+
   const handleAddToCart = () => {
-    addToCart(product, selectedThickness, selectedLength);
+    const productToAdd = isKidsSize ? { ...product, price: parseFloat((product.price * 0.85).toFixed(2)) } : product;
+    addToCart(productToAdd, selectedThickness, selectedLength);
     setIsAdded(true);
     setTimeout(() => setIsAdded(false), 2000);
   };
@@ -108,7 +121,15 @@ export default function ProductDetail({ product, onBack }: ProductDetailProps) {
               {product.category}
             </p>
             <h1 className="text-4xl md:text-5xl mb-4">{product.name}</h1>
-            <p className="text-2xl font-medium text-brand-gray-dark">£{product.price.toFixed(2)}</p>
+            {isKidsSize ? (
+              <div className="flex items-baseline gap-3">
+                <p className="text-2xl font-medium text-brand-gray-dark">£{displayPrice.toFixed(2)}</p>
+                <p className="text-base line-through text-brand-gray-dark/50">£{product.price.toFixed(2)}</p>
+                <span className="text-[9px] uppercase tracking-widest font-bold text-emerald-600 border border-emerald-400 px-2 py-0.5">15% Off</span>
+              </div>
+            ) : (
+              <p className="text-2xl font-medium text-brand-gray-dark">£{product.price.toFixed(2)}</p>
+            )}
           </div>
 
           <div className="mb-10">
@@ -117,52 +138,132 @@ export default function ProductDetail({ product, onBack }: ProductDetailProps) {
             </p>
             
             <div className="space-y-8">
-              {/* Thickness Selector */}
-              <div>
-                <p className="text-[10px] uppercase tracking-widest font-bold mb-4">Thickness</p>
-                <div className="flex flex-wrap gap-3">
-                  {product.thickness.map((t) => (
-                    <button
-                      key={t}
-                      onClick={() => setSelectedThickness(t)}
-                      className={`px-6 py-2 text-xs uppercase tracking-widest font-bold border transition-all ${
-                        selectedThickness === t 
-                          ? 'bg-brand-black text-white border-brand-black' 
-                          : 'bg-white text-brand-black border-brand-gray-light hover:border-brand-black'
-                      }`}
-                    >
-                      {t}
-                    </button>
-                  ))}
+              {/* Name Variants (jerseys only) */}
+              {product.nameVariants && product.nameVariants.length > 0 && (
+                <div>
+                  <p className="text-[10px] uppercase tracking-widest font-bold mb-4">Player Name</p>
+                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 max-h-64 overflow-y-auto pr-1">
+                    {product.nameVariants.map((v) => (
+                      <button
+                        key={v.label}
+                        onClick={() => setSelectedVariant(v.label)}
+                        className={`px-3 py-2 border-2 transition-all text-left ${
+                          selectedVariant === v.label
+                            ? 'border-brand-black bg-brand-black text-white'
+                            : 'border-brand-gray-light hover:border-brand-black'
+                        }`}
+                      >
+                        <span className="text-[9px] uppercase tracking-wider font-bold leading-tight">{v.label}</span>
+                      </button>
+                    ))}
+                  </div>
+                  {selectedVariant === 'Customize Name' && (
+                    <div className="space-y-4 mt-4">
+                      <div>
+                        <p className="text-[10px] uppercase tracking-widest font-bold mb-2">
+                          Custom Name <span className="text-brand-gray-dark font-normal normal-case tracking-normal">({customName.length}/12)</span>
+                        </p>
+                        <input
+                          type="text"
+                          maxLength={12}
+                          value={customName}
+                          onChange={e => setCustomName(e.target.value.toUpperCase())}
+                          placeholder="E.G. SMITH"
+                          className="w-full border border-brand-gray-light px-4 py-3 text-sm uppercase tracking-widest focus:outline-none focus:border-brand-black"
+                        />
+                      </div>
+                      <div>
+                        <p className="text-[10px] uppercase tracking-widest font-bold mb-2">Number (1–99)</p>
+                        <input
+                          type="number"
+                          min={1}
+                          max={99}
+                          value={customNumber}
+                          onChange={e => setCustomNumber(e.target.value === '' ? '' : Math.min(99, Math.max(1, Number(e.target.value))))}
+                          className="w-24 border border-brand-gray-light px-4 py-3 text-sm text-center focus:outline-none focus:border-brand-black"
+                        />
+                      </div>
+                    </div>
+                  )}
                 </div>
-              </div>
+              )}
 
-              {/* Length Selector */}
+              {/* Thickness Selector (chains/bracelets only) */}
+              {!isJersey && product.thickness.length > 0 && (
+                <div>
+                  <p className="text-[10px] uppercase tracking-widest font-bold mb-4">Thickness</p>
+                  <div className="flex flex-wrap gap-3">
+                    {product.thickness.map((t) => (
+                      <button
+                        key={t}
+                        onClick={() => setSelectedThickness(t)}
+                        className={`px-6 py-2 text-xs uppercase tracking-widest font-bold border transition-all ${
+                          selectedThickness === t
+                            ? 'bg-brand-black text-white border-brand-black'
+                            : 'bg-white text-brand-black border-brand-gray-light hover:border-brand-black'
+                        }`}
+                      >
+                        {t}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Size Selector */}
               <div>
                 <div className="flex justify-between items-center mb-4">
-                  <p className="text-[10px] uppercase tracking-widest font-bold">Length</p>
-                  <button 
-                    onClick={() => setIsSizingModalOpen(true)}
-                    className="text-[10px] uppercase tracking-widest font-bold text-brand-gray-dark hover:text-brand-black transition-colors flex items-center gap-2"
-                  >
-                    <Ruler size={12} /> Sizing Guide
-                  </button>
-                </div>
-                <div className="flex flex-wrap gap-3">
-                  {product.lengths.map((l) => (
+                  <p className="text-[10px] uppercase tracking-widest font-bold">
+                    {isJersey ? 'Size' : 'Length'}
+                  </p>
+                  {!isJersey && (
                     <button
-                      key={l}
-                      onClick={() => setSelectedLength(l)}
-                      className={`px-6 py-2 text-xs uppercase tracking-widest font-bold border transition-all ${
-                        selectedLength === l 
-                          ? 'bg-brand-black text-white border-brand-black' 
-                          : 'bg-white text-brand-black border-brand-gray-light hover:border-brand-black'
-                      }`}
+                      onClick={() => setIsSizingModalOpen(true)}
+                      className="text-[10px] uppercase tracking-widest font-bold text-brand-gray-dark hover:text-brand-black transition-colors flex items-center gap-2"
                     >
-                      {l}
+                      <Ruler size={12} /> Sizing Guide
                     </button>
-                  ))}
+                  )}
                 </div>
+                {adultSizes.length > 0 && (
+                  <div className="flex flex-wrap gap-3 mb-4">
+                    {adultSizes.map((l) => (
+                      <button
+                        key={l}
+                        onClick={() => setSelectedLength(l)}
+                        className={`px-6 py-2 text-xs uppercase tracking-widest font-bold border transition-all ${
+                          selectedLength === l
+                            ? 'bg-brand-black text-white border-brand-black'
+                            : 'bg-white text-brand-black border-brand-gray-light hover:border-brand-black'
+                        }`}
+                      >
+                        {l}
+                      </button>
+                    ))}
+                  </div>
+                )}
+                {kidsSizes.length > 0 && (
+                  <div>
+                    <p className="text-[9px] uppercase tracking-widest font-bold text-brand-gray-dark mb-2">
+                      Kids Sizes <span className="text-emerald-600 font-bold">— 15% Off</span>
+                    </p>
+                    <div className="flex flex-wrap gap-3">
+                      {kidsSizes.map((l) => (
+                        <button
+                          key={l}
+                          onClick={() => setSelectedLength(l)}
+                          className={`px-6 py-2 text-xs uppercase tracking-widest font-bold border transition-all ${
+                            selectedLength === l
+                              ? 'bg-brand-black text-white border-brand-black'
+                              : 'bg-white text-brand-black border-emerald-400 hover:border-brand-black'
+                          }`}
+                        >
+                          {l.replace('Kids ', '')}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
           </div>
@@ -200,8 +301,39 @@ export default function ProductDetail({ product, onBack }: ProductDetailProps) {
         </div>
       </div>
 
-      <Modal 
-        isOpen={isSizingModalOpen} 
+      {/* Reviews Section */}
+      <div className="mt-24 pt-16 border-t border-brand-gray-light">
+        <div className="flex items-baseline justify-between mb-12">
+          <h2 className="text-2xl md:text-3xl">Customer Reviews</h2>
+          <div className="flex items-center gap-3">
+            <div className="flex items-center">
+              {[...Array(5)].map((_, i) => (
+                <Star key={i} size={14} className={i < Math.floor(product.rating) ? 'fill-brand-black text-brand-black' : 'text-brand-gray-light'} />
+              ))}
+            </div>
+            <span className="text-sm font-bold">{product.rating} out of 5</span>
+            <span className="text-sm text-brand-gray-dark">({product.reviewCount} reviews)</span>
+          </div>
+        </div>
+        <div className="grid md:grid-cols-2 gap-6">
+          {(isJersey ? JERSEY_REVIEWS : REVIEWS).map((review) => (
+            <div key={review.id} className="border border-brand-gray-light p-6 space-y-3">
+              <div className="flex items-center gap-3">
+                <div className="flex items-center">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} size={11} className={i < review.rating ? 'fill-brand-black text-brand-black' : 'text-brand-gray-light'} />
+                  ))}
+                </div>
+                <span className="text-[10px] uppercase tracking-widest font-bold">{review.author}</span>
+              </div>
+              <p className="text-sm text-brand-gray-dark leading-relaxed">{review.comment}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <Modal
+        isOpen={isSizingModalOpen}
         onClose={() => setIsSizingModalOpen(false)}
         title="Sizing Guide"
       >

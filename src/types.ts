@@ -3,11 +3,13 @@ export interface Product {
   name: string;
   price: number;
   description: string;
-  category: 'chains' | 'bracelets';
+  category: string;
   images: string[];
   thickness: string[];
   lengths: string[];
   isBestSeller?: boolean;
+  outOfStock?: boolean;
+  nameVariants?: Array<{ label: string; image?: string }>;
   rating: number;
   reviewCount: number;
 }
