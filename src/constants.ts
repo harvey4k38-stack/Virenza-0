@@ -45,7 +45,7 @@ export const PRODUCTS: Product[] = [
     isBestSeller: true,
     nameVariants: JERSEY_NAME_VARIANTS,
     rating: 5.0,
-    reviewCount: 12
+    reviewCount: 17
   },
   {
     id: 'j-nike-home-2026',
@@ -63,8 +63,8 @@ export const PRODUCTS: Product[] = [
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'Kids S', 'Kids M', 'Kids L'],
     isBestSeller: false,
     nameVariants: JERSEY_NAME_VARIANTS,
-    rating: 4.9,
-    reviewCount: 6
+    rating: 5.0,
+    reviewCount: 11
   },
   {
     id: 'j-nike-away-2026',
@@ -83,8 +83,8 @@ export const PRODUCTS: Product[] = [
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'Kids S', 'Kids M', 'Kids L'],
     isBestSeller: false,
     nameVariants: JERSEY_NAME_VARIANTS,
-    rating: 4.9,
-    reviewCount: 4
+    rating: 5.0,
+    reviewCount: 10
   },
   {
     id: 'j-2008-away',
@@ -103,8 +103,8 @@ export const PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'Kids S', 'Kids M', 'Kids L'],
     isBestSeller: false,
-    rating: 4.9,
-    reviewCount: 8
+    rating: 5.0,
+    reviewCount: 13
   },
   {
     id: 'j-retro-saka',
@@ -122,8 +122,8 @@ export const PRODUCTS: Product[] = [
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'Kids S', 'Kids M', 'Kids L'],
     isBestSeller: false,
     nameVariants: JERSEY_NAME_VARIANTS,
-    rating: 4.9,
-    reviewCount: 7
+    rating: 5.0,
+    reviewCount: 9
   },
   {
     id: 'j-retro-gazza',
@@ -141,8 +141,8 @@ export const PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'Kids S', 'Kids M', 'Kids L'],
     isBestSeller: false,
-    rating: 4.9,
-    reviewCount: 9
+    rating: 5.0,
+    reviewCount: 12
   },
 
   // ── Chains ────────────────────────────────────────────────────────────────
@@ -381,7 +381,7 @@ export const PRODUCTS: Product[] = [
     outOfStock: true,
     nameVariants: JERSEY_NAME_VARIANTS,
     rating: 4.9,
-    reviewCount: 0
+    reviewCount: 11
   },
   {
     id: 'j-1990-home',
@@ -396,7 +396,7 @@ export const PRODUCTS: Product[] = [
     outOfStock: true,
     nameVariants: JERSEY_NAME_VARIANTS,
     rating: 4.9,
-    reviewCount: 0
+    reviewCount: 13
   },
   {
     id: 'j-1990-3rd',
@@ -411,7 +411,7 @@ export const PRODUCTS: Product[] = [
     outOfStock: true,
     nameVariants: JERSEY_NAME_VARIANTS,
     rating: 4.9,
-    reviewCount: 0
+    reviewCount: 9
   },
   {
     id: 'j-9192-home',
@@ -426,7 +426,7 @@ export const PRODUCTS: Product[] = [
     outOfStock: true,
     nameVariants: JERSEY_NAME_VARIANTS,
     rating: 4.9,
-    reviewCount: 0
+    reviewCount: 10
   },
   {
     id: 'j-1992-away',
@@ -441,7 +441,7 @@ export const PRODUCTS: Product[] = [
     outOfStock: true,
     nameVariants: JERSEY_NAME_VARIANTS,
     rating: 4.9,
-    reviewCount: 0
+    reviewCount: 12
   },
   {
     id: 'j-1993-away',
@@ -456,7 +456,7 @@ export const PRODUCTS: Product[] = [
     outOfStock: true,
     nameVariants: JERSEY_NAME_VARIANTS,
     rating: 4.9,
-    reviewCount: 0
+    reviewCount: 9
   },
   {
     id: 'j-9495-home',
@@ -471,7 +471,7 @@ export const PRODUCTS: Product[] = [
     outOfStock: true,
     nameVariants: JERSEY_NAME_VARIANTS,
     rating: 4.9,
-    reviewCount: 0
+    reviewCount: 11
   },
   {
     id: 'j-1996-home',
@@ -486,7 +486,7 @@ export const PRODUCTS: Product[] = [
     outOfStock: true,
     nameVariants: JERSEY_NAME_VARIANTS,
     rating: 4.9,
-    reviewCount: 0
+    reviewCount: 13
   },
   {
     id: 'j-1996-away',
@@ -501,7 +501,7 @@ export const PRODUCTS: Product[] = [
     outOfStock: true,
     nameVariants: JERSEY_NAME_VARIANTS,
     rating: 4.9,
-    reviewCount: 0
+    reviewCount: 10
   },
   {
     id: 'j-1998-home',
@@ -516,7 +516,7 @@ export const PRODUCTS: Product[] = [
     outOfStock: true,
     nameVariants: JERSEY_NAME_VARIANTS,
     rating: 4.9,
-    reviewCount: 0
+    reviewCount: 12
   },
   {
     id: 'j-2002-home',
@@ -531,7 +531,7 @@ export const PRODUCTS: Product[] = [
     outOfStock: true,
     nameVariants: JERSEY_NAME_VARIANTS,
     rating: 4.9,
-    reviewCount: 0
+    reviewCount: 11
   },
   {
     id: 'j-2006-home',
@@ -546,7 +546,7 @@ export const PRODUCTS: Product[] = [
     outOfStock: true,
     nameVariants: JERSEY_NAME_VARIANTS,
     rating: 4.9,
-    reviewCount: 0
+    reviewCount: 9
   },
   {
     id: 'j-2012-home',
@@ -561,7 +561,7 @@ export const PRODUCTS: Product[] = [
     outOfStock: true,
     nameVariants: JERSEY_NAME_VARIANTS,
     rating: 4.9,
-    reviewCount: 0
+    reviewCount: 10
   },
 ];
 
