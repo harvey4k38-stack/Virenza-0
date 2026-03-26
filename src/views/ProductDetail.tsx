@@ -25,6 +25,8 @@ export default function ProductDetail({ product, onBack }: ProductDetailProps) {
   const [isSizingModalOpen, setIsSizingModalOpen] = useState(false);
   const { addToCart } = useCart();
 
+  const compareAtPrice = Math.ceil(product.price * 1.2) - 0.01;
+
   const KIDS_SIZES = ['Kids S', 'Kids M', 'Kids L'];
   const isKidsSize = KIDS_SIZES.includes(selectedLength);
   const displayPrice = isKidsSize ? product.price * 0.85 : product.price;
@@ -122,13 +124,17 @@ export default function ProductDetail({ product, onBack }: ProductDetailProps) {
             </p>
             <h1 className="text-4xl md:text-5xl mb-4">{product.name}</h1>
             {isKidsSize ? (
-              <div className="flex items-baseline gap-3">
-                <p className="text-2xl font-medium text-brand-gray-dark">£{displayPrice.toFixed(2)}</p>
+              <div className="flex items-baseline gap-3 flex-wrap">
+                <p className="text-2xl font-bold text-brand-black">£{displayPrice.toFixed(2)}</p>
                 <p className="text-base line-through text-brand-gray-dark/50">£{product.price.toFixed(2)}</p>
                 <span className="text-[9px] uppercase tracking-widest font-bold text-emerald-600 border border-emerald-400 px-2 py-0.5">15% Off</span>
               </div>
             ) : (
-              <p className="text-2xl font-medium text-brand-gray-dark">£{product.price.toFixed(2)}</p>
+              <div className="flex items-baseline gap-3">
+                <p className="text-2xl font-bold text-brand-black">£{product.price.toFixed(2)}</p>
+                <p className="text-base line-through text-brand-gray-dark/50">£{compareAtPrice.toFixed(2)}</p>
+                <span className="text-[9px] uppercase tracking-widest font-bold text-red-600 border border-red-300 px-2 py-0.5">Sale</span>
+              </div>
             )}
           </div>
 
