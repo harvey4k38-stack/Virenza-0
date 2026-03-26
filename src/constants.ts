@@ -15,12 +15,17 @@ const JERSEY_NAME_VARIANTS = [
   { label: 'GORDON 17' },
   { label: 'ANDERSON 8' },
   { label: 'PICKFORD 1' },
-  { label: 'PALACE 7' },
   { label: 'BECKHAM 7' },
   { label: 'SCHOLES 8' },
   { label: 'GASCOIGNE 8',   image: '/jerseys/retro-gazza-2.png' },
   { label: 'OWEN 20' },
   { label: 'SHEARER 9' },
+];
+
+const PALACE_NAME_VARIANTS = [
+  ...JERSEY_NAME_VARIANTS.slice(0, 14),
+  { label: 'PALACE 7' },
+  ...JERSEY_NAME_VARIANTS.slice(14),
 ];
 
 export const PRODUCTS: Product[] = [
@@ -43,7 +48,7 @@ export const PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'Kids S', 'Kids M', 'Kids L'],
     isBestSeller: true,
-    nameVariants: JERSEY_NAME_VARIANTS,
+    nameVariants: PALACE_NAME_VARIANTS,
     rating: 5.0,
     reviewCount: 17
   },
