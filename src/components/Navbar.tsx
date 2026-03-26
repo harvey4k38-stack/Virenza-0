@@ -29,8 +29,15 @@ export default function Navbar({ onHome, onNavigate, onCart, onAbout, logo }: {
 
   return (
     <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
-      isScrolled ? 'bg-white/90 backdrop-blur-md py-4 shadow-sm' : 'bg-transparent py-8'
+      isScrolled ? 'bg-white/90 backdrop-blur-md shadow-sm' : 'bg-transparent'
     }`}>
+      {/* Sale Banner */}
+      <div className="bg-brand-black text-white text-center py-2 px-4">
+        <p className="text-[10px] uppercase tracking-[0.3em] font-bold">
+          🔥 Sale — 20% Off All Jerseys &nbsp;·&nbsp; Limited Time Only
+        </p>
+      </div>
+      <div className={`transition-all duration-500 ${isScrolled ? 'py-4' : 'py-8'}`}>
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center">
         {/* Left: Links */}
         <div className="hidden md:flex gap-8 items-center">
@@ -92,6 +99,8 @@ export default function Navbar({ onHome, onNavigate, onCart, onAbout, logo }: {
             {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
         </div>
+      </div>
+
       </div>
 
       {/* Mobile Menu */}

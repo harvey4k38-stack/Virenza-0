@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Product } from '../types';
 import GlowButton from '../components/GlowButton';
@@ -26,6 +26,27 @@ export default function ProductDetail({ product, onBack }: ProductDetailProps) {
   const { addToCart } = useCart();
 
   const compareAtPrice = Math.ceil(product.price * 1.2) - 0.01;
+
+  const isPalace = product.id === 'j-palace-wc';
+  const [stock, setStock] = useState<Record<string, number>>(() => {
+    if (!isPalace) return {};
+    const counts: Record<string, number> = {};
+    ['S','M','L','XL','XXL'].forEach(s => { counts[s] = Math.floor(Math.random() * 3) + 2; });
+    return counts;
+  });
+
+  useEffect(() => {
+    if (!isPalace) return;
+    const interval = setInterval(() => {
+      setStock(prev => {
+        const sizes = Object.keys(prev).filter(s => prev[s] > 1);
+        if (sizes.length === 0) return prev;
+        const pick = sizes[Math.floor(Math.random() * sizes.length)];
+        return { ...prev, [pick]: prev[pick] - 1 };
+      });
+    }, Math.random() * 30000 + 30000);
+    return () => clearInterval(interval);
+  }, [isPalace]);
 
   const KIDS_SIZES = ['Kids S', 'Kids M', 'Kids L'];
   const isKidsSize = KIDS_SIZES.includes(selectedLength);
@@ -234,17 +255,23 @@ export default function ProductDetail({ product, onBack }: ProductDetailProps) {
                 {adultSizes.length > 0 && (
                   <div className="flex flex-wrap gap-3 mb-4">
                     {adultSizes.map((l) => (
-                      <button
-                        key={l}
-                        onClick={() => setSelectedLength(l)}
-                        className={`px-6 py-2 text-xs uppercase tracking-widest font-bold border transition-all ${
-                          selectedLength === l
-                            ? 'bg-brand-black text-white border-brand-black'
-                            : 'bg-white text-brand-black border-brand-gray-light hover:border-brand-black'
-                        }`}
-                      >
-                        {l}
-                      </button>
+                      <div key={l} className="flex flex-col items-center gap-1">
+                        <button
+                          onClick={() => setSelectedLength(l)}
+                          className={`px-6 py-2 text-xs uppercase tracking-widest font-bold border transition-all ${
+                            selectedLength === l
+                              ? 'bg-brand-black text-white border-brand-black'
+                              : 'bg-white text-brand-black border-brand-gray-light hover:border-brand-black'
+                          }`}
+                        >
+                          {l}
+                        </button>
+                        {isPalace && stock[l] !== undefined && (
+                          <span className={`text-[9px] font-bold uppercase tracking-wide ${stock[l] <= 2 ? 'text-red-500' : 'text-brand-gray-dark'}`}>
+                            {stock[l] <= 2 ? `Only ${stock[l]} left` : `${stock[l]} left`}
+                          </span>
+                        )}
+                      </div>
                     ))}
                   </div>
                 )}
