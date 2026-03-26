@@ -301,36 +301,38 @@ export default function ProductDetail({ product, onBack }: ProductDetailProps) {
         </div>
       </div>
 
-      {/* Reviews Section */}
-      <div className="mt-24 pt-16 border-t border-brand-gray-light">
-        <div className="flex items-baseline justify-between mb-12">
-          <h2 className="text-2xl md:text-3xl">Customer Reviews</h2>
-          <div className="flex items-center gap-3">
-            <div className="flex items-center">
-              {[...Array(5)].map((_, i) => (
-                <Star key={i} size={14} className={i < Math.floor(product.rating) ? 'fill-brand-black text-brand-black' : 'text-brand-gray-light'} />
-              ))}
+      {/* Reviews Section — accessories only */}
+      {!isJersey && (
+        <div className="mt-24 pt-16 border-t border-brand-gray-light">
+          <div className="flex items-baseline justify-between mb-12">
+            <h2 className="text-2xl md:text-3xl">Customer Reviews</h2>
+            <div className="flex items-center gap-3">
+              <div className="flex items-center">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} size={14} className={i < Math.floor(product.rating) ? 'fill-brand-black text-brand-black' : 'text-brand-gray-light'} />
+                ))}
+              </div>
+              <span className="text-sm font-bold">{product.rating} out of 5</span>
+              <span className="text-sm text-brand-gray-dark">({product.reviewCount} reviews)</span>
             </div>
-            <span className="text-sm font-bold">{product.rating} out of 5</span>
-            <span className="text-sm text-brand-gray-dark">({product.reviewCount} reviews)</span>
+          </div>
+          <div className="grid md:grid-cols-2 gap-6">
+            {REVIEWS.map((review) => (
+              <div key={review.id} className="border border-brand-gray-light p-6 space-y-3">
+                <div className="flex items-center gap-3">
+                  <div className="flex items-center">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} size={11} className={i < review.rating ? 'fill-brand-black text-brand-black' : 'text-brand-gray-light'} />
+                    ))}
+                  </div>
+                  <span className="text-[10px] uppercase tracking-widest font-bold">{review.author}</span>
+                </div>
+                <p className="text-sm text-brand-gray-dark leading-relaxed">{review.comment}</p>
+              </div>
+            ))}
           </div>
         </div>
-        <div className="grid md:grid-cols-2 gap-6">
-          {(isJersey ? JERSEY_REVIEWS : REVIEWS).map((review) => (
-            <div key={review.id} className="border border-brand-gray-light p-6 space-y-3">
-              <div className="flex items-center gap-3">
-                <div className="flex items-center">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} size={11} className={i < review.rating ? 'fill-brand-black text-brand-black' : 'text-brand-gray-light'} />
-                  ))}
-                </div>
-                <span className="text-[10px] uppercase tracking-widest font-bold">{review.author}</span>
-              </div>
-              <p className="text-sm text-brand-gray-dark leading-relaxed">{review.comment}</p>
-            </div>
-          ))}
-        </div>
-      </div>
+      )}
 
       <Modal
         isOpen={isSizingModalOpen}
