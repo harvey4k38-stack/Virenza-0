@@ -283,17 +283,6 @@ export default function ProductDetail({ product, onBack }: ProductDetailProps) {
             )}
           </GlowButton>
 
-          {/* Jersey shipping notice */}
-          {isJersey && (
-            <div className="flex items-start gap-3 mb-8 p-4 border border-brand-gray-light bg-brand-gray-light/10">
-              <Truck size={16} className="text-brand-gray-dark mt-0.5 flex-shrink-0" />
-              <p className="text-[11px] leading-relaxed text-brand-gray-dark">
-                <span className="font-bold text-brand-black uppercase tracking-wider">High Demand — </span>
-                Due to a high volume of orders, jerseys may take up to <span className="font-bold text-brand-black">20 working days</span> to arrive. We appreciate your patience.
-              </p>
-            </div>
-          )}
-
           {/* Features */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-12 border-t border-brand-gray-light">
             <div className="flex flex-col items-center text-center gap-3">

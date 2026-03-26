@@ -77,6 +77,17 @@ export default function ShippingTracking({ onBack }: ShippingTrackingProps) {
           </div>
         </div>
 
+        {/* Jersey high demand notice */}
+        <div className="flex items-start gap-4 p-6 border border-brand-gray-light bg-brand-gray-light/10 mb-20">
+          <Truck size={18} className="text-brand-gray-dark mt-0.5 flex-shrink-0" />
+          <div>
+            <p className="text-[10px] uppercase tracking-widest font-bold mb-1">Jersey Orders — High Demand</p>
+            <p className="text-sm text-brand-gray-dark leading-relaxed">
+              Due to a high volume of jersey orders, customers should expect delivery within <strong className="text-brand-black">up to 20 working days</strong>. We're working hard to get every order out as quickly as possible and appreciate your patience.
+            </p>
+          </div>
+        </div>
+
         {/* Divider */}
         <div className="h-px bg-brand-gray-light mb-20" />
 
