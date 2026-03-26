@@ -42,7 +42,7 @@ export default function ProductDetail({ product, onBack }: ProductDetailProps) {
         const sizes = Object.keys(prev).filter(s => prev[s] > 1);
         if (sizes.length === 0) return prev;
         const pick = sizes[Math.floor(Math.random() * sizes.length)];
-        return { ...prev, [pick]: prev[pick] - 1 };
+        return { ...prev, [pick]: Math.max(1, prev[pick] - 1) };
       });
     }, Math.random() * 30000 + 30000);
     return () => clearInterval(interval);
