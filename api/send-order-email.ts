@@ -18,14 +18,17 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     const { firstName, lastName, email, address, city, postcode, cart, total } = req.body;
     const orderNumber = generateOrderNumber();
 
-    const itemsHtml = cart.map((item: any) => `
+    const itemsHtml = cart.map((item: any) => {
+      const variant = [item.selectedThickness, item.selectedLength].filter(Boolean).join(' / ');
+      const nameLabel = item.selectedName ? `<br><span style="color:#555;font-size:12px;">Name: ${item.selectedName}</span>` : '';
+      return `
       <tr>
         <td style="padding:8px;border-bottom:1px solid #eee;">${item.name}</td>
-        <td style="padding:8px;border-bottom:1px solid #eee;">${item.selectedThickness} / ${item.selectedLength}</td>
+        <td style="padding:8px;border-bottom:1px solid #eee;">${variant}${nameLabel}</td>
         <td style="padding:8px;border-bottom:1px solid #eee;">x${item.quantity}</td>
         <td style="padding:8px;border-bottom:1px solid #eee;">£${(item.price * item.quantity).toFixed(2)}</td>
       </tr>
-    `).join('');
+    `}).join('');
 
     // Email to you
     await resend.emails.send({

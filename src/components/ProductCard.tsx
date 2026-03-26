@@ -94,7 +94,7 @@ export default function ProductCard({ product, onClick }: ProductCardProps) {
             </h3>
             <div className="text-right flex-shrink-0 ml-2">
               <span className="block text-sm font-bold text-brand-black">£{product.price.toFixed(2)}</span>
-              <span className="block text-[10px] line-through text-brand-gray-dark/60">£{(Math.ceil(product.price * 1.2) - 0.01).toFixed(2)}</span>
+              <span className="block text-[10px] line-through text-brand-gray-dark/60">£{(product.compareAtPrice ?? (Math.ceil(product.price * 1.2) - 0.01)).toFixed(2)}</span>
             </div>
           </div>
 

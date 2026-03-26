@@ -3,7 +3,7 @@ import { CartItem, Product } from '../types';
 
 interface CartContextType {
   cart: CartItem[];
-  addToCart: (product: Product, thickness?: string, length?: string) => void;
+  addToCart: (product: Product, thickness?: string, length?: string, name?: string) => void;
   removeFromCart: (productId: string) => void;
   updateQuantity: (productId: string, quantity: number) => void;
   clearCart: () => void;
@@ -27,13 +27,14 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
     localStorage.setItem('virenza_cart', JSON.stringify(cart));
   }, [cart]);
 
-  const addToCart = (product: Product, thickness?: string, length?: string) => {
+  const addToCart = (product: Product, thickness?: string, length?: string, name?: string) => {
     setCart((prevCart) => {
       const existingItemIndex = prevCart.findIndex(
-        (item) => 
-          item.id === product.id && 
-          item.selectedThickness === thickness && 
-          item.selectedLength === length
+        (item) =>
+          item.id === product.id &&
+          item.selectedThickness === thickness &&
+          item.selectedLength === length &&
+          item.selectedName === name
       );
 
       if (existingItemIndex > -1) {
@@ -42,7 +43,7 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
         return newCart;
       }
 
-      return [...prevCart, { ...product, quantity: 1, selectedThickness: thickness, selectedLength: length }];
+      return [...prevCart, { ...product, quantity: 1, selectedThickness: thickness, selectedLength: length, selectedName: name }];
     });
   };
 

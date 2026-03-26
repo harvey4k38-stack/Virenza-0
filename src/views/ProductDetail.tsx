@@ -25,18 +25,15 @@ export default function ProductDetail({ product, onBack }: ProductDetailProps) {
   const [isSizingModalOpen, setIsSizingModalOpen] = useState(false);
   const { addToCart } = useCart();
 
-  const compareAtPrice = Math.ceil(product.price * 1.2) - 0.01;
+  const compareAtPrice = product.compareAtPrice ?? (Math.ceil(product.price * 1.2) - 0.01);
 
-  const isPalace = product.id === 'j-palace-wc';
   const [stock, setStock] = useState<Record<string, number>>(() => {
-    if (!isPalace) return {};
     const counts: Record<string, number> = {};
-    ['S','M','L','XL','XXL'].forEach(s => { counts[s] = Math.floor(Math.random() * 3) + 2; });
+    ['S','M','L','XL','XXL'].forEach(s => { counts[s] = Math.floor(Math.random() * 6) + 4; });
     return counts;
   });
 
   useEffect(() => {
-    if (!isPalace) return;
     const interval = setInterval(() => {
       setStock(prev => {
         const sizes = Object.keys(prev).filter(s => prev[s] > 1);
@@ -46,7 +43,7 @@ export default function ProductDetail({ product, onBack }: ProductDetailProps) {
       });
     }, Math.random() * 30000 + 30000);
     return () => clearInterval(interval);
-  }, [isPalace]);
+  }, []);
 
   const KIDS_SIZES = ['Kids S', 'Kids M', 'Kids L'];
   const isKidsSize = KIDS_SIZES.includes(selectedLength);
@@ -57,7 +54,15 @@ export default function ProductDetail({ product, onBack }: ProductDetailProps) {
 
   const handleAddToCart = () => {
     const productToAdd = isKidsSize ? { ...product, price: parseFloat((product.price * 0.85).toFixed(2)) } : product;
-    addToCart(productToAdd, selectedThickness, selectedLength);
+    let nameLabel: string | undefined;
+    if (selectedVariant === 'Customize Name') {
+      const n = customName.trim();
+      const num = customNumber !== '' ? customNumber : '';
+      nameLabel = [n, num].filter(Boolean).join(' ');
+    } else if (selectedVariant && selectedVariant !== 'No Name / Number') {
+      nameLabel = selectedVariant;
+    }
+    addToCart(productToAdd, selectedThickness, selectedLength, nameLabel);
     setIsAdded(true);
     setTimeout(() => setIsAdded(false), 2000);
   };
@@ -266,9 +271,9 @@ export default function ProductDetail({ product, onBack }: ProductDetailProps) {
                         >
                           {l}
                         </button>
-                        {isPalace && stock[l] !== undefined && (
-                          <span className={`text-[9px] font-bold uppercase tracking-wide ${stock[l] <= 2 ? 'text-red-500' : 'text-brand-gray-dark'}`}>
-                            {stock[l] <= 2 ? `Only ${stock[l]} left` : `${stock[l]} left`}
+                        {stock[l] !== undefined && (
+                          <span className={`text-[9px] font-bold uppercase tracking-wide ${stock[l] <= 3 ? 'text-red-500' : 'text-brand-gray-dark'}`}>
+                            {stock[l] <= 3 ? `Only ${stock[l]} left` : `${stock[l]} left`}
                           </span>
                         )}
                       </div>

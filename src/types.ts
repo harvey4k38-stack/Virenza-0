@@ -2,6 +2,7 @@ export interface Product {
   id: string;
   name: string;
   price: number;
+  compareAtPrice?: number;
   description: string;
   category: string;
   images: string[];
@@ -31,4 +32,5 @@ export interface CartItem extends Product {
   quantity: number;
   selectedThickness?: string;
   selectedLength?: string;
+  selectedName?: string;
 }
