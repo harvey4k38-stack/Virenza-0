@@ -51,20 +51,17 @@ export default function ProductCard({ product, onClick }: ProductCardProps) {
 
   return (
     <>
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.4 }}
-        whileHover={{ y: -8 }}
-        className="group relative bg-white border border-brand-gray-light rounded-sm overflow-hidden transition-all duration-500 hover:shadow-xl"
+      <div
+        className="group relative bg-white border border-brand-gray-light rounded-sm overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-2 cursor-pointer"
         onClick={() => !product.outOfStock && onClick(product)}
       >
         <div className="aspect-[4/5] overflow-hidden bg-gray-100 relative">
-          <motion.img
+          <img
             src={product.images[0]}
             alt={product.name}
+            loading="lazy"
             referrerPolicy="no-referrer"
-            className={`w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 ${product.outOfStock ? 'brightness-75' : ''}`}
+            className={`w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 ${product.outOfStock ? 'brightness-75' : ''}`}
           />
           {product.outOfStock && (
             <div className="absolute inset-0 flex items-center justify-center">
@@ -118,7 +115,7 @@ export default function ProductCard({ product, onClick }: ProductCardProps) {
             Best Seller
           </div>
         )}
-      </motion.div>
+      </div>
 
       {/* Notify Modal */}
       <AnimatePresence>

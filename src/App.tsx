@@ -1,19 +1,18 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, lazy, Suspense } from 'react';
 import { Analytics } from '@vercel/analytics/react';
-import { motion, AnimatePresence } from 'motion/react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './views/Home';
-import ProductDetail from './views/ProductDetail';
-import CategoryView from './views/CategoryView';
-import CartView from './views/CartView';
-import CheckoutView from './views/CheckoutView';
-import SizingGuide from './views/SizingGuide';
-import About from './views/About';
-import Contact from './views/Contact';
-import ShippingTracking from './views/ShippingTracking';
-import LeaguesView from './views/LeaguesView';
-import JerseysView from './views/JerseysView';
+const ProductDetail = lazy(() => import('./views/ProductDetail'));
+const CategoryView = lazy(() => import('./views/CategoryView'));
+const CartView = lazy(() => import('./views/CartView'));
+const CheckoutView = lazy(() => import('./views/CheckoutView'));
+const SizingGuide = lazy(() => import('./views/SizingGuide'));
+const About = lazy(() => import('./views/About'));
+const Contact = lazy(() => import('./views/Contact'));
+const ShippingTracking = lazy(() => import('./views/ShippingTracking'));
+const LeaguesView = lazy(() => import('./views/LeaguesView'));
+const JerseysView = lazy(() => import('./views/JerseysView'));
 import { Product } from './types';
 import { PRODUCTS, LEAGUE_TO_CLUBS, LEAGUE_CATEGORIES, INTERNATIONAL_CATEGORY_IDS, JERSEY_CATEGORIES } from './constants';
 import { CartProvider } from './context/CartContext';
@@ -120,9 +119,10 @@ export default function App() {
         />
         
         <div className="flex-1">
-          <AnimatePresence mode="wait">
+          <Suspense fallback={<div className="min-h-screen" />}>
+          <>
             {paypalSuccess ? (
-              <motion.div key="paypal-success" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.5 }}>
+              <div key="paypal-success">
                 <main className="pt-32 pb-24 max-w-3xl mx-auto px-6 text-center">
                   <div className="flex flex-col items-center">
                     <div className="w-20 h-20 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mb-8 text-4xl">✓</div>
@@ -131,146 +131,70 @@ export default function App() {
                     <button onClick={() => { setPaypalSuccess(false); handleHomeClick(); }} className="px-12 py-4 bg-brand-black text-white text-xs uppercase tracking-widest hover:opacity-80 transition-opacity">Return to Store</button>
                   </div>
                 </main>
-              </motion.div>
+              </div>
             ) : view === 'home' ? (
-              <motion.div
-                key="home"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.5 }}
-              >
-                <Home 
-                  onProductClick={handleProductClick} 
-                  onNavigate={handleCategoryClick}
-                />
-              </motion.div>
+              <div key="home">
+                <Home onProductClick={handleProductClick} onNavigate={handleCategoryClick} />
+              </div>
             ) : view === 'product' && selectedProduct ? (
-              <motion.div
-                key="product"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.5 }}
-              >
+              <div key="product">
                 <ProductDetail
                   product={selectedProduct}
                   onBack={() => { setView(previousView); setSelectedProduct(null); }}
                 />
-              </motion.div>
+              </div>
             ) : view === 'cart' ? (
-              <motion.div
-                key="cart"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.5 }}
-              >
-                <CartView 
-                  onCheckout={(cs: string) => { setCheckoutClientSecret(cs); setView('checkout'); }} 
+              <div key="cart">
+                <CartView
+                  onCheckout={(cs: string) => { setCheckoutClientSecret(cs); setView('checkout'); }}
                   onBack={handleHomeClick}
                   onProductClick={handleProductClick}
                 />
-              </motion.div>
+              </div>
             ) : view === 'checkout' ? (
-              <motion.div
-                key="checkout"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.5 }}
-              >
+              <div key="checkout">
                 <CheckoutView
                   onBack={() => setView('cart')}
                   onSuccess={handleHomeClick}
                   initialClientSecret={checkoutClientSecret}
                 />
-              </motion.div>
+              </div>
             ) : view === 'sizing-guide' ? (
-              <motion.div
-                key="sizing-guide"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.5 }}
-              >
-                <SizingGuide 
-                  onBack={handleHomeClick}
-                />
-              </motion.div>
+              <div key="sizing-guide">
+                <SizingGuide onBack={handleHomeClick} />
+              </div>
             ) : view === 'jerseys' ? (
-              <motion.div
-                key="jerseys"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.5 }}
-              >
-                <JerseysView
-                  onCategoryClick={handleCategoryClick}
-                  onBack={handleHomeClick}
-                />
-              </motion.div>
+              <div key="jerseys">
+                <JerseysView onCategoryClick={handleCategoryClick} onBack={handleHomeClick} />
+              </div>
             ) : view === 'leagues' ? (
-              <motion.div
-                key="leagues"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.5 }}
-              >
-                <LeaguesView
-                  onLeagueClick={handleCategoryClick}
-                  onBack={handleHomeClick}
-                />
-              </motion.div>
+              <div key="leagues">
+                <LeaguesView onLeagueClick={handleCategoryClick} onBack={handleHomeClick} />
+              </div>
             ) : view === 'about' ? (
-              <motion.div
-                key="about"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.5 }}
-              >
+              <div key="about">
                 <About onBack={handleHomeClick} />
-              </motion.div>
+              </div>
             ) : view === 'contact' ? (
-              <motion.div
-                key="contact"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.5 }}
-              >
+              <div key="contact">
                 <Contact onBack={handleHomeClick} />
-              </motion.div>
+              </div>
             ) : view === 'shipping-tracking' ? (
-              <motion.div
-                key="shipping-tracking"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.5 }}
-              >
+              <div key="shipping-tracking">
                 <ShippingTracking onBack={handleHomeClick} />
-              </motion.div>
+              </div>
             ) : (
-              <motion.div
-                key={view}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.5 }}
-              >
-                <CategoryView 
+              <div key={view}>
+                <CategoryView
                   title={getTitle()}
                   products={getFilteredProducts()}
                   onProductClick={handleProductClick}
                   onBack={handleHomeClick}
                 />
-              </motion.div>
+              </div>
             )}
-          </AnimatePresence>
+          </>
+          </Suspense>
         </div>
 
         <Footer 
