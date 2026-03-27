@@ -23,6 +23,7 @@ type View = 'home' | 'product' | 'cart' | 'checkout' | 'sizing-guide' | 'about' 
 
 export default function App() {
   const [view, setView] = useState<View>('home');
+  const [previousView, setPreviousView] = useState<View>('home');
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const [logo, setLogo] = useState<string | null>(null);
 
@@ -40,6 +41,7 @@ export default function App() {
   }, [view, selectedProduct]);
 
   const handleProductClick = (product: Product) => {
+    setPreviousView(view);
     setSelectedProduct(product);
     setView('product');
   };
@@ -120,9 +122,9 @@ export default function App() {
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.5 }}
               >
-                <ProductDetail 
-                  product={selectedProduct} 
-                  onBack={handleHomeClick} 
+                <ProductDetail
+                  product={selectedProduct}
+                  onBack={() => { setView(previousView); setSelectedProduct(null); }}
                 />
               </motion.div>
             ) : view === 'cart' ? (
