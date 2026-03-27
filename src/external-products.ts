@@ -5013,6 +5013,21 @@ export const NEW_PRODUCTS: Product[] = [
     rating: 4.8,
     reviewCount: 23,
   },
+  {
+    id: 'jg-2011-12-ac-milan-away-shirt',
+    name: '2011/12 AC Milan Away Shirt',
+    price: 35.99,
+    compareAtPrice: 44.99,
+    description: 'The iconic AC Milan away shirt from the 2011/12 season. Classic white design with the distinctive red and black vertical stripe, Adidas Climacool technology, and Fly Emirates sponsor. A true retro collector\'s piece.',
+    category: 'jersey-ac-milan',
+    images: [
+      '/jerseys/ac-milan-2011-12-away-shirt-1.png',
+    ],
+    thickness: [],
+    lengths: ['S', 'M', 'L', 'XL', 'XXL'],
+    rating: 4.9,
+    reviewCount: 18,
+  },
   // ── Bayern Munich ───────────────────────────────────────────────
   {
     id: 'jg-bayern-munich-third-shirt-2024-25',
