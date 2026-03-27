@@ -13,6 +13,7 @@ import About from './views/About';
 import Contact from './views/Contact';
 import ShippingTracking from './views/ShippingTracking';
 import LeaguesView from './views/LeaguesView';
+import JerseysView from './views/JerseysView';
 import { Product } from './types';
 import { PRODUCTS, LEAGUE_TO_CLUBS, LEAGUE_CATEGORIES, INTERNATIONAL_CATEGORY_IDS, JERSEY_CATEGORIES } from './constants';
 import { CartProvider } from './context/CartContext';
@@ -57,7 +58,6 @@ export default function App() {
   };
 
   const getFilteredProducts = () => {
-    if (view === 'jerseys') return PRODUCTS.filter(p => p.category.startsWith('jersey-'));
     if (view === 'chains') return PRODUCTS.filter(p => p.category === 'chains');
     if (view === 'bracelets') return PRODUCTS.filter(p => p.category === 'bracelets');
     if (view === 'best-sellers') return PRODUCTS.filter(p => p.isBestSeller);
@@ -71,7 +71,6 @@ export default function App() {
   };
 
   const getTitle = () => {
-    if (view === 'jerseys') return 'All Jerseys';
     if (view === 'chains') return 'Chains';
     if (view === 'bracelets') return 'Bracelets';
     if (view === 'best-sellers') return 'Best Sellers';
@@ -163,6 +162,19 @@ export default function App() {
                 transition={{ duration: 0.5 }}
               >
                 <SizingGuide 
+                  onBack={handleHomeClick}
+                />
+              </motion.div>
+            ) : view === 'jerseys' ? (
+              <motion.div
+                key="jerseys"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.5 }}
+              >
+                <JerseysView
+                  onCategoryClick={handleCategoryClick}
                   onBack={handleHomeClick}
                 />
               </motion.div>
