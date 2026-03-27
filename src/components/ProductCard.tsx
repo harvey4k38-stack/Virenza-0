@@ -2,6 +2,7 @@ import { useState, type FormEvent, type MouseEvent } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Product } from '../types';
 import { ShoppingBag, Star, X, Check } from 'lucide-react';
+import { useCurrency } from '../context/CurrencyContext';
 
 interface ProductCardProps {
   product: Product;
@@ -20,6 +21,7 @@ export default function ProductCard({ product, onClick }: ProductCardProps) {
   const [showNotify, setShowNotify] = useState(false);
   const [email, setEmail] = useState('');
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const { formatPrice } = useCurrency();
 
   const handleNotifyClick = (e: MouseEvent) => {
     e.stopPropagation();
@@ -93,8 +95,8 @@ export default function ProductCard({ product, onClick }: ProductCardProps) {
               {product.name}
             </h3>
             <div className="text-right flex-shrink-0 ml-2">
-              <span className="block text-sm font-bold text-brand-black">£{product.price.toFixed(2)}</span>
-              <span className="block text-[10px] line-through text-brand-gray-dark/60">£{(product.compareAtPrice ?? (Math.ceil(product.price * 1.2) - 0.01)).toFixed(2)}</span>
+              <span className="block text-sm font-bold text-brand-black">{formatPrice(product.price)}</span>
+              <span className="block text-[10px] line-through text-brand-gray-dark/60">{formatPrice(product.compareAtPrice ?? (Math.ceil(product.price * 1.2) - 0.01))}</span>
             </div>
           </div>
 

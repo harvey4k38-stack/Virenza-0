@@ -6,6 +6,7 @@ import Modal from '../components/Modal';
 import SizingGuideContent from '../components/SizingGuideContent';
 import { ChevronLeft, ChevronRight, ShieldCheck, Truck, RefreshCw, Star, Check, Ruler } from 'lucide-react';
 import { useCart } from '../context/CartContext';
+import { useCurrency } from '../context/CurrencyContext';
 import { JERSEY_REVIEWS, REVIEWS } from '../constants';
 
 interface ProductDetailProps {
@@ -21,11 +22,23 @@ export default function ProductDetail({ product, onBack }: ProductDetailProps) {
   const [customName, setCustomName] = useState('');
   const [customNumber, setCustomNumber] = useState<number | ''>(1);
   const isJersey = product.category.startsWith('jersey-');
+  const isPalaceJersey = product.id === 'j-palace-wc';
   const [isAdded, setIsAdded] = useState(false);
   const [isSizingModalOpen, setIsSizingModalOpen] = useState(false);
   const { addToCart } = useCart();
+  const { formatPrice } = useCurrency();
 
   const compareAtPrice = product.compareAtPrice ?? (Math.ceil(product.price * 1.2) - 0.01);
+
+  const [soldCount, setSoldCount] = useState(() => Math.floor(Math.random() * 15) + 8);
+
+  useEffect(() => {
+    if (!isPalaceJersey) return;
+    const interval = setInterval(() => {
+      setSoldCount(Math.floor(Math.random() * 15) + 8);
+    }, 30 * 60 * 1000);
+    return () => clearInterval(interval);
+  }, [isPalaceJersey]);
 
   const [stock, setStock] = useState<Record<string, number>>(() => {
     const counts: Record<string, number> = {};
@@ -151,14 +164,14 @@ export default function ProductDetail({ product, onBack }: ProductDetailProps) {
             <h1 className="text-4xl md:text-5xl mb-4">{product.name}</h1>
             {isKidsSize ? (
               <div className="flex items-baseline gap-3 flex-wrap">
-                <p className="text-2xl font-bold text-brand-black">£{displayPrice.toFixed(2)}</p>
-                <p className="text-base line-through text-brand-gray-dark/50">£{product.price.toFixed(2)}</p>
+                <p className="text-2xl font-bold text-brand-black">{formatPrice(displayPrice)}</p>
+                <p className="text-base line-through text-brand-gray-dark/50">{formatPrice(product.price)}</p>
                 <span className="text-[9px] uppercase tracking-widest font-bold text-emerald-600 border border-emerald-400 px-2 py-0.5">15% Off</span>
               </div>
             ) : (
               <div className="flex items-baseline gap-3">
-                <p className="text-2xl font-bold text-brand-black">£{product.price.toFixed(2)}</p>
-                <p className="text-base line-through text-brand-gray-dark/50">£{compareAtPrice.toFixed(2)}</p>
+                <p className="text-2xl font-bold text-brand-black">{formatPrice(product.price)}</p>
+                <p className="text-base line-through text-brand-gray-dark/50">{formatPrice(compareAtPrice)}</p>
                 <span className="text-[9px] uppercase tracking-widest font-bold text-red-600 border border-red-300 px-2 py-0.5">Sale</span>
               </div>
             )}
@@ -168,6 +181,18 @@ export default function ProductDetail({ product, onBack }: ProductDetailProps) {
             <p className="text-brand-gray-dark leading-relaxed mb-8">
               {product.description}
             </p>
+
+            {isPalaceJersey && (
+              <div className="flex items-center gap-2 mb-6">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75" />
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-red-500" />
+                </span>
+                <p className="text-[10px] uppercase tracking-widest font-bold text-brand-gray-dark">
+                  <span className="text-brand-black">{soldCount} sold</span> in the last hour
+                </p>
+              </div>
+            )}
             
             <div className="space-y-8">
               {/* Name Variants (jerseys only) */}
@@ -271,7 +296,7 @@ export default function ProductDetail({ product, onBack }: ProductDetailProps) {
                         >
                           {l}
                         </button>
-                        {stock[l] !== undefined && (
+                        {stock[l] !== undefined && l !== 'XXXL' && l !== 'XXXXL' && (
                           <span className={`text-[9px] font-bold uppercase tracking-wide ${stock[l] <= 3 ? 'text-red-500' : 'text-brand-gray-dark'}`}>
                             {stock[l] <= 3 ? `Only ${stock[l]} left` : `${stock[l]} left`}
                           </span>
@@ -306,7 +331,16 @@ export default function ProductDetail({ product, onBack }: ProductDetailProps) {
             </div>
           </div>
 
-          <GlowButton 
+          {isJersey && (
+            <div className="flex items-start gap-3 mb-6 p-4 border border-brand-gray-light bg-brand-gray-light/10">
+              <Truck size={14} className="text-brand-gray-dark mt-0.5 flex-shrink-0" />
+              <p className="text-[10px] uppercase tracking-widest font-bold text-brand-gray-dark leading-relaxed">
+                Shipping can take 5–7 working days due to high demand
+              </p>
+            </div>
+          )}
+
+          <GlowButton
             onClick={handleAddToCart}
             className={`w-full py-5 text-sm uppercase tracking-[0.2em] mb-12 flex items-center justify-center gap-2 transition-all ${
               isAdded ? 'bg-emerald-600 border-emerald-600' : ''

@@ -83,7 +83,7 @@ export default function ShippingTracking({ onBack }: ShippingTrackingProps) {
           <div>
             <p className="text-[10px] uppercase tracking-widest font-bold mb-1">Jersey Orders — High Demand</p>
             <p className="text-sm text-brand-gray-dark leading-relaxed">
-              Due to a high volume of jersey orders, customers should expect delivery within <strong className="text-brand-black">up to 20 working days</strong>. We're working hard to get every order out as quickly as possible and appreciate your patience.
+              Due to a high volume of jersey orders, customers should expect delivery within <strong className="text-brand-black">5–7 working days</strong>. In worse cases, orders can take up to <strong className="text-brand-black">10 working days</strong>. We're working hard to get every order out as quickly as possible and appreciate your patience.
             </p>
           </div>
         </div>

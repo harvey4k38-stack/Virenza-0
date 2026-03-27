@@ -2,6 +2,7 @@ import { motion } from 'motion/react';
 import { ShoppingBag, Menu, X, Search } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { useCart } from '../context/CartContext';
+import { useCurrency, CURRENCIES, type Currency } from '../context/CurrencyContext';
 
 export default function Navbar({ onHome, onNavigate, onCart, onAbout, logo }: { 
   onHome: () => void, 
@@ -13,6 +14,7 @@ export default function Navbar({ onHome, onNavigate, onCart, onAbout, logo }: {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { cartCount } = useCart();
+  const { currency, setCurrency } = useCurrency();
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
@@ -34,7 +36,7 @@ export default function Navbar({ onHome, onNavigate, onCart, onAbout, logo }: {
       {/* Sale Banner */}
       <div className="bg-brand-black text-white text-center py-2 px-4">
         <p className="text-[10px] uppercase tracking-[0.3em] font-bold">
-          🔥 Sale — 20% Off All Jerseys &nbsp;·&nbsp; Limited Time Only
+          🔥 Sale — 20% Off All Jerseys &nbsp;·&nbsp; Limited Time Only &nbsp;·&nbsp; Free Worldwide Shipping
         </p>
       </div>
       <div className={`transition-all duration-500 ${isScrolled ? 'py-4' : 'py-8'}`}>
@@ -81,6 +83,15 @@ export default function Navbar({ onHome, onNavigate, onCart, onAbout, logo }: {
           <button className="hover:opacity-70 transition-opacity hidden sm:block">
             <Search size={18} />
           </button>
+          <select
+            value={currency}
+            onChange={e => setCurrency(e.target.value as Currency)}
+            className="text-[10px] uppercase tracking-widest font-bold bg-transparent border-none outline-none cursor-pointer hover:opacity-70 transition-opacity hidden sm:block"
+          >
+            {CURRENCIES.map(c => (
+              <option key={c.code} value={c.code}>{c.code}</option>
+            ))}
+          </select>
           <button 
             onClick={onCart}
             className="hover:opacity-70 transition-opacity relative"

@@ -15,6 +15,7 @@ import ShippingTracking from './views/ShippingTracking';
 import { Product } from './types';
 import { PRODUCTS } from './constants';
 import { CartProvider } from './context/CartContext';
+import { CurrencyProvider } from './context/CurrencyContext';
 import { getLogo } from './services/logoService';
 
 type View = 'home' | 'product' | 'cart' | 'checkout' | 'sizing-guide' | 'about' | 'contact' | 'shipping-tracking' | (string & {});
@@ -74,6 +75,7 @@ export default function App() {
   };
 
   return (
+    <CurrencyProvider>
     <CartProvider>
       <div className="min-h-screen flex flex-col">
         <Navbar 
@@ -207,5 +209,6 @@ export default function App() {
       </div>
       <Analytics />
     </CartProvider>
+    </CurrencyProvider>
   );
 }
