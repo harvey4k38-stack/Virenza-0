@@ -60,6 +60,23 @@ export const PRODUCTS: Product[] = [
     reviewCount: 17
   },
   {
+    id: 'j-belgium-wc-2026',
+    name: 'Belgium 2026 World Cup Home Kit',
+    price: 29.99,
+    compareAtPrice: 37.99,
+    description: 'The official Belgium home shirt for the 2026 World Cup. Striking red with gold and black Adidas detailing, featuring the iconic Belgian lion crest. Built for the biggest stage in world football.',
+    category: 'jersey-belgium',
+    images: [
+      '/jerseys/belgium-wc-2026-1.png',
+    ],
+    thickness: [],
+    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL', 'Kids S', 'Kids M', 'Kids L'],
+    isBestSeller: false,
+    nameVariants: BASIC_NAME_VARIANTS,
+    rating: 5.0,
+    reviewCount: 3
+  },
+  {
     id: 'j-nike-away-2026',
     name: 'England Nike Away 2026 World Cup',
     price: 28.99,
