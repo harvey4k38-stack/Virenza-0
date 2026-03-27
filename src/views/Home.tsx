@@ -1,5 +1,5 @@
-import { useState, type FormEvent } from 'react';
-import { PRODUCTS, CATEGORIES, JERSEY_CATEGORIES, REVIEWS } from '../constants';
+import { useState, useMemo, type FormEvent } from 'react';
+import { PRODUCTS, CATEGORIES, JERSEY_CATEGORIES, REVIEWS, INTERNATIONAL_CATEGORY_IDS, FEATURED_PRODUCT_IDS } from '../constants';
 import ProductCard from '../components/ProductCard';
 import GlowButton from '../components/GlowButton';
 import ReviewCard from '../components/ReviewCard';
@@ -12,9 +12,17 @@ interface HomeProps {
   onNavigate: (cat: string) => void;
 }
 
+
 export default function Home({ onProductClick, onNavigate }: HomeProps) {
   const [email, setEmail] = useState('');
   const [subscribed, setSubscribed] = useState(false);
+  const [jerseyFilter, setJerseyFilter] = useState<'all' | 'international' | 'club'>('all');
+
+  const filteredCategories = useMemo(() => {
+    if (jerseyFilter === 'international') return JERSEY_CATEGORIES.filter(c => INTERNATIONAL_CATEGORY_IDS.has(c.id));
+    if (jerseyFilter === 'club') return JERSEY_CATEGORIES.filter(c => !INTERNATIONAL_CATEGORY_IDS.has(c.id));
+    return JERSEY_CATEGORIES;
+  }, [jerseyFilter]);
 
   const handleSubscribe = async (e: FormEvent) => {
     e.preventDefault();
@@ -42,7 +50,7 @@ export default function Home({ onProductClick, onNavigate }: HomeProps) {
               <span className="text-brand-gray-dark">Game</span>
             </h1>
             <p className="text-lg text-brand-gray-dark mb-10 max-w-md mx-auto leading-relaxed">
-              Premium football jerseys and minimalist accessories for the modern man.
+              Premium football jerseys from every club and country. 600+ kits, delivered worldwide.
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
               <GlowButton onClick={() => onNavigate('jerseys')}>Shop Jerseys</GlowButton>
@@ -56,23 +64,23 @@ export default function Home({ onProductClick, onNavigate }: HomeProps) {
       <section className="py-24 max-w-7xl mx-auto px-6 md:px-12">
         <div className="flex justify-between items-end mb-16">
           <div>
-            <h2 className="text-3xl mb-4">Featured Collection</h2>
-            <p className="text-brand-gray-dark">Our most sought-after essentials.</p>
+            <h2 className="text-3xl mb-4">Featured Jerseys</h2>
+            <p className="text-brand-gray-dark">Our most sought-after kits.</p>
           </div>
-          <button 
-            onClick={() => onNavigate('best-sellers')}
+          <button
+            onClick={() => onNavigate('jerseys')}
             className="text-[10px] uppercase tracking-widest font-bold flex items-center gap-2 hover:gap-4 transition-all group"
           >
             View All <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
           </button>
         </div>
-        
+
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {PRODUCTS.slice(0, 6).map((product) => (
-            <ProductCard 
-              key={product.id} 
-              product={product} 
-              onClick={onProductClick} 
+          {FEATURED_PRODUCT_IDS.map(id => PRODUCTS.find(p => p.id === id)).filter(Boolean).map((product) => (
+            <ProductCard
+              key={product.id}
+              product={product}
+              onClick={onProductClick}
             />
           ))}
         </div>
@@ -81,71 +89,68 @@ export default function Home({ onProductClick, onNavigate }: HomeProps) {
       {/* Jersey Categories */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
-          <div className="flex justify-between items-end mb-12">
+          <div className="flex flex-col sm:flex-row sm:justify-between sm:items-end gap-6 mb-12">
             <div>
-              <h2 className="text-3xl mb-2">Shop by Jersey</h2>
-              <p className="text-brand-gray-dark text-sm">England retro kits — all eras.</p>
+              <h2 className="text-3xl mb-4">Shop by Club & Country</h2>
+              <div className="flex gap-1 bg-brand-gray-light/30 rounded-sm p-1 w-fit">
+                {(['all', 'international', 'club'] as const).map(f => (
+                  <button
+                    key={f}
+                    onClick={() => setJerseyFilter(f)}
+                    className={`px-4 py-1.5 text-[10px] uppercase tracking-[0.2em] font-bold rounded-sm transition-all ${
+                      jerseyFilter === f
+                        ? 'bg-brand-black text-white'
+                        : 'text-brand-gray-dark hover:text-brand-black'
+                    }`}
+                  >
+                    {f === 'all' ? 'All' : f === 'international' ? 'International' : 'Club'}
+                  </button>
+                ))}
+              </div>
             </div>
             <button
               onClick={() => onNavigate('jerseys')}
-              className="text-[10px] uppercase tracking-widest font-bold flex items-center gap-2 hover:gap-4 transition-all group"
+              className="text-[10px] uppercase tracking-widest font-bold flex items-center gap-2 hover:gap-4 transition-all group self-start sm:self-auto"
             >
               View All <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
             </button>
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-4">
-            {JERSEY_CATEGORIES.map((cat) => (
+            {filteredCategories.map((cat) => (
               <motion.div
                 key={cat.id}
-                whileHover="hover"
+                whileHover={{ y: -3 }}
+                transition={{ duration: 0.2 }}
                 onClick={() => onNavigate(cat.id)}
-                className="relative aspect-[3/4] overflow-hidden group cursor-pointer rounded-sm bg-brand-gray-light/20"
+                className="flex flex-col items-center gap-2 cursor-pointer group"
               >
-                <motion.img
-                  variants={{ hover: { scale: 1.05 } }}
-                  transition={{ duration: 0.6 }}
-                  src={cat.image}
-                  alt={cat.name}
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-black/30 group-hover:bg-black/50 transition-colors duration-400" />
-                <div className="absolute inset-0 flex items-end p-3">
-                  <p className="text-white text-[11px] font-bold uppercase tracking-wider leading-tight">{cat.name}</p>
+                <div className="w-full aspect-square rounded-xl bg-[#f0f0f0] flex items-center justify-center overflow-hidden p-3 group-hover:shadow-md transition-shadow duration-200">
+                  <img
+                    src={cat.image}
+                    alt={cat.name}
+                    className="w-full h-full object-contain"
+                  />
                 </div>
+                <p className="text-[10px] font-bold uppercase tracking-wider text-center leading-tight group-hover:text-brand-gray-dark transition-colors">{cat.name}</p>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Accessories Section */}
-      <section className="py-12 bg-white border-t border-brand-gray-light">
-        <div className="max-w-7xl mx-auto px-6 md:px-12">
-          <h2 className="text-3xl mb-12">Accessories</h2>
-          <div className="grid md:grid-cols-2 gap-8">
+      {/* Accessories — subtle subcategory strip */}
+      <section className="py-8 border-t border-brand-gray-light">
+        <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
+          <p className="text-[10px] uppercase tracking-[0.3em] font-bold text-brand-gray-dark">Accessories</p>
+          <div className="flex gap-6">
             {CATEGORIES.map((cat) => (
-              <motion.div
+              <button
                 key={cat.id}
-                whileHover="hover"
                 onClick={() => onNavigate(cat.id)}
-                className="relative h-[400px] overflow-hidden group cursor-pointer"
+                className="text-[10px] uppercase tracking-[0.2em] font-bold flex items-center gap-2 hover:gap-4 transition-all group"
               >
-                <motion.img
-                  variants={{ hover: { scale: 1.05 } }}
-                  transition={{ duration: 0.8 }}
-                  src={cat.image}
-                  alt={cat.name}
-                  referrerPolicy="no-referrer"
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors duration-500" />
-                <div className="absolute inset-0 flex flex-col items-center justify-center text-white">
-                  <h3 className="text-4xl mb-6 tracking-[0.3em]">{cat.name}</h3>
-                  <GlowButton variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-white/30 hover:bg-white hover:text-black">
-                    Shop {cat.name}
-                  </GlowButton>
-                </div>
-              </motion.div>
+                {cat.name} <ArrowRight size={12} className="group-hover:translate-x-1 transition-transform" />
+              </button>
             ))}
           </div>
         </div>
@@ -162,7 +167,7 @@ export default function Home({ onProductClick, onNavigate }: HomeProps) {
             <p className="text-[10px] uppercase tracking-[0.4em] font-bold mb-8 text-brand-gray-dark">Our Philosophy</p>
             <h2 className="text-4xl md:text-5xl mb-10 leading-tight">Simplicity is the <br /> Ultimate Sophistication</h2>
             <p className="text-lg text-brand-gray-dark leading-relaxed">
-              Virenza was created for men who demand quality. Premium football jerseys as the centrepiece, paired with minimal chains and bracelets built for everyday wear.
+              Virenza is a dedicated football jersey store. Every club. Every country. Every era. Premium quality kits, delivered to your door.
             </p>
           </motion.div>
         </div>
@@ -172,7 +177,7 @@ export default function Home({ onProductClick, onNavigate }: HomeProps) {
       <section className="py-24 max-w-7xl mx-auto px-6 md:px-12">
         <h2 className="text-3xl mb-16 text-center">Best Sellers</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {PRODUCTS.filter(p => p.isBestSeller).map((product) => (
+          {PRODUCTS.filter(p => p.isBestSeller && p.category.startsWith('jersey-')).map((product) => (
             <ProductCard 
               key={product.id} 
               product={product} 

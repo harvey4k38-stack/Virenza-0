@@ -3,7 +3,6 @@ import { motion, AnimatePresence } from 'motion/react';
 import { Product } from '../types';
 import GlowButton from '../components/GlowButton';
 import Modal from '../components/Modal';
-import SizingGuideContent from '../components/SizingGuideContent';
 import { ChevronLeft, ChevronRight, ShieldCheck, Truck, RefreshCw, Star, Check, Ruler } from 'lucide-react';
 import { useCart } from '../context/CartContext';
 import { useCurrency } from '../context/CurrencyContext';
@@ -273,14 +272,19 @@ export default function ProductDetail({ product, onBack }: ProductDetailProps) {
                   <p className="text-[10px] uppercase tracking-widest font-bold">
                     {isJersey ? 'Size' : 'Length'}
                   </p>
-                  {!isJersey && (
+                  <div className="flex items-center gap-3">
+                    {isJersey && (
+                      <span className="text-[10px] uppercase tracking-widest font-bold text-brand-gray-dark">
+                        Fits True to Size
+                      </span>
+                    )}
                     <button
                       onClick={() => setIsSizingModalOpen(true)}
                       className="text-[10px] uppercase tracking-widest font-bold text-brand-gray-dark hover:text-brand-black transition-colors flex items-center gap-2"
                     >
                       <Ruler size={12} /> Sizing Guide
                     </button>
-                  )}
+                  </div>
                 </div>
                 {adultSizes.length > 0 && (
                   <div className="flex flex-wrap gap-3 mb-4">
@@ -411,7 +415,10 @@ export default function ProductDetail({ product, onBack }: ProductDetailProps) {
         onClose={() => setIsSizingModalOpen(false)}
         title="Sizing Guide"
       >
-        <SizingGuideContent />
+        <div className="flex flex-col gap-6">
+          <img src="/size-guide-v7.png" alt="Jersey Size Guide" className="w-full rounded-xl" />
+          <img src="/size-guide-v8.png" alt="Size & Delivery Info" className="w-full rounded-xl" />
+        </div>
       </Modal>
     </main>
   );

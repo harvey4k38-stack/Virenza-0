@@ -26,28 +26,28 @@ export default function About({ onBack }: AboutProps) {
           <section>
             <h2 className="text-brand-black text-xs uppercase tracking-[0.3em] font-bold mb-4">Who We Are</h2>
             <p>
-              Virenza is a premium lifestyle brand built for men who care about what they wear. We started with minimal jewelry and have expanded into football — stocking premium England retro jerseys and limited-edition kits alongside our chain and bracelet collection.
+              Virenza is a dedicated football jersey store. We exist for one reason — to make it easy to get the kit you want, from any club or country, at a fair price. No distractions, no filler products. Just jerseys.
             </p>
           </section>
 
           <section>
-            <h2 className="text-brand-black text-xs uppercase tracking-[0.3em] font-bold mb-4">Jerseys</h2>
+            <h2 className="text-brand-black text-xs uppercase tracking-[0.3em] font-bold mb-4">The Range</h2>
             <p>
-              Our jersey range covers everything from iconic retro England kits to the latest limited-edition releases. Whether it's Gascoigne's Italia 90 shirt, the Euro 96 classic, or the Palace x Nike 2026 World Cup collaboration — we stock the kits that matter.
+              We stock over 600 kits spanning every major international team and club side — from the Premier League to La Liga, Serie A to the World Cup. Whether it's the latest season shirt or a classic you've been hunting for, we've got it covered.
             </p>
           </section>
 
           <section>
-            <h2 className="text-brand-black text-xs uppercase tracking-[0.3em] font-bold mb-4">Accessories</h2>
+            <h2 className="text-brand-black text-xs uppercase tracking-[0.3em] font-bold mb-4">Quality</h2>
             <p>
-              Our chain and bracelet collection is built on the same principle: quality over quantity. Every piece is selected for its material integrity, precise proportions, and a finish that lasts — designed to complement what you wear on and off the pitch.
+              Every jersey in our catalogue is premium quality — accurate colours, clean printing, and fabric that holds up wash after wash. We don't stock anything we wouldn't wear ourselves. If it doesn't meet the standard, it doesn't make the cut.
             </p>
           </section>
 
           <section>
-            <h2 className="text-brand-black text-xs uppercase tracking-[0.3em] font-bold mb-4">Direct</h2>
+            <h2 className="text-brand-black text-xs uppercase tracking-[0.3em] font-bold mb-4">Worldwide Delivery</h2>
             <p>
-              By operating independently, we maintain full control over our selection and pricing. No middlemen, no inflated markups — just quality products delivered directly to you.
+              We ship globally. Orders are dispatched quickly and tracked end-to-end. Wherever you are in the world, your kit will find you.
             </p>
           </section>
         </div>

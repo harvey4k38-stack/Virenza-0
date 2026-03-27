@@ -12,8 +12,9 @@ import SizingGuide from './views/SizingGuide';
 import About from './views/About';
 import Contact from './views/Contact';
 import ShippingTracking from './views/ShippingTracking';
+import LeaguesView from './views/LeaguesView';
 import { Product } from './types';
-import { PRODUCTS } from './constants';
+import { PRODUCTS, LEAGUE_TO_CLUBS, LEAGUE_CATEGORIES, INTERNATIONAL_CATEGORY_IDS, JERSEY_CATEGORIES } from './constants';
 import { CartProvider } from './context/CartContext';
 import { CurrencyProvider } from './context/CurrencyContext';
 import { getLogo } from './services/logoService';
@@ -58,7 +59,12 @@ export default function App() {
     if (view === 'chains') return PRODUCTS.filter(p => p.category === 'chains');
     if (view === 'bracelets') return PRODUCTS.filter(p => p.category === 'bracelets');
     if (view === 'best-sellers') return PRODUCTS.filter(p => p.isBestSeller);
+    if (view === 'world-cup-2026') return PRODUCTS.filter(p => INTERNATIONAL_CATEGORY_IDS.has(p.category) && p.name.includes('2026'));
     if (view.startsWith('jersey-')) return PRODUCTS.filter(p => p.category === view);
+    if (view.startsWith('league-') && LEAGUE_TO_CLUBS[view]) {
+      const clubs = new Set(LEAGUE_TO_CLUBS[view]);
+      return PRODUCTS.filter(p => clubs.has(p.category));
+    }
     return [];
   };
 
@@ -67,9 +73,14 @@ export default function App() {
     if (view === 'chains') return 'Chains';
     if (view === 'bracelets') return 'Bracelets';
     if (view === 'best-sellers') return 'Best Sellers';
+    if (view === 'world-cup-2026') return '2026 World Cup';
     if (view.startsWith('jersey-')) {
-      const product = PRODUCTS.find(p => p.category === view);
-      return product ? product.name : view;
+      const cat = JERSEY_CATEGORIES.find(c => c.id === view);
+      return cat ? cat.name : view;
+    }
+    if (view.startsWith('league-') && LEAGUE_TO_CLUBS[view]) {
+      const league = LEAGUE_CATEGORIES.find(l => l.id === view);
+      return league ? league.name : view;
     }
     return '';
   };
@@ -150,6 +161,19 @@ export default function App() {
                 transition={{ duration: 0.5 }}
               >
                 <SizingGuide 
+                  onBack={handleHomeClick}
+                />
+              </motion.div>
+            ) : view === 'leagues' ? (
+              <motion.div
+                key="leagues"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.5 }}
+              >
+                <LeaguesView
+                  onLeagueClick={handleCategoryClick}
                   onBack={handleHomeClick}
                 />
               </motion.div>

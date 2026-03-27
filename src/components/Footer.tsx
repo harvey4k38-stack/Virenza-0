@@ -52,7 +52,8 @@ export default function Footer({ logo, onNavigate }: {
             <h4 className="text-[10px] uppercase tracking-[0.3em] font-bold mb-8">Information</h4>
             <ul className="space-y-4">
               {[
-                { name: 'About Us', view: 'about' }
+                { name: 'About Us', view: 'about' },
+              { name: 'Sizing Guide', view: 'sizing-guide' }
               ].map(item => (
                 <li key={item.name}>
                   <button 

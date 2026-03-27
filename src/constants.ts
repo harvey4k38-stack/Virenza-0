@@ -1,4 +1,10 @@
 import { Product, Review, Category } from './types';
+import { NEW_PRODUCTS } from './external-products';
+
+const BASIC_NAME_VARIANTS = [
+  { label: 'No Name / Number' },
+  { label: 'Customize Name' },
+];
 
 const JERSEY_NAME_VARIANTS = [
   { label: 'No Name / Number' },
@@ -35,10 +41,10 @@ export const PRODUCTS: Product[] = [
   {
     id: 'j-palace-wc',
     name: 'Palace x Nike 2026 World Cup Jersey',
-    price: 32.95,
-    compareAtPrice: 49.99,
+    price: 31.99,
+    compareAtPrice: 39.99,
     description: 'The Palace x Nike 2026 World Cup jersey. Featuring a St George stained-glass graphic across the full body with co-branded Palace x Nike badge.',
-    category: 'jersey-palace-wc',
+    category: 'jersey-england',
     images: [
       '/jerseys/palace-wc-1.png',
       '/jerseys/palace-wc-2.png',
@@ -54,30 +60,12 @@ export const PRODUCTS: Product[] = [
     reviewCount: 17
   },
   {
-    id: 'j-nike-home-2026',
-    name: 'England Nike Home 2026 World Cup',
-    price: 29.99,
-    description: 'The official England Nike home shirt for the 2026 World Cup. Classic white with navy and red detailing, three lions badge and Nike swoosh. Dri-FIT technology for match-day performance.',
-    category: 'jersey-nike-home-2026',
-    images: [
-      '/jerseys/nike-home-1.png',
-      '/jerseys/nike-home-2.png',
-      '/jerseys/nike-home-3.png',
-      '/jerseys/nike-home-4.png',
-    ],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL', 'Kids S', 'Kids M', 'Kids L'],
-    isBestSeller: false,
-    nameVariants: JERSEY_NAME_VARIANTS,
-    rating: 5.0,
-    reviewCount: 11
-  },
-  {
     id: 'j-nike-away-2026',
     name: 'England Nike Away 2026 World Cup',
-    price: 29.99,
+    price: 28.99,
+    compareAtPrice: 35.99,
     description: 'The official England Nike away shirt for the 2026 World Cup. Bold red with navy trim, featuring the three lions crest and the iconic Nike swoosh. Built for performance and style.',
-    category: 'jersey-nike-away-2026',
+    category: 'jersey-england',
     images: [
       '/jerseys/nike-away-1.png',
       '/jerseys/nike-away-2.png',
@@ -95,9 +83,10 @@ export const PRODUCTS: Product[] = [
   {
     id: 'j-2008-away',
     name: 'England 2008 Away',
-    price: 28.95,
+    price: 27.99,
+    compareAtPrice: 34.99,
     description: 'The striking red and navy 2008 away kit. Features the classic three lions badge with Nike branding.',
-    category: 'jersey-2008-away',
+    category: 'jersey-england',
     images: [
       '/jerseys/england-08-2.png',
       '/jerseys/england-08-1.png',
@@ -115,9 +104,10 @@ export const PRODUCTS: Product[] = [
   {
     id: 'j-retro-saka',
     name: 'England Retro Classic',
-    price: 29.99,
+    price: 28.99,
+    compareAtPrice: 35.99,
     description: 'A beautifully crafted retro England home shirt in the classic Umbro style. Features the iconic three lions badge and Saka 7 on the back.',
-    category: 'jersey-retro-saka',
+    category: 'jersey-england',
     images: [
       '/jerseys/retro-saka-1.png',
       '/jerseys/retro-saka-2.png',
@@ -134,9 +124,10 @@ export const PRODUCTS: Product[] = [
   {
     id: 'j-retro-gazza',
     name: 'England 1990 Retro',
-    price: 29.99,
+    price: 28.99,
+    compareAtPrice: 35.99,
     description: 'The legendary 1990 Umbro England home shirt with Gascoigne 8 on the back. Italia 90 — one of the most iconic kits in football history.',
-    category: 'jersey-retro-gazza',
+    category: 'jersey-england',
     images: [
       '/jerseys/retro-gazza-1.png',
       '/jerseys/retro-gazza-3.png',
@@ -156,7 +147,8 @@ export const PRODUCTS: Product[] = [
   {
     id: '1',
     name: 'Virenza Classic Tennis Chain',
-    price: 19.95,
+    price: 19.99,
+    compareAtPrice: 23.99,
     description: 'Our signature tennis chain featuring hand-set stones. A timeless statement piece that exudes luxury and class.',
     category: 'chains',
     images: [
@@ -167,14 +159,15 @@ export const PRODUCTS: Product[] = [
     ],
     thickness: ['3mm', '4mm', '5mm'],
     lengths: ['18"', '20"', '22"'],
-    isBestSeller: true,
+    isBestSeller: false,
     rating: 5.0,
     reviewCount: 124
   },
   {
     id: '2',
     name: 'Elite Iced Tennis Chain',
-    price: 23.95,
+    price: 23.99,
+    compareAtPrice: 28.99,
     description: 'An elite version of our tennis chain with larger stones and a more secure clasp for maximum brilliance.',
     category: 'chains',
     images: [
@@ -185,14 +178,15 @@ export const PRODUCTS: Product[] = [
     ],
     thickness: ['4mm', '5mm'],
     lengths: ['18"', '20"'],
-    isBestSeller: true,
+    isBestSeller: false,
     rating: 5.0,
     reviewCount: 86
   },
   {
     id: '3',
     name: 'Sovereign Cuban Chain',
-    price: 24.99,
+    price: 23.99,
+    compareAtPrice: 29.99,
     description: 'The pinnacle of our chain collection. A bold Cuban link crafted for those who demand the best — heavy, refined, and unmistakable.',
     category: 'chains',
     images: [
@@ -211,6 +205,7 @@ export const PRODUCTS: Product[] = [
     id: '9',
     name: 'Aurum Link Chain',
     price: 22.99,
+    compareAtPrice: 27.99,
     description: 'A sleek gold box chain with a clean geometric link structure. Minimal, precise and effortlessly luxurious.',
     category: 'chains',
     images: [
@@ -221,7 +216,7 @@ export const PRODUCTS: Product[] = [
     ],
     thickness: ['3mm', '4mm'],
     lengths: ['18"', '20"', '22"'],
-    isBestSeller: true,
+    isBestSeller: false,
     rating: 5.0,
     reviewCount: 14
   },
@@ -229,6 +224,7 @@ export const PRODUCTS: Product[] = [
     id: '8',
     name: 'Silver Rope Chain',
     price: 19.99,
+    compareAtPrice: 23.99,
     description: 'A classic silver rope chain with a twisted design that catches the light. Timeless, versatile and built for everyday wear.',
     category: 'chains',
     images: [
@@ -247,6 +243,7 @@ export const PRODUCTS: Product[] = [
     id: '7',
     name: 'Sovereign Link Chain',
     price: 26.99,
+    compareAtPrice: 32.99,
     description: 'A bold gold Cuban link chain crafted for those who command attention. Heavy, warm-toned, and built to last.',
     category: 'chains',
     images: [
@@ -268,6 +265,7 @@ export const PRODUCTS: Product[] = [
     id: '11',
     name: 'Iced Out Tennis Bracelet',
     price: 21.99,
+    compareAtPrice: 26.99,
     description: 'A premium iced out tennis bracelet with hand-set stones that catch every light. Understated flex for the wrist.',
     category: 'bracelets',
     images: [
@@ -286,6 +284,7 @@ export const PRODUCTS: Product[] = [
     id: '12',
     name: 'Rose Gold Tennis Bracelet',
     price: 23.99,
+    compareAtPrice: 28.99,
     description: 'A warm rose gold tennis bracelet featuring brilliant-cut stones. Effortlessly elegant and built to turn heads.',
     category: 'bracelets',
     images: [
@@ -302,7 +301,8 @@ export const PRODUCTS: Product[] = [
   {
     id: '10',
     name: 'Classic Silver Bracelet',
-    price: 16.95,
+    price: 16.99,
+    compareAtPrice: 20.99,
     description: 'A solid silver bracelet with a polished finish. Bold, clean and built for the wrist that means business.',
     category: 'bracelets',
     images: [
@@ -321,6 +321,7 @@ export const PRODUCTS: Product[] = [
     id: '4',
     name: 'Signature Tennis Bracelet',
     price: 19.99,
+    compareAtPrice: 23.99,
     description: 'A classic tennis bracelet with hand-set stones. A timeless piece that adds a touch of elegance to any outfit.',
     category: 'bracelets',
     images: [
@@ -331,14 +332,15 @@ export const PRODUCTS: Product[] = [
     ],
     thickness: ['3mm', '4mm'],
     lengths: ['7"', '8"'],
-    isBestSeller: true,
+    isBestSeller: false,
     rating: 5.0,
     reviewCount: 94
   },
   {
     id: '5',
     name: 'Sovereign Cuban Bracelet',
-    price: 24.99,
+    price: 23.99,
+    compareAtPrice: 29.99,
     description: 'A bold iced-out bracelet featuring premium stones set in a polished finish. Built for those who wear their confidence on their wrist.',
     category: 'bracelets',
     images: [
@@ -356,7 +358,8 @@ export const PRODUCTS: Product[] = [
   {
     id: '6',
     name: 'Executive Tennis Bracelet',
-    price: 28.99,
+    price: 27.99,
+    compareAtPrice: 34.99,
     description: 'The executive choice. A bold yet sophisticated bracelet designed for the modern gentleman.',
     category: 'bracelets',
     images: [
@@ -372,203 +375,9 @@ export const PRODUCTS: Product[] = [
     reviewCount: 38
   },
 
-  // ── Historical Jerseys (temporarily out of stock) ─────────────────────────
 
-  {
-    id: 'j-1966-home',
-    name: 'England 1966 Home',
-    price: 29.99,
-    description: 'The iconic 1966 World Cup home jersey. The shirt worn when England lifted the trophy at Wembley — a true piece of football history.',
-    category: 'jersey-1966-home',
-    images: ['/jerseys/white-placeholder.png'],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL', 'Kids S', 'Kids M', 'Kids L'],
-    isBestSeller: false,
-    outOfStock: true,
-    nameVariants: JERSEY_NAME_VARIANTS,
-    rating: 4.9,
-    reviewCount: 11
-  },
-  {
-    id: 'j-1990-home',
-    name: 'England 1990 Home',
-    price: 29.99,
-    description: 'Classic 1990 World Cup home jersey. Gazza\'s tears, Lineker\'s goals, and one of the most loved England kits of all time.',
-    category: 'jersey-1990-home',
-    images: ['/jerseys/white-placeholder.png'],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL', 'Kids S', 'Kids M', 'Kids L'],
-    isBestSeller: false,
-    outOfStock: true,
-    nameVariants: JERSEY_NAME_VARIANTS,
-    rating: 4.9,
-    reviewCount: 13
-  },
-  {
-    id: 'j-1990-3rd',
-    name: 'England 1990 3rd (Black)',
-    price: 29.99,
-    description: 'The rare black third kit from Italia 90. Never worn in the tournament but instantly coveted — a cult classic that stands apart.',
-    category: 'jersey-1990-3rd',
-    images: ['/jerseys/white-placeholder.png'],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL', 'Kids S', 'Kids M', 'Kids L'],
-    isBestSeller: false,
-    outOfStock: true,
-    nameVariants: JERSEY_NAME_VARIANTS,
-    rating: 4.9,
-    reviewCount: 9
-  },
-  {
-    id: 'j-9192-home',
-    name: 'England 91/92 Home',
-    price: 29.99,
-    description: 'The early 90s home kit with the classic Umbro shadow-stripe design. Sharp, clean and unmistakably English.',
-    category: 'jersey-9192-home',
-    images: ['/jerseys/white-placeholder.png'],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL', 'Kids S', 'Kids M', 'Kids L'],
-    isBestSeller: false,
-    outOfStock: true,
-    nameVariants: JERSEY_NAME_VARIANTS,
-    rating: 4.9,
-    reviewCount: 10
-  },
-  {
-    id: 'j-1992-away',
-    name: 'England 1992 Away',
-    price: 29.99,
-    description: 'The 1992 away jersey — a striking grey and navy Umbro kit worn during a pivotal era of English football.',
-    category: 'jersey-1992-away',
-    images: ['/jerseys/white-placeholder.png'],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL', 'Kids S', 'Kids M', 'Kids L'],
-    isBestSeller: false,
-    outOfStock: true,
-    nameVariants: JERSEY_NAME_VARIANTS,
-    rating: 4.9,
-    reviewCount: 12
-  },
-  {
-    id: 'j-1993-away',
-    name: 'England 1993 Away',
-    price: 29.99,
-    description: 'The bold red 1993 away kit. A standout Umbro design that turns heads wherever it\'s worn — instantly recognisable.',
-    category: 'jersey-1993-away',
-    images: ['/jerseys/white-placeholder.png'],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL', 'Kids S', 'Kids M', 'Kids L'],
-    isBestSeller: false,
-    outOfStock: true,
-    nameVariants: JERSEY_NAME_VARIANTS,
-    rating: 4.9,
-    reviewCount: 9
-  },
-  {
-    id: 'j-9495-home',
-    name: 'England 94/95 Home',
-    price: 29.99,
-    description: 'The mid-90s home kit featuring Umbro\'s iconic diagonal trim. Clean, sharp and a favourite among collectors.',
-    category: 'jersey-9495-home',
-    images: ['/jerseys/white-placeholder.png'],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL', 'Kids S', 'Kids M', 'Kids L'],
-    isBestSeller: false,
-    outOfStock: true,
-    nameVariants: JERSEY_NAME_VARIANTS,
-    rating: 4.9,
-    reviewCount: 11
-  },
-  {
-    id: 'j-1996-home',
-    name: 'England 1996 Home',
-    price: 29.99,
-    description: 'The Euro 96 home kit. Shearer, Sheringham and three lions on the shirt — one of the most iconic England jerseys ever made.',
-    category: 'jersey-1996-home',
-    images: ['/jerseys/white-placeholder.png'],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL', 'Kids S', 'Kids M', 'Kids L'],
-    isBestSeller: false,
-    outOfStock: true,
-    nameVariants: JERSEY_NAME_VARIANTS,
-    rating: 4.9,
-    reviewCount: 13
-  },
-  {
-    id: 'j-1996-away',
-    name: 'England 1996 Away',
-    price: 29.99,
-    description: 'The silver/grey Euro 96 away kit. Rarely worn in the tournament but instantly recognisable — a true fan favourite.',
-    category: 'jersey-1996-away',
-    images: ['/jerseys/white-placeholder.png'],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL', 'Kids S', 'Kids M', 'Kids L'],
-    isBestSeller: false,
-    outOfStock: true,
-    nameVariants: JERSEY_NAME_VARIANTS,
-    rating: 4.9,
-    reviewCount: 10
-  },
-  {
-    id: 'j-1998-home',
-    name: 'England 1998 Home',
-    price: 29.99,
-    description: 'The 1998 World Cup home jersey. Beckham\'s red card, Owen\'s wonder goal, and one of football\'s most memorable tournaments.',
-    category: 'jersey-1998-home',
-    images: ['/jerseys/white-placeholder.png'],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL', 'Kids S', 'Kids M', 'Kids L'],
-    isBestSeller: false,
-    outOfStock: true,
-    nameVariants: JERSEY_NAME_VARIANTS,
-    rating: 4.9,
-    reviewCount: 12
-  },
-  {
-    id: 'j-2002-home',
-    name: 'England 2002 Home',
-    price: 29.99,
-    description: 'The 2002 World Cup home kit. Beckham, Owen, Gerrard — a golden generation at the peak of English football.',
-    category: 'jersey-2002-home',
-    images: ['/jerseys/white-placeholder.png'],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL', 'Kids S', 'Kids M', 'Kids L'],
-    isBestSeller: false,
-    outOfStock: true,
-    nameVariants: JERSEY_NAME_VARIANTS,
-    rating: 4.9,
-    reviewCount: 11
-  },
-  {
-    id: 'j-2006-home',
-    name: 'England 2006 Home',
-    price: 29.99,
-    description: 'The Germany 2006 World Cup home jersey. Rooney, Lampard and a squad full of talent — a modern classic kit.',
-    category: 'jersey-2006-home',
-    images: ['/jerseys/white-placeholder.png'],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL', 'Kids S', 'Kids M', 'Kids L'],
-    isBestSeller: false,
-    outOfStock: true,
-    nameVariants: JERSEY_NAME_VARIANTS,
-    rating: 4.9,
-    reviewCount: 9
-  },
-  {
-    id: 'j-2012-home',
-    name: 'England 2012 Home',
-    price: 29.99,
-    description: 'The Euro 2012 home jersey. A sleek Nike design with a clean all-white look — understated and refined.',
-    category: 'jersey-2012-home',
-    images: ['/jerseys/white-placeholder.png'],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL', 'Kids S', 'Kids M', 'Kids L'],
-    isBestSeller: false,
-    outOfStock: true,
-    nameVariants: JERSEY_NAME_VARIANTS,
-    rating: 4.9,
-    reviewCount: 10
-  },
+  // ── JerseyGame External Products (666 items) ─────────────────────────────
+  ...NEW_PRODUCTS.map(p => ({ ...p, nameVariants: BASIC_NAME_VARIANTS })),
 ];
 
 export const REVIEWS: Review[] = [
@@ -576,19 +385,19 @@ export const REVIEWS: Review[] = [
     id: 'r1',
     author: 'James W.',
     rating: 5,
-    comment: 'Good weight and looks clean with most outfits.'
+    comment: 'Ordered the Brazil home shirt and it\'s absolutely class. Fabric feels premium and the colours are spot on. Arrived in 4 days — well happy.'
   },
   {
     id: 'r2',
     author: 'Michael R.',
     rating: 5,
-    comment: 'Exactly what I wanted. Simple and well made.'
+    comment: 'Got the Man City away kit. Fits true to size, the stitching is clean and it looks identical to the real thing. Great price too.'
   },
   {
     id: 'r3',
     author: 'David L.',
     rating: 5,
-    comment: 'Minimal chain, feels durable.'
+    comment: 'Bought three jerseys — Argentina, Real Madrid, and PSG. All perfect. The quality is genuinely better than I expected. Will 100% be back.'
   }
 ];
 
@@ -638,25 +447,139 @@ export const JERSEY_REVIEWS: Review[] = [
 ];
 
 export const JERSEY_CATEGORIES: Category[] = [
-  { id: 'jersey-palace-wc',       name: 'Palace x Nike 2026',  image: '/jerseys/palace-wc-1.png' },
-  { id: 'jersey-nike-home-2026',  name: 'Nike Home 2026',      image: '/jerseys/nike-home-1.png' },
-  { id: 'jersey-nike-away-2026',  name: 'Nike Away 2026',      image: '/jerseys/nike-away-1.png' },
-  { id: 'jersey-2008-away',       name: '2008 Away',           image: '/jerseys/england-08-2.png' },
-  { id: 'jersey-retro-saka',  name: 'Retro Classic',   image: '/jerseys/retro-saka-1.png' },
-  { id: 'jersey-retro-gazza', name: '1990 Retro',      image: '/jerseys/retro-gazza-1.png' },
-  { id: 'jersey-1966-home',   name: '1966 Home',          image: '/jerseys/white-placeholder.png' },
-  { id: 'jersey-1990-home',   name: '1990 Home',          image: '/jerseys/white-placeholder.png' },
-  { id: 'jersey-1990-3rd',    name: '1990 3rd (Black)',   image: '/jerseys/white-placeholder.png' },
-  { id: 'jersey-9192-home',   name: '91/92 Home',         image: '/jerseys/white-placeholder.png' },
-  { id: 'jersey-1992-away',   name: '1992 Away',          image: '/jerseys/white-placeholder.png' },
-  { id: 'jersey-1993-away',   name: '1993 Away',          image: '/jerseys/white-placeholder.png' },
-  { id: 'jersey-9495-home',   name: '94/95 Home',         image: '/jerseys/white-placeholder.png' },
-  { id: 'jersey-1996-home',   name: '1996 Home',          image: '/jerseys/white-placeholder.png' },
-  { id: 'jersey-1996-away',   name: '1996 Away',          image: '/jerseys/white-placeholder.png' },
-  { id: 'jersey-1998-home',   name: '1998 Home',          image: '/jerseys/white-placeholder.png' },
-  { id: 'jersey-2002-home',   name: '2002 Home',          image: '/jerseys/white-placeholder.png' },
-  { id: 'jersey-2006-home',   name: '2006 Home',          image: '/jerseys/white-placeholder.png' },
-  { id: 'jersey-2012-home',   name: '2012 Home',          image: '/jerseys/white-placeholder.png' },
+
+  // ── JerseyGame Club & Country Categories ─────────────────────────────────
+  { id: 'jersey-ac-milan',                  name: 'AC Milan',                     image: '/badges/jersey-ac-milan.png' },
+  { id: 'jersey-ajax',                      name: 'Ajax',                         image: '/badges/jersey-ajax.png' },
+  { id: 'jersey-al-hilal',                  name: 'Al Hilal',                     image: '/badges/jersey-al-hilal.png' },
+  { id: 'jersey-al-nassr',                  name: 'Al Nassr',                     image: '/badges/jersey-al-nassr.png' },
+  { id: 'jersey-alaves',                    name: 'Alaves',                       image: '/badges/jersey-alaves.png' },
+  { id: 'jersey-albania',                   name: 'Albania',                      image: '/badges/jersey-albania.png' },
+  { id: 'jersey-algeria',                   name: 'Algeria',                      image: '/badges/jersey-algeria.png' },
+  { id: 'jersey-argentina',                 name: 'Argentina',                    image: '/badges/jersey-argentina.png' },
+  { id: 'jersey-arsenal',                   name: 'Arsenal',                      image: '/badges/jersey-arsenal.png' },
+  { id: 'jersey-aston-villa',               name: 'Aston Villa',                  image: '/badges/jersey-aston-villa.png' },
+  { id: 'jersey-atalanta',                  name: 'Atalanta',                     image: '/badges/jersey-atalanta.png' },
+  { id: 'jersey-athletic-bilbao',           name: 'Athletic Bilbao',              image: '/badges/jersey-athletic-bilbao.png' },
+  { id: 'jersey-atletico-madrid',           name: 'Atletico Madrid',              image: '/badges/jersey-atletico-madrid.png' },
+  { id: 'jersey-australia',                 name: 'Australia',                    image: '/badges/jersey-australia.png' },
+  { id: 'jersey-barcelona',                 name: 'Barcelona',                    image: '/badges/jersey-barcelona.png' },
+  { id: 'jersey-bayer-leverkusen',          name: 'Bayer Leverkusen',             image: '/badges/jersey-bayer-leverkusen.png' },
+  { id: 'jersey-bayern-munich',             name: 'Bayern Munich',                image: '/badges/jersey-bayern-munich.png' },
+  { id: 'jersey-belgium',                   name: 'Belgium',                      image: '/badges/jersey-belgium.png' },
+  { id: 'jersey-benfica',                   name: 'Benfica',                      image: '/badges/jersey-benfica.png' },
+  { id: 'jersey-bologna',                   name: 'Bologna',                      image: '/badges/jersey-bologna.png' },
+  { id: 'jersey-borussia-dortmund',         name: 'Borussia Dortmund',            image: '/badges/jersey-borussia-dortmund.png' },
+  { id: 'jersey-borussia-monchengladbach',  name: 'Borussia Mönchengladbach',     image: '/badges/jersey-borussia-monchengladbach.png' },
+  { id: 'jersey-bournemouth',               name: 'Bournemouth',                  image: '/badges/jersey-bournemouth.png' },
+  { id: 'jersey-brazil',                    name: 'Brazil',                       image: '/badges/jersey-brazil.png' },
+  { id: 'jersey-brentford',                 name: 'Brentford',                    image: '/badges/jersey-brentford.png' },
+  { id: 'jersey-brighton',                  name: 'Brighton',                     image: '/badges/jersey-brighton.png' },
+  { id: 'jersey-cadiz',                     name: 'Cadiz',                        image: '/badges/jersey-cadiz.png' },
+  { id: 'jersey-cagliari',                  name: 'Cagliari',                     image: '/badges/jersey-cagliari.png' },
+  { id: 'jersey-canada',                    name: 'Canada',                       image: '/badges/jersey-canada.png' },
+  { id: 'jersey-celta-vigo',                name: 'Celta Vigo',                   image: '/badges/jersey-celta-vigo.png' },
+  { id: 'jersey-celtic',                    name: 'Celtic',                       image: '/badges/jersey-celtic.png' },
+  { id: 'jersey-chelsea',                   name: 'Chelsea',                      image: '/badges/jersey-chelsea.png' },
+  { id: 'jersey-chicago-fire',              name: 'Chicago Fire',                 image: '/badges/jersey-chicago-fire.png' },
+  { id: 'jersey-club-america',              name: 'Club America',                 image: '/badges/jersey-club-america.png' },
+  { id: 'jersey-colombia',                  name: 'Colombia',                     image: '/badges/jersey-colombia.png' },
+  { id: 'jersey-como',                      name: 'Como',                         image: '/badges/jersey-como.png' },
+  { id: 'jersey-costa-rica',                name: 'Costa Rica',                   image: '/badges/jersey-costa-rica.png' },
+  { id: 'jersey-cote-divoire',              name: "Cote D'Ivoire",                image: '/jerseys/external/cote-divoire-home-shirt-2023-1.jpg' },
+  { id: 'jersey-croatia',                   name: 'Croatia',                      image: '/badges/jersey-croatia.png' },
+  { id: 'jersey-crystal-palace',            name: 'Crystal Palace',               image: '/badges/jersey-crystal-palace.png' },
+  { id: 'jersey-ecuador',                   name: 'Ecuador',                      image: '/badges/jersey-ecuador.png' },
+  { id: 'jersey-eintracht-frankfurt',       name: 'Eintracht Frankfurt',          image: '/badges/jersey-eintracht-frankfurt.png' },
+  { id: 'jersey-england',                   name: 'England',                      image: '/badges/jersey-england.png' },
+  { id: 'jersey-espanyol',                  name: 'Espanyol',                     image: '/badges/jersey-espanyol.png' },
+  { id: 'jersey-everton',                   name: 'Everton',                      image: '/badges/jersey-everton.png' },
+  { id: 'jersey-fiorentina',                name: 'Fiorentina',                   image: '/badges/jersey-fiorentina.png' },
+  { id: 'jersey-france',                    name: 'France',                       image: '/badges/jersey-france.png' },
+  { id: 'jersey-fulham',                    name: 'Fulham',                       image: '/badges/jersey-fulham.png' },
+  { id: 'jersey-galatasaray',               name: 'Galatasaray',                  image: '/badges/jersey-galatasaray.png' },
+  { id: 'jersey-genoa',                     name: 'Genoa',                        image: '/badges/jersey-genoa.png' },
+  { id: 'jersey-germany',                   name: 'Germany',                      image: '/badges/jersey-germany.png' },
+  { id: 'jersey-getafe',                    name: 'Getafe',                       image: '/badges/jersey-getafe.png' },
+  { id: 'jersey-ghana',                     name: 'Ghana',                        image: '/badges/jersey-ghana.png' },
+  { id: 'jersey-girona',                    name: 'Girona',                       image: '/badges/jersey-girona.png' },
+  { id: 'jersey-greece',                    name: 'Greece',                       image: '/badges/jersey-greece.png' },
+  { id: 'jersey-hellas-verona',             name: 'Hellas Verona',                image: '/badges/jersey-hellas-verona.png' },
+  { id: 'jersey-inter-miami',               name: 'Inter Miami',                  image: '/badges/jersey-inter-miami.png' },
+  { id: 'jersey-inter-milan',               name: 'Inter Milan',                  image: '/badges/jersey-inter-milan.png' },
+  { id: 'jersey-ipswich-town',              name: 'Ipswich Town',                 image: '/badges/jersey-ipswich-town.png' },
+  { id: 'jersey-italy',                     name: 'Italy',                        image: '/badges/jersey-italy.png' },
+  { id: 'jersey-jamaica',                   name: 'Jamaica',                      image: '/badges/jersey-jamaica.png' },
+  { id: 'jersey-japan',                     name: 'Japan',                        image: '/badges/jersey-japan.png' },
+  { id: 'jersey-juventus',                  name: 'Juventus',                     image: '/badges/jersey-juventus.png' },
+  { id: 'jersey-la-galaxy',                 name: 'LA Galaxy',                    image: '/badges/jersey-la-galaxy.png' },
+  { id: 'jersey-lafc',                      name: 'LAFC',                         image: '/badges/jersey-lafc.png' },
+  { id: 'jersey-las-palmas',                name: 'Las Palmas',                   image: '/badges/jersey-las-palmas.png' },
+  { id: 'jersey-lazio',                     name: 'Lazio',                        image: '/badges/jersey-lazio.png' },
+  { id: 'jersey-leeds-united',              name: 'Leeds United',                 image: '/badges/jersey-leeds-united.png' },
+  { id: 'jersey-leicester-city',            name: 'Leicester City',               image: '/badges/jersey-leicester-city.png' },
+  { id: 'jersey-lille',                     name: 'Lille',                        image: '/badges/jersey-lille.png' },
+  { id: 'jersey-liverpool',                 name: 'Liverpool',                    image: '/badges/jersey-liverpool.png' },
+  { id: 'jersey-lyon',                      name: 'Lyon',                         image: '/badges/jersey-lyon.png' },
+  { id: 'jersey-mainz-05',                  name: 'Mainz 05',                     image: '/badges/jersey-mainz-05.png' },
+  { id: 'jersey-mallorca',                  name: 'Mallorca',                     image: '/badges/jersey-mallorca.png' },
+  { id: 'jersey-manchester-city',           name: 'Manchester City',              image: '/badges/jersey-manchester-city.png' },
+  { id: 'jersey-manchester-united',         name: 'Manchester United',            image: '/badges/jersey-manchester-united.png' },
+  { id: 'jersey-marseille',                 name: 'Marseille',                    image: '/badges/jersey-marseille.png' },
+  { id: 'jersey-mexico',                    name: 'Mexico',                       image: '/badges/jersey-mexico.png' },
+  { id: 'jersey-morocco',                   name: 'Morocco',                      image: '/badges/jersey-morocco.png' },
+  { id: 'jersey-napoli',                    name: 'Napoli',                       image: '/badges/jersey-napoli.png' },
+  { id: 'jersey-nashville-sc',              name: 'Nashville SC',                 image: '/badges/jersey-nashville-sc.png' },
+  { id: 'jersey-netherlands',               name: 'Netherlands',                  image: '/badges/jersey-netherlands.png' },
+  { id: 'jersey-new-york-city-fc',          name: 'New York City FC',             image: '/badges/jersey-new-york-city-fc.png' },
+  { id: 'jersey-newcastle-united',          name: 'Newcastle United',             image: '/badges/jersey-newcastle-united.png' },
+  { id: 'jersey-nigeria',                   name: 'Nigeria',                      image: '/badges/jersey-nigeria.png' },
+  { id: 'jersey-north-macedonia',           name: 'North Macedonia',              image: '/badges/jersey-north-macedonia.png' },
+  { id: 'jersey-norway',                    name: 'Norway',                       image: '/badges/jersey-norway.png' },
+  { id: 'jersey-nottingham-forest',         name: 'Nottingham Forest',            image: '/badges/jersey-nottingham-forest.png' },
+  { id: 'jersey-orlando-city',              name: 'Orlando City',                 image: '/badges/jersey-orlando-city.png' },
+  { id: 'jersey-osasuna',                   name: 'Osasuna',                      image: '/badges/jersey-osasuna.png' },
+  { id: 'jersey-parma',                     name: 'Parma',                        image: '/badges/jersey-parma.png' },
+  { id: 'jersey-poland',                    name: 'Poland',                       image: '/badges/jersey-poland.png' },
+  { id: 'jersey-porto',                     name: 'Porto',                        image: '/badges/jersey-porto.png' },
+  { id: 'jersey-portugal',                  name: 'Portugal',                     image: '/badges/jersey-portugal.png' },
+  { id: 'jersey-qatar',                     name: 'Qatar',                        image: '/badges/jersey-qatar.png' },
+  { id: 'jersey-rb-leipzig',                name: 'RB Leipzig',                   image: '/badges/jersey-rb-leipzig.png' },
+  { id: 'jersey-rc-lens',                   name: 'RC Lens',                      image: '/badges/jersey-rc-lens.png' },
+  { id: 'jersey-rangers',                   name: 'Rangers',                      image: '/badges/jersey-rangers.png' },
+  { id: 'jersey-real-betis',                name: 'Real Betis',                   image: '/badges/jersey-real-betis.png' },
+  { id: 'jersey-real-madrid',               name: 'Real Madrid',                  image: '/badges/jersey-real-madrid.png' },
+  { id: 'jersey-real-sociedad',             name: 'Real Sociedad',                image: '/badges/jersey-real-sociedad.png' },
+  { id: 'jersey-roma',                      name: 'Roma',                         image: '/badges/jersey-roma.png' },
+  { id: 'jersey-romania',                   name: 'Romania',                      image: '/badges/jersey-romania.png' },
+  { id: 'jersey-santos',                    name: 'Santos',                       image: '/badges/jersey-santos.png' },
+  { id: 'jersey-saudi-arabia',              name: 'Saudi Arabia',                 image: '/badges/jersey-saudi-arabia.png' },
+  { id: 'jersey-scotland',                  name: 'Scotland',                     image: '/badges/jersey-scotland.png' },
+  { id: 'jersey-senegal',                   name: 'Senegal',                      image: '/badges/jersey-senegal.png' },
+  { id: 'jersey-serbia',                    name: 'Serbia',                       image: '/badges/jersey-serbia.png' },
+  { id: 'jersey-sevilla',                   name: 'Sevilla',                      image: '/badges/jersey-sevilla.png' },
+  { id: 'jersey-south-africa',              name: 'South Africa',                 image: '/badges/jersey-south-africa.png' },
+  { id: 'jersey-south-korea',               name: 'South Korea',                  image: '/badges/jersey-south-korea.png' },
+  { id: 'jersey-spain',                     name: 'Spain',                        image: '/badges/jersey-spain.png' },
+  { id: 'jersey-sporting-cp',               name: 'Sporting CP',                  image: '/badges/jersey-sporting-cp.png' },
+  { id: 'jersey-switzerland',               name: 'Switzerland',                  image: '/badges/jersey-switzerland.png' },
+  { id: 'jersey-torino',                    name: 'Torino',                       image: '/badges/jersey-torino.png' },
+  { id: 'jersey-toronto-fc',                name: 'Toronto FC',                   image: '/badges/jersey-toronto-fc.png' },
+  { id: 'jersey-tottenham-hotspur',         name: 'Tottenham Hotspur',            image: '/badges/jersey-tottenham-hotspur.png' },
+  { id: 'jersey-tunisia',                   name: 'Tunisia',                      image: '/badges/jersey-tunisia.png' },
+  { id: 'jersey-turkey',                    name: 'Turkey',                       image: '/badges/jersey-turkey.png' },
+  { id: 'jersey-udinese',                   name: 'Udinese',                      image: '/badges/jersey-udinese.png' },
+  { id: 'jersey-ukraine',                   name: 'Ukraine',                      image: '/badges/jersey-ukraine.png' },
+  { id: 'jersey-united-states',             name: 'United States',                image: '/badges/jersey-united-states.png' },
+  { id: 'jersey-uruguay',                   name: 'Uruguay',                      image: '/badges/jersey-uruguay.png' },
+  { id: 'jersey-valencia',                  name: 'Valencia',                     image: '/badges/jersey-valencia.png' },
+  { id: 'jersey-venezia',                   name: 'Venezia',                      image: '/badges/jersey-venezia.png' },
+  { id: 'jersey-venezuela',                 name: 'Venezuela',                    image: '/badges/jersey-venezuela.png' },
+  { id: 'jersey-villarreal',                name: 'Villarreal',                   image: '/badges/jersey-villarreal.png' },
+  { id: 'jersey-wales',                     name: 'Wales',                        image: '/badges/jersey-wales.png' },
+  { id: 'jersey-west-ham-united',           name: 'West Ham United',              image: '/badges/jersey-west-ham-united.png' },
+  { id: 'jersey-wolfsburg',                 name: 'Wolfsburg',                    image: '/badges/jersey-wolfsburg.png' },
+  { id: 'jersey-wolverhampton',             name: 'Wolverhampton',                image: '/badges/jersey-wolverhampton.png' },
 ];
 
 export const CATEGORIES: Category[] = [
@@ -670,4 +593,109 @@ export const CATEGORIES: Category[] = [
     name: 'Bracelets',
     image: '/cat-bracelets.png'
   }
+];
+
+export const INTERNATIONAL_CATEGORY_IDS = new Set([
+  'jersey-albania', 'jersey-algeria', 'jersey-argentina', 'jersey-australia',
+  'jersey-belgium', 'jersey-brazil', 'jersey-canada', 'jersey-colombia',
+  'jersey-costa-rica', 'jersey-cote-divoire', 'jersey-croatia', 'jersey-ecuador',
+  'jersey-england', 'jersey-france', 'jersey-germany', 'jersey-ghana',
+  'jersey-greece', 'jersey-italy', 'jersey-jamaica', 'jersey-japan',
+  'jersey-mexico', 'jersey-morocco', 'jersey-netherlands', 'jersey-nigeria',
+  'jersey-north-macedonia', 'jersey-norway', 'jersey-poland', 'jersey-portugal',
+  'jersey-qatar', 'jersey-romania', 'jersey-saudi-arabia', 'jersey-scotland',
+  'jersey-senegal', 'jersey-serbia', 'jersey-south-africa', 'jersey-south-korea',
+  'jersey-spain', 'jersey-switzerland', 'jersey-tunisia', 'jersey-turkey',
+  'jersey-ukraine', 'jersey-united-states', 'jersey-uruguay', 'jersey-venezuela',
+  'jersey-wales',
+]);
+
+export const INTERNATIONAL_JERSEY_CATEGORIES = JERSEY_CATEGORIES.filter(
+  c => INTERNATIONAL_CATEGORY_IDS.has(c.id)
+);
+
+export const CLUB_JERSEY_CATEGORIES = JERSEY_CATEGORIES.filter(
+  c => !INTERNATIONAL_CATEGORY_IDS.has(c.id)
+);
+
+export const LEAGUE_TO_CLUBS: Record<string, string[]> = {
+  'league-premier-league': [
+    'jersey-arsenal', 'jersey-aston-villa', 'jersey-bournemouth', 'jersey-brentford',
+    'jersey-brighton', 'jersey-chelsea', 'jersey-crystal-palace', 'jersey-everton',
+    'jersey-fulham', 'jersey-ipswich-town', 'jersey-leeds-united', 'jersey-leicester-city',
+    'jersey-liverpool', 'jersey-manchester-city', 'jersey-manchester-united',
+    'jersey-newcastle-united', 'jersey-nottingham-forest', 'jersey-tottenham-hotspur',
+    'jersey-west-ham-united', 'jersey-wolverhampton',
+  ],
+  'league-la-liga': [
+    'jersey-alaves', 'jersey-athletic-bilbao', 'jersey-atletico-madrid', 'jersey-barcelona',
+    'jersey-cadiz', 'jersey-celta-vigo', 'jersey-espanyol', 'jersey-getafe',
+    'jersey-girona', 'jersey-las-palmas', 'jersey-mallorca', 'jersey-osasuna',
+    'jersey-real-betis', 'jersey-real-madrid', 'jersey-real-sociedad', 'jersey-sevilla',
+    'jersey-valencia', 'jersey-villarreal',
+  ],
+  'league-serie-a': [
+    'jersey-ac-milan', 'jersey-atalanta', 'jersey-bologna', 'jersey-cagliari',
+    'jersey-como', 'jersey-fiorentina', 'jersey-genoa', 'jersey-hellas-verona',
+    'jersey-inter-milan', 'jersey-juventus', 'jersey-lazio', 'jersey-napoli',
+    'jersey-parma', 'jersey-roma', 'jersey-torino', 'jersey-udinese', 'jersey-venezia',
+  ],
+  'league-bundesliga': [
+    'jersey-bayer-leverkusen', 'jersey-bayern-munich', 'jersey-borussia-dortmund',
+    'jersey-borussia-monchengladbach', 'jersey-eintracht-frankfurt', 'jersey-mainz-05',
+    'jersey-rb-leipzig', 'jersey-wolfsburg',
+  ],
+  'league-ligue-1': [
+    'jersey-lille', 'jersey-lyon', 'jersey-marseille', 'jersey-rc-lens',
+  ],
+  'league-eredivisie': [
+    'jersey-ajax',
+  ],
+  'league-primeira-liga': [
+    'jersey-benfica', 'jersey-porto', 'jersey-sporting-cp',
+  ],
+  'league-scottish-premiership': [
+    'jersey-celtic', 'jersey-rangers',
+  ],
+  'league-mls': [
+    'jersey-chicago-fire', 'jersey-inter-miami', 'jersey-la-galaxy', 'jersey-lafc',
+    'jersey-nashville-sc', 'jersey-new-york-city-fc', 'jersey-orlando-city', 'jersey-toronto-fc',
+  ],
+  'league-saudi-pro-league': [
+    'jersey-al-hilal', 'jersey-al-nassr',
+  ],
+  'league-liga-mx': [
+    'jersey-club-america',
+  ],
+  'league-brasileirao': [
+    'jersey-santos',
+  ],
+  'league-super-lig': [
+    'jersey-galatasaray',
+  ],
+};
+
+export const LEAGUE_CATEGORIES = [
+  { id: 'league-premier-league', name: 'Premier League', country: 'England', image: '/badges/league-premier-league.png' },
+  { id: 'league-la-liga', name: 'La Liga', country: 'Spain', image: '/badges/league-la-liga.png' },
+  { id: 'league-serie-a', name: 'Serie A', country: 'Italy', image: '/badges/league-serie-a.png' },
+  { id: 'league-bundesliga', name: 'Bundesliga', country: 'Germany', image: '/badges/league-bundesliga.png' },
+  { id: 'league-ligue-1', name: 'Ligue 1', country: 'France', image: '/badges/league-ligue-1.png' },
+  { id: 'league-eredivisie', name: 'Eredivisie', country: 'Netherlands', image: '/badges/league-eredivisie.png' },
+  { id: 'league-primeira-liga', name: 'Primeira Liga', country: 'Portugal', image: '/badges/league-primeira-liga.png' },
+  { id: 'league-scottish-premiership', name: 'Scottish Premiership', country: 'Scotland', image: '/badges/league-scottish-premiership.png' },
+  { id: 'league-mls', name: 'MLS', country: 'USA', image: '/badges/league-mls.png' },
+  { id: 'league-saudi-pro-league', name: 'Saudi Pro League', country: 'Saudi Arabia', image: '/badges/league-saudi-pro-league.png' },
+  { id: 'league-liga-mx', name: 'Liga MX', country: 'Mexico', image: '/badges/league-liga-mx.png' },
+  { id: 'league-brasileirao', name: 'Brasileirão', country: 'Brazil', image: '/badges/league-brasileirao.png' },
+  { id: 'league-super-lig', name: 'Süper Lig', country: 'Turkey', image: '/badges/league-super-lig.png' },
+];
+
+export const FEATURED_PRODUCT_IDS = [
+  'j-palace-wc',
+  'j-nike-away-2026',
+  'j-2008-away',
+  'j-retro-saka',
+  'jg-barcelona-x-travis-scott-home-shirt-2024-25',
+  'jg-barcelona-x-travis-scott-white-shirt-2024-25',
 ];
