@@ -27,13 +27,13 @@ export default function SizingGuide({ onBack }: SizingGuideProps) {
           className="w-full rounded-2xl"
         />
         <img
-          src="/size-guide-v8.png"
-          alt="Size and Delivery Info"
+          src="/size-guide-v9.png"
+          alt="Extended Sizes Guide"
           className="w-full rounded-2xl"
         />
         <img
-          src="/size-guide-v9.png"
-          alt="Extended Sizes Guide"
+          src="/size-guide-v8.png"
+          alt="Size and Delivery Info"
           className="w-full rounded-2xl"
         />
       </motion.div>
