@@ -418,6 +418,7 @@ export default function ProductDetail({ product, onBack }: ProductDetailProps) {
         <div className="flex flex-col gap-6">
           <img src="/size-guide-v7.png" alt="Jersey Size Guide" className="w-full rounded-xl" />
           <img src="/size-guide-v8.png" alt="Size & Delivery Info" className="w-full rounded-xl" />
+          <img src="/size-guide-v9.png" alt="Extended Sizes Guide" className="w-full rounded-xl" />
         </div>
       </Modal>
     </main>

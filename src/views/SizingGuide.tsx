@@ -31,6 +31,11 @@ export default function SizingGuide({ onBack }: SizingGuideProps) {
           alt="Size and Delivery Info"
           className="w-full rounded-2xl"
         />
+        <img
+          src="/size-guide-v9.png"
+          alt="Extended Sizes Guide"
+          className="w-full rounded-2xl"
+        />
       </motion.div>
     </main>
   );
