@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { motion } from 'motion/react';
 import { useCart } from '../context/CartContext';
 import { Trash2, Plus, Minus, ArrowRight, ShoppingBag, ChevronLeft } from 'lucide-react';
@@ -5,13 +6,29 @@ import GlowButton from '../components/GlowButton';
 import { Product } from '../types';
 
 interface CartViewProps {
-  onCheckout: () => void;
+  onCheckout: (clientSecret: string) => void;
   onBack: () => void;
   onProductClick: (product: Product) => void;
 }
 
 export default function CartView({ onCheckout, onBack, onProductClick }: CartViewProps) {
   const { cart, removeFromCart, updateQuantity, cartTotal, cartCount } = useCart();
+  const [loadingCheckout, setLoadingCheckout] = useState(false);
+
+  const handleCheckout = async () => {
+    setLoadingCheckout(true);
+    try {
+      const res = await fetch('/api/create-payment-intent', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ amount: cartTotal }),
+      });
+      const { clientSecret } = await res.json();
+      onCheckout(clientSecret ?? '');
+    } catch {
+      onCheckout('');
+    }
+  };
 
   if (cartCount === 0) {
     return (
@@ -126,11 +143,16 @@ export default function CartView({ onCheckout, onBack, onProductClick }: CartVie
               </div>
             </div>
 
-            <GlowButton 
-              onClick={onCheckout}
+            <GlowButton
+              onClick={handleCheckout}
+              disabled={loadingCheckout}
               className="w-full py-4 text-xs uppercase tracking-[0.2em] flex items-center justify-center gap-2"
             >
-              Checkout <ArrowRight size={14} />
+              {loadingCheckout ? (
+                <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+              ) : (
+                <>Checkout <ArrowRight size={14} /></>
+              )}
             </GlowButton>
 
             <div className="mt-8 space-y-4">

@@ -28,6 +28,7 @@ export default function App() {
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const [logo, setLogo] = useState<string | null>(null);
   const [paypalSuccess, setPaypalSuccess] = useState(false);
+  const [checkoutClientSecret, setCheckoutClientSecret] = useState('');
 
   useEffect(() => {
     const fetchLogo = async () => {
@@ -166,7 +167,7 @@ export default function App() {
                 transition={{ duration: 0.5 }}
               >
                 <CartView 
-                  onCheckout={() => setView('checkout')} 
+                  onCheckout={(cs: string) => { setCheckoutClientSecret(cs); setView('checkout'); }} 
                   onBack={handleHomeClick}
                   onProductClick={handleProductClick}
                 />
@@ -179,9 +180,10 @@ export default function App() {
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.5 }}
               >
-                <CheckoutView 
+                <CheckoutView
                   onBack={() => setView('cart')}
                   onSuccess={handleHomeClick}
+                  initialClientSecret={checkoutClientSecret}
                 />
               </motion.div>
             ) : view === 'sizing-guide' ? (

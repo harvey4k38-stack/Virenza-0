@@ -15,6 +15,7 @@ const USED_CODES_KEY = 'virenza_used_discount';
 interface CheckoutViewProps {
   onBack: () => void;
   onSuccess: () => void;
+  initialClientSecret?: string;
 }
 
 interface InnerFormProps extends CheckoutViewProps {
@@ -305,27 +306,27 @@ function DiscountInput({ form }: { form: { email: string } }) {
   );
 }
 
-export default function CheckoutView({ onBack, onSuccess }: CheckoutViewProps) {
+export default function CheckoutView({ onBack, onSuccess, initialClientSecret = '' }: CheckoutViewProps) {
   const { cartTotal } = useCart();
   const [discountApplied, setDiscountApplied] = useState(false);
   const [discountInput, setDiscountInput] = useState('');
   const [discountError, setDiscountError] = useState('');
-  const [clientSecret, setClientSecret] = useState('');
-  const [loading, setLoading] = useState(true);
+  const [clientSecret, setClientSecret] = useState(initialClientSecret);
   const [formEmail, setFormEmail] = useState('');
 
   const finalTotal = discountApplied ? cartTotal * (1 - DISCOUNT_PERCENT) : cartTotal;
 
   useEffect(() => {
+    // Only re-fetch when discount changes the total (initial secret already provided)
+    if (!discountApplied && initialClientSecret) return;
     if (finalTotal <= 0) return;
-    setLoading(true);
     fetch('/api/create-payment-intent', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ amount: finalTotal }),
     })
       .then(r => r.json())
-      .then(d => { setClientSecret(d.clientSecret ?? ''); setLoading(false); });
+      .then(d => { setClientSecret(d.clientSecret ?? ''); });
   }, [finalTotal]);
 
   const handleApplyDiscount = () => {
