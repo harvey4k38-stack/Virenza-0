@@ -1,7 +1,7 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
-import { loadStripe } from '@stripe/stripe-js';
-import { Elements, CardNumberElement, CardExpiryElement, CardCvcElement, useStripe, useElements } from '@stripe/react-stripe-js';
+import { loadStripe, PaymentRequest } from '@stripe/stripe-js';
+import { Elements, CardNumberElement, CardExpiryElement, CardCvcElement, PaymentRequestButtonElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import { useCart } from '../context/CartContext';
 import { ChevronLeft, ShieldCheck, CreditCard, Lock, CheckCircle2, Tag } from 'lucide-react';
 import GlowButton from '../components/GlowButton';
@@ -31,8 +31,60 @@ function CheckoutForm({ onBack, onSuccess }: CheckoutViewProps) {
   const [discountInput, setDiscountInput] = useState('');
   const [discountApplied, setDiscountApplied] = useState(false);
   const [discountError, setDiscountError] = useState('');
+  const [paymentRequest, setPaymentRequest] = useState<PaymentRequest | null>(null);
 
   const finalTotal = discountApplied ? cartTotal * (1 - DISCOUNT_PERCENT) : cartTotal;
+
+  useEffect(() => {
+    if (!stripe) return;
+    const pr = stripe.paymentRequest({
+      country: 'GB',
+      currency: 'gbp',
+      total: { label: 'Virenza Order', amount: Math.round(finalTotal * 100) },
+      requestPayerName: true,
+      requestPayerEmail: true,
+      requestShipping: false,
+    });
+    pr.canMakePayment().then(result => {
+      if (result) setPaymentRequest(pr);
+    });
+    pr.on('paymentmethod', async (e) => {
+      try {
+        const res = await fetch('/api/create-payment-intent', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ amount: finalTotal }),
+        });
+        const { clientSecret, error: serverError } = await res.json();
+        if (serverError) { e.complete('fail'); return; }
+        const { error, paymentIntent } = await stripe.confirmCardPayment(
+          clientSecret,
+          { payment_method: e.paymentMethod.id },
+          { handleActions: false }
+        );
+        if (error) { e.complete('fail'); setErrorMessage(error.message ?? 'Payment failed.'); return; }
+        e.complete('success');
+        if (paymentIntent?.status === 'requires_action') {
+          await stripe.confirmCardPayment(clientSecret);
+        }
+        const emailRes = await fetch('/api/send-order-email', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            firstName: e.payerName?.split(' ')[0] ?? '',
+            lastName: e.payerName?.split(' ').slice(1).join(' ') ?? '',
+            email: e.payerEmail ?? '',
+            address: '', city: '', postcode: '',
+            cart, total: finalTotal.toFixed(2), discount: null,
+          }),
+        });
+        const emailData = await emailRes.json();
+        if (emailData.orderNumber) setOrderNumber(emailData.orderNumber);
+        clearCart();
+        setIsSuccess(true);
+      } catch { e.complete('fail'); }
+    });
+  }, [stripe, finalTotal]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setForm(prev => ({ ...prev, [e.target.name]: e.target.value }));
@@ -233,6 +285,22 @@ function CheckoutForm({ onBack, onSuccess }: CheckoutViewProps) {
               <span className="w-6 h-6 bg-brand-black text-white rounded-full flex items-center justify-center text-[10px]">3</span>
               Payment
             </h2>
+
+            {paymentRequest && (
+              <div className="mb-6">
+                <PaymentRequestButtonElement
+                  options={{
+                    paymentRequest,
+                    style: { paymentRequestButton: { type: 'buy', theme: 'dark', height: '52px' } },
+                  }}
+                />
+                <div className="flex items-center gap-3 my-5">
+                  <div className="flex-1 h-px bg-brand-gray-light" />
+                  <span className="text-[10px] uppercase tracking-widest text-brand-gray-dark font-bold">or pay by card</span>
+                  <div className="flex-1 h-px bg-brand-gray-light" />
+                </div>
+              </div>
+            )}
 
             <div className="p-4 border border-brand-gray-light flex items-center gap-3 mb-6 bg-brand-black/5">
               <CreditCard size={20} />
