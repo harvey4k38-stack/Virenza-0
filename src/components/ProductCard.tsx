@@ -53,13 +53,13 @@ export default function ProductCard({ product, onClick }: ProductCardProps) {
     <>
       <motion.div
         initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.4 }}
         whileHover={{ y: -8 }}
         className="group relative bg-white border border-brand-gray-light rounded-sm overflow-hidden transition-all duration-500 hover:shadow-xl"
         onClick={() => !product.outOfStock && onClick(product)}
       >
-        <div className="aspect-[4/5] overflow-hidden bg-brand-gray-light/20 relative">
+        <div className="aspect-[4/5] overflow-hidden bg-gray-100 relative">
           <motion.img
             src={product.images[0]}
             alt={product.name}
