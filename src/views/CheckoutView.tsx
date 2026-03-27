@@ -339,10 +339,27 @@ export default function CheckoutView({ onBack, onSuccess }: CheckoutViewProps) {
     setDiscountApplied(true);
   };
 
-  if (loading || !clientSecret) {
+  if (!clientSecret) {
+    // Show skeleton checkout page while payment intent loads in background
     return (
-      <main className="pt-32 pb-24 flex items-center justify-center min-h-screen">
-        <div className="w-6 h-6 border-2 border-brand-gray-light border-t-brand-black rounded-full animate-spin" />
+      <main className="pt-32 pb-24 max-w-7xl mx-auto px-6 md:px-12 min-h-screen">
+        <div className="flex items-center gap-4 mb-12">
+          <div className="h-3 w-24 bg-gray-100 rounded animate-pulse" />
+          <div className="h-px flex-1 bg-brand-gray-light" />
+          <div className="h-3 w-32 bg-gray-100 rounded animate-pulse" />
+        </div>
+        <div className="grid lg:grid-cols-2 gap-16">
+          <div className="space-y-6">
+            <div className="h-5 w-48 bg-gray-100 rounded animate-pulse" />
+            <div className="grid grid-cols-2 gap-4">
+              {[...Array(6)].map((_, i) => (
+                <div key={i} className={`h-14 bg-gray-100 rounded animate-pulse ${i >= 2 ? 'col-span-2' : ''}`} />
+              ))}
+            </div>
+            <div className="h-40 bg-gray-100 rounded animate-pulse mt-8" />
+          </div>
+          <div className="h-96 bg-gray-100 rounded animate-pulse" />
+        </div>
       </main>
     );
   }
