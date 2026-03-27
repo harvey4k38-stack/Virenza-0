@@ -27,6 +27,7 @@ export default function App() {
   const [previousView, setPreviousView] = useState<View>('home');
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const [logo, setLogo] = useState<string | null>(null);
+  const [paypalSuccess, setPaypalSuccess] = useState(false);
 
   useEffect(() => {
     const fetchLogo = async () => {
@@ -34,6 +35,25 @@ export default function App() {
       setLogo(logoUrl);
     };
     fetchLogo();
+  }, []);
+
+  // Handle PayPal redirect return
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('virenza_order') === 'complete') {
+      const saved = sessionStorage.getItem('virenza_pending_order');
+      if (saved) {
+        const order = JSON.parse(saved);
+        fetch('/api/send-order-email', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(order),
+        }).catch(() => {});
+        sessionStorage.removeItem('virenza_pending_order');
+      }
+      window.history.replaceState({}, '', window.location.pathname);
+      setPaypalSuccess(true);
+    }
   }, []);
 
   // Scroll to top on view change
@@ -100,7 +120,18 @@ export default function App() {
         
         <div className="flex-1">
           <AnimatePresence mode="wait">
-            {view === 'home' ? (
+            {paypalSuccess ? (
+              <motion.div key="paypal-success" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.5 }}>
+                <main className="pt-32 pb-24 max-w-3xl mx-auto px-6 text-center">
+                  <div className="flex flex-col items-center">
+                    <div className="w-20 h-20 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mb-8 text-4xl">✓</div>
+                    <h1 className="text-3xl font-bold uppercase tracking-[0.2em] mb-4">Order Confirmed</h1>
+                    <p className="text-brand-gray-dark mb-12">Thank you for your purchase. A confirmation email has been sent to you.</p>
+                    <button onClick={() => { setPaypalSuccess(false); handleHomeClick(); }} className="px-12 py-4 bg-brand-black text-white text-xs uppercase tracking-widest hover:opacity-80 transition-opacity">Return to Store</button>
+                  </div>
+                </main>
+              </motion.div>
+            ) : view === 'home' ? (
               <motion.div
                 key="home"
                 initial={{ opacity: 0 }}
