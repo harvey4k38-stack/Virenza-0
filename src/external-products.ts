@@ -528,22 +528,6 @@ export const NEW_PRODUCTS: Product[] = [
     reviewCount: 17,
   },
   // ── Chelsea ─────────────────────────────────────────────────────
-  {
-    id: 'jg-2023-24-chelsea-away-shirt',
-    name: '2023/24 Chelsea Away Shirt',
-    price: 35.99,
-    compareAtPrice: 44.99,
-    description: 'The official Chelsea away shirt for the 2023/24 season. Bold away colours with authentic club badge and sponsor detailing. Available in a full range of sizes.',
-    category: 'jersey-chelsea',
-    images: [
-      '/jerseys/external/2023-24-chelsea-away-shirt-1.jpg',
-      '/jerseys/external/2023-24-chelsea-away-shirt-2.jpg',
-    ],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
-    rating: 4.8,
-    reviewCount: 6,
-  },
   // ── Barcelona ───────────────────────────────────────────────────
   {
     id: 'jg-1998-99-barcelona-home-shirt',
@@ -1879,25 +1863,6 @@ export const NEW_PRODUCTS: Product[] = [
   // ── Japan ───────────────────────────────────────────────────────
   // ── Germany ─────────────────────────────────────────────────────
   // ── England ─────────────────────────────────────────────────────
-  {
-    id: 'jg-england-world-cup-home-shirt-2026',
-    name: 'England Nike Home 2026 World Cup',
-    price: 28.99,
-    compareAtPrice: 35.99,
-    description: 'The official England Nike home shirt for the 2026 World Cup. Classic white with navy and red detailing, three lions badge and Nike swoosh. Dri-FIT technology for match-day performance.',
-    category: 'jersey-england',
-    images: [
-      '/jerseys/nike-home-1.png',
-      '/jerseys/nike-home-2.png',
-      '/jerseys/nike-home-3.png',
-      '/jerseys/nike-home-4.png',
-    ],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL', 'Kids S', 'Kids M', 'Kids L'],
-    isBestSeller: false,
-    rating: 5.0,
-    reviewCount: 11,
-  },
   // ── Italy ───────────────────────────────────────────────────────
   {
     id: 'jg-italy-world-cup-home-shirt-2026',
@@ -2790,22 +2755,6 @@ export const NEW_PRODUCTS: Product[] = [
     reviewCount: 7,
   },
   // ── Inter Miami ─────────────────────────────────────────────────
-  {
-    id: 'jg-inter-miami-special-edition-shirt-2025-26-copy',
-    name: 'Inter Miami Special Edition Shirt 2025/26',
-    price: 32.99,
-    compareAtPrice: 40.99,
-    description: 'The official Inter Miami special edition shirt for the 2025/26 season. Limited edition design celebrating a milestone in the club\'s history. Available in a full range of sizes.',
-    category: 'jersey-inter-miami',
-    images: [
-      '/jerseys/external/inter-miami-special-edition-shirt-2025-26-copy-1.jpg',
-      '/jerseys/external/inter-miami-special-edition-shirt-2025-26-copy-2.jpg',
-    ],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
-    rating: 4.8,
-    reviewCount: 25,
-  },
   // ── Barcelona ───────────────────────────────────────────────────
   {
     id: 'jg-2010-11-barcelona-home-shirt',
@@ -5216,22 +5165,6 @@ export const NEW_PRODUCTS: Product[] = [
     rating: 4.8,
     reviewCount: 22,
   },
-  {
-    id: 'jg-como-away-shirt-2024-25',
-    name: 'Fiorentina Home Shirt 2024/25',
-    price: 32.99,
-    compareAtPrice: 40.99,
-    description: 'The official Fiorentina home shirt for the 2024/25 season. Classic home colours with authentic badge and premium fabric. Available in a full range of sizes.',
-    category: 'jersey-fiorentina',
-    images: [
-      '/jerseys/external/como-away-shirt-2024-25-1.jpg',
-      '/jerseys/external/como-away-shirt-2024-25-2.jpg',
-    ],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
-    rating: 4.8,
-    reviewCount: 5,
-  },
   // ── Como ────────────────────────────────────────────────────────
   {
     id: 'jg-como-home-shirt-2024-25',
@@ -6065,22 +5998,6 @@ export const NEW_PRODUCTS: Product[] = [
     reviewCount: 7,
   },
   // ── Athletic Bilbao ─────────────────────────────────────────────
-  {
-    id: 'jg-athletic-bilbao-away-shirt-2024-25',
-    name: 'Athletic Bilbao Away Shirt 2024/25',
-    price: 32.99,
-    compareAtPrice: 40.99,
-    description: 'The official Athletic Bilbao away shirt for the 2024/25 season. Bold away colours with authentic club badge and sponsor detailing. Available in a full range of sizes.',
-    category: 'jersey-athletic-bilbao',
-    images: [
-      '/jerseys/external/athletic-bilbao-away-shirt-2024-25-1.jpg',
-      '/jerseys/external/athletic-bilbao-away-shirt-2024-25-2.jpg',
-    ],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
-    rating: 4.8,
-    reviewCount: 13,
-  },
   // ── Brazil ──────────────────────────────────────────────────────
   {
     id: 'jg-brazil-special-edition-shirt-2024-25',
