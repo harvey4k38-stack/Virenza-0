@@ -10,6 +10,20 @@ export const CURRENCIES: { code: Currency; symbol: string; rate: number }[] = [
   { code: 'CAD', symbol: 'C$', rate: 1.73 },
 ];
 
+function detectCurrency(): Currency {
+  try {
+    const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
+    if (tz.startsWith('America/')) {
+      const canadaZones = ['Toronto', 'Vancouver', 'Winnipeg', 'Edmonton', 'Calgary', 'Halifax', 'St_Johns', 'Moncton', 'Glace_Bay', 'Goose_Bay', 'Whitehorse', 'Yellowknife', 'Regina', 'Swift_Current'];
+      if (canadaZones.some(z => tz.includes(z))) return 'CAD';
+      return 'USD';
+    }
+    if (tz.startsWith('Australia/')) return 'AUD';
+    if (tz.startsWith('Europe/') && tz !== 'Europe/London') return 'EUR';
+  } catch {}
+  return 'GBP';
+}
+
 interface CurrencyContextType {
   currency: Currency;
   setCurrency: (c: Currency) => void;
@@ -19,7 +33,7 @@ interface CurrencyContextType {
 const CurrencyContext = createContext<CurrencyContextType | undefined>(undefined);
 
 export const CurrencyProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [currency, setCurrency] = useState<Currency>('GBP');
+  const [currency, setCurrency] = useState<Currency>(detectCurrency);
 
   const formatPrice = (gbpPrice: number) => {
     const cur = CURRENCIES.find(c => c.code === currency)!;
