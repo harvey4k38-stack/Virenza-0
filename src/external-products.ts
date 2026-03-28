@@ -405,38 +405,6 @@ export const NEW_PRODUCTS: Product[] = [
     rating: 4.8,
     reviewCount: 12,
   },
-  {
-    id: 'jg-2011-12-real-madrid-away-shirt',
-    name: '2011/12 Real Madrid Away Shirt',
-    price: 35.99,
-    compareAtPrice: 44.99,
-    description: 'The official Real Madrid away shirt for the 2011/12 season. Bold away colours with authentic club badge and sponsor detailing. Available in a full range of sizes.',
-    category: 'jersey-real-madrid',
-    images: [
-      '/jerseys/external/2011-12-real-madrid-away-shirt-1.jpg',
-      '/jerseys/external/2011-12-real-madrid-away-shirt-2.jpg',
-    ],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
-    rating: 4.8,
-    reviewCount: 19,
-  },
-  {
-    id: 'jg-2011-12-real-madrid-home-shirt',
-    name: '2011/12 Real Madrid Home Shirt',
-    price: 35.99,
-    compareAtPrice: 44.99,
-    description: 'The official Real Madrid home shirt for the 2011/12 season. Classic home colours with authentic badge and premium fabric. Available in a full range of sizes.',
-    category: 'jersey-real-madrid',
-    images: [
-      '/jerseys/external/2011-12-real-madrid-home-shirt-1.jpg',
-      '/jerseys/external/2011-12-real-madrid-home-shirt-2.jpg',
-    ],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
-    rating: 4.8,
-    reviewCount: 23,
-  },
   // ── Albania ─────────────────────────────────────────────────────
   {
     id: 'jg-albania-home-shirt-2025-26',
@@ -638,86 +606,6 @@ export const NEW_PRODUCTS: Product[] = [
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
     reviewCount: 17,
-  },
-  // ── Real Madrid ─────────────────────────────────────────────────
-  {
-    id: 'jg-real-madrid-gold-and-black-2024-25-tracksuit',
-    name: 'Real Madrid Gold and Black 2024/25 Tracksuit',
-    price: 50.99,
-    compareAtPrice: 62.99,
-    description: 'The official Real Madrid shirt for the 2024/25 season. Classic home colours with authentic badge and premium fabric. Available in a full range of sizes.',
-    category: 'jersey-real-madrid',
-    images: [
-      '/jerseys/external/real-madrid-gold-and-black-2024-25-tracksuit-1.jpg',
-    ],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
-    rating: 4.8,
-    reviewCount: 8,
-  },
-  // ── Manchester United ───────────────────────────────────────────
-  {
-    id: 'jg-manchester-united-2024-25-white-tracksuit',
-    name: 'Manchester United 2024/25 White Tracksuit',
-    price: 50.99,
-    compareAtPrice: 62.99,
-    description: 'The official Manchester United shirt for the 2024/25 season. Classic home colours with authentic badge and premium fabric. Available in a full range of sizes.',
-    category: 'jersey-manchester-united',
-    images: [
-      '/jerseys/external/manchester-united-2024-25-white-tracksuit-1.jpg',
-    ],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
-    rating: 4.8,
-    reviewCount: 16,
-  },
-  // ── France ──────────────────────────────────────────────────────
-  {
-    id: 'jg-france-2024-25-tracksuit',
-    name: 'France 2024/25 Tracksuit',
-    price: 50.99,
-    compareAtPrice: 62.99,
-    description: 'The official France shirt for the 2024/25 season. Classic home colours with authentic badge and premium fabric. Available in a full range of sizes.',
-    category: 'jersey-france',
-    images: [
-      '/jerseys/external/france-2024-25-tracksuit-1.jpg',
-    ],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
-    rating: 4.8,
-    reviewCount: 16,
-  },
-  // ── AC Milan ────────────────────────────────────────────────────
-  {
-    id: 'jg-ac-milan-2023-24-tracksuit',
-    name: 'AC Milan 2023/24 Tracksuit',
-    price: 50.99,
-    compareAtPrice: 62.99,
-    description: 'The official Ac Milan shirt for the 2023/24 season. Classic home colours with authentic badge and premium fabric. Available in a full range of sizes.',
-    category: 'jersey-ac-milan',
-    images: [
-      '/jerseys/external/ac-milan-2023-24-tracksuit-1.jpg',
-    ],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
-    rating: 4.8,
-    reviewCount: 24,
-  },
-  // ── Real Madrid ─────────────────────────────────────────────────
-  {
-    id: 'jg-real-madrid-2025-26-tracksuit',
-    name: 'Real Madrid 2025/26 Tracksuit',
-    price: 50.99,
-    compareAtPrice: 62.99,
-    description: 'The official Real Madrid shirt for the 2025/26 season. Classic home colours with authentic badge and premium fabric. Available in a full range of sizes.',
-    category: 'jersey-real-madrid',
-    images: [
-      '/jerseys/external/real-madrid-2025-26-tracksuit-1.jpg',
-    ],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
-    rating: 4.8,
-    reviewCount: 13,
   },
   // ── Chelsea ─────────────────────────────────────────────────────
   {
@@ -929,23 +817,6 @@ export const NEW_PRODUCTS: Product[] = [
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
     reviewCount: 11,
-  },
-  // ── Argentina ───────────────────────────────────────────────────
-  {
-    id: 'jg-2006-argentina-away-shirt',
-    name: '2006 Argentina Away Shirt',
-    price: 35.99,
-    compareAtPrice: 44.99,
-    description: 'The official Argentina away shirt for the 2006 season. Bold away colours with authentic club badge and sponsor detailing. Available in a full range of sizes.',
-    category: 'jersey-argentina',
-    images: [
-      '/jerseys/external/2006-argentina-away-shirt-1.jpg',
-      '/jerseys/external/2006-argentina-away-shirt-2.jpg',
-    ],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
-    rating: 4.8,
-    reviewCount: 7,
   },
   // ── Juventus ────────────────────────────────────────────────────
   {
@@ -1481,23 +1352,6 @@ export const NEW_PRODUCTS: Product[] = [
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
     reviewCount: 6,
-  },
-  // ── Algeria ─────────────────────────────────────────────────────
-  {
-    id: 'jg-algeria-world-cup-away-shirt-2027',
-    name: 'Algeria World Cup Away Shirt 2026',
-    price: 32.99,
-    compareAtPrice: 40.99,
-    description: 'The official Algeria away shirt for the 2026 World Cup. Bold away colours with authentic club badge and sponsor detailing. Available in a full range of sizes.',
-    category: 'jersey-algeria',
-    images: [
-      '/jerseys/external/algeria-world-cup-away-shirt-2027-1.jpg',
-      '/jerseys/external/algeria-world-cup-away-shirt-2027-2.jpg',
-    ],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
-    rating: 4.8,
-    reviewCount: 12,
   },
   // ── Australia ───────────────────────────────────────────────────
   {
@@ -2051,23 +1905,6 @@ export const NEW_PRODUCTS: Product[] = [
     rating: 4.8,
     reviewCount: 8,
   },
-  // ── Netherlands ─────────────────────────────────────────────────
-  {
-    id: 'jg-netherlands-womens-home-shirt-2026',
-    name: 'Netherlands Womens Home Shirt 2026',
-    price: 32.99,
-    compareAtPrice: 40.99,
-    description: 'The official Netherlands home shirt for the 2026 season. Classic home colours with authentic badge and premium fabric. Available in a full range of sizes.',
-    category: 'jersey-netherlands',
-    images: [
-      '/jerseys/external/netherlands-womens-home-shirt-2026-1.jpg',
-      '/jerseys/external/netherlands-womens-home-shirt-2026-2.jpg',
-    ],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
-    rating: 4.8,
-    reviewCount: 9,
-  },
   {
     id: 'jg-netherlands-world-cup-away-shirt-2026',
     name: 'Netherlands World Cup Away Shirt 2026',
@@ -2593,141 +2430,6 @@ export const NEW_PRODUCTS: Product[] = [
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
     reviewCount: 14,
-  },
-  // ── T90 Mixed Yellow ────────────────────────────────────────────
-  {
-    id: 'jg-t90-mixed-yellow',
-    name: 'T90 Mixed Yellow',
-    price: 35.99,
-    compareAtPrice: 44.99,
-    description: 'The official T90 Mixed Yellow shirt. Classic home colours with authentic badge and premium fabric. Available in a full range of sizes.',
-    category: 'jersey-t90-mixed-yellow',
-    images: [
-      '/jerseys/external/t90-mixed-yellow-1.jpg',
-      '/jerseys/external/t90-mixed-yellow-2.jpg',
-    ],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
-    rating: 4.8,
-    reviewCount: 25,
-  },
-  // ── Croatia ─────────────────────────────────────────────────────
-  {
-    id: 'jg-t90-croatia',
-    name: 'T90 Croatia',
-    price: 35.99,
-    compareAtPrice: 44.99,
-    description: 'The official Croatia shirt. Classic home colours with authentic badge and premium fabric. Available in a full range of sizes.',
-    category: 'jersey-croatia',
-    images: [
-      '/jerseys/external/t90-croatia-1.jpg',
-      '/jerseys/external/t90-croatia-2.jpg',
-    ],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
-    rating: 4.8,
-    reviewCount: 21,
-  },
-  // ── Portugal ────────────────────────────────────────────────────
-  {
-    id: 'jg-t90-portugal',
-    name: 'T90 Portugal',
-    price: 35.99,
-    compareAtPrice: 44.99,
-    description: 'The official Portugal shirt. Classic home colours with authentic badge and premium fabric. Available in a full range of sizes.',
-    category: 'jersey-portugal',
-    images: [
-      '/jerseys/external/t90-portugal-1.jpg',
-      '/jerseys/external/t90-portugal-2.jpg',
-    ],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
-    rating: 4.8,
-    reviewCount: 24,
-  },
-  // ── Argentina ───────────────────────────────────────────────────
-  {
-    id: 'jg-t90-argentina',
-    name: 'T90 Argentina',
-    price: 35.99,
-    compareAtPrice: 44.99,
-    description: 'The official Argentina shirt. Classic home colours with authentic badge and premium fabric. Available in a full range of sizes.',
-    category: 'jersey-argentina',
-    images: [
-      '/jerseys/external/t90-argentina-1.jpg',
-      '/jerseys/external/t90-argentina-2.jpg',
-    ],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
-    rating: 4.8,
-    reviewCount: 11,
-  },
-  // ── Mexico ──────────────────────────────────────────────────────
-  {
-    id: 'jg-t90-mexico',
-    name: 'T90 Mexico',
-    price: 35.99,
-    compareAtPrice: 44.99,
-    description: 'The official Mexico shirt. Classic home colours with authentic badge and premium fabric. Available in a full range of sizes.',
-    category: 'jersey-mexico',
-    images: [
-      '/jerseys/external/t90-mexico-1.jpg',
-      '/jerseys/external/t90-mexico-2.jpg',
-    ],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
-    rating: 4.8,
-    reviewCount: 9,
-  },
-  // ── Brazil ──────────────────────────────────────────────────────
-  {
-    id: 'jg-t90-brazil',
-    name: 'T90 Brazil',
-    price: 35.99,
-    compareAtPrice: 44.99,
-    description: 'The official Brazil shirt. Classic home colours with authentic badge and premium fabric. Available in a full range of sizes.',
-    category: 'jersey-brazil',
-    images: [
-      '/jerseys/external/t90-brazil-1.jpg',
-      '/jerseys/external/t90-brazil-2.jpg',
-    ],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
-    rating: 4.8,
-    reviewCount: 16,
-  },
-  // ── Barcelona ───────────────────────────────────────────────────
-  {
-    id: 'jg-1996-97-barcelona-home-shirt',
-    name: '1996/97 Barcelona Home Shirt',
-    price: 35.99,
-    compareAtPrice: 44.99,
-    description: 'The official Barcelona home shirt for the 1996/97 season. Classic home colours with authentic badge and premium fabric. Available in a full range of sizes.',
-    category: 'jersey-barcelona',
-    images: [
-      '/jerseys/external/1996-97-barcelona-home-shirt-1.jpg',
-      '/jerseys/external/1996-97-barcelona-home-shirt-2.jpg',
-    ],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
-    rating: 4.8,
-    reviewCount: 10,
-  },
-  {
-    id: 'jg-1996-97-barcelona-away-shirt',
-    name: '1996/97 Barcelona Away Shirt',
-    price: 35.99,
-    compareAtPrice: 44.99,
-    description: 'The official Barcelona away shirt for the 1996/97 season. Bold away colours with authentic club badge and sponsor detailing. Available in a full range of sizes.',
-    category: 'jersey-barcelona',
-    images: [
-      '/jerseys/external/1996-97-barcelona-away-shirt-1.jpg',
-      '/jerseys/external/1996-97-barcelona-away-shirt-2.jpg',
-    ],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
-    rating: 4.8,
-    reviewCount: 22,
   },
   // ── Leeds United ────────────────────────────────────────────────
   {
@@ -3385,23 +3087,6 @@ export const NEW_PRODUCTS: Product[] = [
     rating: 4.8,
     reviewCount: 12,
   },
-  // ── Atalanta ────────────────────────────────────────────────────
-  {
-    id: 'jg-atalanta-bc-home-shirt-2025-26',
-    name: 'Atalanta BC Home Shirt 2025/26',
-    price: 32.99,
-    compareAtPrice: 40.99,
-    description: 'The official Atalanta home shirt for the 2025/26 season. Classic home colours with authentic badge and premium fabric. Available in a full range of sizes.',
-    category: 'jersey-atalanta',
-    images: [
-      '/jerseys/external/atalanta-bc-home-shirt-2025-26-1.jpg',
-      '/jerseys/external/atalanta-bc-home-shirt-2025-26-2.jpg',
-    ],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
-    rating: 4.8,
-    reviewCount: 12,
-  },
   // ── Benfica ─────────────────────────────────────────────────────
   {
     id: 'jg-benfica-home-shirt-2025-26',
@@ -3468,40 +3153,6 @@ export const NEW_PRODUCTS: Product[] = [
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
     reviewCount: 23,
-  },
-  // ── Aston Villa ─────────────────────────────────────────────────
-  {
-    id: 'jg-aston-villa-away-shirt-2025-26',
-    name: 'Aston Villa Away Shirt 2025/26',
-    price: 32.99,
-    compareAtPrice: 40.99,
-    description: 'The official Aston Villa away shirt for the 2025/26 season. Bold away colours with authentic club badge and sponsor detailing. Available in a full range of sizes.',
-    category: 'jersey-aston-villa',
-    images: [
-      '/jerseys/external/aston-villa-away-shirt-2025-26-1.jpg',
-      '/jerseys/external/aston-villa-away-shirt-2025-26-2.jpg',
-    ],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
-    rating: 4.8,
-    reviewCount: 22,
-  },
-  // ── Lyon ────────────────────────────────────────────────────────
-  {
-    id: 'jg-lyon-away-shirt-2025-26',
-    name: 'Lyon Away Shirt 2025/26',
-    price: 32.99,
-    compareAtPrice: 40.99,
-    description: 'The official Lyon away shirt for the 2025/26 season. Bold away colours with authentic club badge and sponsor detailing. Available in a full range of sizes.',
-    category: 'jersey-lyon',
-    images: [
-      '/jerseys/external/lyon-away-shirt-2025-26-1.jpg',
-      '/jerseys/external/lyon-away-shirt-2025-26-2.jpg',
-    ],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
-    rating: 4.8,
-    reviewCount: 12,
   },
   // ── Porto ───────────────────────────────────────────────────────
   {
@@ -3635,39 +3286,6 @@ export const NEW_PRODUCTS: Product[] = [
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
     reviewCount: 7,
-  },
-  // ── AC Milan ────────────────────────────────────────────────────
-  {
-    id: 'jg-2003-04-ac-milan-away-shirt',
-    name: '2002/03 AC Milan Away Shirt',
-    price: 35.99,
-    compareAtPrice: 44.99,
-    description: 'The official Ac Milan away shirt for the 2002/03 season. Bold away colours with authentic club badge and sponsor detailing. Available in a full range of sizes.',
-    category: 'jersey-ac-milan',
-    images: [
-      '/jerseys/external/2003-04-ac-milan-away-shirt-1.jpg',
-      '/jerseys/external/2003-04-ac-milan-away-shirt-2.jpg',
-    ],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
-    rating: 4.8,
-    reviewCount: 6,
-  },
-  {
-    id: 'jg-2003-04-ac-milan-home-shirt',
-    name: '2003/04 AC Milan Home Shirt',
-    price: 35.99,
-    compareAtPrice: 44.99,
-    description: 'The official Ac Milan home shirt for the 2003/04 season. Classic home colours with authentic badge and premium fabric. Available in a full range of sizes.',
-    category: 'jersey-ac-milan',
-    images: [
-      '/jerseys/external/2003-04-ac-milan-home-shirt-1.jpg',
-      '/jerseys/external/2003-04-ac-milan-home-shirt-2.jpg',
-    ],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
-    rating: 4.8,
-    reviewCount: 15,
   },
   // ── Arsenal ─────────────────────────────────────────────────────
   {
@@ -3885,23 +3503,6 @@ export const NEW_PRODUCTS: Product[] = [
     rating: 4.8,
     reviewCount: 20,
   },
-  // ── Venezia ─────────────────────────────────────────────────────
-  {
-    id: 'jg-venezia-fourth-shirt-2021-22',
-    name: 'Venezia Fourth Shirt 2021/22',
-    price: 37.99,
-    compareAtPrice: 46.99,
-    description: 'The official Venezia shirt for the 2021/22 season. Classic home colours with authentic badge and premium fabric. Available in a full range of sizes.',
-    category: 'jersey-venezia',
-    images: [
-      '/jerseys/external/venezia-fourth-shirt-2021-22-1.jpg',
-      '/jerseys/external/venezia-fourth-shirt-2021-22-2.jpg',
-    ],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
-    rating: 4.8,
-    reviewCount: 18,
-  },
   // ── Liverpool ───────────────────────────────────────────────────
   {
     id: 'jg-liverpool-away-shirt-2025-26',
@@ -3918,23 +3519,6 @@ export const NEW_PRODUCTS: Product[] = [
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
     reviewCount: 11,
-  },
-  // ── England ─────────────────────────────────────────────────────
-  {
-    id: 'jg-england-womens-euro-away-shirt-2025-26',
-    name: 'England Women\'s Euro Away Shirt 2025/26',
-    price: 32.99,
-    compareAtPrice: 40.99,
-    description: 'The official England Women\'s away shirt for the 2025/26 Euro campaign. Bold away colours with authentic badge and premium fabric. Available in a full range of sizes.',
-    category: 'jersey-england',
-    images: [
-      '/jerseys/external/england-womens-euro-away-shirt-2025-26-1.jpg',
-      '/jerseys/external/england-womens-euro-away-shirt-2025-26-2.jpg',
-    ],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
-    rating: 4.8,
-    reviewCount: 8,
   },
   // ── Manchester City ─────────────────────────────────────────────
   {
@@ -4410,73 +3994,6 @@ export const NEW_PRODUCTS: Product[] = [
     rating: 4.8,
     reviewCount: 22,
   },
-  // ── Real Madrid ─────────────────────────────────────────────────
-  {
-    id: 'jg-2009-10-real-madrid-home-shirt',
-    name: '2009/10 Real Madrid Home Shirt',
-    price: 35.99,
-    compareAtPrice: 44.99,
-    description: 'The official Real Madrid home shirt for the 2009/10 season. Classic home colours with authentic badge and premium fabric. Available in a full range of sizes.',
-    category: 'jersey-real-madrid',
-    images: [
-      '/jerseys/external/2009-10-real-madrid-home-shirt-1.jpg',
-      '/jerseys/external/2009-10-real-madrid-home-shirt-2.jpg',
-    ],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
-    rating: 4.8,
-    reviewCount: 8,
-  },
-  // ── Brazil ──────────────────────────────────────────────────────
-  {
-    id: 'jg-2002-brazil-home-shirt',
-    name: '2002 Brazil Home Shirt',
-    price: 35.99,
-    compareAtPrice: 44.99,
-    description: 'The official Brazil home shirt for the 2002 season. Classic home colours with authentic badge and premium fabric. Available in a full range of sizes.',
-    category: 'jersey-brazil',
-    images: [
-      '/jerseys/external/2002-brazil-home-shirt-1.jpg',
-      '/jerseys/external/2002-brazil-home-shirt-2.jpg',
-    ],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
-    rating: 4.8,
-    reviewCount: 6,
-  },
-  // ── Inter Milan ─────────────────────────────────────────────────
-  {
-    id: 'jg-1997-98-inter-milan-third-shirt',
-    name: '1997/98 Retro Inter Milan Away Shirt',
-    price: 35.99,
-    compareAtPrice: 44.99,
-    description: 'The official Inter Milan away shirt for the 1997/98 season. Bold away colours with authentic club badge and sponsor detailing. Available in a full range of sizes.',
-    category: 'jersey-inter-milan',
-    images: [
-      '/jerseys/external/1997-98-inter-milan-third-shirt-1.jpg',
-      '/jerseys/external/1997-98-inter-milan-third-shirt-2.jpg',
-    ],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
-    rating: 4.8,
-    reviewCount: 25,
-  },
-  // ── Manchester City ─────────────────────────────────────────────
-  {
-    id: 'jg-manchester-city-home-shirt-2021-22',
-    name: 'Manchester City Home Shirt 2021/22',
-    price: 32.99,
-    compareAtPrice: 40.99,
-    description: 'The official Manchester City home shirt for the 2021/22 season. Classic home colours with authentic badge and premium fabric. Available in a full range of sizes.',
-    category: 'jersey-manchester-city',
-    images: [
-      '/jerseys/external/manchester-city-home-shirt-2021-22-1.jpg',
-    ],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
-    rating: 4.8,
-    reviewCount: 22,
-  },
   // ── Barcelona ───────────────────────────────────────────────────
   {
     id: 'jg-barcelona-2024-25-home-goalkeeper-shirt-copy',
@@ -4526,207 +4043,6 @@ export const NEW_PRODUCTS: Product[] = [
     rating: 4.8,
     reviewCount: 12,
   },
-  // ── Argentina ───────────────────────────────────────────────────
-  {
-    id: 'jg-2024-argentina-goalkeeper-shirt',
-    name: '2024 Argentina Goalkeeper Shirt',
-    price: 37.99,
-    compareAtPrice: 46.99,
-    description: 'The official Argentina goalkeeper shirt for the 2024 season. Goalkeeper-cut shirt with authentic badge and premium feel. Available in a full range of sizes.',
-    category: 'jersey-argentina',
-    images: [
-      '/jerseys/external/2024-argentina-goalkeeper-shirt-1.jpg',
-      '/jerseys/external/2024-argentina-goalkeeper-shirt-2.jpg',
-    ],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
-    rating: 4.8,
-    reviewCount: 10,
-  },
-  // ── AC Milan ────────────────────────────────────────────────────
-  {
-    id: 'jg-ac-milan-off-white-shirt-2024-25',
-    name: 'AC Milan Off-White Shirt 2024/25',
-    price: 35.99,
-    compareAtPrice: 44.99,
-    description: 'The official Ac Milan shirt for the 2024/25 season. Classic home colours with authentic badge and premium fabric. Available in a full range of sizes.',
-    category: 'jersey-ac-milan',
-    images: [
-      '/jerseys/external/ac-milan-off-white-shirt-2024-25-1.jpg',
-      '/jerseys/external/ac-milan-off-white-shirt-2024-25-2.jpg',
-    ],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
-    rating: 4.8,
-    reviewCount: 18,
-  },
-  // ── Chelsea ─────────────────────────────────────────────────────
-  {
-    id: 'jg-womens-chelsea-home-shirt-2024-25',
-    name: 'Womens\' Chelsea Home Shirt 2024/25',
-    price: 35.99,
-    compareAtPrice: 44.99,
-    description: 'The official Chelsea Women\'s home shirt for the 2024/25 season. Classic home colours with authentic badge and premium fabric. Available in a full range of sizes.',
-    category: 'jersey-chelsea',
-    images: [
-      '/jerseys/external/womens-chelsea-home-shirt-2024-25-1.jpg',
-      '/jerseys/external/womens-chelsea-home-shirt-2024-25-2.jpg',
-    ],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
-    rating: 4.8,
-    reviewCount: 20,
-  },
-  // ── Liverpool ───────────────────────────────────────────────────
-  {
-    id: 'jg-2010-11-liverpool-away-shirt',
-    name: '2010/11 Liverpool Away Shirt',
-    price: 35.99,
-    compareAtPrice: 44.99,
-    description: 'The official Liverpool away shirt for the 2010/11 season. Bold away colours with authentic club badge and sponsor detailing. Available in a full range of sizes.',
-    category: 'jersey-liverpool',
-    images: [
-      '/jerseys/external/2010-11-liverpool-away-shirt-1.jpg',
-      '/jerseys/external/2010-11-liverpool-away-shirt-2.jpg',
-    ],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
-    rating: 4.8,
-    reviewCount: 20,
-  },
-  // ── France ──────────────────────────────────────────────────────
-  {
-    id: 'jg-2018-france-world-cup-away-shirt',
-    name: '2018 France World Cup Away Shirt',
-    price: 35.99,
-    compareAtPrice: 44.99,
-    description: 'The official France away shirt for the 2018 season. Bold away colours with authentic club badge and sponsor detailing. Available in a full range of sizes.',
-    category: 'jersey-france',
-    images: [
-      '/jerseys/external/2018-france-world-cup-away-shirt-1.jpg',
-      '/jerseys/external/2018-france-world-cup-away-shirt-2.jpg',
-    ],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
-    rating: 4.8,
-    reviewCount: 11,
-  },
-  // ── Atletico Madrid ─────────────────────────────────────────────
-  {
-    id: 'jg-2021-22-atletico-madrid-third-shirt',
-    name: '2021/22 Atletico Madrid Third Shirt',
-    price: 37.99,
-    compareAtPrice: 46.99,
-    description: 'The official Atletico Madrid third shirt for the 2021/22 season. Striking third kit design with authentic badge and premium fabric. Available in a full range of sizes.',
-    category: 'jersey-atletico-madrid',
-    images: [
-      '/jerseys/external/2021-22-atletico-madrid-third-shirt-1.jpg',
-      '/jerseys/external/2021-22-atletico-madrid-third-shirt-2.jpg',
-    ],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
-    rating: 4.8,
-    reviewCount: 17,
-  },
-  // ── Barcelona ───────────────────────────────────────────────────
-  {
-    id: 'jg-barcelona-2020-21-away-shirt',
-    name: 'Barcelona 2020/21 Away Shirt',
-    price: 37.99,
-    compareAtPrice: 46.99,
-    description: 'The official Barcelona away shirt for the 2020/21 season. Bold away colours with authentic club badge and sponsor detailing. Available in a full range of sizes.',
-    category: 'jersey-barcelona',
-    images: [
-      '/jerseys/external/barcelona-2020-21-away-shirt-1.jpg',
-      '/jerseys/external/barcelona-2020-21-away-shirt-2.jpg',
-    ],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
-    rating: 4.8,
-    reviewCount: 6,
-  },
-  {
-    id: 'jg-2019-20-barcelona-home-shirt',
-    name: '2019/20 Barcelona Home Shirt',
-    price: 37.99,
-    compareAtPrice: 46.99,
-    description: 'The official Barcelona home shirt for the 2019/20 season. Classic home colours with authentic badge and premium fabric. Available in a full range of sizes.',
-    category: 'jersey-barcelona',
-    images: [
-      '/jerseys/external/2019-20-barcelona-home-shirt-1.jpg',
-      '/jerseys/external/2019-20-barcelona-home-shirt-2.jpg',
-    ],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
-    rating: 4.8,
-    reviewCount: 10,
-  },
-  // ── Atletico Madrid ─────────────────────────────────────────────
-  {
-    id: 'jg-2014-15-atletico-madrid-home-shirt',
-    name: '2014/15 Atletico Madrid Home Shirt',
-    price: 35.99,
-    compareAtPrice: 44.99,
-    description: 'The official Atletico Madrid home shirt for the 2014/15 season. Classic home colours with authentic badge and premium fabric. Available in a full range of sizes.',
-    category: 'jersey-atletico-madrid',
-    images: [
-      '/jerseys/external/2014-15-atletico-madrid-home-shirt-1.jpg',
-      '/jerseys/external/2014-15-atletico-madrid-home-shirt-2.jpg',
-    ],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
-    rating: 4.8,
-    reviewCount: 17,
-  },
-  // ── Benfica ─────────────────────────────────────────────────────
-  {
-    id: 'jg-2001-02-benfica-home-shirt',
-    name: '2001/02 Benfica Home Shirt',
-    price: 42.99,
-    compareAtPrice: 52.99,
-    description: 'The official Benfica home shirt for the 2001/02 season. Classic home colours with authentic badge and premium fabric. Available in a full range of sizes.',
-    category: 'jersey-benfica',
-    images: [
-      '/jerseys/external/2001-02-benfica-home-shirt-1.jpg',
-      '/jerseys/external/2001-02-benfica-home-shirt-2.jpg',
-    ],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
-    rating: 4.8,
-    reviewCount: 5,
-  },
-  {
-    id: 'jg-2001-02-benfica-away-shirt',
-    name: '2001/02 Benfica Away Shirt',
-    price: 42.99,
-    compareAtPrice: 52.99,
-    description: 'The official Benfica away shirt for the 2001/02 season. Bold away colours with authentic club badge and sponsor detailing. Available in a full range of sizes.',
-    category: 'jersey-benfica',
-    images: [
-      '/jerseys/external/2001-02-benfica-away-shirt-1.jpg',
-      '/jerseys/external/2001-02-benfica-away-shirt-2.jpg',
-    ],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
-    rating: 4.8,
-    reviewCount: 17,
-  },
-  {
-    id: 'jg-2002-03-benfica-away-shirt',
-    name: '2002/03 Benfica Away Shirt',
-    price: 42.99,
-    compareAtPrice: 52.99,
-    description: 'The official Benfica away shirt for the 2002/03 season. Bold away colours with authentic club badge and sponsor detailing. Available in a full range of sizes.',
-    category: 'jersey-benfica',
-    images: [
-      '/jerseys/external/2002-03-benfica-away-shirt-1.jpg',
-      '/jerseys/external/2002-03-benfica-away-shirt-2.jpg',
-    ],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
-    rating: 4.8,
-    reviewCount: 13,
-  },
   // ── Liverpool ───────────────────────────────────────────────────
   {
     id: 'jg-2011-12-liverpool-home-shirt',
@@ -4743,106 +4059,6 @@ export const NEW_PRODUCTS: Product[] = [
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
     reviewCount: 19,
-  },
-  // ── Spain ───────────────────────────────────────────────────────
-  {
-    id: 'jg-2010-spain-goalkeeper-shirt',
-    name: '2010 Spain Goalkeeper Shirt',
-    price: 37.99,
-    compareAtPrice: 46.99,
-    description: 'The official Spain goalkeeper shirt for the 2010 season. Goalkeeper-cut shirt with authentic badge and premium feel. Available in a full range of sizes.',
-    category: 'jersey-spain',
-    images: [
-      '/jerseys/external/2010-spain-goalkeeper-shirt-1.jpg',
-      '/jerseys/external/2010-spain-goalkeeper-shirt-2.jpg',
-    ],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
-    rating: 4.8,
-    reviewCount: 14,
-  },
-  // ── Santos ──────────────────────────────────────────────────────
-  {
-    id: 'jg-santos-2024-25-home-shirt',
-    name: 'Santos FC 2024/25 Home Shirt',
-    price: 35.99,
-    compareAtPrice: 44.99,
-    description: 'The official Santos home shirt for the 2024/25 season. Classic home colours with authentic badge and premium fabric. Available in a full range of sizes.',
-    category: 'jersey-santos',
-    images: [
-      '/jerseys/external/santos-2024-25-home-shirt-1.jpg',
-      '/jerseys/external/santos-2024-25-home-shirt-2.jpg',
-    ],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
-    rating: 4.8,
-    reviewCount: 18,
-  },
-  {
-    id: 'jg-santos-2012-13-home-shirt',
-    name: 'Santos 2012/13 Home Shirt',
-    price: 35.99,
-    compareAtPrice: 44.99,
-    description: 'The official Santos home shirt for the 2012/13 season. Classic home colours with authentic badge and premium fabric. Available in a full range of sizes.',
-    category: 'jersey-santos',
-    images: [
-      '/jerseys/external/santos-2012-13-home-shirt-1.jpg',
-      '/jerseys/external/santos-2012-13-home-shirt-2.jpg',
-    ],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
-    rating: 4.8,
-    reviewCount: 22,
-  },
-  // ── AC Milan ────────────────────────────────────────────────────
-  {
-    id: 'jg-2006-07-ac-milan-third-shirt',
-    name: '2006/07 AC Milan Third Shirt',
-    price: 35.99,
-    compareAtPrice: 44.99,
-    description: 'The official Ac Milan third shirt for the 2006/07 season. Striking third kit design with authentic badge and premium fabric. Available in a full range of sizes.',
-    category: 'jersey-ac-milan',
-    images: [
-      '/jerseys/external/2006-07-ac-milan-third-shirt-1.jpg',
-      '/jerseys/external/2006-07-ac-milan-third-shirt-2.jpg',
-    ],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
-    rating: 4.8,
-    reviewCount: 20,
-  },
-  // ── Manchester United ───────────────────────────────────────────
-  {
-    id: 'jg-2015-16-manchester-united-retro-home-shirt-copy',
-    name: '2015/16 Manchester United Retro Home Shirt',
-    price: 35.99,
-    compareAtPrice: 44.99,
-    description: 'The official Manchester United home shirt for the 2015/16 season. Classic home colours with authentic badge and premium fabric. Available in a full range of sizes.',
-    category: 'jersey-manchester-united',
-    images: [
-      '/jerseys/external/2015-16-manchester-united-retro-home-shirt-copy-1.jpg',
-    ],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
-    rating: 4.8,
-    reviewCount: 9,
-  },
-  // ── AC Milan ────────────────────────────────────────────────────
-  {
-    id: 'jg-2008-09-ac-milan-home-shirt',
-    name: '2008/09 AC Milan Home Shirt',
-    price: 35.99,
-    compareAtPrice: 44.99,
-    description: 'The official Ac Milan home shirt for the 2008/09 season. Classic home colours with authentic badge and premium fabric. Available in a full range of sizes.',
-    category: 'jersey-ac-milan',
-    images: [
-      '/jerseys/external/2008-09-ac-milan-home-shirt-1.jpg',
-      '/jerseys/external/2008-09-ac-milan-home-shirt-2.jpg',
-    ],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
-    rating: 4.8,
-    reviewCount: 11,
   },
   // ── Lyon ────────────────────────────────────────────────────────
   {
@@ -5160,23 +4376,6 @@ export const NEW_PRODUCTS: Product[] = [
     rating: 4.8,
     reviewCount: 10,
   },
-  // ── Greece ──────────────────────────────────────────────────────
-  {
-    id: 'jg-2004-greece-away-shirt',
-    name: '2004 Greece Away Shirt',
-    price: 35.99,
-    compareAtPrice: 44.99,
-    description: 'The official Greece away shirt for the 2004 season. Bold away colours with authentic club badge and sponsor detailing. Available in a full range of sizes.',
-    category: 'jersey-greece',
-    images: [
-      '/jerseys/external/2004-greece-away-shirt-1.jpg',
-      '/jerseys/external/2004-greece-away-shirt-2.jpg',
-    ],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
-    rating: 4.8,
-    reviewCount: 7,
-  },
   // ── Lazio ───────────────────────────────────────────────────────
   {
     id: 'jg-1999-00-lazio-third-shirt',
@@ -5192,23 +4391,6 @@ export const NEW_PRODUCTS: Product[] = [
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
     reviewCount: 24,
-  },
-  // ── Santos ──────────────────────────────────────────────────────
-  {
-    id: 'jg-santos-2012-13-away-shirt',
-    name: 'Santos 2012/13 Away Shirt',
-    price: 33.99,
-    compareAtPrice: 41.99,
-    description: 'The official Santos away shirt for the 2012/13 season. Bold away colours with authentic club badge and sponsor detailing. Available in a full range of sizes.',
-    category: 'jersey-santos',
-    images: [
-      '/jerseys/external/santos-2012-13-away-shirt-1.jpg',
-      '/jerseys/external/santos-2012-13-away-shirt-2.jpg',
-    ],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
-    rating: 4.8,
-    reviewCount: 7,
   },
   // ── AC Milan ────────────────────────────────────────────────────
   {
@@ -5981,22 +5163,6 @@ export const NEW_PRODUCTS: Product[] = [
     rating: 4.8,
     reviewCount: 22,
   },
-  // ── Personal Printing ───────────────────────────────────────────
-  {
-    id: 'jg-personal-printing-name-number',
-    name: 'Personal Printing (Name + Number)',
-    price: 6.99,
-    compareAtPrice: 7.99,
-    description: 'The official Personal Printing shirt. Classic home colours with authentic badge and premium fabric. Available in a full range of sizes.',
-    category: 'jersey-personal-printing',
-    images: [
-      '/jerseys/external/personal-printing-name-number-1.jpg',
-    ],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
-    rating: 4.8,
-    reviewCount: 14,
-  },
   // ── Liverpool ───────────────────────────────────────────────────
   {
     id: 'jg-liverpool-away-shirt-2024-25',
@@ -6013,39 +5179,6 @@ export const NEW_PRODUCTS: Product[] = [
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
     reviewCount: 24,
-  },
-  // ── Barcelona ───────────────────────────────────────────────────
-  {
-    id: 'jg-womens-barcelona-away-shirt-2024-25-copy',
-    name: 'Womens Barcelona Away Shirt 2023/24',
-    price: 32.99,
-    compareAtPrice: 40.99,
-    description: 'The official Barcelona away shirt for the 2023/24 season. Bold away colours with authentic club badge and sponsor detailing. Available in a full range of sizes.',
-    category: 'jersey-barcelona',
-    images: [
-      '/jerseys/external/womens-barcelona-away-shirt-2024-25-copy-1.jpg',
-      '/jerseys/external/womens-barcelona-away-shirt-2024-25-copy-2.jpg',
-    ],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
-    rating: 4.8,
-    reviewCount: 25,
-  },
-  {
-    id: 'jg-1995-atletico-bilbao-home-shirt-copy-1',
-    name: 'Womens Barcelona Home Shirt 2024/25',
-    price: 32.99,
-    compareAtPrice: 40.99,
-    description: 'The official Barcelona home shirt for the 2024/25 season. Classic home colours with authentic badge and premium fabric. Available in a full range of sizes.',
-    category: 'jersey-barcelona',
-    images: [
-      '/jerseys/external/1995-atletico-bilbao-home-shirt-copy-1-1.jpg',
-      '/jerseys/external/1995-atletico-bilbao-home-shirt-copy-1-2.jpg',
-    ],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
-    rating: 4.8,
-    reviewCount: 21,
   },
   // ── RB Leipzig ──────────────────────────────────────────────────
   {
@@ -6196,23 +5329,6 @@ export const NEW_PRODUCTS: Product[] = [
     rating: 4.8,
     reviewCount: 22,
   },
-  // ── Lazio ───────────────────────────────────────────────────────
-  {
-    id: 'jg-1999-00-lazio-home-shirt',
-    name: '1999/00 Lazio Away Shirt',
-    price: 35.99,
-    compareAtPrice: 44.99,
-    description: 'The official Lazio away shirt for the 1999/00 season. Bold away colours with authentic club badge and sponsor detailing. Available in a full range of sizes.',
-    category: 'jersey-lazio',
-    images: [
-      '/jerseys/external/1999-00-lazio-home-shirt-1.jpg',
-      '/jerseys/external/1999-00-lazio-home-shirt-2.jpg',
-    ],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
-    rating: 4.8,
-    reviewCount: 9,
-  },
   // ── Barcelona ───────────────────────────────────────────────────
   {
     id: 'jg-barcelona-home-shirt-2024-25',
@@ -6279,39 +5395,6 @@ export const NEW_PRODUCTS: Product[] = [
     rating: 4.8,
     reviewCount: 11,
   },
-  // ── Brazil ──────────────────────────────────────────────────────
-  {
-    id: 'jg-1998-brazil-away-shirt',
-    name: '1998 Brazil Away Shirt',
-    price: 35.99,
-    compareAtPrice: 44.99,
-    description: 'The official Brazil away shirt. Bold away colours with authentic club badge and sponsor detailing. Available in a full range of sizes.',
-    category: 'jersey-brazil',
-    images: [
-      '/jerseys/external/1998-brazil-away-shirt-1.jpg',
-      '/jerseys/external/1998-brazil-away-shirt-2.jpg',
-    ],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
-    rating: 4.8,
-    reviewCount: 15,
-  },
-  {
-    id: 'jg-1998-brazil-home-shirt',
-    name: '1998 Brazil Home Shirt',
-    price: 35.99,
-    compareAtPrice: 44.99,
-    description: 'The official Brazil home shirt. Classic home colours with authentic badge and premium fabric. Available in a full range of sizes.',
-    category: 'jersey-brazil',
-    images: [
-      '/jerseys/external/1998-brazil-home-shirt-1.jpg',
-      '/jerseys/external/1998-brazil-home-shirt-2.jpg',
-    ],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
-    rating: 4.8,
-    reviewCount: 11,
-  },
   // ── Arsenal ─────────────────────────────────────────────────────
   {
     id: 'jg-arsenal-home-shirt-2024-25',
@@ -6328,56 +5411,6 @@ export const NEW_PRODUCTS: Product[] = [
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
     reviewCount: 25,
-  },
-  // ── Real Madrid ─────────────────────────────────────────────────
-  {
-    id: 'jg-2011-12-real-madrid-retro-away-shirt',
-    name: '2011/12 Real Madrid Retro Away Shirt',
-    price: 32.99,
-    compareAtPrice: 40.99,
-    description: 'The official Real Madrid away shirt for the 2011/12 season. Bold away colours with authentic club badge and sponsor detailing. Available in a full range of sizes.',
-    category: 'jersey-real-madrid',
-    images: [
-      '/jerseys/external/2011-12-real-madrid-retro-away-shirt-1.jpg',
-      '/jerseys/external/2011-12-real-madrid-retro-away-shirt-2.jpg',
-    ],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
-    rating: 4.8,
-    reviewCount: 13,
-  },
-  {
-    id: 'jg-2011-12-real-madrid-retro-home-shirt',
-    name: '2011/12 Real Madrid Retro Home Shirt',
-    price: 35.99,
-    compareAtPrice: 44.99,
-    description: 'The official Real Madrid home shirt for the 2011/12 season. Classic home colours with authentic badge and premium fabric. Available in a full range of sizes.',
-    category: 'jersey-real-madrid',
-    images: [
-      '/jerseys/external/2011-12-real-madrid-retro-home-shirt-1.jpg',
-      '/jerseys/external/2011-12-real-madrid-retro-home-shirt-2.jpg',
-    ],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
-    rating: 4.8,
-    reviewCount: 21,
-  },
-  // ── France ──────────────────────────────────────────────────────
-  {
-    id: 'jg-1996-france-euro-away-shirt',
-    name: '1996 France Euro Away Shirt',
-    price: 35.99,
-    compareAtPrice: 44.99,
-    description: 'The official France away shirt. Bold away colours with authentic club badge and sponsor detailing. Available in a full range of sizes.',
-    category: 'jersey-france',
-    images: [
-      '/jerseys/external/1996-france-euro-away-shirt-1.jpg',
-      '/jerseys/external/1996-france-euro-away-shirt-2.jpg',
-    ],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
-    rating: 4.8,
-    reviewCount: 20,
   },
   // ── Atletico Madrid ─────────────────────────────────────────────
   {
@@ -6713,40 +5746,6 @@ export const NEW_PRODUCTS: Product[] = [
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
     reviewCount: 7,
-  },
-  // ── Manchester United ───────────────────────────────────────────
-  {
-    id: 'jg-manchester-united-2023-24-white-tracksuit',
-    name: 'Manchester United 2023/24 White Tracksuit',
-    price: 50.99,
-    compareAtPrice: 62.99,
-    description: 'The official Manchester United shirt for the 2023/24 season. Classic home colours with authentic badge and premium fabric. Available in a full range of sizes.',
-    category: 'jersey-manchester-united',
-    images: [
-      '/jerseys/external/manchester-united-2023-24-white-tracksuit-1.jpg',
-      '/jerseys/external/manchester-united-2023-24-white-tracksuit-2.jpg',
-    ],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
-    rating: 4.8,
-    reviewCount: 9,
-  },
-  // ── Athletic Bilbao ─────────────────────────────────────────────
-  {
-    id: 'jg-athletic-bilbao-home-shirt-2024-25-copy',
-    name: '1995 Atletico Bilbao Home Shirt',
-    price: 35.99,
-    compareAtPrice: 44.99,
-    description: 'The official Athletic Bilbao home shirt. Classic home colours with authentic badge and premium fabric. Available in a full range of sizes.',
-    category: 'jersey-athletic-bilbao',
-    images: [
-      '/jerseys/external/athletic-bilbao-home-shirt-2024-25-copy-1.jpg',
-      '/jerseys/external/athletic-bilbao-home-shirt-2024-25-copy-2.jpg',
-    ],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
-    rating: 4.8,
-    reviewCount: 22,
   },
   // ── Villarreal ──────────────────────────────────────────────────
   {
@@ -7782,23 +6781,6 @@ export const NEW_PRODUCTS: Product[] = [
     rating: 4.8,
     reviewCount: 6,
   },
-  // ── Uruguay ─────────────────────────────────────────────────────
-  {
-    id: 'jg-2024-uruguay-away-jersey',
-    name: 'Uruguay Away Shirt 2024',
-    price: 32.99,
-    compareAtPrice: 40.99,
-    description: 'The official Uruguay away shirt for the 2024 season. Bold away colours with authentic club badge and sponsor detailing. Available in a full range of sizes.',
-    category: 'jersey-uruguay',
-    images: [
-      '/jerseys/external/2024-uruguay-away-jersey-1.jpg',
-      '/jerseys/external/2024-uruguay-away-jersey-2.jpg',
-    ],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
-    rating: 4.8,
-    reviewCount: 8,
-  },
   {
     id: 'jg-2024-uruguay-home-jersey',
     name: 'Uruguay Home Shirt 2024',
@@ -8254,56 +7236,6 @@ export const NEW_PRODUCTS: Product[] = [
     rating: 4.8,
     reviewCount: 21,
   },
-  // ── Juventus ────────────────────────────────────────────────────
-  {
-    id: 'jg-black-juventus-tracksuit-copy',
-    name: 'White Juventus Tracksuit',
-    price: 50.99,
-    compareAtPrice: 62.99,
-    description: 'The official Juventus shirt. Classic home colours with authentic badge and premium fabric. Available in a full range of sizes.',
-    category: 'jersey-juventus',
-    images: [
-      '/jerseys/external/black-juventus-tracksuit-copy-1.jpg',
-      '/jerseys/external/black-juventus-tracksuit-copy-2.jpg',
-    ],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
-    rating: 4.8,
-    reviewCount: 14,
-  },
-  {
-    id: 'jg-black-juventus-tracksuit',
-    name: 'Black Juventus Tracksuit',
-    price: 50.99,
-    compareAtPrice: 62.99,
-    description: 'The official Juventus shirt. Classic home colours with authentic badge and premium fabric. Available in a full range of sizes.',
-    category: 'jersey-juventus',
-    images: [
-      '/jerseys/external/black-juventus-tracksuit-1.jpg',
-      '/jerseys/external/black-juventus-tracksuit-2.jpg',
-    ],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
-    rating: 4.8,
-    reviewCount: 18,
-  },
-  // ── Napoli ──────────────────────────────────────────────────────
-  {
-    id: 'jg-white-napoli-tracksuit',
-    name: 'White Napoli Tracksuit',
-    price: 50.99,
-    compareAtPrice: 62.99,
-    description: 'The official Napoli shirt. Classic home colours with authentic badge and premium fabric. Available in a full range of sizes.',
-    category: 'jersey-napoli',
-    images: [
-      '/jerseys/external/white-napoli-tracksuit-1.jpg',
-      '/jerseys/external/white-napoli-tracksuit-2.jpg',
-    ],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
-    rating: 4.8,
-    reviewCount: 15,
-  },
   // ── Norway ──────────────────────────────────────────────────────
   {
     id: 'jg-norway-away-shirt-2024',
@@ -8490,22 +7422,6 @@ export const NEW_PRODUCTS: Product[] = [
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
     reviewCount: 14,
-  },
-  {
-    id: 'jg-2002-portugal-home-shirt',
-    name: '2002 Portugal Home Shirt',
-    price: 35.99,
-    compareAtPrice: 44.99,
-    description: 'The official Portugal home shirt for the 2002 season. Classic home colours with authentic badge and premium fabric. Available in a full range of sizes.',
-    category: 'jersey-portugal',
-    images: [
-      '/jerseys/external/2002-portugal-home-shirt-1.jpg',
-      '/jerseys/external/2002-portugal-home-shirt-2.jpg',
-    ],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
-    rating: 4.8,
-    reviewCount: 17,
   },
   // ── Italy ───────────────────────────────────────────────────────
   {
@@ -8813,73 +7729,6 @@ export const NEW_PRODUCTS: Product[] = [
     rating: 4.8,
     reviewCount: 7,
   },
-  // ── Liverpool ───────────────────────────────────────────────────
-  {
-    id: 'jg-white-liverpool-tracksuit',
-    name: 'Black Liverpool Tracksuit',
-    price: 50.99,
-    compareAtPrice: 62.99,
-    description: 'The official Liverpool shirt. Classic home colours with authentic badge and premium fabric. Available in a full range of sizes.',
-    category: 'jersey-liverpool',
-    images: [
-      '/jerseys/external/white-liverpool-tracksuit-1.jpg',
-      '/jerseys/external/white-liverpool-tracksuit-2.jpg',
-    ],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
-    rating: 4.8,
-    reviewCount: 14,
-  },
-  // ── Napoli ──────────────────────────────────────────────────────
-  {
-    id: 'jg-blue-napoli-tracksuit',
-    name: 'Blue Napoli Tracksuit',
-    price: 50.99,
-    compareAtPrice: 62.99,
-    description: 'The official Napoli shirt. Classic home colours with authentic badge and premium fabric. Available in a full range of sizes.',
-    category: 'jersey-napoli',
-    images: [
-      '/jerseys/external/blue-napoli-tracksuit-1.jpg',
-      '/jerseys/external/blue-napoli-tracksuit-2.jpg',
-    ],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
-    rating: 4.8,
-    reviewCount: 21,
-  },
-  // ── Barcelona ───────────────────────────────────────────────────
-  {
-    id: 'jg-blue-barcelona-tracksuit-23-24',
-    name: 'Blue Barcelona Tracksuit 23/24',
-    price: 50.99,
-    compareAtPrice: 62.99,
-    description: 'The official Barcelona shirt. Classic home colours with authentic badge and premium fabric. Available in a full range of sizes.',
-    category: 'jersey-barcelona',
-    images: [
-      '/jerseys/external/blue-barcelona-tracksuit-23-24-1.jpg',
-      '/jerseys/external/blue-barcelona-tracksuit-23-24-2.jpg',
-    ],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
-    rating: 4.8,
-    reviewCount: 25,
-  },
-  {
-    id: 'jg-white-barcelona-tracksuit-23-24',
-    name: 'White Barcelona Tracksuit 23/24',
-    price: 50.99,
-    compareAtPrice: 62.99,
-    description: 'The official Barcelona shirt. Classic home colours with authentic badge and premium fabric. Available in a full range of sizes.',
-    category: 'jersey-barcelona',
-    images: [
-      '/jerseys/external/white-barcelona-tracksuit-23-24-1.jpg',
-      '/jerseys/external/white-barcelona-tracksuit-23-24-2.jpg',
-    ],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
-    rating: 4.8,
-    reviewCount: 24,
-  },
   // ── Ajax ────────────────────────────────────────────────────────
   {
     id: 'jg-1995-1996-ajax-home-retro-shirt',
@@ -9013,23 +7862,6 @@ export const NEW_PRODUCTS: Product[] = [
     rating: 4.8,
     reviewCount: 5,
   },
-  // ── Argentina ───────────────────────────────────────────────────
-  {
-    id: 'jg-1986-argentina-home-shirt',
-    name: '1986 Argentina Home Shirt',
-    price: 35.99,
-    compareAtPrice: 44.99,
-    description: 'The official Argentina home shirt. Classic home colours with authentic badge and premium fabric. Available in a full range of sizes.',
-    category: 'jersey-argentina',
-    images: [
-      '/jerseys/external/1986-argentina-home-shirt-1.jpg',
-      '/jerseys/external/1986-argentina-home-shirt-2.jpg',
-    ],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
-    rating: 4.8,
-    reviewCount: 6,
-  },
   // ── Inter Milan ─────────────────────────────────────────────────
   {
     id: 'jg-1998-99-inter-milan-home-retro-shirt',
@@ -9078,23 +7910,6 @@ export const NEW_PRODUCTS: Product[] = [
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
     reviewCount: 24,
-  },
-  // ── Chelsea ─────────────────────────────────────────────────────
-  {
-    id: 'jg-chelsea-2003-2005-home-retro-shirt',
-    name: 'Chelsea 2003-2005 Home Retro Shirt',
-    price: 32.99,
-    compareAtPrice: 40.99,
-    description: 'The official Chelsea home shirt for the 2003 season. Classic home colours with authentic badge and premium fabric. Available in a full range of sizes.',
-    category: 'jersey-chelsea',
-    images: [
-      '/jerseys/external/chelsea-2003-2005-home-retro-shirt-1.jpg',
-      '/jerseys/external/chelsea-2003-2005-home-retro-shirt-2.jpg',
-    ],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
-    rating: 4.8,
-    reviewCount: 7,
   },
   // ── Brazil ──────────────────────────────────────────────────────
   {
@@ -9363,23 +8178,6 @@ export const NEW_PRODUCTS: Product[] = [
     rating: 4.8,
     reviewCount: 10,
   },
-  // ── France ──────────────────────────────────────────────────────
-  {
-    id: 'jg-2006-retro-france-away-shirt',
-    name: '2006 Retro France Away Shirt',
-    price: 35.99,
-    compareAtPrice: 44.99,
-    description: 'The official France away shirt for the 2006 season. Bold away colours with authentic club badge and sponsor detailing. Available in a full range of sizes.',
-    category: 'jersey-france',
-    images: [
-      '/jerseys/external/2006-retro-france-away-shirt-1.jpg',
-      '/jerseys/external/2006-retro-france-away-shirt-2.jpg',
-    ],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
-    rating: 4.8,
-    reviewCount: 21,
-  },
   // ── Argentina ───────────────────────────────────────────────────
   {
     id: 'jg-1978-argentina-home-retro-shirt',
@@ -9496,22 +8294,6 @@ export const NEW_PRODUCTS: Product[] = [
     reviewCount: 9,
   },
   {
-    id: 'jg-2014-15-barcelona-home-shirt',
-    name: '2014/15 Barcelona Retro Home Shirt',
-    price: 35.99,
-    compareAtPrice: 44.99,
-    description: 'The official Barcelona home shirt for the 2014/15 season. Classic home colours with authentic badge and premium fabric. Available in a full range of sizes.',
-    category: 'jersey-barcelona',
-    images: [
-      '/jerseys/external/2014-15-barcelona-home-shirt-1.jpg',
-      '/jerseys/external/2014-15-barcelona-home-shirt-2.jpg',
-    ],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
-    rating: 4.8,
-    reviewCount: 19,
-  },
-  {
     id: 'jg-2010-11-barcelona-away-retro-shirt',
     name: '2010/11 Barcelona Away Shirt',
     price: 35.99,
@@ -9525,39 +8307,6 @@ export const NEW_PRODUCTS: Product[] = [
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
     reviewCount: 21,
-  },
-  // ── RB Leipzig ──────────────────────────────────────────────────
-  {
-    id: 'jg-leipzig-away-shirt-2023-2024',
-    name: 'Leipzig Away Shirt 2023/2024',
-    price: 31.99,
-    compareAtPrice: 38.99,
-    description: 'The official Rb Leipzig away shirt for the 2023/2024 season. Bold away colours with authentic club badge and sponsor detailing. Available in a full range of sizes.',
-    category: 'jersey-rb-leipzig',
-    images: [
-      '/jerseys/external/leipzig-away-shirt-2023-2024-1.jpg',
-      '/jerseys/external/leipzig-away-shirt-2023-2024-2.jpg',
-    ],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
-    rating: 4.8,
-    reviewCount: 22,
-  },
-  {
-    id: 'jg-leipzig-home-shirt-2023-2024',
-    name: 'Leipzig Home Shirt 2023/2024',
-    price: 31.99,
-    compareAtPrice: 38.99,
-    description: 'The official Rb Leipzig home shirt for the 2023/2024 season. Classic home colours with authentic badge and premium fabric. Available in a full range of sizes.',
-    category: 'jersey-rb-leipzig',
-    images: [
-      '/jerseys/external/leipzig-home-shirt-2023-2024-1.jpg',
-      '/jerseys/external/leipzig-home-shirt-2023-2024-2.jpg',
-    ],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
-    rating: 4.8,
-    reviewCount: 24,
   },
   // ── Venezia ─────────────────────────────────────────────────────
   {
@@ -9688,23 +8437,6 @@ export const NEW_PRODUCTS: Product[] = [
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
     reviewCount: 10,
-  },
-  // ── Spain ───────────────────────────────────────────────────────
-  {
-    id: 'jg-2010-retro-spain-world-cup-away-shirt',
-    name: '2010 Retro Spain World Cup Away Shirt',
-    price: 35.99,
-    compareAtPrice: 44.99,
-    description: 'The official Spain away shirt for the 2010 season. Bold away colours with authentic club badge and sponsor detailing. Available in a full range of sizes.',
-    category: 'jersey-spain',
-    images: [
-      '/jerseys/external/2010-retro-spain-world-cup-away-shirt-1.jpg',
-      '/jerseys/external/2010-retro-spain-world-cup-away-shirt-2.jpg',
-    ],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
-    rating: 4.8,
-    reviewCount: 20,
   },
   // ── Wolverhampton ───────────────────────────────────────────────
   {
@@ -10261,22 +8993,6 @@ export const NEW_PRODUCTS: Product[] = [
     rating: 4.8,
     reviewCount: 11,
   },
-  // ── Nigeria ─────────────────────────────────────────────────────
-  {
-    id: 'jg-nigeria-home-shirt-2023',
-    name: 'Nigeria Home Shirt 2023',
-    price: 31.99,
-    compareAtPrice: 38.99,
-    description: 'The official Nigeria home shirt for the 2023 season. Classic home colours with authentic badge and premium fabric. Available in a full range of sizes.',
-    category: 'jersey-nigeria',
-    images: [
-      '/jerseys/external/nigeria-home-shirt-2023-1.jpg',
-    ],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
-    rating: 4.8,
-    reviewCount: 18,
-  },
   // ── North Macedonia ─────────────────────────────────────────────
   {
     id: 'jg-north-macedonia-home-shirt-2023-24',
@@ -10355,22 +9071,6 @@ export const NEW_PRODUCTS: Product[] = [
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
     reviewCount: 17,
-  },
-  // ── Girona ──────────────────────────────────────────────────────
-  {
-    id: 'jg-girona-third-shirt-2023-24',
-    name: 'Girona Third Shirt 2023-24',
-    price: 31.99,
-    compareAtPrice: 38.99,
-    description: 'The official Girona third shirt for the 2023 season. Striking third kit design with authentic badge and premium fabric. Available in a full range of sizes.',
-    category: 'jersey-girona',
-    images: [
-      '/jerseys/external/girona-third-shirt-2023-24-1.jpg',
-    ],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
-    rating: 4.8,
-    reviewCount: 20,
   },
   {
     id: 'jg-girona-home-shirt-2023-24',
@@ -10497,22 +9197,6 @@ export const NEW_PRODUCTS: Product[] = [
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
     reviewCount: 24,
-  },
-  {
-    id: 'jg-aston-villa-home-shirt-2023-24',
-    name: 'Aston Villa Home Shirt 2023-24',
-    price: 31.99,
-    compareAtPrice: 38.99,
-    description: 'The official Aston Villa home shirt for the 2023 season. Classic home colours with authentic badge and premium fabric. Available in a full range of sizes.',
-    category: 'jersey-aston-villa',
-    images: [
-      '/jerseys/external/aston-villa-home-shirt-2023-24-1.jpg',
-      '/jerseys/external/aston-villa-home-shirt-2023-24-2.jpg',
-    ],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
-    rating: 4.8,
-    reviewCount: 12,
   },
   // ── West Ham United ─────────────────────────────────────────────
   {
@@ -10642,55 +9326,6 @@ export const NEW_PRODUCTS: Product[] = [
     rating: 4.8,
     reviewCount: 15,
   },
-  // ── Bayern Munich ───────────────────────────────────────────────
-  {
-    id: 'jg-bayern-munich-home-kit-2023-24',
-    name: 'Bayern Munich Home Shirt 2023-24',
-    price: 31.99,
-    compareAtPrice: 38.99,
-    description: 'The official Bayern Munich home shirt for the 2023 season. Classic home colours with authentic badge and premium fabric. Available in a full range of sizes.',
-    category: 'jersey-bayern-munich',
-    images: [
-      '/jerseys/external/bayern-munich-home-kit-2023-24-1.jpg',
-      '/jerseys/external/bayern-munich-home-kit-2023-24-2.jpg',
-    ],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
-    rating: 4.8,
-    reviewCount: 17,
-  },
-  {
-    id: 'jg-bayern-munich-third-kit-2023-24',
-    name: 'Bayern Munich Third Shirt 2023/24',
-    price: 31.99,
-    compareAtPrice: 38.99,
-    description: 'The official Bayern Munich third shirt for the 2023/24 season. Striking third kit design with authentic badge and premium fabric. Available in a full range of sizes.',
-    category: 'jersey-bayern-munich',
-    images: [
-      '/jerseys/external/bayern-munich-third-kit-2023-24-1.jpg',
-      '/jerseys/external/bayern-munich-third-kit-2023-24-2.jpg',
-    ],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
-    rating: 4.8,
-    reviewCount: 10,
-  },
-  {
-    id: 'jg-bayern-munich-away-kit-2023-24',
-    name: 'Bayern Munich Away Shirt 2023/24',
-    price: 31.99,
-    compareAtPrice: 38.99,
-    description: 'The official Bayern Munich away shirt for the 2023/24 season. Bold away colours with authentic club badge and sponsor detailing. Available in a full range of sizes.',
-    category: 'jersey-bayern-munich',
-    images: [
-      '/jerseys/external/bayern-munich-away-kit-2023-24-1.jpg',
-      '/jerseys/external/bayern-munich-away-kit-2023-24-2.jpg',
-    ],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
-    rating: 4.8,
-    reviewCount: 19,
-  },
   // ── Barcelona ───────────────────────────────────────────────────
   {
     id: 'jg-barcelona-home-kit-2023-24',
@@ -10781,22 +9416,6 @@ export const NEW_PRODUCTS: Product[] = [
     images: [
       '/jerseys/external/real-madrid-home-shirt-2023-24-1.jpg',
       '/jerseys/external/real-madrid-home-shirt-2023-24-2.jpg',
-    ],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
-    rating: 4.8,
-    reviewCount: 23,
-  },
-  // ── Tottenham Hotspur ───────────────────────────────────────────
-  {
-    id: 'jg-tottenham-third-shirt-2023-24',
-    name: 'Tottenham Third Shirt 2023-24',
-    price: 31.99,
-    compareAtPrice: 38.99,
-    description: 'The official Tottenham Hotspur third shirt for the 2023 season. Striking third kit design with authentic badge and premium fabric. Available in a full range of sizes.',
-    category: 'jersey-tottenham-hotspur',
-    images: [
-      '/jerseys/external/tottenham-third-shirt-2023-24-1.jpg',
     ],
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
