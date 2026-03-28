@@ -1532,21 +1532,6 @@ export const NEW_PRODUCTS: Product[] = [
     reviewCount: 15,
   },
   {
-    id: 'jg-barca-x-skeleton',
-    name: 'Barcelona × Travis Scott 2024 Skeleton Special Shirt',
-    price: 37.99,
-    compareAtPrice: 47.99,
-    description: 'The Barcelona × Travis Scott 2024 Skeleton Special Shirt — a bold collaboration featuring skeleton artwork and the Barça crest. A must-have for fans and collectors alike.',
-    category: 'jersey-barcelona',
-    images: [
-      'https://cdn.shopify.com/s/files/1/0869/8052/6405/files/barca-x-travis-scott-2425-skeleton-shirt-548593.jpg',
-    ],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
-    rating: 4.9,
-    reviewCount: 22,
-  },
-  {
     id: 'jg-barca-travis-scott-24-25-special-shirt',
     name: 'Barcelona × Travis Scott 2024 Special Shirt',
     price: 37.99,
