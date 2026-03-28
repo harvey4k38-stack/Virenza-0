@@ -61,27 +61,31 @@ export default function Home({ onProductClick, onNavigate }: HomeProps) {
       </section>
 
       {/* Featured Products */}
-      <section className="py-24 max-w-7xl mx-auto px-6 md:px-12">
-        <div className="flex justify-between items-end mb-16">
-          <div>
-            <h2 className="text-3xl mb-4">Featured Jerseys</h2>
-            <p className="text-brand-gray-dark">Our most sought-after kits.</p>
+      <section className="py-24">
+        <div className="max-w-7xl mx-auto px-6 md:px-12">
+          <div className="flex justify-between items-end mb-16">
+            <div>
+              <h2 className="text-3xl mb-4">Featured Jerseys</h2>
+              <p className="text-brand-gray-dark">Our most sought-after kits.</p>
+            </div>
+            <button
+              onClick={() => onNavigate('jerseys')}
+              className="text-[10px] uppercase tracking-widest font-bold flex items-center gap-2 hover:gap-4 transition-all group shrink-0"
+            >
+              View All <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+            </button>
           </div>
-          <button
-            onClick={() => onNavigate('jerseys')}
-            className="text-[10px] uppercase tracking-widest font-bold flex items-center gap-2 hover:gap-4 transition-all group"
-          >
-            View All <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
-          </button>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* Horizontal scroll row */}
+        <div className="flex gap-6 overflow-x-auto px-6 md:px-12 pb-4 scrollbar-hide snap-x snap-mandatory">
           {FEATURED_PRODUCT_IDS.map(id => PRODUCTS.find(p => p.id === id)).filter(Boolean).map((product) => (
-            <ProductCard
-              key={product.id}
-              product={product}
-              onClick={onProductClick}
-            />
+            <div key={product.id} className="snap-start shrink-0 w-[280px] sm:w-[320px]">
+              <ProductCard
+                product={product}
+                onClick={onProductClick}
+              />
+            </div>
           ))}
         </div>
       </section>
