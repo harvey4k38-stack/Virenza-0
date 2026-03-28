@@ -81,27 +81,6 @@ export const PRODUCTS: Product[] = [
     reviewCount: 10
   },
   {
-    id: 'j-2008-away',
-    name: 'England 2008 Away',
-    price: 27.99,
-    compareAtPrice: 34.99,
-    description: 'The striking red and navy 2008 away kit. Features the classic three lions badge with Nike branding.',
-    category: 'jersey-england',
-    images: [
-      '/jerseys/england-08-2.png',
-      '/jerseys/england-08-1.png',
-      '/jerseys/england-08-3.png',
-      '/jerseys/england-08-4.png',
-      '/jerseys/england-08-5.png',
-    ],
-    nameVariants: JERSEY_NAME_VARIANTS,
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL', 'Kids S', 'Kids M', 'Kids L'],
-    isBestSeller: false,
-    rating: 5.0,
-    reviewCount: 13
-  },
-  {
     id: 'j-retro-saka',
     name: 'England Retro Classic',
     price: 28.99,
