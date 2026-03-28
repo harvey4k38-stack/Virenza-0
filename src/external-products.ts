@@ -71,22 +71,6 @@ export const NEW_PRODUCTS: Product[] = [
     reviewCount: 12,
   },
   // ── Ghana ───────────────────────────────────────────────────────
-  {
-    id: 'jg-ghana-world-cup-home-shirt-2026',
-    name: 'Ghana World Cup Home Shirt 2026',
-    price: 32.99,
-    compareAtPrice: 40.99,
-    description: 'The official Ghana home shirt for the 2026 World Cup. Classic home colours with authentic badge and premium fabric. Available in a full range of sizes.',
-    category: 'jersey-ghana',
-    images: [
-      '/jerseys/external/ghana-world-cup-home-shirt-2026-1.jpg',
-      '/jerseys/external/ghana-world-cup-home-shirt-2026-2.jpg',
-    ],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
-    rating: 4.8,
-    reviewCount: 12,
-  },
   // ── Turkey ──────────────────────────────────────────────────────
   {
     id: 'jg-turkey-world-cup-away-shirt-2026',
@@ -389,22 +373,6 @@ export const NEW_PRODUCTS: Product[] = [
     rating: 4.8,
     reviewCount: 18,
   },
-  {
-    id: 'jg-2011-12-real-madrid-third-shirt',
-    name: '2011/12 Real Madrid Third Shirt',
-    price: 35.99,
-    compareAtPrice: 44.99,
-    description: 'The official Real Madrid third shirt for the 2011/12 season. Striking third kit design with authentic badge and premium fabric. Available in a full range of sizes.',
-    category: 'jersey-real-madrid',
-    images: [
-      '/jerseys/external/2011-12-real-madrid-third-shirt-1.jpg',
-      '/jerseys/external/2011-12-real-madrid-third-shirt-2.jpg',
-    ],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
-    rating: 4.8,
-    reviewCount: 12,
-  },
   // ── Albania ─────────────────────────────────────────────────────
   {
     id: 'jg-albania-home-shirt-2025-26',
@@ -489,39 +457,7 @@ export const NEW_PRODUCTS: Product[] = [
     reviewCount: 15,
   },
   // ── Ukraine ─────────────────────────────────────────────────────
-  {
-    id: 'jg-ukraine-world-cup-home-shirt-2026',
-    name: 'Ukraine World Cup Home Shirt 2026',
-    price: 32.99,
-    compareAtPrice: 40.99,
-    description: 'The official Ukraine home shirt for the 2026 World Cup. Classic home colours with authentic badge and premium fabric. Available in a full range of sizes.',
-    category: 'jersey-ukraine',
-    images: [
-      '/jerseys/external/ukraine-world-cup-home-shirt-2026-1.jpg',
-      '/jerseys/external/ukraine-world-cup-home-shirt-2026-2.jpg',
-    ],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
-    rating: 4.8,
-    reviewCount: 13,
-  },
   // ── Scotland ────────────────────────────────────────────────────
-  {
-    id: 'jg-scotland-world-cup-home-shirt-2026',
-    name: 'Scotland World Cup Home Shirt 2026',
-    price: 32.99,
-    compareAtPrice: 40.99,
-    description: 'The official Scotland home shirt for the 2026 World Cup. Classic home colours with authentic badge and premium fabric. Available in a full range of sizes.',
-    category: 'jersey-scotland',
-    images: [
-      '/jerseys/external/scotland-world-cup-home-shirt-2026-1.jpg',
-      '/jerseys/external/scotland-world-cup-home-shirt-2026-2.jpg',
-    ],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
-    rating: 4.8,
-    reviewCount: 9,
-  },
   // ── Jamaica ─────────────────────────────────────────────────────
   {
     id: 'jg-jamaica-world-cup-home-shirt-2026',
@@ -540,22 +476,6 @@ export const NEW_PRODUCTS: Product[] = [
     reviewCount: 11,
   },
   // ── Brazil ──────────────────────────────────────────────────────
-  {
-    id: 'jg-brazil-world-cup-away-shirt-2026',
-    name: 'Brazil World Cup Away Shirt 2026',
-    price: 32.99,
-    compareAtPrice: 40.99,
-    description: 'The official Brazil away shirt for the 2026 World Cup. Bold away colours with authentic club badge and sponsor detailing. Available in a full range of sizes.',
-    category: 'jersey-brazil',
-    images: [
-      '/jerseys/external/brazil-world-cup-away-shirt-2026-1.jpg',
-      '/jerseys/external/brazil-world-cup-away-shirt-2026-2.jpg',
-    ],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
-    rating: 4.8,
-    reviewCount: 15,
-  },
   // ── Liverpool ───────────────────────────────────────────────────
   {
     id: 'jg-liverpool-white-tank',
@@ -689,22 +609,6 @@ export const NEW_PRODUCTS: Product[] = [
     reviewCount: 17,
   },
   // ── France ──────────────────────────────────────────────────────
-  {
-    id: 'jg-france-home-shirt-2022',
-    name: 'France Home Shirt 2022',
-    price: 32.99,
-    compareAtPrice: 40.99,
-    description: 'The official France home shirt for the 2022 season. Classic home colours with authentic badge and premium fabric. Available in a full range of sizes.',
-    category: 'jersey-france',
-    images: [
-      '/jerseys/external/france-home-shirt-2022-1.jpg',
-      '/jerseys/external/france-home-shirt-2022-2.jpg',
-    ],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
-    rating: 4.8,
-    reviewCount: 7,
-  },
   // ── Chelsea ─────────────────────────────────────────────────────
   {
     id: 'jg-chelsea-black-and-light-blue-tank',
@@ -802,22 +706,6 @@ export const NEW_PRODUCTS: Product[] = [
     reviewCount: 23,
   },
   // ── Real Madrid ─────────────────────────────────────────────────
-  {
-    id: 'jg-real-madrid-pink-dragon-shirt-2023-24',
-    name: 'Real Madrid Pink Dragon Shirt 2023/24',
-    price: 32.99,
-    compareAtPrice: 40.99,
-    description: 'The official Real Madrid shirt for the 2023/24 season. Classic home colours with authentic badge and premium fabric. Available in a full range of sizes.',
-    category: 'jersey-real-madrid',
-    images: [
-      '/jerseys/external/real-madrid-pink-dragon-shirt-2023-24-1.jpg',
-      '/jerseys/external/real-madrid-pink-dragon-shirt-2023-24-2.jpg',
-    ],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
-    rating: 4.8,
-    reviewCount: 11,
-  },
   // ── Juventus ────────────────────────────────────────────────────
   {
     id: 'jg-juventus-fourth-shirt-2025-26',
@@ -1303,22 +1191,6 @@ export const NEW_PRODUCTS: Product[] = [
     reviewCount: 22,
   },
   // ── Mexico ──────────────────────────────────────────────────────
-  {
-    id: 'jg-mexico-world-cup-away-shirt-2026',
-    name: 'Mexico World Cup Away Shirt 2026',
-    price: 32.99,
-    compareAtPrice: 40.99,
-    description: 'The official Mexico away shirt for the 2026 World Cup. Bold away colours with authentic club badge and sponsor detailing. Available in a full range of sizes.',
-    category: 'jersey-mexico',
-    images: [
-      '/jerseys/external/mexico-world-cup-away-shirt-2026-1.jpg',
-      '/jerseys/external/mexico-world-cup-away-shirt-2026-2.jpg',
-    ],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
-    rating: 4.8,
-    reviewCount: 12,
-  },
   // ── Japan ───────────────────────────────────────────────────────
   {
     id: 'jg-japan-world-cup-away-shirt-2026',
@@ -1386,22 +1258,6 @@ export const NEW_PRODUCTS: Product[] = [
     reviewCount: 15,
   },
   // ── Belgium ─────────────────────────────────────────────────────
-  {
-    id: 'jg-belgium-world-cup-away-shirt-2026',
-    name: 'Belgium World Cup Away Shirt 2026',
-    price: 32.99,
-    compareAtPrice: 40.99,
-    description: 'The official Belgium away shirt for the 2026 World Cup. Bold away colours with authentic club badge and sponsor detailing. Available in a full range of sizes.',
-    category: 'jersey-belgium',
-    images: [
-      '/jerseys/external/belgium-world-cup-away-shirt-2026-1.jpg',
-      '/jerseys/external/belgium-world-cup-away-shirt-2026-2.jpg',
-    ],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
-    rating: 4.8,
-    reviewCount: 17,
-  },
   // ── Venezuela ───────────────────────────────────────────────────
   {
     id: 'jg-venezuela-world-cup-home-shirt-2026',
@@ -1420,22 +1276,6 @@ export const NEW_PRODUCTS: Product[] = [
     reviewCount: 13,
   },
   // ── Brazil ──────────────────────────────────────────────────────
-  {
-    id: 'jg-brazil-world-cup-home-shirt-2026',
-    name: 'Brazil World Cup Home Shirt 2026',
-    price: 32.99,
-    compareAtPrice: 40.99,
-    description: 'The official Brazil home shirt for the 2026 World Cup. Classic home colours with authentic badge and premium fabric. Available in a full range of sizes.',
-    category: 'jersey-brazil',
-    images: [
-      '/jerseys/external/brazil-world-cup-home-shirt-2026-1.jpg',
-      '/jerseys/external/brazil-world-cup-home-shirt-2026-2.jpg',
-    ],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
-    rating: 4.8,
-    reviewCount: 7,
-  },
   // ── AC Milan ────────────────────────────────────────────────────
   {
     id: 'jg-2009-10-ac-milan-away-shirt',
@@ -1840,22 +1680,6 @@ export const NEW_PRODUCTS: Product[] = [
     reviewCount: 21,
   },
   // ── Real Madrid ─────────────────────────────────────────────────
-  {
-    id: 'jg-2014-15-real-madrid-third-shirt',
-    name: '2014/15 Real Madrid Third Shirt',
-    price: 37.99,
-    compareAtPrice: 46.99,
-    description: 'The official Real Madrid third shirt for the 2014/15 season. Striking third kit design with authentic badge and premium fabric. Available in a full range of sizes.',
-    category: 'jersey-real-madrid',
-    images: [
-      '/jerseys/external/2014-15-real-madrid-third-shirt-1.jpg',
-      '/jerseys/external/2014-15-real-madrid-third-shirt-2.jpg',
-    ],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
-    rating: 4.8,
-    reviewCount: 20,
-  },
   // ── Arsenal ─────────────────────────────────────────────────────
   {
     id: 'jg-2011-12-arsenal-retro-home-shirt',
@@ -1875,37 +1699,6 @@ export const NEW_PRODUCTS: Product[] = [
   },
   // ── United States ───────────────────────────────────────────────
   {
-    id: 'jg-united-states-world-cup-away-shirt-2026',
-    name: 'United States World Cup Away Shirt 2026',
-    price: 32.99,
-    compareAtPrice: 40.99,
-    description: 'The official United States away shirt for the 2026 World Cup. Bold away colours with authentic club badge and sponsor detailing. Available in a full range of sizes.',
-    category: 'jersey-united-states',
-    images: [
-      '/jerseys/external/united-states-world-cup-away-shirt-2026-1.jpg',
-      '/jerseys/external/united-states-world-cup-away-shirt-2026-2.jpg',
-    ],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
-    rating: 4.8,
-    reviewCount: 6,
-  },
-  {
-    id: 'jg-united-states-world-cup-home-shirt-2026',
-    name: 'United States World Cup Home Shirt 2026',
-    price: 32.99,
-    compareAtPrice: 40.99,
-    description: 'The official United States home shirt for the 2026 World Cup. Classic home colours with authentic badge and premium fabric. Available in a full range of sizes.',
-    category: 'jersey-united-states',
-    images: [
-      '/jerseys/external/united-states-world-cup-home-shirt-2026-2.jpg',
-    ],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
-    rating: 4.8,
-    reviewCount: 8,
-  },
-  {
     id: 'jg-netherlands-world-cup-away-shirt-2026',
     name: 'Netherlands World Cup Away Shirt 2026',
     price: 32.99,
@@ -1922,38 +1715,6 @@ export const NEW_PRODUCTS: Product[] = [
     reviewCount: 25,
   },
   // ── Croatia ─────────────────────────────────────────────────────
-  {
-    id: 'jg-croatia-world-cup-away-shirt-2026',
-    name: 'Croatia World Cup Away Shirt 2026',
-    price: 32.99,
-    compareAtPrice: 40.99,
-    description: 'The official Croatia away shirt for the 2026 World Cup. Bold away colours with authentic club badge and sponsor detailing. Available in a full range of sizes.',
-    category: 'jersey-croatia',
-    images: [
-      '/jerseys/external/croatia-world-cup-away-shirt-2026-1.jpg',
-      '/jerseys/external/croatia-world-cup-away-shirt-2026-2.jpg',
-    ],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
-    rating: 4.8,
-    reviewCount: 10,
-  },
-  {
-    id: 'jg-croatia-world-cup-home-shirt-2026',
-    name: 'Croatia World Cup Home Shirt 2026',
-    price: 32.99,
-    compareAtPrice: 40.99,
-    description: 'The official Croatia home shirt for the 2026 World Cup. Classic home colours with authentic badge and premium fabric. Available in a full range of sizes.',
-    category: 'jersey-croatia',
-    images: [
-      '/jerseys/external/croatia-world-cup-home-shirt-2026-1.jpg',
-      '/jerseys/external/croatia-world-cup-home-shirt-2026-2.jpg',
-    ],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
-    rating: 4.8,
-    reviewCount: 18,
-  },
   // ── Real Madrid ─────────────────────────────────────────────────
   {
     id: 'jg-2017-18-real-madrid-away-shirt',
@@ -2005,39 +1766,7 @@ export const NEW_PRODUCTS: Product[] = [
     reviewCount: 17,
   },
   // ── Algeria ─────────────────────────────────────────────────────
-  {
-    id: 'jg-algeria-world-cup-away-shirt-2026',
-    name: 'Algeria World Cup Home Shirt 2026',
-    price: 32.99,
-    compareAtPrice: 40.99,
-    description: 'The official Algeria home shirt for the 2026 World Cup. Classic home colours with authentic badge and premium fabric. Available in a full range of sizes.',
-    category: 'jersey-algeria',
-    images: [
-      '/jerseys/external/algeria-world-cup-away-shirt-2026-1.jpg',
-      '/jerseys/external/algeria-world-cup-away-shirt-2026-2.jpg',
-    ],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
-    rating: 4.8,
-    reviewCount: 17,
-  },
   // ── Scotland ────────────────────────────────────────────────────
-  {
-    id: 'jg-scotland-world-cup-away-shirt-2026',
-    name: 'Scotland World Cup Away Shirt 2026',
-    price: 32.99,
-    compareAtPrice: 40.99,
-    description: 'The official Scotland away shirt for the 2026 World Cup. Bold away colours with authentic club badge and sponsor detailing. Available in a full range of sizes.',
-    category: 'jersey-scotland',
-    images: [
-      '/jerseys/external/scotland-world-cup-away-shirt-2026-1.jpg',
-      '/jerseys/external/scotland-world-cup-away-shirt-2026-2.jpg',
-    ],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
-    rating: 4.8,
-    reviewCount: 24,
-  },
   // ── Brazil ──────────────────────────────────────────────────────
   {
     id: 'jg-brazil-world-cup-third-shirt-2026',
@@ -2073,39 +1802,7 @@ export const NEW_PRODUCTS: Product[] = [
     reviewCount: 21,
   },
   // ── Qatar ───────────────────────────────────────────────────────
-  {
-    id: 'jg-qatar-world-cup-home-shirt-2026',
-    name: 'Qatar World Cup Home Shirt 2026',
-    price: 32.99,
-    compareAtPrice: 40.99,
-    description: 'The official Qatar home shirt for the 2026 World Cup. Classic home colours with authentic badge and premium fabric. Available in a full range of sizes.',
-    category: 'jersey-qatar',
-    images: [
-      '/jerseys/external/qatar-world-cup-home-shirt-2026-1.jpg',
-      '/jerseys/external/qatar-world-cup-home-shirt-2026-2.jpg',
-    ],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
-    rating: 4.8,
-    reviewCount: 13,
-  },
   // ── Colombia ────────────────────────────────────────────────────
-  {
-    id: 'jg-colombia-world-cup-away-shirt-2026',
-    name: 'Colombia World Cup Away Shirt 2026',
-    price: 32.99,
-    compareAtPrice: 40.99,
-    description: 'The official Colombia away shirt for the 2026 World Cup. Bold away colours with authentic club badge and sponsor detailing. Available in a full range of sizes.',
-    category: 'jersey-colombia',
-    images: [
-      '/jerseys/external/colombia-world-cup-away-shirt-2026-1.jpg',
-      '/jerseys/external/colombia-world-cup-away-shirt-2026-2.jpg',
-    ],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
-    rating: 4.8,
-    reviewCount: 22,
-  },
   // ── Portugal ────────────────────────────────────────────────────
   {
     id: 'jg-portugal-world-cup-away-shirt-2026',
@@ -2124,22 +1821,6 @@ export const NEW_PRODUCTS: Product[] = [
     reviewCount: 5,
   },
   // ── Italy ───────────────────────────────────────────────────────
-  {
-    id: 'jg-italy-world-cup-away-shirt-2026',
-    name: 'Italy World Cup Away Shirt 2026',
-    price: 32.99,
-    compareAtPrice: 40.99,
-    description: 'The official Italy away shirt for the 2026 World Cup. Bold away colours with authentic club badge and sponsor detailing. Available in a full range of sizes.',
-    category: 'jersey-italy',
-    images: [
-      '/jerseys/external/italy-world-cup-away-shirt-2026-1.jpg',
-      '/jerseys/external/italy-world-cup-away-shirt-2026-2.jpg',
-    ],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
-    rating: 4.8,
-    reviewCount: 8,
-  },
   // ── Argentina ───────────────────────────────────────────────────
   {
     id: 'jg-argentina-world-cup-away-shirt-2026',
@@ -2175,22 +1856,6 @@ export const NEW_PRODUCTS: Product[] = [
     reviewCount: 13,
   },
   // ── Saudi Arabia ────────────────────────────────────────────────
-  {
-    id: 'jg-saudi-arabia-world-cup-home-shirt-2026',
-    name: 'Saudi Arabia World Cup Home Shirt 2026',
-    price: 32.99,
-    compareAtPrice: 40.99,
-    description: 'The official Saudi Arabia home shirt for the 2026 World Cup. Classic home colours with authentic badge and premium fabric. Available in a full range of sizes.',
-    category: 'jersey-saudi-arabia',
-    images: [
-      '/jerseys/external/saudi-arabia-world-cup-home-shirt-2026-1.jpg',
-      '/jerseys/external/saudi-arabia-world-cup-home-shirt-2026-2.jpg',
-    ],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
-    rating: 4.8,
-    reviewCount: 25,
-  },
   // ── Canada ──────────────────────────────────────────────────────
   {
     id: 'jg-canada-world-cup-home-shirt-2026',
@@ -2209,90 +1874,10 @@ export const NEW_PRODUCTS: Product[] = [
     reviewCount: 15,
   },
   // ── Colombia ────────────────────────────────────────────────────
-  {
-    id: 'jg-colombia-world-cup-home-shirt-2026',
-    name: 'Colombia World Cup Home Shirt 2026',
-    price: 32.99,
-    compareAtPrice: 40.99,
-    description: 'The official Colombia home shirt for the 2026 World Cup. Classic home colours with authentic badge and premium fabric. Available in a full range of sizes.',
-    category: 'jersey-colombia',
-    images: [
-      '/jerseys/external/colombia-world-cup-home-shirt-2026-1.jpg',
-      '/jerseys/external/colombia-world-cup-home-shirt-2026-2.jpg',
-    ],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
-    rating: 4.8,
-    reviewCount: 8,
-  },
   // ── Mexico ──────────────────────────────────────────────────────
-  {
-    id: 'jg-mexico-world-cup-home-shirt-2026',
-    name: 'Mexico World Cup Home Shirt 2026',
-    price: 32.99,
-    compareAtPrice: 40.99,
-    description: 'The official Mexico home shirt for the 2026 World Cup. Classic home colours with authentic badge and premium fabric. Available in a full range of sizes.',
-    category: 'jersey-mexico',
-    images: [
-      '/jerseys/external/mexico-world-cup-home-shirt-2026-1.jpg',
-      '/jerseys/external/mexico-world-cup-home-shirt-2026-2.jpg',
-    ],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
-    rating: 4.8,
-    reviewCount: 14,
-  },
   // ── Argentina ───────────────────────────────────────────────────
-  {
-    id: 'jg-argentina-world-cup-home-shirt-2026',
-    name: 'Argentina World Cup Home Shirt 2026',
-    price: 32.99,
-    compareAtPrice: 40.99,
-    description: 'The official Argentina home shirt for the 2026 World Cup. Classic home colours with authentic badge and premium fabric. Available in a full range of sizes.',
-    category: 'jersey-argentina',
-    images: [
-      '/jerseys/external/argentina-world-cup-home-shirt-2026-1.jpg',
-      '/jerseys/external/argentina-world-cup-home-shirt-2026-2.jpg',
-    ],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
-    rating: 4.8,
-    reviewCount: 18,
-  },
   // ── Japan ───────────────────────────────────────────────────────
-  {
-    id: 'jg-japan-world-cup-home-shirt-2026',
-    name: 'Japan World Cup Home Shirt 2026',
-    price: 32.99,
-    compareAtPrice: 40.99,
-    description: 'The official Japan home shirt for the 2026 World Cup. Classic home colours with authentic badge and premium fabric. Available in a full range of sizes.',
-    category: 'jersey-japan',
-    images: [
-      '/jerseys/external/japan-world-cup-home-shirt-2026-1.jpg',
-      '/jerseys/external/japan-world-cup-home-shirt-2026-2.jpg',
-    ],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
-    rating: 4.8,
-    reviewCount: 10,
-  },
   // ── Germany ─────────────────────────────────────────────────────
-  {
-    id: 'jg-germany-world-cup-away-shirt-2026',
-    name: 'Germany World Cup Away Shirt 2026',
-    price: 32.99,
-    compareAtPrice: 40.99,
-    description: 'The official Germany away shirt for the 2026 World Cup. Bold away colours with authentic club badge and sponsor detailing. Available in a full range of sizes.',
-    category: 'jersey-germany',
-    images: [
-      '/jerseys/external/germany-world-cup-away-shirt-2026-1.jpg',
-      '/jerseys/external/germany-world-cup-away-shirt-2026-2.jpg',
-    ],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
-    rating: 4.8,
-    reviewCount: 19,
-  },
   // ── England ─────────────────────────────────────────────────────
   {
     id: 'jg-england-world-cup-home-shirt-2026',
@@ -2348,22 +1933,6 @@ export const NEW_PRODUCTS: Product[] = [
     reviewCount: 21,
   },
   // ── Spain ───────────────────────────────────────────────────────
-  {
-    id: 'jg-spain-world-cup-home-shirt-2026',
-    name: 'Spain World Cup Home Shirt 2026',
-    price: 32.99,
-    compareAtPrice: 40.99,
-    description: 'The official Spain home shirt for the 2026 World Cup. Classic home colours with authentic badge and premium fabric. Available in a full range of sizes.',
-    category: 'jersey-spain',
-    images: [
-      '/jerseys/external/spain-world-cup-home-shirt-2026-1.jpg',
-      '/jerseys/external/spain-world-cup-home-shirt-2026-2.jpg',
-    ],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
-    rating: 4.8,
-    reviewCount: 10,
-  },
   // ── France ──────────────────────────────────────────────────────
   {
     id: 'jg-france-world-cup-home-shirt-2026',
@@ -3656,56 +3225,6 @@ export const NEW_PRODUCTS: Product[] = [
     reviewCount: 25,
   },
   // ── Barcelona ───────────────────────────────────────────────────
-  {
-    id: 'jg-barcelona-x-travis-scott-white-shirt-2024-25',
-    name: 'Barcelona x Travis Scott White Shirt 2024/25',
-    price: 50.99,
-    compareAtPrice: 62.99,
-    description: 'The official Barcelona shirt for the 2024/25 season. Classic home colours with authentic badge and premium fabric. Available in a full range of sizes.',
-    category: 'jersey-barcelona',
-    images: [
-      '/jerseys/external/barcelona-x-travis-scott-white-shirt-2024-25-1.jpg',
-      '/jerseys/external/barcelona-x-travis-scott-white-shirt-2024-25-2.jpg',
-    ],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
-    rating: 4.8,
-    reviewCount: 25,
-    isBestSeller: true,
-  },
-  {
-    id: 'jg-barcelona-x-travis-scott-home-shirt-2024-25',
-    name: 'Barcelona x Travis Scott Home Shirt 2024/25',
-    price: 50.99,
-    compareAtPrice: 62.99,
-    description: 'The official Barcelona home shirt for the 2024/25 season. Classic home colours with authentic badge and premium fabric. Available in a full range of sizes.',
-    category: 'jersey-barcelona',
-    images: [
-      '/jerseys/external/barcelona-x-travis-scott-home-shirt-2024-25-1.jpg',
-      '/jerseys/external/barcelona-x-travis-scott-home-shirt-2024-25-2.jpg',
-    ],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
-    rating: 4.8,
-    reviewCount: 8,
-    isBestSeller: true,
-  },
-  {
-    id: 'jg-barcelona-home-shirt-2025-26',
-    name: 'Barcelona Home Shirt 2025/26',
-    price: 32.99,
-    compareAtPrice: 40.99,
-    description: 'The official Barcelona home shirt for the 2025/26 season. Classic home colours with authentic badge and premium fabric. Available in a full range of sizes.',
-    category: 'jersey-barcelona',
-    images: [
-      '/jerseys/external/barcelona-home-shirt-2025-26-1.jpg',
-      '/jerseys/external/barcelona-home-shirt-2025-26-2.jpg',
-    ],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
-    rating: 4.8,
-    reviewCount: 6,
-  },
   // ── Bayern Munich ───────────────────────────────────────────────
   {
     id: 'jg-bayern-munich-home-shirt-2025-26',
@@ -7118,22 +6637,6 @@ export const NEW_PRODUCTS: Product[] = [
     reviewCount: 18,
   },
   // ── Barcelona ───────────────────────────────────────────────────
-  {
-    id: 'jg-barcelona-away-shirt-2024-25',
-    name: 'Barcelona Away Shirt 2024/25',
-    price: 32.99,
-    compareAtPrice: 40.99,
-    description: 'The official Barcelona away shirt for the 2024/25 season. Bold away colours with authentic club badge and sponsor detailing. Available in a full range of sizes.',
-    category: 'jersey-barcelona',
-    images: [
-      '/jerseys/external/barcelona-away-shirt-2024-25-1.jpg',
-      '/jerseys/external/barcelona-away-shirt-2024-25-2.jpg',
-    ],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
-    rating: 4.8,
-    reviewCount: 7,
-  },
   // ── Manchester United ───────────────────────────────────────────
   {
     id: 'jg-manchester-united-away-shirt-2024-25',
@@ -7560,22 +7063,6 @@ export const NEW_PRODUCTS: Product[] = [
     reviewCount: 24,
   },
   // ── Real Madrid ─────────────────────────────────────────────────
-  {
-    id: 'jg-real-madrid-special-edition-dragon-shirt-2023-24',
-    name: 'Real Madrid Special Edition Dragon Shirt 2023/24',
-    price: 35.99,
-    compareAtPrice: 44.99,
-    description: 'The official Real Madrid special edition shirt for the 2023/24 season. Limited edition design celebrating a milestone in the club\'s history. Available in a full range of sizes.',
-    category: 'jersey-real-madrid',
-    images: [
-      '/jerseys/external/real-madrid-special-edition-dragon-shirt-2023-24-1.jpg',
-      '/jerseys/external/real-madrid-special-edition-dragon-shirt-2023-24-2.jpg',
-    ],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
-    rating: 4.8,
-    reviewCount: 25,
-  },
   // ── Barcelona ───────────────────────────────────────────────────
   {
     id: 'jg-barcelona-training-shirt-2023-24',
