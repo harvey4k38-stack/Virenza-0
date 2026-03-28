@@ -41,7 +41,7 @@ export default function App() {
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     if (params.get('virenza_order') === 'complete') {
-      const saved = sessionStorage.getItem('virenza_pending_order');
+      const saved = localStorage.getItem('virenza_pending_order');
       if (saved) {
         const order = JSON.parse(saved);
         fetch('/api/send-order-email', {
@@ -49,8 +49,9 @@ export default function App() {
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(order),
         }).catch(() => {});
-        sessionStorage.removeItem('virenza_pending_order');
+        localStorage.removeItem('virenza_pending_order');
       }
+      localStorage.removeItem('virenza_cart');
       window.history.replaceState({}, '', window.location.pathname);
       setPaypalSuccess(true);
     }

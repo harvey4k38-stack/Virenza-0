@@ -46,7 +46,7 @@ function CheckoutForm({ onBack, onSuccess, finalTotal, discountApplied, cartTota
     setErrorMessage('');
 
     // Save order for PayPal redirect case (user leaves page and returns)
-    sessionStorage.setItem('virenza_pending_order', JSON.stringify({
+    localStorage.setItem('virenza_pending_order', JSON.stringify({
       firstName: form.firstName, lastName: form.lastName,
       email: form.email, address: form.address,
       city: form.city, postcode: form.postcode,
@@ -76,7 +76,7 @@ function CheckoutForm({ onBack, onSuccess, finalTotal, discountApplied, cartTota
 
     if (error) {
       setErrorMessage(error.message ?? 'Payment failed. Please try again.');
-      sessionStorage.removeItem('virenza_pending_order');
+      localStorage.removeItem('virenza_pending_order');
       setIsProcessing(false);
     } else if (paymentIntent?.status === 'succeeded') {
       // Card / in-place payment succeeded
@@ -98,7 +98,7 @@ function CheckoutForm({ onBack, onSuccess, finalTotal, discountApplied, cartTota
       });
       const emailData = await emailRes.json();
       if (emailData.orderNumber) setOrderNumber(emailData.orderNumber);
-      sessionStorage.removeItem('virenza_pending_order');
+      localStorage.removeItem('virenza_pending_order');
       clearCart();
       setIsSuccess(true);
       setIsProcessing(false);
@@ -489,7 +489,7 @@ function CheckoutFormWithDiscount({
     setIsProcessing(true);
     setErrorMessage('');
 
-    sessionStorage.setItem('virenza_pending_order', JSON.stringify({
+    localStorage.setItem('virenza_pending_order', JSON.stringify({
       firstName: form.firstName, lastName: form.lastName,
       email: form.email, address: form.address,
       city: form.city, postcode: form.postcode,
@@ -514,7 +514,7 @@ function CheckoutFormWithDiscount({
 
     if (error) {
       setErrorMessage(error.message ?? 'Payment failed. Please try again.');
-      sessionStorage.removeItem('virenza_pending_order');
+      localStorage.removeItem('virenza_pending_order');
       setIsProcessing(false);
     } else if (paymentIntent?.status === 'succeeded') {
       if (discountApplied && form.email) {
@@ -535,7 +535,7 @@ function CheckoutFormWithDiscount({
       });
       const emailData = await emailRes.json();
       if (emailData.orderNumber) setOrderNumber(emailData.orderNumber);
-      sessionStorage.removeItem('virenza_pending_order');
+      localStorage.removeItem('virenza_pending_order');
       clearCart();
       setIsSuccess(true);
       setIsProcessing(false);
