@@ -1,16 +1,19 @@
 import { useState, useMemo, type FormEvent } from 'react';
 import { PRODUCTS, CATEGORIES, JERSEY_CATEGORIES, REVIEWS, INTERNATIONAL_CATEGORY_IDS, FEATURED_PRODUCT_IDS } from '../constants';
 
-const imgQuality = (img: string) => {
-  if (!img) return 0;
-  if (img.includes('cdn.shopify')) return 2; // footlv CDN = high quality
-  if (!img.includes('/external/')) return 3;  // hand-curated = highest
-  return 1;                                    // local scraped = lower
+const WC_DEPRIORITISED = new Set(['jg-south-africa-2026-world-cup-home-shirt', 'jg-wales-2026-world-cup-home-shirt', 'jg-wales-2026-world-cup-away-shirt']);
+
+const imgQuality = (p: { id: string; images: string[] }) => {
+  if (WC_DEPRIORITISED.has(p.id)) return -1;
+  const img = p.images[0] || '';
+  if (!img.includes('/external/')) return 3;
+  if (img.includes('cdn.shopify')) return 2;
+  return 1;
 };
 
 const WC_2026_PRODUCTS = PRODUCTS
   .filter(p => INTERNATIONAL_CATEGORY_IDS.has(p.category) && p.name.includes('2026'))
-  .sort((a, b) => imgQuality(b.images[0]) - imgQuality(a.images[0]))
+  .sort((a, b) => imgQuality(b) - imgQuality(a))
   .slice(0, 25);
 import ProductCard from '../components/ProductCard';
 import GlowButton from '../components/GlowButton';
