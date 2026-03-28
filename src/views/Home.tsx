@@ -6,8 +6,8 @@ const WC_DEPRIORITISED = new Set(['jg-south-africa-2026-world-cup-home-shirt', '
 const imgQuality = (p: { id: string; images: string[] }) => {
   if (WC_DEPRIORITISED.has(p.id)) return -1;
   const img = p.images[0] || '';
-  if (!img.includes('/external/')) return 3;
-  if (img.includes('cdn.shopify')) return 2;
+  if (img.includes('cdn.shopify')) return 3;
+  if (!img.includes('/external/')) return 2;
   return 1;
 };
 
