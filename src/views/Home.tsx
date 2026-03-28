@@ -1,5 +1,7 @@
 import { useState, useMemo, type FormEvent } from 'react';
 import { PRODUCTS, CATEGORIES, JERSEY_CATEGORIES, REVIEWS, INTERNATIONAL_CATEGORY_IDS, FEATURED_PRODUCT_IDS } from '../constants';
+
+const WC_2026_PRODUCTS = PRODUCTS.filter(p => INTERNATIONAL_CATEGORY_IDS.has(p.category) && p.name.includes('2026')).slice(0, 25);
 import ProductCard from '../components/ProductCard';
 import GlowButton from '../components/GlowButton';
 import ReviewCard from '../components/ReviewCard';
@@ -191,8 +193,44 @@ export default function Home({ onProductClick, onNavigate }: HomeProps) {
         </div>
       </section>
 
-      {/* Reviews Section */}
+      {/* World Cup 2026 Section */}
       <section className="py-24 bg-brand-gray-light/10">
+        <div className="max-w-7xl mx-auto px-6 md:px-12 mb-10">
+          <div className="flex justify-between items-end">
+            <div>
+              <p className="text-[10px] uppercase tracking-[0.4em] font-bold mb-3 text-brand-gray-dark">FIFA World Cup</p>
+              <h2 className="text-3xl">2026 World Cup Kits</h2>
+            </div>
+            <button
+              onClick={() => onNavigate('world-cup-2026')}
+              className="text-[10px] uppercase tracking-widest font-bold flex items-center gap-2 hover:gap-4 transition-all group shrink-0"
+            >
+              View All <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+            </button>
+          </div>
+        </div>
+        <div className="flex gap-6 overflow-x-auto px-6 md:px-12 pb-4 scrollbar-hide snap-x snap-mandatory">
+          {WC_2026_PRODUCTS.map((product) => (
+            <div key={product.id} className="snap-start shrink-0 w-[260px] sm:w-[300px]">
+              <ProductCard product={product} onClick={onProductClick} />
+            </div>
+          ))}
+          <div className="snap-start shrink-0 w-[200px] flex items-center justify-center">
+            <button
+              onClick={() => onNavigate('world-cup-2026')}
+              className="flex flex-col items-center gap-3 group"
+            >
+              <div className="w-16 h-16 rounded-full border-2 border-brand-black flex items-center justify-center group-hover:bg-brand-black transition-colors">
+                <ArrowRight size={20} className="group-hover:text-white transition-colors" />
+              </div>
+              <span className="text-[10px] uppercase tracking-widest font-bold text-center">View All<br />Kits</span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* Reviews Section */}
+      <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <h2 className="text-3xl mb-16 text-center">What They Say</h2>
           <div className="grid md:grid-cols-3 gap-8">

@@ -725,5 +725,5 @@ export const FEATURED_PRODUCT_IDS = [
   'j-2008-away',
   'j-retro-saka',
   'jg-barcelona-x-travis-scott-home-shirt-2024-25',
-  'jg-barcelona-x-travis-scott-white-shirt-2024-25',
+  'jg-barca-x-skeleton',
 ];
