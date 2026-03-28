@@ -1,7 +1,17 @@
 import { useState, useMemo, type FormEvent } from 'react';
 import { PRODUCTS, CATEGORIES, JERSEY_CATEGORIES, REVIEWS, INTERNATIONAL_CATEGORY_IDS, FEATURED_PRODUCT_IDS } from '../constants';
 
-const WC_2026_PRODUCTS = PRODUCTS.filter(p => INTERNATIONAL_CATEGORY_IDS.has(p.category) && p.name.includes('2026')).slice(0, 25);
+const imgQuality = (img: string) => {
+  if (!img) return 0;
+  if (img.includes('cdn.shopify')) return 2; // footlv CDN = high quality
+  if (!img.includes('/external/')) return 3;  // hand-curated = highest
+  return 1;                                    // local scraped = lower
+};
+
+const WC_2026_PRODUCTS = PRODUCTS
+  .filter(p => INTERNATIONAL_CATEGORY_IDS.has(p.category) && p.name.includes('2026'))
+  .sort((a, b) => imgQuality(b.images[0]) - imgQuality(a.images[0]))
+  .slice(0, 25);
 import ProductCard from '../components/ProductCard';
 import GlowButton from '../components/GlowButton';
 import ReviewCard from '../components/ReviewCard';

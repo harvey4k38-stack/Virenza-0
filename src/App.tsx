@@ -82,7 +82,12 @@ export default function App() {
     if (view === 'chains') return PRODUCTS.filter(p => p.category === 'chains');
     if (view === 'bracelets') return PRODUCTS.filter(p => p.category === 'bracelets');
     if (view === 'best-sellers') return PRODUCTS.filter(p => p.isBestSeller);
-    if (view === 'world-cup-2026') return PRODUCTS.filter(p => INTERNATIONAL_CATEGORY_IDS.has(p.category) && p.name.includes('2026'));
+    if (view === 'world-cup-2026') {
+      const imgQ = (img: string) => img.includes('cdn.shopify') ? 2 : img.includes('/external/') ? 1 : 3;
+      return PRODUCTS
+        .filter(p => INTERNATIONAL_CATEGORY_IDS.has(p.category) && p.name.includes('2026'))
+        .sort((a, b) => imgQ(b.images[0]) - imgQ(a.images[0]));
+    }
     if (view.startsWith('jersey-')) return PRODUCTS.filter(p => p.category === view);
     if (view.startsWith('league-') && LEAGUE_TO_CLUBS[view]) {
       const clubs = new Set(LEAGUE_TO_CLUBS[view]);
