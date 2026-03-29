@@ -44,7 +44,7 @@ export default function Home({ onProductClick, onNavigate }: HomeProps) {
   return (
     <main className="pt-20">
       {/* Hero Section */}
-      <section className="relative flex items-center overflow-hidden bg-white py-24">
+      <section className="relative flex items-center overflow-hidden bg-white py-16">
         <div className="max-w-7xl mx-auto px-6 md:px-12 w-full text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -67,9 +67,9 @@ export default function Home({ onProductClick, onNavigate }: HomeProps) {
       </section>
 
       {/* Featured Products */}
-      <section className="py-24">
+      <section className="py-12">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
-          <div className="flex justify-between items-end mb-16">
+          <div className="flex justify-between items-end mb-8">
             <div>
               <h2 className="text-3xl mb-4">Featured Jerseys</h2>
               <p className="text-brand-gray-dark">Our most sought-after kits.</p>
@@ -98,8 +98,8 @@ export default function Home({ onProductClick, onNavigate }: HomeProps) {
 
 
       {/* Special Jerseys Section */}
-      <section className="py-24 bg-brand-gray-light/10">
-        <div className="max-w-7xl mx-auto px-6 md:px-12 mb-10">
+      <section className="py-12 bg-brand-gray-light/10">
+        <div className="max-w-7xl mx-auto px-6 md:px-12 mb-6">
           <div className="flex justify-between items-end">
             <div>
               <p className="text-[10px] uppercase tracking-[0.4em] font-bold mb-3 text-brand-gray-dark">Exclusive Editions</p>
@@ -131,8 +131,8 @@ export default function Home({ onProductClick, onNavigate }: HomeProps) {
       </section>
 
       {/* Best Sellers Slider (Static Grid for now) */}
-      <section className="py-24 max-w-7xl mx-auto px-6 md:px-12">
-        <h2 className="text-3xl mb-16 text-center">Best Sellers</h2>
+      <section className="py-12 max-w-7xl mx-auto px-6 md:px-12">
+        <h2 className="text-3xl mb-8 text-center">Best Sellers</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {PRODUCTS.filter(p => p.isBestSeller && p.category.startsWith('jersey-')).map((product) => (
             <ProductCard 
@@ -145,8 +145,8 @@ export default function Home({ onProductClick, onNavigate }: HomeProps) {
       </section>
 
       {/* World Cup 2026 Section */}
-      <section className="py-24 bg-brand-gray-light/10">
-        <div className="max-w-7xl mx-auto px-6 md:px-12 mb-10">
+      <section className="py-12 bg-brand-gray-light/10">
+        <div className="max-w-7xl mx-auto px-6 md:px-12 mb-6">
           <div className="flex justify-between items-end">
             <div>
               <p className="text-[10px] uppercase tracking-[0.4em] font-bold mb-3 text-brand-gray-dark">FIFA World Cup</p>
@@ -181,7 +181,7 @@ export default function Home({ onProductClick, onNavigate }: HomeProps) {
       </section>
 
       {/* Brand Section */}
-      <section className="py-32 bg-white border-y border-brand-gray-light">
+      <section className="py-16 bg-white border-y border-brand-gray-light">
         <div className="max-w-3xl mx-auto px-6 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -198,9 +198,9 @@ export default function Home({ onProductClick, onNavigate }: HomeProps) {
       </section>
 
       {/* Reviews Section */}
-      <section className="py-24 bg-white">
+      <section className="py-12 bg-white">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
-          <h2 className="text-3xl mb-16 text-center">What They Say</h2>
+          <h2 className="text-3xl mb-8 text-center">What They Say</h2>
           <div className="grid md:grid-cols-3 gap-8">
             {REVIEWS.map((review) => (
               <ReviewCard key={review.id} review={review} />
@@ -210,7 +210,7 @@ export default function Home({ onProductClick, onNavigate }: HomeProps) {
       </section>
 
       {/* Newsletter Section */}
-      <section className="py-24 bg-brand-gray-light/30">
+      <section className="py-12 bg-brand-gray-light/30">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <h2 className="text-3xl mb-4">Stay Updated</h2>
           <p className="text-brand-gray-dark mb-10">Get updates on new releases and restocks.</p>
