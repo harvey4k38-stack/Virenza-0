@@ -356,7 +356,7 @@ export const PRODUCTS: Product[] = [
 
 
   // ── JerseyGame External Products (666 items) ─────────────────────────────
-  ...NEW_PRODUCTS.map(p => ({ ...p, nameVariants: BASIC_NAME_VARIANTS })),
+  ...NEW_PRODUCTS.map(p => ({ ...p, nameVariants: p.nameVariants ?? BASIC_NAME_VARIANTS })),
 ];
 
 export const REVIEWS: Review[] = [
