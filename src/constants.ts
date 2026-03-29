@@ -689,7 +689,6 @@ export const LEAGUE_CATEGORIES = [
 
 export const FEATURED_PRODUCT_IDS = [
   'jg-25-26-barcelona-edition-football-shirt',
-  'jg-ac-milan-away-shirt-2025-26',
   'jg-benfica-away-shirt-2025-26',
   'jg-las-palmas-away-shirt-2024-25-copy',
   'jg-barcelona-2025-bright-pink-special-shirt',

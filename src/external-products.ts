@@ -4288,22 +4288,7 @@ export const NEW_PRODUCTS: Product[] = [
     rating: 4.8,
     reviewCount: 14,
   },
-  {
-    id: 'jg-brazil-special-edition-shirt-2024-25',
-    name: 'Brazil Special Edition Shirt 2024/25',
-    price: 35.99,
-    compareAtPrice: 44.99,
-    description: 'The official Brazil special edition shirt for the 2024/25 season. Limited edition design celebrating a milestone in the club\'s history. Available in a full range of sizes.',
-    category: 'jersey-brazil',
-    images: [
-      '/jerseys/external/brazil-special-edition-shirt-2024-25-1.jpg',
-      '/jerseys/external/brazil-special-edition-shirt-2024-25-2.jpg',
-    ],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
-    rating: 4.8,
-    reviewCount: 16,
-  },
+
 
   // ── Newcastle United ───────────────────────────────────────
   {
