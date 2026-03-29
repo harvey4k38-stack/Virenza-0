@@ -72,6 +72,7 @@ export default function App() {
   const handleHomeClick = () => {
     setView('home');
     setSelectedProduct(null);
+    setPaypalSuccess(false);
   };
 
   const handleCategoryClick = (category: string) => {
