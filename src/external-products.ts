@@ -3406,22 +3406,7 @@ export const NEW_PRODUCTS: Product[] = [
     rating: 4.8,
     reviewCount: 6,
   },
-  {
-    id: 'jg-inter-miami-special-edition-shirt-2025-26',
-    name: 'Inter Miami Special Edition Shirt 2025/26',
-    price: 32.99,
-    compareAtPrice: 40.99,
-    description: 'The official Inter Miami special edition shirt for the 2025/26 season. Limited edition design celebrating a milestone in the club\'s history. Available in a full range of sizes.',
-    category: 'jersey-inter-miami',
-    images: [
-      '/jerseys/external/inter-miami-special-edition-shirt-2025-26-1.jpg',
-      '/jerseys/external/inter-miami-special-edition-shirt-2025-26-2.jpg',
-    ],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
-    rating: 4.8,
-    reviewCount: 12,
-  },
+
   {
     id: 'jg-inter-miami-away-shirt-2026-27',
     name: 'Inter Miami Away Shirt 2026/27',
