@@ -94,7 +94,6 @@ export default function JerseysView({ onCategoryClick, onProductClick, onBack, f
       {scrollSection('Featured Jerseys', 'Hand Picked', 'jerseys', featuredProducts)}
       {scrollSection('Special Jerseys', 'Exclusive Editions', 'special-jerseys', specialProducts)}
       {scrollSection('2026 World Cup Kits', 'FIFA World Cup', 'world-cup-2026', wc2026Products)}
-      {scrollSection('Retro Jerseys', 'Classic Kits', 'retro-jerseys', retroProducts)}
 
       {/* League sections */}
       {LEAGUE_CATEGORIES.map((league) => {
@@ -157,6 +156,8 @@ export default function JerseysView({ onCategoryClick, onProductClick, onBack, f
           </div>
         </div>
       </section>
+
+      {scrollSection('Retro Jerseys', 'Classic Kits', 'retro-jerseys', retroProducts)}
     </main>
   );
 }
