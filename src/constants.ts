@@ -688,4 +688,9 @@ export const FEATURED_PRODUCT_IDS = [
   'j-retro-saka',
   'jg-barcelona-x-travis-scott-home-shirt-2024-25',
   'jg-barca-travis-scott-24-25-special-shirt',
+  'jg-barcelona-pink-special-edition-shirt-2025-26',
+  'jg-real-madrid-24-25-y-3-white-special-shirt',
+  'jg-japan-2026-world-cup-home-shirt',
+  'jg-nottingham-forest-away-shirt-2025-26',
+  'jg-scotland-2026-world-cup-away-shirt',
 ];
