@@ -2149,22 +2149,7 @@ export const NEW_PRODUCTS: Product[] = [
     rating: 4.8,
     reviewCount: 6,
   },
-  {
-    id: 'jg-portugal-special-black-panther-shirt-2026',
-    name: 'Portugal Special Black Panther Shirt 2026',
-    price: 32.99,
-    compareAtPrice: 40.99,
-    description: 'The official Portugal special edition shirt for the 2026 season. Limited edition design celebrating a milestone in the club\'s history. Available in a full range of sizes.',
-    category: 'jersey-portugal',
-    images: [
-      '/jerseys/external/portugal-special-black-panther-shirt-2026-1.jpg',
-      '/jerseys/external/portugal-special-black-panther-shirt-2026-2.jpg',
-    ],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
-    rating: 4.8,
-    reviewCount: 17,
-  },
+
   {
     id: 'jg-portugal-home-shirt-2023-24',
     name: 'Portugal Home Shirt 2023-24',
