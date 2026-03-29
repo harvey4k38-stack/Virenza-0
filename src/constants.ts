@@ -704,6 +704,7 @@ export const FEATURED_PRODUCT_IDS = [
   'jg-porto-third-shirt-2025-26',
   'jg-bayer-leverkusen-away-shirt-2023-24',
   'jg-al-hilal-away-shirt-2023-24',
+  'jg-ac-milan-away-shirt-2025-26',
   'j-palace-wc',
 ];
 
