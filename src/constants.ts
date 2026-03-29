@@ -688,14 +688,23 @@ export const LEAGUE_CATEGORIES = [
 ];
 
 export const FEATURED_PRODUCT_IDS = [
-  'j-palace-wc',
-  'j-2008-away',
-  'jg-barcelona-x-travis-scott-home-shirt-2024-25',
-  'jg-barcelona-pink-special-edition-shirt-2025-26',
-  'jg-real-madrid-24-25-y-3-white-special-shirt',
-  'jg-japan-2026-world-cup-home-shirt',
-  'jg-nottingham-forest-away-shirt-2025-26',
-  'jg-scotland-2026-world-cup-away-shirt',
+  'jg-2016-17-barcelona-away',
+  'jg-brazil-special-edition-shirt-2024-25',
+  'jg-mexico-2026-world-cup-home-shirt',
+  'jg-mexico-2026-world-cup-away-shirt',
+  'jg-barcelona-2025-bright-pink-special-shirt',
+  'jg-tottenham-hotspur-home-shirt-2024-25-copy',
+  'jg-nashville-away-shirt-2023-24',
+  'jg-barcelona-2025-black-special-shirt',
+  'jg-juventus-away-shirt-2024-25',
+  'jg-barcelona-home-shirt-2015-16',
+  'jg-barcelona-third-kit-2023-24',
+  'jg-napoli-2025-special-shirt',
+  'jg-italy-away-shirt-2024',
+  'jg-italy-2026-world-cup-away-shirt',
+  'jg-real-betis-home-shirt-2025-26',
+  'jg-mallorca-home-shirt-2024-25',
+  'jg-morocco-2026-world-cup-home-shirt',
 ];
 
 export const WC_2026_FEATURED_IDS = [
