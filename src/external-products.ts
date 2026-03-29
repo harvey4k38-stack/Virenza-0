@@ -1296,21 +1296,6 @@ export const NEW_PRODUCTS: Product[] = [
     reviewCount: 15,
   },
   {
-    id: 'jg-barca-travis-scott-24-25-special-shirt',
-    name: 'Barcelona × Travis Scott 2024 Special Shirt',
-    price: 37.99,
-    compareAtPrice: 47.99,
-    description: 'The Barcelona × Travis Scott 2024 Special Shirt — a landmark collaboration between Barça and the iconic artist. Features unique co-branding and premium detailing.',
-    category: 'jersey-barcelona',
-    images: [
-      'https://cdn.shopify.com/s/files/1/0869/8052/6405/files/barca-travis-scott-2425-special-shirt-965459.jpg',
-    ],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
-    rating: 4.9,
-    reviewCount: 24,
-  },
-  {
     id: 'jg-barca-21-22-third-special-shirt',
     name: 'Barcelona 2021 Third Shirt',
     price: 42.99,
