@@ -1,9 +1,11 @@
 import { useState, useMemo, type FormEvent } from 'react';
-import { PRODUCTS, CATEGORIES, JERSEY_CATEGORIES, REVIEWS, INTERNATIONAL_CATEGORY_IDS, FEATURED_PRODUCT_IDS, WC_2026_FEATURED_IDS } from '../constants';
+import { PRODUCTS, JERSEY_CATEGORIES, REVIEWS, INTERNATIONAL_CATEGORY_IDS, FEATURED_PRODUCT_IDS, WC_2026_FEATURED_IDS } from '../constants';
 
 const WC_2026_PRODUCTS = WC_2026_FEATURED_IDS
   .map(id => PRODUCTS.find(p => p.id === id))
   .filter(Boolean) as import('../types').Product[];
+
+const SPECIAL_PRODUCTS = PRODUCTS.filter(p => p.name.toLowerCase().includes('special') && p.category.startsWith('jersey-'));
 import ProductCard from '../components/ProductCard';
 import GlowButton from '../components/GlowButton';
 import ReviewCard from '../components/ReviewCard';
@@ -95,20 +97,35 @@ export default function Home({ onProductClick, onNavigate }: HomeProps) {
       </section>
 
 
-      {/* Accessories — subtle subcategory strip */}
-      <section className="py-8 border-t border-brand-gray-light">
-        <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
-          <p className="text-[10px] uppercase tracking-[0.3em] font-bold text-brand-gray-dark">Accessories</p>
-          <div className="flex gap-6">
-            {CATEGORIES.map((cat) => (
-              <button
-                key={cat.id}
-                onClick={() => onNavigate(cat.id)}
-                className="text-[10px] uppercase tracking-[0.2em] font-bold flex items-center gap-2 hover:gap-4 transition-all group"
-              >
-                {cat.name} <ArrowRight size={12} className="group-hover:translate-x-1 transition-transform" />
-              </button>
-            ))}
+      {/* Special Jerseys Section */}
+      <section className="py-24 bg-brand-gray-light/10">
+        <div className="max-w-7xl mx-auto px-6 md:px-12 mb-10">
+          <div className="flex justify-between items-end">
+            <div>
+              <p className="text-[10px] uppercase tracking-[0.4em] font-bold mb-3 text-brand-gray-dark">Exclusive Editions</p>
+              <h2 className="text-3xl">Special Jerseys</h2>
+            </div>
+            <button
+              onClick={() => onNavigate('special-jerseys')}
+              className="text-[10px] uppercase tracking-widest font-bold flex items-center gap-2 hover:gap-4 transition-all group shrink-0"
+            >
+              View All <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+            </button>
+          </div>
+        </div>
+        <div className="flex gap-6 overflow-x-auto px-6 md:px-12 pb-4 scrollbar-hide snap-x snap-mandatory">
+          {SPECIAL_PRODUCTS.map((product) => (
+            <div key={product.id} className="snap-start shrink-0 w-[260px] sm:w-[300px]">
+              <ProductCard product={product} onClick={onProductClick} />
+            </div>
+          ))}
+          <div className="snap-start shrink-0 w-[200px] flex items-center justify-center">
+            <button onClick={() => onNavigate('special-jerseys')} className="flex flex-col items-center gap-3 group">
+              <div className="w-16 h-16 rounded-full border-2 border-brand-black flex items-center justify-center group-hover:bg-brand-black transition-colors">
+                <ArrowRight size={20} className="group-hover:text-white transition-colors" />
+              </div>
+              <span className="text-[10px] uppercase tracking-widest font-bold text-center">View All<br />Specials</span>
+            </button>
           </div>
         </div>
       </section>
