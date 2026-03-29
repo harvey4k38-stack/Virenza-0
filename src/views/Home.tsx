@@ -59,7 +59,8 @@ export default function Home({ onProductClick, onNavigate }: HomeProps) {
               Premium football jerseys from every club and country. 600+ kits, delivered worldwide.
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
-              <GlowButton onClick={() => onNavigate('club-jerseys')}>Shop by Club</GlowButton>
+              <GlowButton onClick={() => onNavigate('jerseys')}>Shop Jerseys</GlowButton>
+              <GlowButton variant="outline" onClick={() => onNavigate('club-jerseys')}>Shop by Club</GlowButton>
               <GlowButton variant="outline" onClick={() => onNavigate('country-jerseys')}>Shop by Country</GlowButton>
             </div>
           </motion.div>
