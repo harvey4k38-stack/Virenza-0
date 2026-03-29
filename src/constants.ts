@@ -691,3 +691,23 @@ export const FEATURED_PRODUCT_IDS = [
   'jg-nottingham-forest-away-shirt-2025-26',
   'jg-scotland-2026-world-cup-away-shirt',
 ];
+
+export const WC_2026_FEATURED_IDS = [
+  'jg-uruguay-world-cup-away-shirt-2026',
+  'jg-brazil-2026-special-shirt-1',
+  'jg-argentina-2026-home-wc-shirt',
+  'jg-germany-2026-world-cup-away-shirt',
+  'jg-portugal-2025-eusebio-black-special-shirt',
+  'jg-france-world-cup-home-shirt-2026',
+  'jg-spain-2026-world-cup-home-shirt',
+  'jg-england-2026-world-cup-home-shirt',
+  'jg-italy-2026-world-cup-away-shirt',
+  'jg-mexico-2026-world-cup-home-shirt',
+  'jg-japan-2026-world-cup-home-shirt',
+  'jg-croatia-2026-world-cup-away-shirt',
+  'jg-united-states-2026-world-cup-home-shirt',
+  'jg-colombia-2026-home-shirt',
+  'jg-scotland-2026-world-cup-home-shirt-1',
+  'jg-morocco-2026-world-cup-home-shirt',
+  'jg-senegal-2026-world-cup-away-shirt',
+];
