@@ -113,23 +113,6 @@ export default function Home({ onProductClick, onNavigate }: HomeProps) {
         </div>
       </section>
 
-      {/* Brand Section */}
-      <section className="py-32 bg-white border-y border-brand-gray-light">
-        <div className="max-w-3xl mx-auto px-6 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            <p className="text-[10px] uppercase tracking-[0.4em] font-bold mb-8 text-brand-gray-dark">Our Philosophy</p>
-            <h2 className="text-4xl md:text-5xl mb-10 leading-tight">Simplicity is the <br /> Ultimate Sophistication</h2>
-            <p className="text-lg text-brand-gray-dark leading-relaxed">
-              Virenza is a dedicated football jersey store. Every club. Every country. Every era. Premium quality kits, delivered to your door.
-            </p>
-          </motion.div>
-        </div>
-      </section>
-
       {/* Best Sellers Slider (Static Grid for now) */}
       <section className="py-24 max-w-7xl mx-auto px-6 md:px-12">
         <h2 className="text-3xl mb-16 text-center">Best Sellers</h2>
@@ -177,6 +160,23 @@ export default function Home({ onProductClick, onNavigate }: HomeProps) {
               <span className="text-[10px] uppercase tracking-widest font-bold text-center">View All<br />Kits</span>
             </button>
           </div>
+        </div>
+      </section>
+
+      {/* Brand Section */}
+      <section className="py-32 bg-white border-y border-brand-gray-light">
+        <div className="max-w-3xl mx-auto px-6 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <p className="text-[10px] uppercase tracking-[0.4em] font-bold mb-8 text-brand-gray-dark">Our Philosophy</p>
+            <h2 className="text-4xl md:text-5xl mb-10 leading-tight">Simplicity is the <br /> Ultimate Sophistication</h2>
+            <p className="text-lg text-brand-gray-dark leading-relaxed">
+              Virenza is a dedicated football jersey store. Every club. Every country. Every era. Premium quality kits, delivered to your door.
+            </p>
+          </motion.div>
         </div>
       </section>
 
