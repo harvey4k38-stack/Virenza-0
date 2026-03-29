@@ -69,7 +69,7 @@ export default function JerseysView({ onCategoryClick, onProductClick, onBack, f
                   <h2 className="text-xl">{league.name}</h2>
                 </div>
                 <button
-                  onClick={() => onCategoryClick(league.id)}
+                  onClick={() => onCategoryClick(league.id.replace('league-', 'league-clubs-'))}
                   className="text-[10px] uppercase tracking-widest font-bold flex items-center gap-2 hover:gap-4 transition-all group shrink-0"
                 >
                   View All <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />

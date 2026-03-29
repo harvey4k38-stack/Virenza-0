@@ -27,7 +27,7 @@ export default function LeaguesView({ onLeagueClick, onBack }: LeaguesViewProps)
             key={league.id}
             whileHover={{ y: -3 }}
             transition={{ duration: 0.2 }}
-            onClick={() => onLeagueClick(league.id)}
+            onClick={() => onLeagueClick(league.id.replace('league-', 'league-clubs-'))}
             className="flex flex-col items-center gap-3 cursor-pointer group"
           >
             <div className="w-full aspect-square rounded-xl bg-[#f0f0f0] flex items-center justify-center overflow-hidden p-4 group-hover:shadow-md transition-shadow duration-200">

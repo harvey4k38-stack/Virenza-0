@@ -13,6 +13,7 @@ const Contact = lazy(() => import('./views/Contact'));
 const ShippingTracking = lazy(() => import('./views/ShippingTracking'));
 const LeaguesView = lazy(() => import('./views/LeaguesView'));
 const JerseysView = lazy(() => import('./views/JerseysView'));
+const LeagueClubsView = lazy(() => import('./views/LeagueClubsView'));
 import { Product } from './types';
 import { PRODUCTS, LEAGUE_TO_CLUBS, LEAGUE_CATEGORIES, INTERNATIONAL_CATEGORY_IDS, JERSEY_CATEGORIES } from './constants';
 import { CartProvider } from './context/CartContext';
@@ -184,6 +185,10 @@ export default function App() {
             ) : view === 'country-jerseys' ? (
               <div key="country-jerseys">
                 <JerseysView filter="international" onCategoryClick={handleCategoryClick} onProductClick={handleProductClick} onBack={handleHomeClick} />
+              </div>
+            ) : view.startsWith('league-clubs-') ? (
+              <div key={view}>
+                <LeagueClubsView leagueId={view.replace('league-clubs-', 'league-')} onClubClick={handleCategoryClick} onBack={() => setView('jerseys')} />
               </div>
             ) : view === 'leagues' ? (
               <div key="leagues">
