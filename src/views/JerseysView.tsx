@@ -1,4 +1,4 @@
-import { PRODUCTS, LEAGUE_CATEGORIES, LEAGUE_TO_CLUBS, INTERNATIONAL_CATEGORY_IDS, JERSEY_CATEGORIES } from '../constants';
+import { PRODUCTS, LEAGUE_CATEGORIES, LEAGUE_TO_CLUBS, INTERNATIONAL_CATEGORY_IDS, JERSEY_CATEGORIES, FEATURED_PRODUCT_IDS, WC_2026_FEATURED_IDS } from '../constants';
 import ProductCard from '../components/ProductCard';
 import { ArrowRight, ChevronLeft } from 'lucide-react';
 import { Product } from '../types';
@@ -44,6 +44,42 @@ export default function JerseysView({ onCategoryClick, onProductClick, onBack, f
     );
   }
 
+  const scrollSection = (label: string, sublabel: string, route: string, products: Product[]) => (
+    <section key={route} className="py-8 border-t border-brand-gray-light/50">
+      <div className="max-w-7xl mx-auto px-6 md:px-12 mb-5">
+        <div className="flex justify-between items-center">
+          <div>
+            <p className="text-[10px] uppercase tracking-[0.3em] font-bold mb-1 text-brand-gray-dark">{sublabel}</p>
+            <h2 className="text-xl">{label}</h2>
+          </div>
+          <button onClick={() => onCategoryClick(route)} className="text-[10px] uppercase tracking-widest font-bold flex items-center gap-2 hover:gap-4 transition-all group shrink-0">
+            View All <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+          </button>
+        </div>
+      </div>
+      <div className="flex gap-5 overflow-x-auto px-6 md:px-12 pb-3 scrollbar-hide snap-x snap-mandatory">
+        {products.map((product) => (
+          <div key={product.id} className="snap-start shrink-0 w-[220px] sm:w-[260px]">
+            <ProductCard product={product} onClick={onProductClick} />
+          </div>
+        ))}
+        <div className="snap-start shrink-0 w-[160px] flex items-center justify-center">
+          <button onClick={() => onCategoryClick(route)} className="flex flex-col items-center gap-3 group">
+            <div className="w-14 h-14 rounded-full border-2 border-brand-black flex items-center justify-center group-hover:bg-brand-black transition-colors">
+              <ArrowRight size={18} className="group-hover:text-white transition-colors" />
+            </div>
+            <span className="text-[10px] uppercase tracking-widest font-bold text-center">View All</span>
+          </button>
+        </div>
+      </div>
+    </section>
+  );
+
+  const featuredProducts = FEATURED_PRODUCT_IDS.map(id => PRODUCTS.find(p => p.id === id)).filter(Boolean) as Product[];
+  const wc2026Products = WC_2026_FEATURED_IDS.map(id => PRODUCTS.find(p => p.id === id)).filter(Boolean) as Product[];
+  const specialProducts = PRODUCTS.filter(p => p.name.toLowerCase().includes('special') && p.category.startsWith('jersey-'));
+  const retroProducts = PRODUCTS.filter(p => p.name.toLowerCase().includes('retro') && p.category.startsWith('jersey-'));
+
   // Full jerseys hub page
   return (
     <main className="pt-24 pb-16 min-h-screen">
@@ -54,6 +90,11 @@ export default function JerseysView({ onCategoryClick, onProductClick, onBack, f
         <h1 className="text-5xl md:text-6xl font-bold tracking-tight uppercase mb-3">Shop Jerseys</h1>
         <p className="text-brand-gray-dark text-sm">Every club. Every country. Every era.</p>
       </div>
+
+      {scrollSection('Featured Jerseys', 'Hand Picked', 'jerseys', featuredProducts)}
+      {scrollSection('Special Jerseys', 'Exclusive Editions', 'special-jerseys', specialProducts)}
+      {scrollSection('2026 World Cup Kits', 'FIFA World Cup', 'world-cup-2026', wc2026Products)}
+      {scrollSection('Retro Jerseys', 'Classic Kits', 'retro-jerseys', retroProducts)}
 
       {/* League sections */}
       {LEAGUE_CATEGORIES.map((league) => {

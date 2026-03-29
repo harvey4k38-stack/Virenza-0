@@ -18,7 +18,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 25,
+    reviewCount: 72,
   },
   // ── Inter Milan ────────────────────────────────────────────
   {
@@ -34,7 +34,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 25,
+    reviewCount: 39,
   },
   {
     id: 'jg-1997-1998-inter-milan-home-retro-shirt',
@@ -50,7 +50,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 20,
+    reviewCount: 33,
   },
   {
     id: 'jg-inter-milan-home-shirt-2025-26',
@@ -66,7 +66,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 16,
+    reviewCount: 79,
   },
   {
     id: 'jg-inter-milan-x-acg-fourth-shirt-2025-26',
@@ -82,7 +82,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 5,
+    reviewCount: 49,
   },
   {
     id: 'jg-inter-milan-away-shirt-2025-26',
@@ -98,7 +98,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 18,
+    reviewCount: 47,
   },
   {
     id: 'jg-inter-milan-third-shirt-2025-26',
@@ -114,7 +114,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 5,
+    reviewCount: 46,
   },
   {
     id: 'jg-inter-milan-third-shirt-2024-25',
@@ -130,7 +130,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 6,
+    reviewCount: 40,
   },
   {
     id: 'jg-inter-milan-home-shirt-2024-25',
@@ -146,7 +146,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 10,
+    reviewCount: 79,
   },
   {
     id: 'jg-2009-10-inter-milan-home-kit',
@@ -162,7 +162,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 9,
+    reviewCount: 38,
   },
   {
     id: 'jg-inter-milan-away-shirt-2024-25',
@@ -178,7 +178,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 13,
+    reviewCount: 75,
   },
   {
     id: 'jg-1998-99-inter-milan-home-retro-shirt',
@@ -193,7 +193,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 12,
+    reviewCount: 79,
   },
   {
     id: 'jg-inter-milan-home-shirt-2023-24',
@@ -208,7 +208,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 22,
+    reviewCount: 66,
   },
   // ── South Korea ────────────────────────────────────────────
   {
@@ -225,7 +225,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 12,
+    reviewCount: 37,
   },
   {
     id: 'jg-south-korea-world-cup-away-shirt-2026',
@@ -241,7 +241,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 13,
+    reviewCount: 69,
   },
   // ── Turkey ─────────────────────────────────────────────────
   {
@@ -258,7 +258,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 8,
+    reviewCount: 59,
   },
   {
     id: 'jg-turkey-world-cup-away-shirt-2026',
@@ -274,7 +274,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 9,
+    reviewCount: 34,
   },
   // ── Sporting Cp ────────────────────────────────────────────
   {
@@ -291,7 +291,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 23,
+    reviewCount: 33,
   },
   {
     id: 'jg-sporting-lisbon-home-shirt-2025-26',
@@ -307,7 +307,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 22,
+    reviewCount: 37,
   },
   // ── South Africa ───────────────────────────────────────────
   {
@@ -323,7 +323,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 10,
+    reviewCount: 45,
   },
 
   // ── Nigeria ────────────────────────────────────────────────
@@ -341,7 +341,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 12,
+    reviewCount: 46,
   },
   {
     id: 'jg-nigeria-home-shirt-2026',
@@ -357,7 +357,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 23,
+    reviewCount: 64,
   },
   {
     id: 'jg-nigeria-away-shirt-2026',
@@ -373,7 +373,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 18,
+    reviewCount: 70,
   },
   // ── Venezuela ──────────────────────────────────────────────
   {
@@ -390,7 +390,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 6,
+    reviewCount: 33,
   },
   {
     id: 'jg-venezuela-world-cup-home-shirt-2026',
@@ -406,7 +406,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 13,
+    reviewCount: 67,
   },
   // ── Liverpool ──────────────────────────────────────────────
   {
@@ -423,7 +423,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 19,
+    reviewCount: 44,
   },
   {
     id: 'jg-liverpool-third-shirt-2024-25',
@@ -439,7 +439,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 12,
+    reviewCount: 77,
   },
   {
     id: 'jg-liverpool-third-shirt-2022-23',
@@ -455,7 +455,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 7,
+    reviewCount: 73,
   },
   {
     id: 'jg-liverpool-third-shirt-2025-26',
@@ -471,7 +471,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 9,
+    reviewCount: 76,
   },
   {
     id: 'jg-liverpool-away-shirt-2025-26',
@@ -487,7 +487,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 11,
+    reviewCount: 66,
   },
   {
     id: 'jg-liverpool-home-shirt-2024-25',
@@ -503,7 +503,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 11,
+    reviewCount: 58,
   },
   {
     id: 'jg-liverpool-away-shirt-2024-25',
@@ -519,7 +519,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 24,
+    reviewCount: 46,
   },
   {
     id: 'jg-liverpool-away-shirt-2023-24',
@@ -534,7 +534,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 17,
+    reviewCount: 60,
   },
   {
     id: 'jg-liverpool-away-shirt-2021-22',
@@ -550,7 +550,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 5,
+    reviewCount: 69,
   },
   {
     id: 'jg-liverpool-white-tank',
@@ -566,7 +566,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 8,
+    reviewCount: 49,
   },
   // ── Real Madrid ────────────────────────────────────────────
   {
@@ -594,7 +594,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.9,
-    reviewCount: 20,
+    reviewCount: 83,
   },
   {
     id: 'jg-real-madrid-14-15-retro-third-special-shirt',
@@ -614,7 +614,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 9,
+    reviewCount: 87,
   },
   {
     id: 'jg-real-madrid-24-25-y-3-white-special-shirt',
@@ -639,7 +639,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.9,
-    reviewCount: 21,
+    reviewCount: 32,
   },
   {
     id: 'jg-real-madrid-24-25-dragon-limited-shirt',
@@ -666,7 +666,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.9,
-    reviewCount: 16,
+    reviewCount: 80,
   },
   {
     id: 'jg-real-madrid-23-24-special-black-shirt',
@@ -687,7 +687,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 15,
+    reviewCount: 83,
   },
   {
     id: 'jg-real-madrid-11-12-retro-third-special-shirt',
@@ -708,7 +708,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 11,
+    reviewCount: 42,
   },
   {
     id: 'jg-real-madrid-2025-gold-dragon-special-shirt',
@@ -735,7 +735,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.9,
-    reviewCount: 18,
+    reviewCount: 76,
   },
   {
     id: 'jg-real-madrid-home-shirt-2025-26',
@@ -751,7 +751,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 13,
+    reviewCount: 59,
   },
   {
     id: 'jg-real-madrid-authentic-away-shirt-2024-25',
@@ -767,7 +767,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 16,
+    reviewCount: 53,
   },
   {
     id: 'jg-real-madrid-home-shirt-2024-25',
@@ -783,7 +783,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 14,
+    reviewCount: 49,
   },
   {
     id: 'jg-real-madrid-third-shirt-2025-26',
@@ -799,7 +799,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 23,
+    reviewCount: 41,
   },
   {
     id: 'jg-2014-15-real-madrid-away-pink-retro-shirt',
@@ -815,7 +815,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 8,
+    reviewCount: 45,
   },
   {
     id: 'jg-real-madrid-third-shirt-2024-25',
@@ -831,7 +831,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 21,
+    reviewCount: 80,
   },
   {
     id: 'jg-real-madrid-away-shirt-2025-26',
@@ -847,7 +847,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 12,
+    reviewCount: 53,
   },
   {
     id: 'jg-real-madrid-authentic-player-third-shirt-2023-24',
@@ -863,7 +863,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 24,
+    reviewCount: 38,
   },
   {
     id: 'jg-real-madrid-purple-4th-shirt-2024',
@@ -878,7 +878,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 8,
+    reviewCount: 37,
   },
   {
     id: 'jg-2014-15-real-madrid-home-shirt',
@@ -894,7 +894,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 15,
+    reviewCount: 56,
   },
   {
     id: 'jg-2012-13-real-madrid-third-shirt',
@@ -910,7 +910,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 18,
+    reviewCount: 38,
   },
   {
     id: 'jg-real-madrid-goalkeeper-shirt-2024-25',
@@ -925,7 +925,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 13,
+    reviewCount: 54,
   },
   {
     id: 'jg-real-madrid-orange-y3-special-edition-shirt-2024-25',
@@ -941,7 +941,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 15,
+    reviewCount: 86,
   },
   {
     id: 'jg-2017-18-real-madrid-away-shirt',
@@ -957,7 +957,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 24,
+    reviewCount: 54,
   },
   {
     id: 'jg-2017-18-real-madrid-home-shirt',
@@ -973,7 +973,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 7,
+    reviewCount: 70,
   },
   {
     id: 'jg-real-madrid-black-tank',
@@ -988,7 +988,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 24,
+    reviewCount: 48,
   },
   {
     id: 'jg-2017-18-real-madrid-retro-third-shirt',
@@ -1004,7 +1004,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 12,
+    reviewCount: 83,
   },
   {
     id: 'jg-2016-17-real-madrid-away-retro-shirt',
@@ -1020,7 +1020,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 22,
+    reviewCount: 34,
   },
   // ── Wales ──────────────────────────────────────────────────
   {
@@ -1036,7 +1036,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 10,
+    reviewCount: 78,
   },
   {
     id: 'jg-wales-2026-world-cup-away-shirt',
@@ -1051,7 +1051,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 10,
+    reviewCount: 61,
   },
 
 
@@ -1069,7 +1069,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 10,
+    reviewCount: 66,
   },
 
   // ── Greece ─────────────────────────────────────────────────
@@ -1089,7 +1089,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 10,
+    reviewCount: 39,
   },
   {
     id: 'jg-costa-rica-away-shirt-2026-27',
@@ -1105,7 +1105,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 11,
+    reviewCount: 56,
   },
   // ── Canada ─────────────────────────────────────────────────
   {
@@ -1122,7 +1122,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 15,
+    reviewCount: 37,
   },
   {
     id: 'jg-canada-world-cup-away-shirt-2026',
@@ -1137,7 +1137,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 25,
+    reviewCount: 67,
   },
   // ── Colombia ───────────────────────────────────────────────
   {
@@ -1158,7 +1158,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.9,
-    reviewCount: 16,
+    reviewCount: 50,
   },
   {
     id: 'jg-colombia-2026-away-shirt',
@@ -1178,7 +1178,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 12,
+    reviewCount: 85,
   },
 
 
@@ -1198,7 +1198,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 13,
+    reviewCount: 72,
   },
   {
     id: 'jg-albania-third-shirt-2025-26',
@@ -1214,7 +1214,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 5,
+    reviewCount: 71,
   },
   // ── Barcelona ──────────────────────────────────────────────
   {
@@ -1241,7 +1241,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.9,
-    reviewCount: 15,
+    reviewCount: 87,
   },
   {
     id: 'jg-barca-21-22-third-special-shirt',
@@ -1263,7 +1263,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 10,
+    reviewCount: 55,
   },
   {
     id: 'jg-barca-24-25-away-shirt',
@@ -1286,7 +1286,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.9,
-    reviewCount: 21,
+    reviewCount: 68,
   },
   {
     id: 'jg-barcelona-25-26-home-shirt',
@@ -1314,7 +1314,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.9,
-    reviewCount: 23,
+    reviewCount: 44,
   },
   {
     id: 'jg-barca-travis-scott-cactus-jack-24-25-away-shirt',
@@ -1337,7 +1337,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 5.0,
-    reviewCount: 24,
+    reviewCount: 77,
   },
   {
     id: 'jg-25-26-barcelona-edition-football-shirt',
@@ -1366,7 +1366,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 16,
+    reviewCount: 36,
   },
   {
     id: 'jg-barcelona-pink-special-edition-shirt-2025-26',
@@ -1382,7 +1382,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 18,
+    reviewCount: 34,
   },
   {
     id: 'jg-barcelona-away-shirt-2025-26',
@@ -1398,7 +1398,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 19,
+    reviewCount: 74,
   },
   {
     id: 'jg-barcelona-home-shirt-2024-25',
@@ -1414,7 +1414,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 13,
+    reviewCount: 46,
   },
   {
     id: 'jg-2012-13-barcelona-home-retro-shirt',
@@ -1430,7 +1430,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 9,
+    reviewCount: 81,
   },
   {
     id: 'jg-2010-11-barcelona-home-shirt',
@@ -1446,7 +1446,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 6,
+    reviewCount: 50,
   },
   {
     id: 'jg-barcelona-third-shirt-2014-15',
@@ -1462,7 +1462,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 20,
+    reviewCount: 37,
   },
   {
     id: 'jg-barcelona-training-shirt-2023-24',
@@ -1478,7 +1478,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 15,
+    reviewCount: 86,
   },
   {
     id: 'jg-barcelona-home-shirt-2015-16',
@@ -1494,7 +1494,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 23,
+    reviewCount: 46,
   },
   {
     id: 'jg-2016-17-barcelona-away',
@@ -1510,7 +1510,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 20,
+    reviewCount: 87,
   },
   {
     id: 'jg-barcelona-home-kit-2023-24',
@@ -1526,7 +1526,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 9,
+    reviewCount: 38,
   },
   {
     id: 'jg-barcelona-third-shirt-2025-26',
@@ -1542,7 +1542,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 20,
+    reviewCount: 56,
   },
   {
     id: 'jg-2007-08-barcelona-away-shirt',
@@ -1558,7 +1558,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 12,
+    reviewCount: 49,
   },
   {
     id: 'jg-1998-99-barcelona-100-years-anniversary-home-shirt',
@@ -1573,7 +1573,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 22,
+    reviewCount: 61,
   },
   {
     id: 'jg-1998-99-barcelona-home-shirt',
@@ -1589,7 +1589,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 19,
+    reviewCount: 72,
   },
   {
     id: 'jg-barcelona-away-shirt-2023-24',
@@ -1604,7 +1604,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 24,
+    reviewCount: 85,
   },
   {
     id: 'jg-barcelona-third-kit-2023-24',
@@ -1619,7 +1619,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 22,
+    reviewCount: 55,
   },
   {
     id: 'jg-2010-11-barcelona-away-retro-shirt',
@@ -1634,7 +1634,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 21,
+    reviewCount: 42,
   },
   // ── Jamaica ────────────────────────────────────────────────
   {
@@ -1651,7 +1651,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 11,
+    reviewCount: 55,
   },
   {
     id: 'jg-jamaica-x-bob-marley-world-cup-away-shirt-2026',
@@ -1667,7 +1667,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 15,
+    reviewCount: 54,
   },
   // ── Roma ───────────────────────────────────────────────────
   {
@@ -1684,7 +1684,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 18,
+    reviewCount: 45,
   },
   {
     id: 'jg-as-roma-away-shirt-2025-26',
@@ -1700,7 +1700,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 23,
+    reviewCount: 74,
   },
   {
     id: 'jg-roma-away-shirt-2023-25',
@@ -1716,7 +1716,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 11,
+    reviewCount: 49,
   },
   {
     id: 'jg-roma-home-shirt-2023-24',
@@ -1731,7 +1731,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 13,
+    reviewCount: 76,
   },
   {
     id: 'jg-as-roma-third-shirt-2025-26',
@@ -1747,7 +1747,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 5,
+    reviewCount: 75,
   },
   {
     id: 'jg-as-roma-home-shirt-2024-25',
@@ -1763,7 +1763,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 7,
+    reviewCount: 73,
   },
   {
     id: 'jg-1998-99-retro-roma-home-shirt',
@@ -1779,7 +1779,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 7,
+    reviewCount: 36,
   },
   // ── Manchester City ────────────────────────────────────────
   {
@@ -1802,7 +1802,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 16,
+    reviewCount: 70,
   },
   {
     id: 'jg-man-city-24-25-fourth-special-shirt',
@@ -1824,7 +1824,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 12,
+    reviewCount: 72,
   },
   {
     id: 'jg-manchester-city-tank',
@@ -1839,7 +1839,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 14,
+    reviewCount: 42,
   },
   {
     id: 'jg-manchester-city-home-shirt-2025-26',
@@ -1855,7 +1855,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 19,
+    reviewCount: 66,
   },
   {
     id: 'jg-manchester-city-home-shirt-2024-25',
@@ -1871,7 +1871,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 13,
+    reviewCount: 78,
   },
   {
     id: 'jg-manchester-city-third-shirt-2024-25',
@@ -1887,7 +1887,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 19,
+    reviewCount: 47,
   },
   {
     id: 'jg-manchester-city-home-shirt-2023-24',
@@ -1903,7 +1903,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 6,
+    reviewCount: 42,
   },
   {
     id: 'jg-manchester-city-third-shirt-2023-24',
@@ -1918,7 +1918,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 19,
+    reviewCount: 61,
   },
   {
     id: 'jg-manchester-city-authentic-away-shirt-2024-25',
@@ -1933,7 +1933,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 11,
+    reviewCount: 56,
   },
   {
     id: 'jg-manchester-city-third-shirt-2025-26',
@@ -1949,7 +1949,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 8,
+    reviewCount: 49,
   },
   {
     id: 'jg-manchester-city-away-shirt-2025-26',
@@ -1965,7 +1965,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 25,
+    reviewCount: 72,
   },
   {
     id: 'jg-manchester-city-away-shirt-2023-24',
@@ -1980,7 +1980,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 10,
+    reviewCount: 76,
   },
   // ── Portugal ───────────────────────────────────────────────
   {
@@ -2007,7 +2007,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.9,
-    reviewCount: 17,
+    reviewCount: 67,
   },
   {
     id: 'jg-portugal-2025-eusebio-black-special-shirt',
@@ -2037,7 +2037,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.9,
-    reviewCount: 17,
+    reviewCount: 46,
   },
   {
     id: 'jg-portugal-2026-world-cup-l-s-home-shirt',
@@ -2067,7 +2067,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.9,
-    reviewCount: 15,
+    reviewCount: 75,
   },
   {
     id: 'jg-portugal-world-cup-away-shirt-2026',
@@ -2083,7 +2083,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 5,
+    reviewCount: 52,
   },
   {
     id: 'jg-portugal-world-cup-home-shirt-2026',
@@ -2099,7 +2099,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 13,
+    reviewCount: 85,
   },
   {
     id: 'jg-portugal-away-shirt-2024',
@@ -2115,7 +2115,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 9,
+    reviewCount: 81,
   },
   {
     id: 'jg-portugal-home-shirt-2024',
@@ -2131,7 +2131,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 5,
+    reviewCount: 81,
   },
   {
     id: 'jg-portugal-camouflage-training-shirt-2025-26',
@@ -2147,7 +2147,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 6,
+    reviewCount: 35,
   },
 
   {
@@ -2163,7 +2163,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 23,
+    reviewCount: 46,
   },
   {
     id: 'jg-portugal-away-shirt-2025',
@@ -2179,7 +2179,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 16,
+    reviewCount: 84,
   },
   {
     id: 'jg-portugal-home-shirt-2025',
@@ -2195,7 +2195,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 14,
+    reviewCount: 34,
   },
   {
     id: 'jg-2006-portugal-home-shirt',
@@ -2211,7 +2211,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 14,
+    reviewCount: 83,
   },
   {
     id: 'jg-portugal-home-shirt-2022',
@@ -2226,7 +2226,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 19,
+    reviewCount: 52,
   },
   // ── Chelsea ────────────────────────────────────────────────
   {
@@ -2243,7 +2243,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 7,
+    reviewCount: 57,
   },
   {
     id: 'jg-chelsea-away-shirt-2025-26',
@@ -2259,7 +2259,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 22,
+    reviewCount: 49,
   },
   {
     id: 'jg-chelsea-training-shirt-2025-26',
@@ -2275,7 +2275,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 21,
+    reviewCount: 36,
   },
   {
     id: 'jg-2006-07-chelsea-retro-home-shirt',
@@ -2291,7 +2291,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 13,
+    reviewCount: 45,
   },
   {
     id: 'jg-2007-08-chelsea-retro-ucl-final-shirt',
@@ -2307,7 +2307,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 9,
+    reviewCount: 68,
   },
   {
     id: 'jg-2011-12-chelsea-third-shirt',
@@ -2323,7 +2323,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 17,
+    reviewCount: 77,
   },
   {
     id: 'jg-chelsea-third-shirt-2024-25',
@@ -2339,7 +2339,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 22,
+    reviewCount: 52,
   },
   {
     id: 'jg-chelsea-home-shirt-2024-25',
@@ -2355,7 +2355,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 5,
+    reviewCount: 45,
   },
   {
     id: 'jg-chelsea-away-shirt-2024-25',
@@ -2371,7 +2371,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 8,
+    reviewCount: 73,
   },
   {
     id: 'jg-chelsea-third-shirt-2025-26',
@@ -2386,7 +2386,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 7,
+    reviewCount: 63,
   },
   {
     id: 'jg-chelsea-third-shirt-2023-24',
@@ -2401,7 +2401,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 15,
+    reviewCount: 57,
   },
   {
     id: 'jg-2011-12-chelsea-home-ucl-final-shirt',
@@ -2417,7 +2417,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 14,
+    reviewCount: 73,
   },
   {
     id: 'jg-2014-15-chelsea-third-shirt',
@@ -2432,7 +2432,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 23,
+    reviewCount: 61,
   },
   {
     id: 'jg-chelsea-away-shirt-2023-24',
@@ -2448,7 +2448,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 15,
+    reviewCount: 41,
   },
   {
     id: 'jg-chelsea-black-and-light-blue-tank',
@@ -2463,7 +2463,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 22,
+    reviewCount: 48,
   },
   // ── Juventus ───────────────────────────────────────────────
   {
@@ -2480,7 +2480,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 19,
+    reviewCount: 40,
   },
   {
     id: 'jg-2019-20-juventus-home-shirt',
@@ -2496,7 +2496,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 24,
+    reviewCount: 47,
   },
 
   {
@@ -2513,7 +2513,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 15,
+    reviewCount: 79,
   },
   {
     id: 'jg-juventus-home-shirt-2024-25',
@@ -2529,7 +2529,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 18,
+    reviewCount: 67,
   },
   {
     id: 'jg-juventus-third-shirt-2023-24',
@@ -2544,7 +2544,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 20,
+    reviewCount: 66,
   },
   {
     id: 'jg-juventus-third-shirt-2024-26',
@@ -2559,7 +2559,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 22,
+    reviewCount: 48,
   },
   {
     id: 'jg-juventus-home-shirt-2025-26',
@@ -2575,7 +2575,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 8,
+    reviewCount: 79,
   },
   {
     id: 'jg-2018-19-juventus-home-shirt',
@@ -2591,7 +2591,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 12,
+    reviewCount: 69,
   },
   {
     id: 'jg-juventus-third-shirt-2025-26',
@@ -2607,7 +2607,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 8,
+    reviewCount: 59,
   },
   {
     id: 'jg-2014-15-juventus-home-shirt',
@@ -2622,7 +2622,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 13,
+    reviewCount: 69,
   },
   {
     id: 'jg-2004-05-juventus-retro-home-shirt',
@@ -2637,7 +2637,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 6,
+    reviewCount: 57,
   },
   // ── Germany ────────────────────────────────────────────────
   {
@@ -2660,7 +2660,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 13,
+    reviewCount: 55,
   },
   {
     id: 'jg-germany-2026-world-cup-l-s-home-shirt',
@@ -2688,7 +2688,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 12,
+    reviewCount: 46,
   },
   {
     id: 'jg-germany-away-shirt-2024',
@@ -2704,7 +2704,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 24,
+    reviewCount: 40,
   },
   {
     id: 'jg-germany-home-shirt-2024',
@@ -2720,7 +2720,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 12,
+    reviewCount: 64,
   },
   {
     id: 'jg-germany-retro-special-edition-shirt',
@@ -2736,7 +2736,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 14,
+    reviewCount: 63,
   },
   {
     id: 'jg-germany-white-retro-special-edition-shirt',
@@ -2752,7 +2752,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 16,
+    reviewCount: 37,
   },
   {
     id: 'jg-germany-world-cup-home-shirt-2026',
@@ -2768,7 +2768,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 8,
+    reviewCount: 80,
   },
   {
     id: 'jg-2008-germany-home-shirt',
@@ -2784,7 +2784,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 14,
+    reviewCount: 35,
   },
   {
     id: 'jg-germany-training-black-kit',
@@ -2800,7 +2800,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 18,
+    reviewCount: 87,
   },
   {
     id: 'jg-1988-germany-home-shirt',
@@ -2815,7 +2815,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 12,
+    reviewCount: 39,
   },
   {
     id: 'jg-germany-home-shirt-2023',
@@ -2830,7 +2830,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 6,
+    reviewCount: 41,
   },
   // ── Spain ──────────────────────────────────────────────────
   {
@@ -2859,7 +2859,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.9,
-    reviewCount: 21,
+    reviewCount: 72,
   },
   {
     id: 'jg-spain-2026-world-cup-training-suit-shirt',
@@ -2887,7 +2887,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 11,
+    reviewCount: 42,
   },
   {
     id: 'jg-spain-2026-world-cup-l-s-home-shirt',
@@ -2915,7 +2915,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.9,
-    reviewCount: 14,
+    reviewCount: 82,
   },
   {
     id: 'jg-spain-world-cup-away-shirt-2026',
@@ -2931,7 +2931,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 17,
+    reviewCount: 75,
   },
   {
     id: 'jg-spain-home-shirt-2024',
@@ -2947,7 +2947,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 9,
+    reviewCount: 59,
   },
   {
     id: 'jg-spain-away-shirt-2024',
@@ -2963,7 +2963,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 18,
+    reviewCount: 70,
   },
   {
     id: 'jg-2008-spain-home-shirt',
@@ -2979,7 +2979,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 7,
+    reviewCount: 36,
   },
   {
     id: 'jg-spain-fifa-world-cup-home-shirt-2022',
@@ -2994,7 +2994,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 6,
+    reviewCount: 56,
   },
   // ── Manchester United ──────────────────────────────────────
   {
@@ -3011,7 +3011,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 11,
+    reviewCount: 56,
   },
   {
     id: 'jg-manchester-united-home-shirt-2024-25',
@@ -3027,7 +3027,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 23,
+    reviewCount: 70,
   },
   {
     id: 'jg-manchester-united-away-shirt-2024-25',
@@ -3043,7 +3043,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 15,
+    reviewCount: 61,
   },
   {
     id: 'jg-manchester-united-third-shirt-2024-25',
@@ -3059,7 +3059,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 17,
+    reviewCount: 65,
   },
   {
     id: 'jg-2004-06-manchester-united-home-shirt',
@@ -3075,7 +3075,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 8,
+    reviewCount: 48,
   },
   {
     id: 'jg-2003-05-manchester-united-third-shirt',
@@ -3091,7 +3091,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 13,
+    reviewCount: 67,
   },
   {
     id: 'jg-manchester-united-third-shirt-2025-26',
@@ -3107,7 +3107,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 18,
+    reviewCount: 87,
   },
   {
     id: 'jg-manchester-united-home-shirt-2025-26',
@@ -3123,7 +3123,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 11,
+    reviewCount: 32,
   },
   {
     id: 'jg-2008-man-utd-retro-away-shirt',
@@ -3139,7 +3139,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 10,
+    reviewCount: 75,
   },
   {
     id: 'jg-manchester-united-third-shirt-2023-24',
@@ -3154,7 +3154,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 11,
+    reviewCount: 78,
   },
   {
     id: 'jg-2007-08-man-utd-retro-home-shirt',
@@ -3170,7 +3170,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 12,
+    reviewCount: 39,
   },
   // ── Galatasaray ────────────────────────────────────────────
   {
@@ -3187,7 +3187,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 16,
+    reviewCount: 75,
   },
   {
     id: 'jg-galatasaray-away-shirt-2025-26',
@@ -3202,7 +3202,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 25,
+    reviewCount: 66,
   },
   // ── New York City Fc ───────────────────────────────────────
 
@@ -3221,7 +3221,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 16,
+    reviewCount: 80,
   },
   // ── Lafc ───────────────────────────────────────────────────
 
@@ -3239,7 +3239,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 21,
+    reviewCount: 49,
   },
   {
     id: 'jg-la-galaxy-home-shirt-2023-25',
@@ -3255,7 +3255,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 13,
+    reviewCount: 81,
   },
   // ── Inter Miami ────────────────────────────────────────────
   {
@@ -3277,7 +3277,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.9,
-    reviewCount: 17,
+    reviewCount: 73,
   },
   {
     id: 'jg-inter-miami-home-shirt-24-25',
@@ -3293,7 +3293,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 5,
+    reviewCount: 53,
   },
   {
     id: 'jg-inter-miami-third-shirt-2025-26',
@@ -3309,7 +3309,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 22,
+    reviewCount: 39,
   },
   {
     id: 'jg-inter-miami-home-shirt-2025-26',
@@ -3325,7 +3325,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 11,
+    reviewCount: 50,
   },
   {
     id: 'jg-inter-miami-away-shirt-2025-26',
@@ -3341,7 +3341,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 20,
+    reviewCount: 59,
   },
   {
     id: 'jg-inter-miami-2023-24-home-kit',
@@ -3357,7 +3357,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 12,
+    reviewCount: 42,
   },
   {
     id: 'jg-inter-miami-home-shirt-2026-27',
@@ -3373,7 +3373,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 13,
+    reviewCount: 61,
   },
   {
     id: 'jg-inter-miami-away-shirt-24-25',
@@ -3389,7 +3389,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 6,
+    reviewCount: 32,
   },
 
   {
@@ -3406,7 +3406,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 11,
+    reviewCount: 78,
   },
   // ── Wolfsburg ──────────────────────────────────────────────
   {
@@ -3423,7 +3423,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 25,
+    reviewCount: 78,
   },
   // ── Rb Leipzig ─────────────────────────────────────────────
   {
@@ -3440,7 +3440,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 24,
+    reviewCount: 48,
   },
   {
     id: 'jg-rb-leipzig-away-shirt-2024-25',
@@ -3456,7 +3456,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 5,
+    reviewCount: 64,
   },
   {
     id: 'jg-rb-leipzig-third-shirt-2025-26',
@@ -3472,7 +3472,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 7,
+    reviewCount: 80,
   },
   {
     id: 'jg-rb-leipzig-home-shirt-2024-25',
@@ -3488,7 +3488,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 22,
+    reviewCount: 43,
   },
   {
     id: 'jg-rb-leipzig-home-shirt-2025-26',
@@ -3504,7 +3504,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 25,
+    reviewCount: 64,
   },
   {
     id: 'jg-rb-leipzig-glow-in-the-dark-shirt-2025-26',
@@ -3520,7 +3520,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 10,
+    reviewCount: 38,
   },
   // ── Uruguay ────────────────────────────────────────────────
   {
@@ -3537,7 +3537,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 10,
+    reviewCount: 87,
   },
   // ── England ────────────────────────────────────────────────
   {
@@ -3562,7 +3562,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.9,
-    reviewCount: 18,
+    reviewCount: 72,
   },
   {
     id: 'jg-england-2026-world-cup-home-shirt',
@@ -3590,7 +3590,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.9,
-    reviewCount: 20,
+    reviewCount: 51,
   },
   {
     id: 'jg-england-away-shirt-2024',
@@ -3606,7 +3606,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 21,
+    reviewCount: 85,
   },
   {
     id: 'jg-england-home-shirt-2024',
@@ -3622,7 +3622,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 10,
+    reviewCount: 72,
   },
   {
     id: 'jg-1998-england-away-shirt',
@@ -3638,7 +3638,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 17,
+    reviewCount: 64,
   },
   {
     id: 'jg-england-home-shirt-2023',
@@ -3653,7 +3653,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 11,
+    reviewCount: 70,
   },
   // ── Norway ─────────────────────────────────────────────────
   {
@@ -3670,7 +3670,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 17,
+    reviewCount: 44,
   },
   {
     id: 'jg-norway-world-cup-away-shirt-2026',
@@ -3686,7 +3686,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 25,
+    reviewCount: 41,
   },
   // ── Netherlands ────────────────────────────────────────────
   {
@@ -3703,7 +3703,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 13,
+    reviewCount: 55,
   },
   // ── Japan ──────────────────────────────────────────────────
   {
@@ -3719,7 +3719,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.9,
-    reviewCount: 18,
+    reviewCount: 80,
   },
   {
     id: 'jg-japan-koyo-special-shirt',
@@ -3734,7 +3734,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.9,
-    reviewCount: 18,
+    reviewCount: 42,
   },
   {
     id: 'jg-japan-vegeta-special-shirt',
@@ -3752,7 +3752,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 5.0,
-    reviewCount: 22,
+    reviewCount: 66,
   },
   {
     id: 'jg-japan-2024-special-naruto-shirt',
@@ -3770,7 +3770,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.9,
-    reviewCount: 16,
+    reviewCount: 81,
   },
   {
     id: 'jg-japan-samurai-24-25-special-shirt',
@@ -3785,7 +3785,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.9,
-    reviewCount: 20,
+    reviewCount: 65,
   },
   {
     id: 'jg-japan-2026-world-cup-home-shirt',
@@ -3800,7 +3800,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.9,
-    reviewCount: 18,
+    reviewCount: 32,
   },
   {
     id: 'jg-japan-special-edition-shirt-2024',
@@ -3816,7 +3816,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 12,
+    reviewCount: 70,
   },
   {
     id: 'jg-japan-special-edition-supra-shirt-2024',
@@ -3832,7 +3832,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 20,
+    reviewCount: 52,
   },
   {
     id: 'jg-japan-home-shirt-2022',
@@ -3847,7 +3847,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 10,
+    reviewCount: 63,
   },
   // ── France ─────────────────────────────────────────────────
   {
@@ -3870,7 +3870,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 11,
+    reviewCount: 33,
   },
   {
     id: 'jg-france-away-shirt-2024',
@@ -3886,7 +3886,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 11,
+    reviewCount: 39,
   },
   {
     id: 'jg-2018-france-world-cup-home-shirt',
@@ -3902,7 +3902,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 17,
+    reviewCount: 55,
   },
   {
     id: 'jg-france-home-shirt-2024',
@@ -3918,7 +3918,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 18,
+    reviewCount: 85,
   },
   {
     id: 'jg-france-world-cup-home-shirt-2026',
@@ -3934,7 +3934,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 21,
+    reviewCount: 83,
   },
   {
     id: 'jg-france-home-shirt-2023',
@@ -3949,7 +3949,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 18,
+    reviewCount: 51,
   },
   // ── Australia ──────────────────────────────────────────────
   {
@@ -3966,7 +3966,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 6,
+    reviewCount: 47,
   },
   {
     id: 'jg-australia-home-shirt-2022-23',
@@ -3981,7 +3981,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 19,
+    reviewCount: 35,
   },
   // ── Ac Milan ───────────────────────────────────────────────
   {
@@ -4000,7 +4000,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 13,
+    reviewCount: 47,
   },
   {
     id: 'jg-2011-12-ac-milan-away-shirt',
@@ -4015,7 +4015,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.9,
-    reviewCount: 18,
+    reviewCount: 68,
   },
   {
     id: 'jg-ac-milan-home-shirt-2025-26',
@@ -4031,7 +4031,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 15,
+    reviewCount: 37,
   },
   {
     id: 'jg-ac-milan-away-shirt-2025-26',
@@ -4047,7 +4047,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 23,
+    reviewCount: 37,
   },
   {
     id: 'jg-ac-milan-home-shirt-2024-25',
@@ -4063,7 +4063,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 24,
+    reviewCount: 78,
   },
   {
     id: 'jg-1998-99-ac-milan-retro-home-shirt',
@@ -4079,7 +4079,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 18,
+    reviewCount: 63,
   },
   {
     id: 'jg-ac-milan-third-shirt-2025-26',
@@ -4095,7 +4095,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 18,
+    reviewCount: 84,
   },
   {
     id: 'jg-ac-milan-away-shirt-2024-25',
@@ -4111,7 +4111,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 5,
+    reviewCount: 36,
   },
   // ── Brazil ─────────────────────────────────────────────────
   {
@@ -4134,7 +4134,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.9,
-    reviewCount: 14,
+    reviewCount: 80,
   },
   {
     id: 'jg-brazil-22-23-emerald-nights-shirt',
@@ -4156,7 +4156,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 11,
+    reviewCount: 66,
   },
   {
     id: 'jg-neymar-24-25-legacy-special-shirt',
@@ -4171,7 +4171,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.9,
-    reviewCount: 20,
+    reviewCount: 81,
   },
   {
     id: 'jg-brazil-2026-special-shirt-1',
@@ -4194,7 +4194,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 15,
+    reviewCount: 40,
   },
   {
     id: 'jg-brazil-2026-world-cup-l-s-away-shirt',
@@ -4217,7 +4217,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 10,
+    reviewCount: 40,
   },
   {
     id: 'jg-brazil-2026-home-shirt',
@@ -4240,7 +4240,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.9,
-    reviewCount: 19,
+    reviewCount: 74,
   },
   {
     id: 'jg-brazil-away-shirt-2024',
@@ -4256,7 +4256,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 14,
+    reviewCount: 62,
   },
 
 
@@ -4275,7 +4275,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 11,
+    reviewCount: 67,
   },
   {
     id: 'jg-newcastle-united-home-shirt-2025-26',
@@ -4291,7 +4291,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 12,
+    reviewCount: 42,
   },
   {
     id: 'jg-newcastle-united-home-shirt-2024-25',
@@ -4307,7 +4307,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 22,
+    reviewCount: 48,
   },
   {
     id: 'jg-newcastle-united-third-shirt-2023-24',
@@ -4323,7 +4323,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 18,
+    reviewCount: 65,
   },
   {
     id: 'jg-newcastle-united-away-shirt-2025-26',
@@ -4339,7 +4339,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 9,
+    reviewCount: 87,
   },
   {
     id: 'jg-newcastle-united-third-shirt-2025-26',
@@ -4355,7 +4355,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 9,
+    reviewCount: 70,
   },
   // ── Atletico Madrid ────────────────────────────────────────
   {
@@ -4372,7 +4372,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 10,
+    reviewCount: 59,
   },
   {
     id: 'jg-atletico-madrid-away-shirt-2024-25',
@@ -4388,7 +4388,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 12,
+    reviewCount: 45,
   },
   {
     id: 'jg-atletico-madrid-third-shirt-2024-25',
@@ -4404,7 +4404,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 6,
+    reviewCount: 66,
   },
   {
     id: 'jg-atletico-madrid-home-shirt-2024-26',
@@ -4420,7 +4420,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 13,
+    reviewCount: 80,
   },
   {
     id: 'jg-2004-05-atletico-madrid-retro-home-shirt',
@@ -4436,7 +4436,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 11,
+    reviewCount: 78,
   },
   {
     id: 'jg-atletico-madrid-away-shirt-2025-26',
@@ -4452,7 +4452,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 13,
+    reviewCount: 76,
   },
   // ── Tottenham Hotspur ──────────────────────────────────────
   {
@@ -4469,7 +4469,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 17,
+    reviewCount: 44,
   },
   {
     id: 'jg-tottenham-hotspur-third-shirt-2024-25',
@@ -4485,7 +4485,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 20,
+    reviewCount: 77,
   },
   {
     id: 'jg-tottenham-hotspur-away-shirt-2025-26',
@@ -4501,7 +4501,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 7,
+    reviewCount: 51,
   },
   {
     id: 'jg-tottenham-hotspur-home-shirt-2025-26',
@@ -4517,7 +4517,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 9,
+    reviewCount: 57,
   },
   {
     id: 'jg-tottenham-hotspur-europa-league-final-shirt-2024-25',
@@ -4532,7 +4532,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 20,
+    reviewCount: 74,
   },
   {
     id: 'jg-tottenham-hotspur-home-shirt-2024-25',
@@ -4548,7 +4548,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 25,
+    reviewCount: 73,
   },
   {
     id: 'jg-tottenham-away-shirt-2023-24',
@@ -4563,7 +4563,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 5,
+    reviewCount: 55,
   },
   // ── Bologna ────────────────────────────────────────────────
   {
@@ -4580,7 +4580,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 14,
+    reviewCount: 60,
   },
   {
     id: 'jg-bologna-home-shirt-2024-25',
@@ -4596,7 +4596,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 25,
+    reviewCount: 65,
   },
   // ── Napoli ─────────────────────────────────────────────────
   {
@@ -4619,7 +4619,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.9,
-    reviewCount: 14,
+    reviewCount: 60,
   },
   {
     id: 'jg-napoli-home-shirt-2025-27',
@@ -4635,7 +4635,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 22,
+    reviewCount: 39,
   },
   {
     id: 'jg-napoli-away-shirt-2025-27',
@@ -4651,7 +4651,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 10,
+    reviewCount: 47,
   },
   {
     id: 'jg-napoli-third-shirt-2025-26',
@@ -4667,7 +4667,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 22,
+    reviewCount: 46,
   },
   {
     id: 'jg-lazio-away-shirt-2024-25',
@@ -4683,7 +4683,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 15,
+    reviewCount: 36,
   },
   // ── Como ───────────────────────────────────────────────────
   {
@@ -4700,7 +4700,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 13,
+    reviewCount: 53,
   },
   {
     id: 'jg-como-home-shirt-2024-25',
@@ -4716,7 +4716,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 8,
+    reviewCount: 33,
   },
   {
     id: 'jg-como-away-shirt-2025-26',
@@ -4732,7 +4732,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 22,
+    reviewCount: 69,
   },
   // ── Bayern Munich ──────────────────────────────────────────
   {
@@ -4749,7 +4749,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 6,
+    reviewCount: 67,
   },
   {
     id: 'jg-bayern-munich-home-shirt-2024-25',
@@ -4765,7 +4765,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 21,
+    reviewCount: 46,
   },
   {
     id: 'jg-bayern-munich-third-shirt-2025-26',
@@ -4781,7 +4781,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 23,
+    reviewCount: 69,
   },
   {
     id: 'jg-bayern-munich-home-shirt-2025-26',
@@ -4797,7 +4797,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 17,
+    reviewCount: 46,
   },
   {
     id: 'jg-bayern-munich-third-shirt-2024-25',
@@ -4813,7 +4813,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 20,
+    reviewCount: 32,
   },
   // ── Borussia Dortmund ──────────────────────────────────────
   {
@@ -4830,7 +4830,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 13,
+    reviewCount: 36,
   },
   {
     id: 'jg-1988-dortmund-retro-home-shirt',
@@ -4846,7 +4846,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 18,
+    reviewCount: 77,
   },
   {
     id: 'jg-dortmund-away-shirt-2024-25',
@@ -4862,7 +4862,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 16,
+    reviewCount: 72,
   },
   {
     id: 'jg-borussia-dortmund-home-shirt-2025-26',
@@ -4878,7 +4878,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 12,
+    reviewCount: 35,
   },
   {
     id: 'jg-dortmund-special-edition-shirt-2024-25',
@@ -4894,7 +4894,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 5,
+    reviewCount: 46,
   },
   {
     id: 'jg-dortmund-away-shirt-2023-24',
@@ -4910,7 +4910,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 19,
+    reviewCount: 36,
   },
   {
     id: 'jg-borussia-dortmund-home-shirt-2019-20',
@@ -4925,7 +4925,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 20,
+    reviewCount: 34,
   },
   {
     id: 'jg-dortmund-home-shirt-2023-24',
@@ -4941,7 +4941,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 7,
+    reviewCount: 87,
   },
   {
     id: 'jg-borussia-dortmund-third-shirt-2025-26',
@@ -4957,7 +4957,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 17,
+    reviewCount: 53,
   },
   // ── Lazio ──────────────────────────────────────────────────
   {
@@ -4974,7 +4974,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 9,
+    reviewCount: 36,
   },
   {
     id: 'jg-lazio-away-shirt-2024-26',
@@ -4990,7 +4990,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 21,
+    reviewCount: 64,
   },
   {
     id: 'jg-1999-00-lazio-third-shirt',
@@ -5005,7 +5005,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 24,
+    reviewCount: 47,
   },
   {
     id: 'jg-lazio-third-shirt-2025-26',
@@ -5021,7 +5021,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 21,
+    reviewCount: 49,
   },
   {
     id: 'jg-lazio-away-shirt-2025-26',
@@ -5037,7 +5037,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 9,
+    reviewCount: 74,
   },
   {
     id: 'jg-lazio-home-shirt-2023-2024',
@@ -5052,7 +5052,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 19,
+    reviewCount: 63,
   },
   // ── Arsenal ────────────────────────────────────────────────
   {
@@ -5069,7 +5069,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 18,
+    reviewCount: 45,
   },
   {
     id: 'jg-arsenal-third-shirt-2025-26',
@@ -5085,7 +5085,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 21,
+    reviewCount: 66,
   },
   {
     id: 'jg-arsenal-away-shirt-2024-25',
@@ -5101,7 +5101,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 15,
+    reviewCount: 40,
   },
   {
     id: 'jg-arsenal-home-shirt-2024-25',
@@ -5117,7 +5117,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 25,
+    reviewCount: 78,
   },
   {
     id: 'jg-arsenal-third-shirt-2024-25',
@@ -5133,7 +5133,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 7,
+    reviewCount: 68,
   },
   {
     id: 'jg-1993-94-arsenal-retro-away-shirt',
@@ -5149,7 +5149,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 18,
+    reviewCount: 68,
   },
   {
     id: 'jg-arsenal-third-shirt-2023-24',
@@ -5165,7 +5165,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 25,
+    reviewCount: 62,
   },
   {
     id: 'jg-1990-92-arsenal-retro-home-shirt',
@@ -5181,7 +5181,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 12,
+    reviewCount: 47,
   },
   {
     id: 'jg-2003-05-arsenal-retro-away-shirt',
@@ -5197,7 +5197,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 24,
+    reviewCount: 82,
   },
   {
     id: 'jg-arsenal-away-shirt-2025-26',
@@ -5213,7 +5213,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 7,
+    reviewCount: 62,
   },
   {
     id: 'jg-arsenal-home-shirt-2023-24',
@@ -5229,7 +5229,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 9,
+    reviewCount: 83,
   },
   // ── Crystal Palace ─────────────────────────────────────────
   {
@@ -5246,7 +5246,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 14,
+    reviewCount: 58,
   },
   {
     id: 'jg-crystal-palace-home-shirt-2023-24',
@@ -5262,7 +5262,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 13,
+    reviewCount: 44,
   },
   {
     id: 'jg-crystal-palace-home-shirt-2025-26',
@@ -5278,7 +5278,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 22,
+    reviewCount: 38,
   },
   {
     id: 'jg-crystal-palace-away-shirt-2025-27',
@@ -5294,7 +5294,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 17,
+    reviewCount: 38,
   },
   // ── Switzerland ────────────────────────────────────────────
   {
@@ -5310,7 +5310,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.7,
-    reviewCount: 8,
+    reviewCount: 74,
   },
   {
     id: 'jg-switzerland-world-cup-home-shirt-2026',
@@ -5326,7 +5326,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 21,
+    reviewCount: 59,
   },
   // ── Argentina ──────────────────────────────────────────────
   {
@@ -5353,7 +5353,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.9,
-    reviewCount: 22,
+    reviewCount: 54,
   },
   {
     id: 'jg-argentina-2026-world-cup-pre-match-shirt',
@@ -5379,7 +5379,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 13,
+    reviewCount: 59,
   },
   {
     id: 'jg-argentina-world-cup-away-shirt-2026',
@@ -5395,7 +5395,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 22,
+    reviewCount: 58,
   },
   {
     id: 'jg-argentina-away-shirt-2024',
@@ -5411,7 +5411,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 5,
+    reviewCount: 61,
   },
   {
     id: 'jg-argentina-home-shirt-2024',
@@ -5427,7 +5427,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 25,
+    reviewCount: 87,
   },
   {
     id: 'jg-1994-argentina-away-shirt',
@@ -5443,7 +5443,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 23,
+    reviewCount: 78,
   },
   {
     id: 'jg-argentina-pre-match-shirt-2024-copy',
@@ -5459,7 +5459,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 7,
+    reviewCount: 35,
   },
   {
     id: 'jg-1978-argentina-home-retro-shirt',
@@ -5474,7 +5474,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 19,
+    reviewCount: 75,
   },
   // ── Italy ──────────────────────────────────────────────────
   {
@@ -5499,7 +5499,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 12,
+    reviewCount: 73,
   },
   {
     id: 'jg-italy-24-25-black-shirt-limited',
@@ -5521,7 +5521,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 13,
+    reviewCount: 73,
   },
   {
     id: 'jg-italy-24-25-shirt-limited',
@@ -5545,7 +5545,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 12,
+    reviewCount: 38,
   },
   {
     id: 'jg-italy-2026-world-cup-away-shirt',
@@ -5573,7 +5573,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 12,
+    reviewCount: 35,
   },
   {
     id: 'jg-italy-world-cup-home-shirt-2026',
@@ -5589,7 +5589,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 13,
+    reviewCount: 57,
   },
   {
     id: 'jg-italy-home-shirt-2024',
@@ -5605,7 +5605,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 20,
+    reviewCount: 78,
   },
   {
     id: 'jg-italy-away-shirt-2024',
@@ -5621,7 +5621,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 17,
+    reviewCount: 53,
   },
   {
     id: 'jg-1996-italy-home-shirt',
@@ -5637,7 +5637,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 22,
+    reviewCount: 83,
   },
   {
     id: 'jg-italy-125th-anniversary-special-edition-shirt',
@@ -5653,7 +5653,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 21,
+    reviewCount: 87,
   },
   // ── Belgium ────────────────────────────────────────────────
   {
@@ -5670,7 +5670,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 21,
+    reviewCount: 38,
   },
   {
     id: 'jg-belgium-away-shirt-2024',
@@ -5686,7 +5686,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 10,
+    reviewCount: 47,
   },
   {
     id: 'jg-belgium-home-shirt-2024',
@@ -5702,7 +5702,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 25,
+    reviewCount: 44,
   },
   // ── Leeds United ───────────────────────────────────────────
   {
@@ -5719,7 +5719,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 17,
+    reviewCount: 44,
   },
   {
     id: 'jg-leeds-united-away-shirt-2025-26',
@@ -5735,7 +5735,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 21,
+    reviewCount: 66,
   },
   // ── Porto ──────────────────────────────────────────────────
   {
@@ -5752,7 +5752,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 13,
+    reviewCount: 60,
   },
   {
     id: 'jg-porto-away-shirt-2024-25',
@@ -5768,7 +5768,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 25,
+    reviewCount: 40,
   },
   {
     id: 'jg-porto-away-shirt-2023-24',
@@ -5784,7 +5784,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 11,
+    reviewCount: 59,
   },
   {
     id: 'jg-porto-2022-23-special-edition',
@@ -5800,7 +5800,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 25,
+    reviewCount: 43,
   },
   {
     id: 'jg-porto-away-shirt-2025-26',
@@ -5816,7 +5816,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 23,
+    reviewCount: 49,
   },
   {
     id: 'jg-porto-third-shirt-2025-26',
@@ -5832,7 +5832,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 24,
+    reviewCount: 61,
   },
   // ── Nottingham Forest ──────────────────────────────────────
   {
@@ -5849,7 +5849,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 15,
+    reviewCount: 47,
   },
   // ── Fulham ─────────────────────────────────────────────────
   {
@@ -5866,7 +5866,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 17,
+    reviewCount: 87,
   },
   {
     id: 'jg-fulham-home-shirt-2024-25',
@@ -5881,7 +5881,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 15,
+    reviewCount: 36,
   },
   {
     id: 'jg-fulham-home-shirt-2025-26',
@@ -5897,7 +5897,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 20,
+    reviewCount: 60,
   },
   // ── West Ham United ────────────────────────────────────────
   {
@@ -5914,7 +5914,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 12,
+    reviewCount: 83,
   },
   {
     id: 'jg-west-ham-third-shirt-2024-25',
@@ -5930,7 +5930,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 12,
+    reviewCount: 87,
   },
   {
     id: 'jg-west-ham-away-shirt-2023-24',
@@ -5945,7 +5945,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 20,
+    reviewCount: 86,
   },
   {
     id: 'jg-west-ham-away-shirt-2025-26',
@@ -5961,7 +5961,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 6,
+    reviewCount: 67,
   },
   {
     id: 'jg-west-ham-away-shirt-2024-25',
@@ -5977,7 +5977,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 13,
+    reviewCount: 38,
   },
   // ── Brighton ───────────────────────────────────────────────
   {
@@ -5994,7 +5994,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 9,
+    reviewCount: 35,
   },
   {
     id: 'jg-brighton-away-shirt-2025-26',
@@ -6010,7 +6010,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 7,
+    reviewCount: 73,
   },
   // ── Celta Vigo ─────────────────────────────────────────────
   {
@@ -6027,7 +6027,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 12,
+    reviewCount: 66,
   },
   {
     id: 'jg-real-betis-home-shirt-2025-26',
@@ -6043,7 +6043,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 8,
+    reviewCount: 85,
   },
   {
     id: 'jg-celta-vigo-away-shirt-2025-26',
@@ -6059,7 +6059,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 7,
+    reviewCount: 32,
   },
   {
     id: 'jg-celta-vigo-home-shirt-2023-24',
@@ -6075,7 +6075,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 21,
+    reviewCount: 37,
   },
   {
     id: 'jg-celta-vigo-home-shirt-2024-25',
@@ -6091,7 +6091,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 18,
+    reviewCount: 80,
   },
   // ── Aston Villa ────────────────────────────────────────────
   {
@@ -6108,7 +6108,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 10,
+    reviewCount: 86,
   },
   {
     id: 'jg-aston-villa-third-shirt-2025-26',
@@ -6124,7 +6124,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 20,
+    reviewCount: 47,
   },
   {
     id: 'jg-aston-villa-home-shirt-2025-26',
@@ -6140,7 +6140,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 12,
+    reviewCount: 42,
   },
   {
     id: 'jg-aston-villa-away-shirt-2024-25',
@@ -6156,7 +6156,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 23,
+    reviewCount: 58,
   },
   {
     id: 'jg-aston-villa-away-shirt-2023-24',
@@ -6171,7 +6171,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 24,
+    reviewCount: 63,
   },
   // ── Ucl Ball 5 ─────────────────────────────────────────────
   // ── Venezia ────────────────────────────────────────────────
@@ -6189,7 +6189,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 22,
+    reviewCount: 62,
   },
   {
     id: 'jg-venezia-memorial-edition-shirt-2022',
@@ -6205,7 +6205,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 11,
+    reviewCount: 45,
   },
   {
     id: 'jg-venezia-home-shirt-2022',
@@ -6221,7 +6221,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 15,
+    reviewCount: 87,
   },
   // ── Real Betis ─────────────────────────────────────────────
   // ── Marseille ──────────────────────────────────────────────
@@ -6239,7 +6239,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 11,
+    reviewCount: 57,
   },
   {
     id: 'jg-marseille-away-shirt-2025-26',
@@ -6255,7 +6255,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 12,
+    reviewCount: 35,
   },
   {
     id: 'jg-marseille-home-shirt-2025-26',
@@ -6271,7 +6271,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 19,
+    reviewCount: 42,
   },
   // ── Benfica ────────────────────────────────────────────────
   {
@@ -6288,7 +6288,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 7,
+    reviewCount: 56,
   },
   {
     id: 'jg-benfica-away-shirt-2025-26',
@@ -6304,7 +6304,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 15,
+    reviewCount: 32,
   },
   // ── Valencia ───────────────────────────────────────────────
   {
@@ -6321,7 +6321,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 5,
+    reviewCount: 56,
   },
   {
     id: 'jg-las-palmas-away-shirt-2024-25-copy',
@@ -6337,7 +6337,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 9,
+    reviewCount: 48,
   },
   {
     id: 'jg-valencia-away-shirt-2024-25',
@@ -6353,7 +6353,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 22,
+    reviewCount: 82,
   },
   // ── Wolverhampton ──────────────────────────────────────────
   {
@@ -6370,7 +6370,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 5,
+    reviewCount: 82,
   },
   {
     id: 'jg-wolves-home-shirt-2024-25',
@@ -6386,7 +6386,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 10,
+    reviewCount: 61,
   },
   {
     id: 'jg-wolverhampton-wanderers-home-shirt-2023-2024',
@@ -6401,7 +6401,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 19,
+    reviewCount: 50,
   },
   // ── Ajax ───────────────────────────────────────────────────
   {
@@ -6418,7 +6418,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 15,
+    reviewCount: 59,
   },
   {
     id: 'jg-2021-2022-ajax-third-shirt',
@@ -6434,7 +6434,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 22,
+    reviewCount: 76,
   },
   {
     id: 'jg-ajax-home-shirt-2025-26',
@@ -6450,7 +6450,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 12,
+    reviewCount: 78,
   },
   // ── Celtic ─────────────────────────────────────────────────
   {
@@ -6467,7 +6467,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 13,
+    reviewCount: 82,
   },
   {
     id: 'jg-celtic-home-shirt-2024-25',
@@ -6483,7 +6483,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 12,
+    reviewCount: 67,
   },
   {
     id: 'jg-celtic-away-shirt-2025-26',
@@ -6499,7 +6499,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 23,
+    reviewCount: 74,
   },
   // ── Mexico ─────────────────────────────────────────────────
   {
@@ -6515,7 +6515,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.9,
-    reviewCount: 20,
+    reviewCount: 77,
   },
   {
     id: 'jg-mexico-2026-world-cup-l-s-home-shirt',
@@ -6530,7 +6530,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 11,
+    reviewCount: 63,
   },
   {
     id: 'jg-mexico-2026-world-cup-away-shirt',
@@ -6545,7 +6545,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 13,
+    reviewCount: 41,
   },
   {
     id: 'jg-mexico-home-shirt-2024',
@@ -6561,7 +6561,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 18,
+    reviewCount: 44,
   },
   {
     id: 'jg-mexico-gold-shirt-2024-25',
@@ -6577,7 +6577,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 22,
+    reviewCount: 50,
   },
   // ── Lyon ───────────────────────────────────────────────────
   {
@@ -6599,7 +6599,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 10,
+    reviewCount: 45,
   },
   {
     id: 'jg-lyon-home-shirt-23-24',
@@ -6615,7 +6615,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 14,
+    reviewCount: 35,
   },
   {
     id: 'jg-olympique-lyon-third-shirt-24-25',
@@ -6631,7 +6631,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 14,
+    reviewCount: 69,
   },
   // ── Bournemouth ────────────────────────────────────────────
   // ── Mainz 05 ───────────────────────────────────────────────
@@ -6649,7 +6649,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 8,
+    reviewCount: 79,
   },
   {
     id: 'jg-mainz-05-third-shirt-2024-25',
@@ -6665,7 +6665,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 17,
+    reviewCount: 66,
   },
   // ── Cagliari ───────────────────────────────────────────────
   // ── Atalanta ───────────────────────────────────────────────
@@ -6683,7 +6683,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 19,
+    reviewCount: 35,
   },
   {
     id: 'jg-atalanta-away-shirt-2024-25',
@@ -6699,7 +6699,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 7,
+    reviewCount: 79,
   },
   // ── Leicester City ─────────────────────────────────────────
   {
@@ -6716,7 +6716,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 8,
+    reviewCount: 52,
   },
   {
     id: 'jg-leicester-city-home-shirt-2024-25',
@@ -6732,7 +6732,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 23,
+    reviewCount: 35,
   },
   // ── La Galaxy ──────────────────────────────────────────────
   // ── Nashville Sc ───────────────────────────────────────────
@@ -6750,7 +6750,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 7,
+    reviewCount: 35,
   },
   {
     id: 'jg-nashville-away-shirt-2023-24',
@@ -6766,7 +6766,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 11,
+    reviewCount: 69,
   },
   // ── Toronto Fc ─────────────────────────────────────────────
   {
@@ -6783,7 +6783,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 9,
+    reviewCount: 62,
   },
   {
     id: 'jg-toronto-fc-away-shirt-2023-24',
@@ -6799,7 +6799,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 16,
+    reviewCount: 64,
   },
   // ── Eintracht Frankfurt ────────────────────────────────────
   {
@@ -6816,7 +6816,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 8,
+    reviewCount: 86,
   },
   {
     id: 'jg-eintracht-frankfurt-third-shirt-2024-25',
@@ -6832,7 +6832,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 14,
+    reviewCount: 65,
   },
   // ── Bayer Leverkusen ───────────────────────────────────────
   {
@@ -6849,7 +6849,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 13,
+    reviewCount: 42,
   },
   {
     id: 'jg-bayer-leverkusen-away-shirt-2023-24',
@@ -6865,7 +6865,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 14,
+    reviewCount: 35,
   },
   {
     id: 'jg-bayer-leverkusen-away-shirt-2024-25',
@@ -6881,7 +6881,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 9,
+    reviewCount: 64,
   },
   // ── Borussia Monchengladbach ───────────────────────────────
   {
@@ -6898,7 +6898,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 8,
+    reviewCount: 37,
   },
   // ── Romania ────────────────────────────────────────────────
   // ── Rangers ────────────────────────────────────────────────
@@ -6915,7 +6915,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 13,
+    reviewCount: 86,
   },
   // ── Udinese ────────────────────────────────────────────────
   {
@@ -6932,7 +6932,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 6,
+    reviewCount: 43,
   },
   // ── Parma ──────────────────────────────────────────────────
   // ── Hellas Verona ──────────────────────────────────────────
@@ -6950,7 +6950,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 19,
+    reviewCount: 36,
   },
   // ── Genoa ──────────────────────────────────────────────────
   {
@@ -6967,7 +6967,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 18,
+    reviewCount: 70,
   },
   // ── Fiorentina ─────────────────────────────────────────────
   {
@@ -6983,7 +6983,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 21,
+    reviewCount: 36,
   },
   // ── Villarreal ─────────────────────────────────────────────
   {
@@ -7000,7 +7000,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 16,
+    reviewCount: 75,
   },
   {
     id: 'jg-villarreal-third-shirt-2024-25',
@@ -7016,7 +7016,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 6,
+    reviewCount: 87,
   },
   // ── Las Palmas ─────────────────────────────────────────────
   // ── Sevilla ────────────────────────────────────────────────
@@ -7034,7 +7034,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 6,
+    reviewCount: 47,
   },
   {
     id: 'jg-sevilla-away-shirt-2024-25',
@@ -7050,7 +7050,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 14,
+    reviewCount: 57,
   },
   {
     id: 'jg-sevilla-home-shirt-2024-25',
@@ -7066,7 +7066,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 16,
+    reviewCount: 39,
   },
   // ── Mallorca ───────────────────────────────────────────────
   {
@@ -7083,7 +7083,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 16,
+    reviewCount: 68,
   },
   {
     id: 'jg-mallorca-away-shirt-2024-25-copy',
@@ -7099,7 +7099,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 6,
+    reviewCount: 47,
   },
   // ── Osasuna ────────────────────────────────────────────────
   {
@@ -7116,7 +7116,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 11,
+    reviewCount: 69,
   },
   {
     id: 'jg-ossasuna-home-shirt-2024-25',
@@ -7132,7 +7132,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 12,
+    reviewCount: 70,
   },
   // ── Girona ─────────────────────────────────────────────────
   {
@@ -7148,7 +7148,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 5,
+    reviewCount: 34,
   },
   // ── Getafe ─────────────────────────────────────────────────
   {
@@ -7165,7 +7165,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 18,
+    reviewCount: 71,
   },
   {
     id: 'jg-getafe-away-shirt-2024-25',
@@ -7181,7 +7181,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 22,
+    reviewCount: 37,
   },
   {
     id: 'jg-getafe-third-shirt-2024-25',
@@ -7197,7 +7197,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 16,
+    reviewCount: 58,
   },
   // ── Espanyol ───────────────────────────────────────────────
   {
@@ -7214,7 +7214,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 9,
+    reviewCount: 74,
   },
   {
     id: 'jg-espanyol-away-shirt-2024-25',
@@ -7229,7 +7229,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 24,
+    reviewCount: 69,
   },
   // ── Athletic Bilbao ────────────────────────────────────────
   {
@@ -7246,7 +7246,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 10,
+    reviewCount: 68,
   },
   // ── Alaves ─────────────────────────────────────────────────
   {
@@ -7263,7 +7263,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 15,
+    reviewCount: 65,
   },
   {
     id: 'jg-alaves-away-shirt-2024-25',
@@ -7279,7 +7279,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 10,
+    reviewCount: 52,
   },
   {
     id: 'jg-alaves-third-shirt-2024-25',
@@ -7295,7 +7295,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 5,
+    reviewCount: 48,
   },
   // ── Brentford ──────────────────────────────────────────────
   // ── Ipswich Town ───────────────────────────────────────────
@@ -7313,7 +7313,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 17,
+    reviewCount: 45,
   },
   // ── Ecuador ────────────────────────────────────────────────
   {
@@ -7335,7 +7335,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.7,
-    reviewCount: 8,
+    reviewCount: 74,
   },
   {
     id: 'jg-ecuador-2026-world-cup-home-shirt',
@@ -7350,7 +7350,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 10,
+    reviewCount: 77,
   },
   {
     id: 'jg-ecuador-home-shirt-2024',
@@ -7366,7 +7366,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 19,
+    reviewCount: 52,
   },
   // ── Cadiz ──────────────────────────────────────────────────
   {
@@ -7383,7 +7383,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 5,
+    reviewCount: 47,
   },
   {
     id: 'jg-cadiz-away-shirt-2024-25',
@@ -7399,7 +7399,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 11,
+    reviewCount: 48,
   },
   // ── Real Sociedad ──────────────────────────────────────────
   {
@@ -7416,7 +7416,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 7,
+    reviewCount: 57,
   },
   // ── Lille ──────────────────────────────────────────────────
   {
@@ -7433,7 +7433,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 25,
+    reviewCount: 40,
   },
   // ── Rc Lens ────────────────────────────────────────────────
   {
@@ -7450,7 +7450,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 21,
+    reviewCount: 74,
   },
   {
     id: 'jg-lens-home-shirt-2023-24',
@@ -7466,7 +7466,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 24,
+    reviewCount: 73,
   },
   // ── Club America ───────────────────────────────────────────
   {
@@ -7483,7 +7483,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 6,
+    reviewCount: 51,
   },
   // ── Croatia ────────────────────────────────────────────────
   {
@@ -7505,7 +7505,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 11,
+    reviewCount: 61,
   },
   {
     id: 'jg-croatia-2026-world-cup-home-shirt',
@@ -7526,7 +7526,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.9,
-    reviewCount: 16,
+    reviewCount: 52,
   },
   {
     id: 'jg-croatia-home-shirt-2024',
@@ -7542,7 +7542,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 11,
+    reviewCount: 80,
   },
   {
     id: 'jg-croatia-away-shirt-2024',
@@ -7558,7 +7558,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 23,
+    reviewCount: 36,
   },
   {
     id: 'jg-1998-croatia-retro-away-shirt',
@@ -7573,7 +7573,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 15,
+    reviewCount: 32,
   },
   // ── Serbia ─────────────────────────────────────────────────
   {
@@ -7590,7 +7590,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 18,
+    reviewCount: 61,
   },
   // ── Al Hilal ───────────────────────────────────────────────
   {
@@ -7607,7 +7607,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 8,
+    reviewCount: 71,
   },
   {
     id: 'jg-al-hilal-away-shirt-2023-24',
@@ -7623,7 +7623,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 23,
+    reviewCount: 68,
   },
   // ── United States ──────────────────────────────────────────
   {
@@ -7639,7 +7639,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 14,
+    reviewCount: 38,
   },
   {
     id: 'jg-united-states-2026-world-cup-away-shirt',
@@ -7654,7 +7654,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 11,
+    reviewCount: 36,
   },
   {
     id: 'jg-united-states-away-shirt-2024',
@@ -7670,7 +7670,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 19,
+    reviewCount: 66,
   },
   {
     id: 'jg-usa-home-shirt-2024-25',
@@ -7686,7 +7686,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 21,
+    reviewCount: 45,
   },
   // ── Everton ────────────────────────────────────────────────
   {
@@ -7703,7 +7703,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 19,
+    reviewCount: 64,
   },
   {
     id: 'jg-everton-home-shirt-2023-24',
@@ -7718,7 +7718,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 16,
+    reviewCount: 48,
   },
   // ── Poland ─────────────────────────────────────────────────
   {
@@ -7734,7 +7734,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 11,
+    reviewCount: 40,
   },
   // ── Torino ─────────────────────────────────────────────────
   // ── Al Nassr ───────────────────────────────────────────────
@@ -7752,7 +7752,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 13,
+    reviewCount: 54,
   },
   // ── Senegal ────────────────────────────────────────────────
   {
@@ -7768,7 +7768,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 11,
+    reviewCount: 36,
   },
   {
     id: 'jg-senegal-2026-world-cup-home-shirt',
@@ -7783,7 +7783,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.9,
-    reviewCount: 13,
+    reviewCount: 47,
   },
   {
     id: 'jg-puma-senegal-home-shirt-2024',
@@ -7798,7 +7798,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 9,
+    reviewCount: 55,
   },
   // ── Cote Divoire ───────────────────────────────────────────
   {
@@ -7814,7 +7814,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 9,
+    reviewCount: 50,
   },
   // ── Morocco ────────────────────────────────────────────────
   {
@@ -7830,7 +7830,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.9,
-    reviewCount: 14,
+    reviewCount: 42,
   },
   {
     id: 'jg-morocco-home-shirt-2023',
@@ -7845,7 +7845,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 12,
+    reviewCount: 60,
   },
   // ── Tunisia ────────────────────────────────────────────────
   {
@@ -7861,7 +7861,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.7,
-    reviewCount: 8,
+    reviewCount: 85,
   },
   {
     id: 'jg-tunisia-2026-world-cup-third-shirt',
@@ -7876,7 +7876,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.7,
-    reviewCount: 9,
+    reviewCount: 66,
   },
   {
     id: 'jg-tunisia-home-shirt-2023',
@@ -7891,7 +7891,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 17,
+    reviewCount: 77,
   },
   // ── North Macedonia ────────────────────────────────────────
   {
@@ -7907,7 +7907,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 17,
+    reviewCount: 51,
   },
   // ── Flamengo ───────────────────────────────────────────────
   {
@@ -7923,7 +7923,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.9,
-    reviewCount: 15,
+    reviewCount: 71,
   },
   // ── Olympiakos ─────────────────────────────────────────────
   {
@@ -7939,7 +7939,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 9,
+    reviewCount: 83,
   },
   // ── Scotland ───────────────────────────────────────────────
   {
@@ -7955,7 +7955,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 10,
+    reviewCount: 73,
   },
   {
     id: 'jg-scotland-2026-world-cup-away-shirt',
@@ -7970,7 +7970,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.7,
-    reviewCount: 8,
+    reviewCount: 65,
   },
   // ── Sweden ─────────────────────────────────────────────────
   {
@@ -7986,7 +7986,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 10,
+    reviewCount: 32,
   },
   // ── Chile ──────────────────────────────────────────────────
   {
@@ -8002,7 +8002,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 9,
+    reviewCount: 74,
   },
   // ── Hungary ────────────────────────────────────────────────
   {
@@ -8022,7 +8022,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.7,
-    reviewCount: 8,
+    reviewCount: 84,
   },
   // ── Algeria ────────────────────────────────────────────────
   {
@@ -8038,7 +8038,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.7,
-    reviewCount: 8,
+    reviewCount: 67,
   },
   {
     id: 'jg-algeria-2026-world-cup-home-shirt',
@@ -8053,7 +8053,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 10,
+    reviewCount: 51,
   },
   {
     id: 'jg-algeria-2026-world-cup-pre-match-shirt',
@@ -8068,7 +8068,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.7,
-    reviewCount: 9,
+    reviewCount: 74,
   },
   // ── Saudi Arabia ───────────────────────────────────────────
   {
@@ -8084,7 +8084,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 10,
+    reviewCount: 38,
   },
   // ── Qatar ──────────────────────────────────────────────────
   {
@@ -8100,7 +8100,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.7,
-    reviewCount: 9,
+    reviewCount: 40,
   },
   // ── New Zealand ────────────────────────────────────────────
   {
@@ -8116,7 +8116,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.7,
-    reviewCount: 8,
+    reviewCount: 48,
   },
   // ── Peru ───────────────────────────────────────────────────
   {
@@ -8132,7 +8132,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 10,
+    reviewCount: 39,
   },
   // ── Uae ────────────────────────────────────────────────────
 
@@ -8150,7 +8150,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.7,
-    reviewCount: 8,
+    reviewCount: 38,
   },
   // ── Ghana ──────────────────────────────────────────────────
   {
@@ -8166,7 +8166,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 10,
+    reviewCount: 79,
   },
   // ── Jordan ─────────────────────────────────────────────────
   {
@@ -8182,7 +8182,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.7,
-    reviewCount: 8,
+    reviewCount: 67,
   },
   {
     id: 'jg-jordan-2026-world-cup-third-shirt',
@@ -8197,7 +8197,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.7,
-    reviewCount: 9,
+    reviewCount: 41,
   },
   {
     id: 'jg-jordan-2026-world-cup-home-shirt',
@@ -8212,7 +8212,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 10,
+    reviewCount: 49,
   },
   // ── Cameroon ───────────────────────────────────────────────
   {
@@ -8228,7 +8228,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.7,
-    reviewCount: 8,
+    reviewCount: 50,
   },
   {
     id: 'jg-cameroon-2026-world-cup-home-shirt',
@@ -8243,7 +8243,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 10,
+    reviewCount: 70,
   },
   // ── Barcelona ───────────────────────────────────────────────────
   {
@@ -8274,7 +8274,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.9,
-    reviewCount: 14,
+    reviewCount: 45,
   },
   {
     id: 'jg-barcelona-2025-bright-pink-special-shirt',
@@ -8304,7 +8304,7 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.9,
-    reviewCount: 11,
+    reviewCount: 77,
   },
   // ── Santos ──────────────────────────────────────────────────────
   {
@@ -8325,6 +8325,6 @@ export const NEW_PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
     rating: 4.8,
-    reviewCount: 9,
+    reviewCount: 53,
   },
 ];
