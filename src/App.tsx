@@ -83,6 +83,7 @@ export default function App() {
     if (view === 'bracelets') return PRODUCTS.filter(p => p.category === 'bracelets');
     if (view === 'best-sellers') return PRODUCTS.filter(p => p.isBestSeller);
     if (view === 'special-jerseys') return PRODUCTS.filter(p => p.name.toLowerCase().includes('special') && p.category.startsWith('jersey-'));
+    if (view === 'retro-jerseys') return PRODUCTS.filter(p => p.name.toLowerCase().includes('retro') && p.category.startsWith('jersey-'));
     if (view === 'world-cup-2026') {
       const imgQ = (img: string) => img.includes('cdn.shopify') ? 3 : img.includes('/external/') ? 1 : 2;
       return PRODUCTS
@@ -102,6 +103,7 @@ export default function App() {
     if (view === 'bracelets') return 'Bracelets';
     if (view === 'best-sellers') return 'Best Sellers';
     if (view === 'special-jerseys') return 'Special Jerseys';
+    if (view === 'retro-jerseys') return 'Retro Jerseys';
     if (view === 'world-cup-2026') return '2026 World Cup';
     if (view.startsWith('jersey-')) {
       const cat = JERSEY_CATEGORIES.find(c => c.id === view);

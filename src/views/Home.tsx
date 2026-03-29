@@ -130,17 +130,36 @@ export default function Home({ onProductClick, onNavigate }: HomeProps) {
         </div>
       </section>
 
-      {/* Best Sellers Slider (Static Grid for now) */}
-      <section className="py-12 max-w-7xl mx-auto px-6 md:px-12">
-        <h2 className="text-3xl mb-8 text-center">Best Sellers</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {PRODUCTS.filter(p => p.isBestSeller && p.category.startsWith('jersey-')).map((product) => (
-            <ProductCard 
-              key={product.id} 
-              product={product} 
-              onClick={onProductClick} 
-            />
+      {/* Retro Jerseys Section */}
+      <section className="py-12">
+        <div className="max-w-7xl mx-auto px-6 md:px-12 mb-6">
+          <div className="flex justify-between items-end">
+            <div>
+              <p className="text-[10px] uppercase tracking-[0.4em] font-bold mb-3 text-brand-gray-dark">Classic Kits</p>
+              <h2 className="text-3xl">Retro Jerseys</h2>
+            </div>
+            <button
+              onClick={() => onNavigate('retro-jerseys')}
+              className="text-[10px] uppercase tracking-widest font-bold flex items-center gap-2 hover:gap-4 transition-all group shrink-0"
+            >
+              View All <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+            </button>
+          </div>
+        </div>
+        <div className="flex gap-6 overflow-x-auto px-6 md:px-12 pb-4 scrollbar-hide snap-x snap-mandatory">
+          {PRODUCTS.filter(p => p.name.toLowerCase().includes('retro') && p.category.startsWith('jersey-')).map((product) => (
+            <div key={product.id} className="snap-start shrink-0 w-[260px] sm:w-[300px]">
+              <ProductCard product={product} onClick={onProductClick} />
+            </div>
           ))}
+          <div className="snap-start shrink-0 w-[200px] flex items-center justify-center">
+            <button onClick={() => onNavigate('retro-jerseys')} className="flex flex-col items-center gap-3 group">
+              <div className="w-16 h-16 rounded-full border-2 border-brand-black flex items-center justify-center group-hover:bg-brand-black transition-colors">
+                <ArrowRight size={20} className="group-hover:text-white transition-colors" />
+              </div>
+              <span className="text-[10px] uppercase tracking-widest font-bold text-center">View All<br />Retro</span>
+            </button>
+          </div>
         </div>
       </section>
 
