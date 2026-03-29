@@ -1,21 +1,31 @@
 import { useState } from 'react';
 import { motion } from 'motion/react';
 import { ChevronLeft, Search } from 'lucide-react';
-import { JERSEY_CATEGORIES } from '../constants';
+import { JERSEY_CATEGORIES, INTERNATIONAL_CATEGORY_IDS } from '../constants';
 
 interface JerseysViewProps {
   onCategoryClick: (categoryId: string) => void;
   onBack: () => void;
+  filter?: 'club' | 'international';
 }
 
-export default function JerseysView({ onCategoryClick, onBack }: JerseysViewProps) {
+export default function JerseysView({ onCategoryClick, onBack, filter }: JerseysViewProps) {
   const [query, setQuery] = useState('');
 
+  const baseCategories = filter === 'club'
+    ? JERSEY_CATEGORIES.filter(c => !INTERNATIONAL_CATEGORY_IDS.has(c.id))
+    : filter === 'international'
+    ? JERSEY_CATEGORIES.filter(c => INTERNATIONAL_CATEGORY_IDS.has(c.id))
+    : JERSEY_CATEGORIES;
+
   const filtered = query.trim()
-    ? JERSEY_CATEGORIES.filter(cat =>
+    ? baseCategories.filter(cat =>
         cat.name.toLowerCase().includes(query.toLowerCase())
       )
-    : JERSEY_CATEGORIES;
+    : baseCategories;
+
+  const title = filter === 'club' ? 'Shop by Club' : filter === 'international' ? 'Shop by Country' : 'Jerseys';
+  const subtitle = filter === 'club' ? 'Browse every club kit.' : filter === 'international' ? 'Browse every national team kit.' : 'Shop by club or country. Find every kit from the world\'s top sides.';
 
   return (
     <main className="pt-32 pb-24 max-w-7xl mx-auto px-6 md:px-12 min-h-screen">
@@ -26,8 +36,8 @@ export default function JerseysView({ onCategoryClick, onBack }: JerseysViewProp
         >
           <ChevronLeft size={14} /> Back to Home
         </button>
-        <h1 className="text-5xl md:text-6xl font-bold tracking-tight uppercase">Jerseys</h1>
-        <p className="text-brand-gray-dark text-sm mt-4">Shop by club or country. Find every kit from the world's top sides.</p>
+        <h1 className="text-5xl md:text-6xl font-bold tracking-tight uppercase">{title}</h1>
+        <p className="text-brand-gray-dark text-sm mt-4">{subtitle}</p>
       </div>
 
       {/* Search */}

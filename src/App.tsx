@@ -177,6 +177,14 @@ export default function App() {
               <div key="jerseys">
                 <JerseysView onCategoryClick={handleCategoryClick} onBack={handleHomeClick} />
               </div>
+            ) : view === 'club-jerseys' ? (
+              <div key="club-jerseys">
+                <JerseysView filter="club" onCategoryClick={handleCategoryClick} onBack={handleHomeClick} />
+              </div>
+            ) : view === 'country-jerseys' ? (
+              <div key="country-jerseys">
+                <JerseysView filter="international" onCategoryClick={handleCategoryClick} onBack={handleHomeClick} />
+              </div>
             ) : view === 'leagues' ? (
               <div key="leagues">
                 <LeaguesView onLeagueClick={handleCategoryClick} onBack={handleHomeClick} />
