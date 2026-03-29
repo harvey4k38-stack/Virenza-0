@@ -11,9 +11,31 @@ interface CartViewProps {
   onProductClick: (product: Product) => void;
 }
 
+const DISCOUNT_CODES: Record<string, number> = {
+  'VIRENZA10': 0.10,
+};
+
 export default function CartView({ onCheckout, onBack, onProductClick }: CartViewProps) {
   const { cart, removeFromCart, updateQuantity, cartTotal, cartCount } = useCart();
   const [loadingCheckout, setLoadingCheckout] = useState(false);
+  const [discountCode, setDiscountCode] = useState('');
+  const [appliedCode, setAppliedCode] = useState<string | null>(null);
+  const [codeError, setCodeError] = useState('');
+
+  const discountRate = appliedCode ? (DISCOUNT_CODES[appliedCode] ?? 0) : 0;
+  const discountAmount = cartTotal * discountRate;
+  const finalTotal = cartTotal - discountAmount;
+
+  const handleApplyCode = () => {
+    const upper = discountCode.trim().toUpperCase();
+    if (DISCOUNT_CODES[upper] !== undefined) {
+      setAppliedCode(upper);
+      setCodeError('');
+      setDiscountCode('');
+    } else {
+      setCodeError('Invalid code');
+    }
+  };
 
   const handleCheckout = async () => {
     setLoadingCheckout(true);
@@ -21,7 +43,7 @@ export default function CartView({ onCheckout, onBack, onProductClick }: CartVie
       const res = await fetch('/api/create-payment-intent', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ amount: cartTotal }),
+        body: JSON.stringify({ amount: finalTotal }),
       });
       const { clientSecret } = await res.json();
       onCheckout(clientSecret ?? '');
@@ -128,18 +150,52 @@ export default function CartView({ onCheckout, onBack, onProductClick }: CartVie
               Order Summary
             </h2>
             
+            {/* Discount Code */}
+            <div className="mb-6">
+              {appliedCode ? (
+                <div className="flex items-center justify-between text-xs uppercase tracking-widest text-emerald-600 font-bold border border-emerald-400 px-3 py-2">
+                  <span>{appliedCode} — {discountRate * 100}% off</span>
+                  <button onClick={() => setAppliedCode(null)} className="text-brand-gray-dark hover:text-red-500 transition-colors ml-2">✕</button>
+                </div>
+              ) : (
+                <div className="flex gap-2">
+                  <input
+                    type="text"
+                    value={discountCode}
+                    onChange={e => { setDiscountCode(e.target.value); setCodeError(''); }}
+                    onKeyDown={e => e.key === 'Enter' && handleApplyCode()}
+                    placeholder="Discount code"
+                    className="flex-1 px-3 py-2 border border-brand-gray-light text-xs uppercase tracking-widest focus:outline-none focus:border-brand-black"
+                  />
+                  <button
+                    onClick={handleApplyCode}
+                    className="px-4 py-2 bg-brand-black text-white text-[10px] uppercase tracking-widest hover:opacity-80 transition-opacity"
+                  >
+                    Apply
+                  </button>
+                </div>
+              )}
+              {codeError && <p className="text-red-500 text-[10px] uppercase tracking-widest mt-1">{codeError}</p>}
+            </div>
+
             <div className="space-y-4 mb-8">
               <div className="flex justify-between text-xs uppercase tracking-widest">
                 <span className="text-brand-gray-dark">Subtotal</span>
                 <span className="font-bold">£{cartTotal.toFixed(2)}</span>
               </div>
+              {appliedCode && (
+                <div className="flex justify-between text-xs uppercase tracking-widest text-emerald-600">
+                  <span>Discount ({discountRate * 100}%)</span>
+                  <span className="font-bold">−£{discountAmount.toFixed(2)}</span>
+                </div>
+              )}
               <div className="flex justify-between text-xs uppercase tracking-widest">
                 <span className="text-brand-gray-dark">Shipping</span>
                 <span className="font-bold text-emerald-600 uppercase">Free</span>
               </div>
               <div className="flex justify-between text-xs uppercase tracking-widest pt-4 border-t border-brand-gray-light">
                 <span className="font-bold">Total</span>
-                <span className="text-lg font-bold">£{cartTotal.toFixed(2)}</span>
+                <span className="text-lg font-bold">£{finalTotal.toFixed(2)}</span>
               </div>
             </div>
 
