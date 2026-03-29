@@ -356,7 +356,13 @@ export const PRODUCTS: Product[] = [
 
 
   // ── JerseyGame External Products (666 items) ─────────────────────────────
-  ...NEW_PRODUCTS.map(p => ({ ...p, nameVariants: p.nameVariants ?? BASIC_NAME_VARIANTS })),
+  ...NEW_PRODUCTS.map(p => {
+    if (p.nameVariants && p.nameVariants.length > 0) {
+      const hasCustomize = p.nameVariants.some(v => v.label === 'Customize Name');
+      return { ...p, nameVariants: hasCustomize ? p.nameVariants : [...p.nameVariants, { label: 'Customize Name' }] };
+    }
+    return { ...p, nameVariants: BASIC_NAME_VARIANTS };
+  }),
 ];
 
 export const REVIEWS: Review[] = [
