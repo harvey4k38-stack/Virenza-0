@@ -1482,22 +1482,6 @@ export const NEW_PRODUCTS: Product[] = [
     reviewCount: 20,
   },
   {
-    id: 'jg-barcelona-2024-25-home-goalkeeper-shirt-copy',
-    name: 'Barcelona 2024/25 Home Goalkeeper Shorts',
-    price: 20.99,
-    compareAtPrice: 25.99,
-    description: 'The official Barcelona home shirt for the 2024/25 season. Goalkeeper-cut shirt with authentic badge and premium feel. Available in a full range of sizes.',
-    category: 'jersey-barcelona',
-    images: [
-      '/jerseys/external/barcelona-2024-25-home-goalkeeper-shirt-copy-1.jpg',
-      '/jerseys/external/barcelona-2024-25-home-goalkeeper-shirt-copy-2.jpg',
-    ],
-    thickness: [],
-    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
-    rating: 4.8,
-    reviewCount: 5,
-  },
-  {
     id: 'jg-barcelona-training-shirt-2023-24',
     name: 'Barcelona Training Shirt 2023/24',
     price: 32.99,
