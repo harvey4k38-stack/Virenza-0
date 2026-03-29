@@ -105,57 +105,6 @@ export default function Home({ onProductClick, onNavigate }: HomeProps) {
         </div>
       </section>
 
-      {/* Jersey Categories */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-6 md:px-12">
-          <div className="flex flex-col sm:flex-row sm:justify-between sm:items-end gap-6 mb-12">
-            <div>
-              <h2 className="text-3xl mb-4">Shop by Club & Country</h2>
-              <div className="flex gap-1 bg-brand-gray-light/30 rounded-sm p-1 w-fit">
-                {(['all', 'international', 'club'] as const).map(f => (
-                  <button
-                    key={f}
-                    onClick={() => setJerseyFilter(f)}
-                    className={`px-4 py-1.5 text-[10px] uppercase tracking-[0.2em] font-bold rounded-sm transition-all ${
-                      jerseyFilter === f
-                        ? 'bg-brand-black text-white'
-                        : 'text-brand-gray-dark hover:text-brand-black'
-                    }`}
-                  >
-                    {f === 'all' ? 'All' : f === 'international' ? 'International' : 'Club'}
-                  </button>
-                ))}
-              </div>
-            </div>
-            <button
-              onClick={() => onNavigate('jerseys')}
-              className="text-[10px] uppercase tracking-widest font-bold flex items-center gap-2 hover:gap-4 transition-all group self-start sm:self-auto"
-            >
-              View All <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
-            </button>
-          </div>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-4">
-            {filteredCategories.map((cat) => (
-              <motion.div
-                key={cat.id}
-                whileHover={{ y: -3 }}
-                transition={{ duration: 0.2 }}
-                onClick={() => onNavigate(cat.id)}
-                className="flex flex-col items-center gap-2 cursor-pointer group"
-              >
-                <div className="w-full aspect-square rounded-xl bg-[#f0f0f0] flex items-center justify-center overflow-hidden p-3 group-hover:shadow-md transition-shadow duration-200">
-                  <img
-                    src={cat.image}
-                    alt={cat.name}
-                    className="w-full h-full object-contain"
-                  />
-                </div>
-                <p className="text-[10px] font-bold uppercase tracking-wider text-center leading-tight group-hover:text-brand-gray-dark transition-colors">{cat.name}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Accessories — subtle subcategory strip */}
       <section className="py-8 border-t border-brand-gray-light">
