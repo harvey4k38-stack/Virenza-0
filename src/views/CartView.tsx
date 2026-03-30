@@ -20,6 +20,7 @@ const DISCOUNT_CODES: Record<string, number> = {
   'JAY10': 0.10,
   'DAWN10': 0.10,
   'LP15': 0.15,
+  'PAL100': 1.00,
 };
 
 export default function CartView({ onCheckout, onBack, onProductClick }: CartViewProps) {
