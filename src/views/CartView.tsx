@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
 import { useCart } from '../context/CartContext';
 import { Trash2, Plus, Minus, ArrowRight, ShoppingBag, ChevronLeft } from 'lucide-react';
@@ -23,11 +23,33 @@ const DISCOUNT_CODES: Record<string, number> = {
   'PAL100': 1.00,
 };
 
+function useCountdown() {
+  const TWELVE_HOURS = 12 * 60 * 60 * 1000;
+  const key = 'virenza_cart_expiry';
+  const getExpiry = () => {
+    const stored = sessionStorage.getItem(key);
+    if (stored) return parseInt(stored);
+    const expiry = Date.now() + TWELVE_HOURS;
+    sessionStorage.setItem(key, String(expiry));
+    return expiry;
+  };
+  const [timeLeft, setTimeLeft] = useState(() => Math.max(0, getExpiry() - Date.now()));
+  useEffect(() => {
+    const interval = setInterval(() => setTimeLeft(Math.max(0, getExpiry() - Date.now())), 1000);
+    return () => clearInterval(interval);
+  }, []);
+  const h = Math.floor(timeLeft / 3600000);
+  const m = Math.floor((timeLeft % 3600000) / 60000);
+  const s = Math.floor((timeLeft % 60000) / 1000);
+  return `${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
+}
+
 export default function CartView({ onCheckout, onBack, onProductClick }: CartViewProps) {
   const { cart, removeFromCart, updateQuantity, cartTotal, cartCount } = useCart();
   const [loadingCheckout, setLoadingCheckout] = useState(false);
   const [discountCode, setDiscountCode] = useState('');
   const [appliedCode, setAppliedCode] = useState<string | null>(null);
+  const countdown = useCountdown();
   const [codeError, setCodeError] = useState('');
 
   const discountRate = appliedCode ? (DISCOUNT_CODES[appliedCode] ?? 0) : 0;
@@ -206,6 +228,14 @@ export default function CartView({ onCheckout, onBack, onProductClick }: CartVie
                 <span className="text-lg font-bold">£{finalTotal.toFixed(2)}</span>
               </div>
             </div>
+
+            {!appliedCode && (
+              <div className="mb-4 border border-red-400 bg-red-50 px-4 py-3 text-center">
+                <p className="text-[10px] uppercase tracking-widest font-bold text-red-600 mb-1">Limited Time Offer</p>
+                <p className="text-xs text-red-700">Use code <span className="font-bold tracking-widest">VIRENZA10</span> for 10% off</p>
+                <p className="text-[10px] text-red-500 mt-1 font-bold tracking-widest">Expires in {countdown}</p>
+              </div>
+            )}
 
             <GlowButton
               onClick={handleCheckout}
