@@ -24,7 +24,7 @@ const DISCOUNT_CODES: Record<string, number> = {
 };
 
 function useCountdown() {
-  const TWELVE_HOURS = 12 * 60 * 60 * 1000;
+  const TWELVE_HOURS = (10 * 60 + 28) * 60 * 1000;
   const key = 'virenza_cart_expiry';
   const getExpiry = () => {
     const stored = sessionStorage.getItem(key);
