@@ -14,6 +14,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     await resend.emails.send({
       from: 'Virenza Contact <onboarding@resend.dev>',
       to: 'harvey4k38@gmail.com',
+      replyTo: email,
       subject: `Contact Form — ${firstName} ${lastName}`,
       html: `
         <div style="font-family:sans-serif;max-width:600px;margin:0 auto;">
