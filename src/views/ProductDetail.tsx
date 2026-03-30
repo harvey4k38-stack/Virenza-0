@@ -41,7 +41,7 @@ export default function ProductDetail({ product, onBack }: ProductDetailProps) {
 
   const [stock, setStock] = useState<Record<string, number>>(() => {
     const counts: Record<string, number> = {};
-    ['S','M','L','XL','XXL'].forEach(s => { counts[s] = Math.floor(Math.random() * 6) + 4; });
+    ['S','M','L','XL','XXL'].forEach(s => { counts[s] = Math.floor(Math.random() * 4) + 2; });
     return counts;
   });
 
@@ -301,8 +301,8 @@ export default function ProductDetail({ product, onBack }: ProductDetailProps) {
                           {l}
                         </button>
                         {stock[l] !== undefined && l !== 'XXXL' && l !== 'XXXXL' && (
-                          <span className={`text-[9px] font-bold uppercase tracking-wide ${stock[l] <= 3 ? 'text-red-500' : 'text-brand-gray-dark'}`}>
-                            {stock[l] <= 3 ? `Only ${stock[l]} left` : `${stock[l]} left`}
+                          <span className="text-[9px] font-bold uppercase tracking-wide text-red-500">
+                            Only {stock[l]} left
                           </span>
                         )}
                       </div>

@@ -15,6 +15,7 @@ const DISCOUNT_CODES: Record<string, number> = {
   'VIRENZA10': 0.10,
   'VIRENZA15': 0.15,
   'JDBENSON': 0.25,
+  'EAMON': 0.25,
 };
 
 export default function CartView({ onCheckout, onBack, onProductClick }: CartViewProps) {

@@ -56,7 +56,7 @@ export const PRODUCTS: Product[] = [
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL', 'Kids S', 'Kids M', 'Kids L'],
     isBestSeller: true,
     nameVariants: PALACE_NAME_VARIANTS,
-    rating: 5.0,
+    rating: 4.9,
     reviewCount: 85
   },
   {
