@@ -439,9 +439,14 @@ function CheckoutFormWithDiscount({
       total: { label: 'Virenza Order', amount: Math.round(finalTotal * 100) },
       requestPayerName: true,
       requestPayerEmail: true,
+      requestShipping: true,
+      shippingOptions: [{ id: 'free', label: 'Free Shipping', detail: 'Delivered in 5-10 days', amount: 0 }],
     });
     pr.canMakePayment().then(result => {
       if (result) setPaymentRequest(pr);
+    });
+    pr.on('shippingaddresschange', (e) => {
+      e.updateWith({ status: 'success', shippingOptions: [{ id: 'free', label: 'Free Shipping', detail: 'Delivered in 5-10 days', amount: 0 }] });
     });
     pr.on('paymentmethod', async (e) => {
       try {
@@ -459,6 +464,7 @@ function CheckoutFormWithDiscount({
         if (error) { e.complete('fail'); setErrorMessage(error.message ?? 'Payment failed.'); return; }
         e.complete('success');
         if (paymentIntent?.status === 'requires_action') await stripe.confirmCardPayment(clientSecret);
+        const addr = e.shippingAddress;
         const emailRes = await fetch('/api/send-order-email', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
@@ -466,7 +472,9 @@ function CheckoutFormWithDiscount({
             firstName: e.payerName?.split(' ')[0] ?? '',
             lastName: e.payerName?.split(' ').slice(1).join(' ') ?? '',
             email: e.payerEmail ?? '',
-            address: '', city: '', postcode: '',
+            address: addr?.addressLine?.[0] ?? '',
+            city: addr?.city ?? '',
+            postcode: addr?.postalCode ?? '',
             cart, total: finalTotal.toFixed(2), discount: null,
           }),
         });
