@@ -72,7 +72,8 @@ export default function Contact({ onBack }: ContactProps) {
         animate={{ opacity: 1, y: 0 }}
       >
         <h1 className="text-4xl mb-4">Contact Us</h1>
-        <p className="text-brand-gray-dark mb-12">Have a question or issue? Fill out the form below and we'll get back to you.</p>
+        <p className="text-brand-gray-dark mb-4">Have a question or issue? Fill out the form below and we'll get back to you.</p>
+        <p className="text-brand-gray-dark mb-12 text-sm">Or email us directly at <a href="mailto:orders@virenza.tech" className="text-brand-black font-bold hover:opacity-60 transition-opacity">orders@virenza.tech</a></p>
 
         <form onSubmit={handleSubmit} className="space-y-6">
           <div className="grid grid-cols-2 gap-4">

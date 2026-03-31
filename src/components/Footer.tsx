@@ -80,6 +80,11 @@ export default function Footer({ logo, onNavigate }: {
                 </button>
               </li>
               <li>
+                <a href="mailto:orders@virenza.tech" className="text-sm text-brand-gray-dark hover:text-brand-black transition-colors">
+                  orders@virenza.tech
+                </a>
+              </li>
+              <li>
                 <button
                   onClick={() => onNavigate?.('shipping-tracking')}
                   className="text-sm text-brand-gray-dark hover:text-brand-black transition-colors"
