@@ -32,7 +32,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
     // Email to you
     await resend.emails.send({
-      from: 'Virenza Orders <onboarding@resend.dev>',
+      from: 'Virenza Orders <orders@virenza.tech>',
       to: 'orders@virenza.tech',
       subject: `New Order ${orderNumber} — ${firstName} ${lastName}`,
       html: `
@@ -62,7 +62,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
     // Confirmation email to customer
     await resend.emails.send({
-      from: 'Virenza <onboarding@resend.dev>',
+      from: 'Virenza <orders@virenza.tech>',
       to: email,
       subject: `Order Confirmation — ${orderNumber}`,
       html: `

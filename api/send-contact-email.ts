@@ -12,7 +12,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     const { firstName, lastName, email, message } = req.body;
 
     await resend.emails.send({
-      from: 'Virenza Contact <onboarding@resend.dev>',
+      from: 'Virenza Contact <orders@virenza.tech>',
       to: 'orders@virenza.tech',
       replyTo: email,
       subject: `Contact Form — ${firstName} ${lastName}`,
