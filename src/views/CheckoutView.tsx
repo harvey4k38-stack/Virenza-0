@@ -494,6 +494,12 @@ function CheckoutFormWithDiscount({
 
   const handlePayment = async () => {
     if (!stripe || !elements) return;
+
+    if (!form.firstName || !form.lastName || !form.email || !form.address || !form.city || !form.postcode) {
+      setErrorMessage('Please fill in all shipping details before proceeding.');
+      return;
+    }
+
     setIsProcessing(true);
     setErrorMessage('');
 
