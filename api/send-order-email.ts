@@ -33,7 +33,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     // Email to you
     await resend.emails.send({
       from: 'Virenza Orders <onboarding@resend.dev>',
-      to: 'harvey4k38@gmail.com',
+      to: 'orders@virenza.tech',
       subject: `New Order ${orderNumber} — ${firstName} ${lastName}`,
       html: `
         <div style="font-family:sans-serif;max-width:600px;margin:0 auto;">
@@ -89,7 +89,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
           <h3 style="text-transform:uppercase;letter-spacing:0.1em;border-bottom:1px solid #eee;padding-bottom:8px;margin-top:24px;">Shipping To</h3>
           <p>${firstName} ${lastName}<br>${address}<br>${city}<br>${postcode}</p>
 
-          <p style="margin-top:32px;color:#888;font-size:12px;">If you have any questions, contact us at harvey4k38@gmail.com</p>
+          <p style="margin-top:32px;color:#888;font-size:12px;">If you have any questions, contact us at orders@virenza.tech</p>
           <p style="color:#888;font-size:12px;letter-spacing:0.2em;text-transform:uppercase;">Virenza</p>
         </div>
       `,
