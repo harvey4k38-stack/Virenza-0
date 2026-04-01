@@ -7,6 +7,27 @@ import { INTERNATIONAL_JERSEY_CATEGORIES, CLUB_JERSEY_CATEGORIES, LEAGUE_CATEGOR
 
 type MegaMenu = 'countries' | 'clubs' | 'leagues' | 'accessories' | null;
 
+const getSaleTarget = () => {
+  const t = new Date();
+  t.setHours(23, 59, 59, 999);
+  if (t.getTime() <= Date.now()) {
+    t.setDate(t.getDate() + 1);
+    t.setHours(23, 59, 59, 999);
+  }
+  return t.getTime();
+};
+let saleTarget = getSaleTarget();
+
+const fmtCountdown = () => {
+  const diff = saleTarget - Date.now();
+  if (diff <= 0) { saleTarget = getSaleTarget(); }
+  const d = Math.max(0, saleTarget - Date.now());
+  const h = Math.floor(d / 3600000);
+  const m = Math.floor((d % 3600000) / 60000);
+  const s = Math.floor((d % 60000) / 1000);
+  return `${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
+};
+
 export default function Navbar({ onHome, onNavigate, onCart, onAbout, logo }: {
   onHome: () => void,
   onNavigate: (cat: string) => void,
@@ -47,6 +68,12 @@ export default function Navbar({ onHome, onNavigate, onCart, onAbout, logo }: {
   };
 
   const [leagueSearch, setLeagueSearch] = useState('');
+  const [countdown, setCountdown] = useState(fmtCountdown);
+
+  useEffect(() => {
+    const id = setInterval(() => setCountdown(fmtCountdown()), 1000);
+    return () => clearInterval(id);
+  }, []);
 
   const toggle = (menu: MegaMenu) => {
     setOpenMenu(o => o === menu ? null : menu);
@@ -65,7 +92,7 @@ export default function Navbar({ onHome, onNavigate, onCart, onAbout, logo }: {
       {/* Sale Banner */}
       <div className="bg-brand-black text-white text-center py-2 px-4">
         <p className="text-[10px] uppercase tracking-[0.3em] font-bold">
-          🔥 Sale — 20% Off All Jerseys &nbsp;·&nbsp; Limited Time Only &nbsp;·&nbsp; Free Worldwide Shipping
+          🔥 Sale — 20% Off All Jerseys &nbsp;·&nbsp; Ends in <span className="tabular-nums">{countdown}</span> &nbsp;·&nbsp; Free Worldwide Shipping
         </p>
       </div>
 

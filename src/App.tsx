@@ -57,6 +57,7 @@ export default function App() {
       }
       localStorage.removeItem('virenza_cart');
       window.history.replaceState({}, '', window.location.pathname);
+      posthog?.capture('complete_checkout', { method: 'paypal' });
       setPaypalSuccess(true);
     }
   }, []);
@@ -94,6 +95,17 @@ export default function App() {
   const handleCategoryClick = (category: string) => {
     setView(category);
     setSelectedProduct(null);
+  };
+
+  const handleBeginCheckout = (cs: string) => {
+    posthog?.capture('begin_checkout');
+    setCheckoutClientSecret(cs);
+    setView('checkout');
+  };
+
+  const handleCheckoutSuccess = () => {
+    posthog?.capture('complete_checkout', { method: 'stripe' });
+    handleHomeClick();
   };
 
   const getFilteredProducts = () => {
@@ -170,13 +182,13 @@ export default function App() {
                   product={selectedProduct}
                   onBack={() => { setView(previousView); setSelectedProduct(null); }}
                   onNavigate={(v) => setView(v as View)}
-                  onBuyNow={(cs) => { setCheckoutClientSecret(cs); setView('checkout'); }}
+                  onBuyNow={handleBeginCheckout}
                 />
               </div>
             ) : view === 'cart' ? (
               <div key="cart">
                 <CartView
-                  onCheckout={(cs: string) => { setCheckoutClientSecret(cs); setView('checkout'); }}
+                  onCheckout={handleBeginCheckout}
                   onBack={handleHomeClick}
                   onProductClick={handleProductClick}
                 />
@@ -185,7 +197,7 @@ export default function App() {
               <div key="checkout">
                 <CheckoutView
                   onBack={() => setView('cart')}
-                  onSuccess={handleHomeClick}
+                  onSuccess={handleCheckoutSuccess}
                   initialClientSecret={checkoutClientSecret}
                 />
               </div>

@@ -1,11 +1,12 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Product } from '../types';
 import GlowButton from '../components/GlowButton';
 import Modal from '../components/Modal';
-import { ChevronLeft, ChevronRight, ShieldCheck, Truck, RefreshCw, Star, Check, Ruler } from 'lucide-react';
+import { ChevronLeft, ChevronRight, ShieldCheck, Truck, RefreshCw, Star, Check, Ruler, Lock, Users } from 'lucide-react';
 import { useCart } from '../context/CartContext';
 import { useCurrency } from '../context/CurrencyContext';
+import { usePostHog } from 'posthog-js/react';
 import { JERSEY_REVIEWS, REVIEWS } from '../constants';
 
 interface ProductDetailProps {
@@ -38,7 +39,7 @@ export default function ProductDetail({ product, onBack, onNavigate, onBuyNow }:
 
   const compareAtPrice = product.compareAtPrice ?? (Math.ceil(product.price * 1.2) - 0.01);
 
-  const [soldCount, setSoldCount] = useState(() => Math.floor(Math.random() * 15) + 8);
+  const [soldCount, setSoldCount] = useState(() => Math.floor(Math.random() * 9) + 9);
 
   useEffect(() => {
     if (!isPalaceJersey) return;
@@ -83,6 +84,20 @@ export default function ProductDetail({ product, onBack, onNavigate, onBuyNow }:
     return undefined;
   };
 
+  const posthog = usePostHog();
+  const ctaRef = useRef<HTMLDivElement>(null);
+  const [showSticky, setShowSticky] = useState(false);
+
+  useEffect(() => {
+    const el = ctaRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(([entry]) => setShowSticky(!entry.isIntersecting), { threshold: 0 });
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  const [viewerCount] = useState(() => Math.floor(Math.random() * 12) + 12);
+
   const [buyNowLoading, setBuyNowLoading] = useState(false);
   const [buyNowError, setBuyNowError] = useState('');
 
@@ -110,6 +125,7 @@ export default function ProductDetail({ product, onBack, onNavigate, onBuyNow }:
   const handleAddToCart = () => {
     const productToAdd = isKidsSize ? { ...product, price: parseFloat((product.price * 0.85).toFixed(2)) } : product;
     addToCart(productToAdd, selectedThickness, selectedLength, buildNameLabel());
+    posthog?.capture('add_to_cart', { product_id: product.id, product_name: product.name, price: displayPrice, size: selectedLength });
     setIsAdded(true);
     setTimeout(() => setIsAdded(false), 2000);
   };
@@ -214,16 +230,22 @@ export default function ProductDetail({ product, onBack, onNavigate, onBuyNow }:
             </p>
             <h1 className="text-4xl md:text-5xl mb-4">{product.name}</h1>
             {isKidsSize ? (
-              <div className="flex items-baseline gap-3 flex-wrap">
-                <p className="text-2xl font-bold text-brand-black">{formatPrice(displayPrice)}</p>
-                <p className="text-base line-through text-brand-gray-dark/50">{formatPrice(product.price)}</p>
-                <span className="text-[9px] uppercase tracking-widest font-bold text-emerald-600 border border-emerald-400 px-2 py-0.5">15% Off</span>
+              <div className="flex flex-col gap-1">
+                <div className="flex items-baseline gap-3 flex-wrap">
+                  <p className="text-2xl font-bold text-brand-black">{formatPrice(displayPrice)}</p>
+                  <p className="text-base line-through text-brand-gray-dark/50">{formatPrice(product.price)}</p>
+                  <span className="text-[9px] uppercase tracking-widest font-bold text-emerald-600 border border-emerald-400 px-2 py-0.5">15% Off</span>
+                </div>
+                <p className="text-[10px] text-emerald-600 font-bold uppercase tracking-widest">You save {formatPrice(product.price - displayPrice)}</p>
               </div>
             ) : (
-              <div className="flex items-baseline gap-3">
-                <p className="text-2xl font-bold text-brand-black">{formatPrice(product.price)}</p>
-                <p className="text-base line-through text-brand-gray-dark/50">{formatPrice(compareAtPrice)}</p>
-                <span className="text-[9px] uppercase tracking-widest font-bold text-red-600 border border-red-300 px-2 py-0.5">Sale</span>
+              <div className="flex flex-col gap-1">
+                <div className="flex items-baseline gap-3">
+                  <p className="text-2xl font-bold text-brand-black">{formatPrice(product.price)}</p>
+                  <p className="text-base line-through text-brand-gray-dark/50">{formatPrice(compareAtPrice)}</p>
+                  <span className="text-[9px] uppercase tracking-widest font-bold text-red-600 border border-red-300 px-2 py-0.5">Sale</span>
+                </div>
+                <p className="text-[10px] text-emerald-600 font-bold uppercase tracking-widest">You save {formatPrice(compareAtPrice - product.price)}</p>
               </div>
             )}
           </div>
@@ -233,17 +255,25 @@ export default function ProductDetail({ product, onBack, onNavigate, onBuyNow }:
               {product.description}
             </p>
 
-            {isPalaceJersey && (
-              <div className="flex items-center gap-2 mb-6">
-                <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75" />
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-red-500" />
-                </span>
+            <div className="flex flex-wrap items-center gap-4 mb-6">
+              <div className="flex items-center gap-2">
+                <Users size={12} className="text-emerald-500" />
                 <p className="text-[10px] uppercase tracking-widest font-bold text-brand-gray-dark">
-                  <span className="text-brand-black">{soldCount} sold</span> in the last hour
+                  <span className="text-emerald-600">{viewerCount} people</span> viewing this now
                 </p>
               </div>
-            )}
+              {isPalaceJersey && (
+                <div className="flex items-center gap-2">
+                  <span className="relative flex h-2 w-2">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75" />
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-red-500" />
+                  </span>
+                  <p className="text-[10px] uppercase tracking-widest font-bold text-brand-gray-dark">
+                    <span className="text-brand-black">{soldCount} sold</span> in the last hour
+                  </p>
+                </div>
+              )}
+            </div>
             
             <div className="space-y-8">
               {/* Name Variants (jerseys only) */}
@@ -339,7 +369,7 @@ export default function ProductDetail({ product, onBack, onNavigate, onBuyNow }:
                   </div>
                 </div>
                 {adultSizes.length > 0 && (
-                  <div className="flex flex-wrap gap-3 mb-4">
+                  <div className="flex flex-wrap gap-3 mb-3">
                     {adultSizes.map((l) => (
                       <div key={l} className="flex flex-col items-center gap-1">
                         <button
@@ -396,7 +426,7 @@ export default function ProductDetail({ product, onBack, onNavigate, onBuyNow }:
             </div>
           )}
 
-          <div className="flex flex-col gap-3 mb-12">
+          <div ref={ctaRef} className="flex flex-col gap-3 mb-6">
             <GlowButton
               onClick={handleAddToCart}
               className={`w-full py-5 text-sm uppercase tracking-[0.2em] flex items-center justify-center gap-2 transition-all ${
@@ -424,6 +454,16 @@ export default function ProductDetail({ product, onBack, onNavigate, onBuyNow }:
                 {buyNowError && <p className="text-red-500 text-xs mt-2 text-center">{buyNowError}</p>}
               </div>
             )}
+          </div>
+
+          {/* Trust signals */}
+          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 py-3 border-t border-b border-brand-gray-light mb-12">
+            <span className="flex items-center gap-1.5 text-[9px] uppercase tracking-widest font-bold text-brand-gray-dark">
+              <Lock size={10} /> 256-Bit SSL Secured
+            </span>
+            <span className="flex items-center gap-1.5 text-[9px] uppercase tracking-widest font-bold text-brand-gray-dark">
+              <ShieldCheck size={10} /> 4,000+ Orders Shipped
+            </span>
           </div>
 
           {/* Features */}
@@ -488,6 +528,39 @@ export default function ProductDetail({ product, onBack, onNavigate, onBuyNow }:
           <img src="/size-guide-v8.png" alt="Size & Delivery Info" className="w-full rounded-xl" />
         </div>
       </Modal>
+
+      {/* Sticky mobile CTA */}
+      <AnimatePresence>
+        {showSticky && (
+          <motion.div
+            initial={{ y: 80, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: 80, opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="fixed bottom-0 left-0 right-0 z-40 md:hidden bg-white border-t border-brand-gray-light p-3 flex gap-2"
+          >
+            <button
+              type="button"
+              onClick={handleAddToCart}
+              className={`flex-1 py-4 text-xs uppercase tracking-[0.2em] font-bold transition-all flex items-center justify-center gap-2 ${
+                isAdded ? 'bg-emerald-600 text-white' : 'bg-brand-black text-white'
+              }`}
+            >
+              {isAdded ? <><Check size={14} /> Added</> : 'Add to Cart'}
+            </button>
+            {onBuyNow && (
+              <button
+                type="button"
+                onClick={handleBuyNow}
+                disabled={buyNowLoading}
+                className="flex-1 py-4 text-xs uppercase tracking-[0.2em] font-bold border-2 border-brand-black bg-white text-brand-black hover:bg-brand-black hover:text-white transition-all disabled:opacity-50"
+              >
+                {buyNowLoading ? '...' : 'Buy Now'}
+              </button>
+            )}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </main>
   );
 }
