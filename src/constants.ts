@@ -47,9 +47,9 @@ export const PRODUCTS: Product[] = [
     category: 'jersey-england',
     images: [
       '/jerseys/palace-wc-1.png',
-      '/jerseys/palace-wc-4.png',
       '/jerseys/palace-wc-5.png',
       '/jerseys/palace-wc-2.png',
+      '/jerseys/palace-wc-4.png',
     ],
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL', 'Kids S', 'Kids M', 'Kids L'],
