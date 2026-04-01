@@ -676,6 +676,7 @@ export const LEAGUE_CATEGORIES = [
 ];
 
 export const FEATURED_PRODUCT_IDS = [
+  'j-palace-wc',
   'jg-25-26-barcelona-edition-football-shirt',
   'jg-benfica-away-shirt-2025-26',
   'jg-las-palmas-away-shirt-2024-25-copy',
@@ -693,7 +694,6 @@ export const FEATURED_PRODUCT_IDS = [
   'jg-bayer-leverkusen-away-shirt-2023-24',
   'jg-al-hilal-away-shirt-2023-24',
   'jg-ac-milan-away-shirt-2025-26',
-  'j-palace-wc',
 ];
 
 export const WC_2026_FEATURED_IDS = [
