@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef, lazy, Suspense } from 'react';
 import { Analytics } from '@vercel/analytics/react';
-import { usePostHog } from '@posthog/react';
+import { usePostHog } from 'posthog-js/react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './views/Home';
