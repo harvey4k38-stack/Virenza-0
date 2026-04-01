@@ -156,6 +156,7 @@ export default function App() {
                   product={selectedProduct}
                   onBack={() => { setView(previousView); setSelectedProduct(null); }}
                   onNavigate={(v) => setView(v as View)}
+                  onBuyNow={(cs) => { setCheckoutClientSecret(cs); setView('checkout'); }}
                 />
               </div>
             ) : view === 'cart' ? (

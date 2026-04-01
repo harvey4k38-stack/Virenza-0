@@ -12,9 +12,10 @@ interface ProductDetailProps {
   product: Product;
   onBack: () => void;
   onNavigate?: (view: string) => void;
+  onBuyNow?: (clientSecret: string) => void;
 }
 
-export default function ProductDetail({ product, onBack, onNavigate }: ProductDetailProps) {
+export default function ProductDetail({ product, onBack, onNavigate, onBuyNow }: ProductDetailProps) {
   const [selectedImage, setSelectedImage] = useState(0);
   const [selectedThickness, setSelectedThickness] = useState(product.thickness[0]);
   const [selectedLength, setSelectedLength] = useState(product.lengths[0]);
@@ -72,17 +73,40 @@ export default function ProductDetail({ product, onBack, onNavigate }: ProductDe
   const adultSizes = product.lengths.filter(l => !KIDS_SIZES.includes(l));
   const kidsSizes = product.lengths.filter(l => KIDS_SIZES.includes(l));
 
-  const handleAddToCart = () => {
-    const productToAdd = isKidsSize ? { ...product, price: parseFloat((product.price * 0.85).toFixed(2)) } : product;
-    let nameLabel: string | undefined;
+  const [isBuyingNow, setIsBuyingNow] = useState(false);
+
+  const buildNameLabel = () => {
     if (selectedVariant === 'Customize Name') {
       const n = customName.trim();
       const num = customNumber !== '' ? customNumber : '';
-      nameLabel = [n, num].filter(Boolean).join(' ');
-    } else if (selectedVariant && selectedVariant !== 'No Name / Number') {
-      nameLabel = selectedVariant;
+      return [n, num].filter(Boolean).join(' ') || undefined;
     }
-    addToCart(productToAdd, selectedThickness, selectedLength, nameLabel);
+    if (selectedVariant && selectedVariant !== 'No Name / Number') return selectedVariant;
+    return undefined;
+  };
+
+  const handleBuyNow = async () => {
+    if (!onBuyNow) return;
+    setIsBuyingNow(true);
+    const productToAdd = isKidsSize ? { ...product, price: parseFloat((product.price * 0.85).toFixed(2)) } : product;
+    addToCart(productToAdd, selectedThickness, selectedLength, buildNameLabel());
+    try {
+      const res = await fetch('/api/create-payment-intent', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ amount: displayPrice }),
+      });
+      const { clientSecret } = await res.json();
+      onBuyNow(clientSecret ?? '');
+    } catch {
+      onBuyNow('');
+    }
+    setIsBuyingNow(false);
+  };
+
+  const handleAddToCart = () => {
+    const productToAdd = isKidsSize ? { ...product, price: parseFloat((product.price * 0.85).toFixed(2)) } : product;
+    addToCart(productToAdd, selectedThickness, selectedLength, buildNameLabel());
     setIsAdded(true);
     setTimeout(() => setIsAdded(false), 2000);
   };
@@ -369,20 +393,31 @@ export default function ProductDetail({ product, onBack, onNavigate }: ProductDe
             </div>
           )}
 
-          <GlowButton
-            onClick={handleAddToCart}
-            className={`w-full py-5 text-sm uppercase tracking-[0.2em] mb-12 flex items-center justify-center gap-2 transition-all ${
-              isAdded ? 'bg-emerald-600 border-emerald-600' : ''
-            }`}
-          >
-            {isAdded ? (
-              <>
-                <Check size={18} /> Added to Cart
-              </>
-            ) : (
-              'Add to Cart'
+          <div className="flex flex-col gap-3 mb-12">
+            <GlowButton
+              onClick={handleAddToCart}
+              className={`w-full py-5 text-sm uppercase tracking-[0.2em] flex items-center justify-center gap-2 transition-all ${
+                isAdded ? 'bg-emerald-600 border-emerald-600' : ''
+              }`}
+            >
+              {isAdded ? (
+                <>
+                  <Check size={18} /> Added to Cart
+                </>
+              ) : (
+                'Add to Cart'
+              )}
+            </GlowButton>
+            {onBuyNow && (
+              <button
+                onClick={handleBuyNow}
+                disabled={isBuyingNow}
+                className="w-full py-5 text-sm uppercase tracking-[0.2em] border-2 border-brand-black bg-white text-brand-black font-bold hover:bg-brand-black hover:text-white transition-all flex items-center justify-center gap-2 disabled:opacity-50"
+              >
+                {isBuyingNow ? 'Processing...' : 'Checkout Now'}
+              </button>
             )}
-          </GlowButton>
+          </div>
 
           {/* Features */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-12 border-t border-brand-gray-light">

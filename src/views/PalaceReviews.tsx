@@ -74,8 +74,9 @@ export default function PalaceReviews({ onBack }: PalaceReviewsProps) {
   return (
     <main className="pt-32 pb-24 max-w-5xl mx-auto px-6 md:px-12">
       <button
+        type="button"
         onClick={onBack}
-        className="flex items-center gap-2 text-[10px] uppercase tracking-widest font-bold mb-12 hover:opacity-60 transition-opacity"
+        className="flex items-center gap-2 text-[10px] uppercase tracking-widest font-bold mb-12 hover:opacity-60 transition-opacity cursor-pointer touch-manipulation"
       >
         <ChevronLeft size={14} /> Back
       </button>
