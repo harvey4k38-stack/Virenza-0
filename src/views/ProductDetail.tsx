@@ -11,9 +11,10 @@ import { JERSEY_REVIEWS, REVIEWS } from '../constants';
 interface ProductDetailProps {
   product: Product;
   onBack: () => void;
+  onNavigate?: (view: string) => void;
 }
 
-export default function ProductDetail({ product, onBack }: ProductDetailProps) {
+export default function ProductDetail({ product, onBack, onNavigate }: ProductDetailProps) {
   const [selectedImage, setSelectedImage] = useState(0);
   const [selectedThickness, setSelectedThickness] = useState(product.thickness[0]);
   const [selectedLength, setSelectedLength] = useState(product.lengths[0]);
@@ -153,10 +154,27 @@ export default function ProductDetail({ product, onBack }: ProductDetailProps) {
                 ))}
               </div>
               <span className="text-xs font-bold">{product.rating}</span>
-              <span className="text-xs text-brand-gray-dark ml-1 underline decoration-brand-gray-light underline-offset-4 cursor-pointer hover:text-brand-black transition-colors">
+              <span
+                onClick={() => isPalaceJersey && onNavigate?.('palace-reviews')}
+                className={`text-xs text-brand-gray-dark ml-1 underline decoration-brand-gray-light underline-offset-4 transition-colors ${isPalaceJersey ? 'cursor-pointer hover:text-brand-black' : ''}`}
+              >
                 {product.reviewCount} Reviews
               </span>
             </div>
+            {isPalaceJersey && (
+              <button
+                onClick={() => onNavigate?.('palace-reviews')}
+                className="flex items-center gap-3 w-full border border-brand-gray-light px-4 py-3 mb-4 hover:border-brand-black transition-colors group"
+              >
+                <div className="flex items-center gap-0.5">
+                  {[...Array(5)].map((_, i) => (
+                    <svg key={i} width="11" height="11" viewBox="0 0 24 24" fill="currentColor" className="text-brand-black"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                  ))}
+                </div>
+                <span className="text-[11px] font-bold uppercase tracking-widest">Read all {product.reviewCount} customer reviews</span>
+                <svg className="ml-auto w-3.5 h-3.5 opacity-40 group-hover:opacity-100 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+              </button>
+            )}
             <p className="text-[10px] uppercase tracking-[0.3em] font-bold text-brand-gray-dark mb-4">
               {product.category}
             </p>

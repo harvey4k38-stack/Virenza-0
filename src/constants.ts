@@ -56,8 +56,8 @@ export const PRODUCTS: Product[] = [
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL', 'Kids S', 'Kids M', 'Kids L'],
     isBestSeller: true,
     nameVariants: PALACE_NAME_VARIANTS,
-    rating: 4.9,
-    reviewCount: 85
+    rating: 4.8,
+    reviewCount: 46
   },
   {
     id: 'j-nike-away-2026',
