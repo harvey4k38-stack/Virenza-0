@@ -73,8 +73,6 @@ export default function ProductDetail({ product, onBack, onNavigate, onBuyNow }:
   const adultSizes = product.lengths.filter(l => !KIDS_SIZES.includes(l));
   const kidsSizes = product.lengths.filter(l => KIDS_SIZES.includes(l));
 
-  const [isBuyingNow, setIsBuyingNow] = useState(false);
-
   const buildNameLabel = () => {
     if (selectedVariant === 'Customize Name') {
       const n = customName.trim();
@@ -85,23 +83,10 @@ export default function ProductDetail({ product, onBack, onNavigate, onBuyNow }:
     return undefined;
   };
 
-  const handleBuyNow = async () => {
-    if (!onBuyNow) return;
-    setIsBuyingNow(true);
+  const handleBuyNow = () => {
     const productToAdd = isKidsSize ? { ...product, price: parseFloat((product.price * 0.85).toFixed(2)) } : product;
     addToCart(productToAdd, selectedThickness, selectedLength, buildNameLabel());
-    try {
-      const res = await fetch('/api/create-payment-intent', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ amount: displayPrice }),
-      });
-      const { clientSecret } = await res.json();
-      onBuyNow(clientSecret ?? '');
-    } catch {
-      onBuyNow('');
-    }
-    setIsBuyingNow(false);
+    onBuyNow?.('');
   };
 
   const handleAddToCart = () => {
@@ -410,11 +395,11 @@ export default function ProductDetail({ product, onBack, onNavigate, onBuyNow }:
             </GlowButton>
             {onBuyNow && (
               <button
+                type="button"
                 onClick={handleBuyNow}
-                disabled={isBuyingNow}
-                className="w-full py-5 text-sm uppercase tracking-[0.2em] border-2 border-brand-black bg-white text-brand-black font-bold hover:bg-brand-black hover:text-white transition-all flex items-center justify-center gap-2 disabled:opacity-50"
+                className="w-full py-5 text-sm uppercase tracking-[0.2em] border-2 border-brand-black bg-white text-brand-black font-bold hover:bg-brand-black hover:text-white transition-all flex items-center justify-center gap-2"
               >
-                {isBuyingNow ? 'Processing...' : 'Checkout Now'}
+                Checkout Now
               </button>
             )}
           </div>
