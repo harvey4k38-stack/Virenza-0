@@ -421,7 +421,7 @@ export default function ProductDetail({ product, onBack, onNavigate, onBuyNow }:
             <div className="flex items-start gap-3 mb-6 p-4 border border-brand-gray-light bg-brand-gray-light/10">
               <Truck size={14} className="text-brand-gray-dark mt-0.5 flex-shrink-0" />
               <p className="text-[10px] uppercase tracking-widest font-bold text-brand-gray-dark leading-relaxed">
-                Shipping can take 5–7 working days due to high demand
+                Shipping can take 5–7 working days
               </p>
             </div>
           )}
