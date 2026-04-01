@@ -251,7 +251,7 @@ export default function ProductDetail({ product, onBack, onNavigate, onBuyNow }:
           </div>
 
           <div className="mb-10">
-            <p className="text-brand-gray-dark leading-relaxed mb-8">
+            <p className="text-brand-gray-dark leading-relaxed mb-8 whitespace-pre-line">
               {product.description}
             </p>
 
