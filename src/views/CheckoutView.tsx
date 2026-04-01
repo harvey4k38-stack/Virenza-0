@@ -8,9 +8,10 @@ import GlowButton from '../components/GlowButton';
 
 const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY ?? '');
 
-const DISCOUNT_CODE = 'VIRENZA10';
-const DISCOUNT_PERCENT = 0.10;
+const DISCOUNT_CODES: Record<string, number> = { 'VIRENZA10': 0.10, 'VIRENZA15': 0.15 };
 const USED_CODES_KEY = 'virenza_used_discount';
+let _appliedCode = '';
+let _appliedPercent = 0;
 
 interface CheckoutViewProps {
   onBack: () => void;
@@ -51,7 +52,7 @@ function CheckoutForm({ onBack, onSuccess, finalTotal, discountApplied, cartTota
       email: form.email, address: form.address,
       city: form.city, postcode: form.postcode,
       cart, total: finalTotal.toFixed(2),
-      discount: discountApplied ? `${DISCOUNT_PERCENT * 100}% off (${DISCOUNT_CODE})` : null,
+      discount: discountApplied ? `${_appliedPercent * 100}% off (${_appliedCode})` : null,
     }));
 
     const { error, paymentIntent } = await stripe.confirmPayment({
@@ -93,7 +94,7 @@ function CheckoutForm({ onBack, onSuccess, finalTotal, discountApplied, cartTota
           email: form.email, address: form.address,
           city: form.city, postcode: form.postcode,
           cart, total: finalTotal.toFixed(2),
-          discount: discountApplied ? `${DISCOUNT_PERCENT * 100}% off (${DISCOUNT_CODE})` : null,
+          discount: discountApplied ? `${_appliedPercent * 100}% off (${_appliedCode})` : null,
         }),
       });
       const emailData = await emailRes.json();
@@ -178,7 +179,7 @@ function CheckoutForm({ onBack, onSuccess, finalTotal, discountApplied, cartTota
               <div className="flex items-center gap-3 p-4 border border-emerald-400 bg-emerald-50">
                 <Tag size={16} className="text-emerald-600" />
                 <span className="text-xs font-bold uppercase tracking-widest text-emerald-700">
-                  {DISCOUNT_CODE} — 10% off applied
+                  {_appliedCode} — {_appliedPercent * 100}% off applied
                 </span>
               </div>
             ) : (
@@ -247,8 +248,8 @@ function CheckoutForm({ onBack, onSuccess, finalTotal, discountApplied, cartTota
               </div>
               {discountApplied && (
                 <div className="flex justify-between text-[10px] uppercase tracking-widest">
-                  <span className="text-emerald-600">Discount (40%)</span>
-                  <span className="font-bold text-emerald-600">−£{(cartTotal * DISCOUNT_PERCENT).toFixed(2)}</span>
+                  <span className="text-emerald-600">Discount ({_appliedPercent * 100}%)</span>
+                  <span className="font-bold text-emerald-600">−£{(cartTotal * _appliedPercent).toFixed(2)}</span>
                 </div>
               )}
               <div className="flex justify-between text-[10px] uppercase tracking-widest">
@@ -274,7 +275,7 @@ function DiscountInput({ form }: { form: { email: string } }) {
 
   const apply = () => {
     setError('');
-    if (input.trim().toUpperCase() !== DISCOUNT_CODE) { setError('Invalid discount code.'); return; }
+    if (!DISCOUNT_CODES[input.trim().toUpperCase()]) { setError('Invalid discount code.'); return; }
     const used: string[] = JSON.parse(localStorage.getItem(USED_CODES_KEY) ?? '[]');
     if (form.email && used.includes(form.email.toLowerCase())) {
       setError('This code has already been used with this email.');
@@ -314,7 +315,7 @@ export default function CheckoutView({ onBack, onSuccess, initialClientSecret = 
   const [clientSecret, setClientSecret] = useState(initialClientSecret);
   const [formEmail, setFormEmail] = useState('');
 
-  const finalTotal = discountApplied ? cartTotal * (1 - DISCOUNT_PERCENT) : cartTotal;
+  const finalTotal = discountApplied ? cartTotal * (1 - _appliedPercent) : cartTotal;
 
   useEffect(() => {
     // Only re-fetch when discount changes the total (initial secret already provided)
@@ -331,12 +332,16 @@ export default function CheckoutView({ onBack, onSuccess, initialClientSecret = 
 
   const handleApplyDiscount = () => {
     setDiscountError('');
-    if (discountInput.trim().toUpperCase() !== DISCOUNT_CODE) { setDiscountError('Invalid discount code.'); return; }
+    const code = discountInput.trim().toUpperCase();
+    const percent = DISCOUNT_CODES[code];
+    if (!percent) { setDiscountError('Invalid discount code.'); return; }
     const used: string[] = JSON.parse(localStorage.getItem(USED_CODES_KEY) ?? '[]');
     if (formEmail && used.includes(formEmail.toLowerCase())) {
       setDiscountError('This code has already been used with this email.');
       return;
     }
+    _appliedCode = code;
+    _appliedPercent = percent;
     setDiscountApplied(true);
   };
 
@@ -508,7 +513,7 @@ function CheckoutFormWithDiscount({
       email: form.email, address: form.address,
       city: form.city, postcode: form.postcode,
       cart, total: finalTotal.toFixed(2),
-      discount: discountApplied ? `${DISCOUNT_PERCENT * 100}% off (${DISCOUNT_CODE})` : null,
+      discount: discountApplied ? `${_appliedPercent * 100}% off (${_appliedCode})` : null,
     }));
 
     const { error, paymentIntent } = await stripe.confirmPayment({
@@ -544,7 +549,7 @@ function CheckoutFormWithDiscount({
           email: form.email, address: form.address,
           city: form.city, postcode: form.postcode,
           cart, total: finalTotal.toFixed(2),
-          discount: discountApplied ? `${DISCOUNT_PERCENT * 100}% off (${DISCOUNT_CODE})` : null,
+          discount: discountApplied ? `${_appliedPercent * 100}% off (${_appliedCode})` : null,
         }),
       });
       const emailData = await emailRes.json();
@@ -621,7 +626,7 @@ function CheckoutFormWithDiscount({
               <div className="flex items-center gap-3 p-4 border border-emerald-400 bg-emerald-50">
                 <Tag size={16} className="text-emerald-600" />
                 <span className="text-xs font-bold uppercase tracking-widest text-emerald-700">
-                  {DISCOUNT_CODE} — 10% off applied
+                  {_appliedCode} — {_appliedPercent * 100}% off applied
                 </span>
               </div>
             ) : (
@@ -722,8 +727,8 @@ function CheckoutFormWithDiscount({
               </div>
               {discountApplied && (
                 <div className="flex justify-between text-[10px] uppercase tracking-widest">
-                  <span className="text-emerald-600">Discount (40%)</span>
-                  <span className="font-bold text-emerald-600">−£{(cartTotal * DISCOUNT_PERCENT).toFixed(2)}</span>
+                  <span className="text-emerald-600">Discount ({_appliedPercent * 100}%)</span>
+                  <span className="font-bold text-emerald-600">−£{(cartTotal * _appliedPercent).toFixed(2)}</span>
                 </div>
               )}
               <div className="flex justify-between text-[10px] uppercase tracking-widest">
