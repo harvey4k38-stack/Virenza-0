@@ -102,7 +102,7 @@ export default function ProductDetail({ product, onBack, onNavigate, onBuyNow }:
       addToCart(productToAdd, selectedThickness, selectedLength, buildNameLabel());
       onBuyNow(data.clientSecret);
     } catch {
-      setBuyNowError('Please add to basket and checkout.');
+      setBuyNowError('Please add to cart and checkout.');
     }
     setBuyNowLoading(false);
   };
