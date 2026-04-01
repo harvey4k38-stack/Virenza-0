@@ -23,6 +23,13 @@ export default function ProductDetail({ product, onBack, onNavigate }: ProductDe
   const [customNumber, setCustomNumber] = useState<number | ''>(1);
   const isJersey = product.category.startsWith('jersey-');
   const isPalaceJersey = product.id === 'j-palace-wc';
+  const reviewViewMap: Record<string, string> = {
+    'j-palace-wc': 'palace-reviews',
+    'j-nike-away-2026': 'jersey-reviews-nike-away',
+    'j-retro-saka': 'jersey-reviews-retro-saka',
+    'j-retro-gazza': 'jersey-reviews-retro-gazza',
+  };
+  const reviewView = reviewViewMap[product.id];
   const [isAdded, setIsAdded] = useState(false);
   const [isSizingModalOpen, setIsSizingModalOpen] = useState(false);
   const { addToCart } = useCart();
@@ -155,15 +162,15 @@ export default function ProductDetail({ product, onBack, onNavigate }: ProductDe
               </div>
               <span className="text-xs font-bold">{product.rating}</span>
               <span
-                onClick={() => isPalaceJersey && onNavigate?.('palace-reviews')}
-                className={`text-xs text-brand-gray-dark ml-1 underline decoration-brand-gray-light underline-offset-4 transition-colors ${isPalaceJersey ? 'cursor-pointer hover:text-brand-black' : ''}`}
+                onClick={() => reviewView && onNavigate?.(reviewView)}
+                className={`text-xs text-brand-gray-dark ml-1 underline decoration-brand-gray-light underline-offset-4 transition-colors ${reviewView ? 'cursor-pointer hover:text-brand-black' : ''}`}
               >
                 {product.reviewCount} Reviews
               </span>
             </div>
-            {isPalaceJersey && (
+            {reviewView && (
               <button
-                onClick={() => onNavigate?.('palace-reviews')}
+                onClick={() => onNavigate?.(reviewView)}
                 className="flex items-center gap-3 w-full border border-brand-gray-light px-4 py-3 mb-4 hover:border-brand-black transition-colors group"
               >
                 <div className="flex items-center gap-0.5">

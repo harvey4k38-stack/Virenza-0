@@ -14,6 +14,8 @@ const ShippingTracking = lazy(() => import('./views/ShippingTracking'));
 const LeaguesView = lazy(() => import('./views/LeaguesView'));
 const JerseysView = lazy(() => import('./views/JerseysView'));
 const LeagueClubsView = lazy(() => import('./views/LeagueClubsView'));
+const PalaceReviews = lazy(() => import('./views/PalaceReviews'));
+const JerseyReviews = lazy(() => import('./views/JerseyReviews'));
 import { Product } from './types';
 import { PRODUCTS, LEAGUE_TO_CLUBS, LEAGUE_CATEGORIES, INTERNATIONAL_CATEGORY_IDS, JERSEY_CATEGORIES } from './constants';
 import { CartProvider } from './context/CartContext';
@@ -153,6 +155,7 @@ export default function App() {
                 <ProductDetail
                   product={selectedProduct}
                   onBack={() => { setView(previousView); setSelectedProduct(null); }}
+                  onNavigate={(v) => setView(v as View)}
                 />
               </div>
             ) : view === 'cart' ? (
@@ -194,6 +197,22 @@ export default function App() {
             ) : view === 'leagues' ? (
               <div key="leagues">
                 <LeaguesView onLeagueClick={handleCategoryClick} onBack={handleHomeClick} />
+              </div>
+            ) : view === 'palace-reviews' ? (
+              <div key="palace-reviews">
+                <PalaceReviews onBack={() => setView('product')} />
+              </div>
+            ) : view === 'jersey-reviews-nike-away' ? (
+              <div key="jersey-reviews-nike-away">
+                <JerseyReviews jerseyId="j-nike-away-2026" onBack={() => setView('product')} />
+              </div>
+            ) : view === 'jersey-reviews-retro-saka' ? (
+              <div key="jersey-reviews-retro-saka">
+                <JerseyReviews jerseyId="j-retro-saka" onBack={() => setView('product')} />
+              </div>
+            ) : view === 'jersey-reviews-retro-gazza' ? (
+              <div key="jersey-reviews-retro-gazza">
+                <JerseyReviews jerseyId="j-retro-gazza" onBack={() => setView('product')} />
               </div>
             ) : view === 'about' ? (
               <div key="about">

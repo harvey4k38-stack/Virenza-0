@@ -77,8 +77,8 @@ export const PRODUCTS: Product[] = [
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL', 'Kids S', 'Kids M', 'Kids L'],
     isBestSeller: false,
     nameVariants: JERSEY_NAME_VARIANTS,
-    rating: 5.0,
-    reviewCount: 10
+    rating: 4.9,
+    reviewCount: 25
   },
   {
     id: 'j-retro-saka',
@@ -97,8 +97,8 @@ export const PRODUCTS: Product[] = [
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL', 'Kids S', 'Kids M', 'Kids L'],
     isBestSeller: false,
     nameVariants: JERSEY_NAME_VARIANTS,
-    rating: 5.0,
-    reviewCount: 9
+    rating: 4.9,
+    reviewCount: 24
   },
   {
     id: 'j-retro-gazza',
@@ -117,8 +117,8 @@ export const PRODUCTS: Product[] = [
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL', 'Kids S', 'Kids M', 'Kids L'],
     isBestSeller: false,
-    rating: 5.0,
-    reviewCount: 12
+    rating: 4.9,
+    reviewCount: 26
   },
 
   // ── Chains ────────────────────────────────────────────────────────────────
