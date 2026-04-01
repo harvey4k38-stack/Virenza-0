@@ -3,6 +3,7 @@ import { Analytics } from '@vercel/analytics/react';
 import { usePostHog } from 'posthog-js/react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import EmailCapturePopup from './components/EmailCapturePopup';
 import Home from './views/Home';
 const ProductDetail = lazy(() => import('./views/ProductDetail'));
 const CategoryView = lazy(() => import('./views/CategoryView'));
@@ -272,6 +273,7 @@ export default function App() {
           onNavigate={(v) => setView(v as View)}
         />
       </div>
+      <EmailCapturePopup />
       <Analytics />
     </CartProvider>
     </CurrencyProvider>

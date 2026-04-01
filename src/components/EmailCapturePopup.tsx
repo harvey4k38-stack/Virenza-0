@@ -1,0 +1,128 @@
+import { useState, useEffect, type FormEvent } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
+import { X } from 'lucide-react';
+
+const STORAGE_KEY = 'virenza_discount_captured';
+
+export default function EmailCapturePopup() {
+  const [visible, setVisible] = useState(false);
+  const [email, setEmail] = useState('');
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+
+  useEffect(() => {
+    if (localStorage.getItem(STORAGE_KEY)) return;
+    const timer = setTimeout(() => setVisible(true), 10000);
+    return () => clearTimeout(timer);
+  }, []);
+
+  const dismiss = () => {
+    setVisible(false);
+    localStorage.setItem(STORAGE_KEY, '1');
+  };
+
+  const handleSubmit = async (e: FormEvent) => {
+    e.preventDefault();
+    setStatus('loading');
+    try {
+      const res = await fetch('/api/discount-email', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email }),
+      });
+      if (!res.ok) throw new Error();
+      setStatus('success');
+      localStorage.setItem(STORAGE_KEY, '1');
+    } catch {
+      setStatus('error');
+    }
+  };
+
+  return (
+    <AnimatePresence>
+      {visible && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="fixed inset-0 z-[100] flex items-end sm:items-center justify-center bg-black/50 px-4 pb-4 sm:pb-0"
+          onClick={dismiss}
+        >
+          <motion.div
+            initial={{ y: 60, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: 60, opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="bg-white w-full max-w-md relative overflow-hidden"
+            onClick={e => e.stopPropagation()}
+          >
+            {/* Top bar */}
+            <div className="bg-brand-black text-white px-8 py-5 text-center">
+              <p className="text-[10px] uppercase tracking-[0.4em] font-bold">Exclusive Offer</p>
+              <p className="text-2xl font-bold mt-1 tracking-wide">10% Off Your Order</p>
+            </div>
+
+            <button
+              type="button"
+              onClick={dismiss}
+              className="absolute top-4 right-4 text-white hover:opacity-70 transition-opacity"
+            >
+              <X size={18} />
+            </button>
+
+            <div className="px-8 py-8">
+              {status === 'success' ? (
+                <div className="text-center py-4">
+                  <p className="text-[10px] uppercase tracking-widest font-bold text-brand-gray-dark mb-3">Your code</p>
+                  <div className="border-2 border-dashed border-brand-gray-light py-4 px-6 mb-4">
+                    <span className="text-2xl font-bold tracking-[0.3em] uppercase">VIRENZA10</span>
+                  </div>
+                  <p className="text-xs text-brand-gray-dark mb-6">We've also sent it to your email. Enter it at checkout for 10% off.</p>
+                  <button
+                    type="button"
+                    onClick={dismiss}
+                    className="w-full py-4 bg-brand-black text-white text-[10px] uppercase tracking-[0.2em] font-bold hover:opacity-80 transition-opacity"
+                  >
+                    Shop Now
+                  </button>
+                </div>
+              ) : (
+                <>
+                  <p className="text-sm text-brand-gray-dark text-center mb-6">
+                    Enter your email and we'll send you an exclusive 10% off code for your first order.
+                  </p>
+                  <form onSubmit={handleSubmit} className="space-y-3">
+                    <input
+                      type="email"
+                      required
+                      value={email}
+                      onChange={e => setEmail(e.target.value)}
+                      placeholder="Your email address"
+                      className="w-full border border-brand-gray-light px-4 py-3.5 text-sm focus:outline-none focus:border-brand-black transition-colors"
+                    />
+                    {status === 'error' && (
+                      <p className="text-red-500 text-xs">Something went wrong. Please try again.</p>
+                    )}
+                    <button
+                      type="submit"
+                      disabled={status === 'loading'}
+                      className="w-full py-4 bg-brand-black text-white text-[10px] uppercase tracking-[0.2em] font-bold hover:opacity-80 transition-opacity disabled:opacity-50"
+                    >
+                      {status === 'loading' ? 'Sending...' : 'Get My 10% Off'}
+                    </button>
+                  </form>
+                  <button
+                    type="button"
+                    onClick={dismiss}
+                    className="w-full mt-3 text-[10px] uppercase tracking-widest text-brand-gray-dark hover:text-brand-black transition-colors"
+                  >
+                    No thanks
+                  </button>
+                </>
+              )}
+            </div>
+          </motion.div>
+        </motion.div>
+      )}
+    </AnimatePresence>
+  );
+}
