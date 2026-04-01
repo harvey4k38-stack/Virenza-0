@@ -1,5 +1,6 @@
-import { useState, useEffect, lazy, Suspense } from 'react';
+import { useState, useEffect, useRef, lazy, Suspense } from 'react';
 import { Analytics } from '@vercel/analytics/react';
+import { usePostHog } from '@posthog/react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './views/Home';
@@ -65,7 +66,20 @@ export default function App() {
     window.scrollTo(0, 0);
   }, [view, selectedProduct]);
 
+  const posthog = usePostHog();
+  const pageEntryTime = useRef<number>(Date.now());
+
+  // Track page views + time on page
+  useEffect(() => {
+    const pageName = view === 'product' && selectedProduct ? `product:${selectedProduct.id}` : view;
+    const timeSpent = Math.round((Date.now() - pageEntryTime.current) / 1000);
+    if (timeSpent > 1) posthog?.capture('page_exit', { page: pageName, seconds: timeSpent });
+    pageEntryTime.current = Date.now();
+    posthog?.capture('$pageview', { page: pageName });
+  }, [view, selectedProduct]);
+
   const handleProductClick = (product: Product) => {
+    posthog?.capture('product_viewed', { product_id: product.id, product_name: product.name, price: product.price });
     setPreviousView(view);
     setSelectedProduct(product);
     setView('product');
