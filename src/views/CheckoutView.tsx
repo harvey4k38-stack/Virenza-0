@@ -8,7 +8,7 @@ import GlowButton from '../components/GlowButton';
 
 const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY ?? '');
 
-const DISCOUNT_CODES: Record<string, number> = { 'VIRENZA10': 0.10, 'VIRENZA15': 0.15 };
+const DISCOUNT_CODES: Record<string, number> = { 'VIRENZA10': 0.10, 'VIRENZA15': 0.15, 'DPRESTON420': 0.15 };
 const USED_CODES_KEY = 'virenza_used_discount';
 let _appliedCode = '';
 let _appliedPercent = 0;
