@@ -57,7 +57,7 @@ export const PRODUCTS: Product[] = [
     isBestSeller: true,
     nameVariants: PALACE_NAME_VARIANTS,
     rating: 4.8,
-    reviewCount: 46
+    reviewCount: 45
   },
   {
     id: 'j-nike-away-2026',
