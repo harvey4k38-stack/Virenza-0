@@ -83,10 +83,28 @@ export default function ProductDetail({ product, onBack, onNavigate, onBuyNow }:
     return undefined;
   };
 
-  const handleBuyNow = () => {
-    const productToAdd = isKidsSize ? { ...product, price: parseFloat((product.price * 0.85).toFixed(2)) } : product;
-    addToCart(productToAdd, selectedThickness, selectedLength, buildNameLabel());
-    onBuyNow?.('');
+  const [buyNowLoading, setBuyNowLoading] = useState(false);
+  const [buyNowError, setBuyNowError] = useState('');
+
+  const handleBuyNow = async () => {
+    if (!onBuyNow) return;
+    setBuyNowLoading(true);
+    setBuyNowError('');
+    try {
+      const res = await fetch('/api/create-payment-intent', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ amount: displayPrice }),
+      });
+      const data = await res.json();
+      if (!data.clientSecret) throw new Error('No client secret');
+      const productToAdd = isKidsSize ? { ...product, price: parseFloat((product.price * 0.85).toFixed(2)) } : product;
+      addToCart(productToAdd, selectedThickness, selectedLength, buildNameLabel());
+      onBuyNow(data.clientSecret);
+    } catch {
+      setBuyNowError('Payment unavailable. Please try again.');
+    }
+    setBuyNowLoading(false);
   };
 
   const handleAddToCart = () => {
@@ -394,13 +412,17 @@ export default function ProductDetail({ product, onBack, onNavigate, onBuyNow }:
               )}
             </GlowButton>
             {onBuyNow && (
-              <button
-                type="button"
-                onClick={handleBuyNow}
-                className="w-full py-5 text-sm uppercase tracking-[0.2em] border-2 border-brand-black bg-white text-brand-black font-bold hover:bg-brand-black hover:text-white transition-all flex items-center justify-center gap-2"
-              >
-                Checkout Now
-              </button>
+              <div>
+                <button
+                  type="button"
+                  onClick={handleBuyNow}
+                  disabled={buyNowLoading}
+                  className="w-full py-5 text-sm uppercase tracking-[0.2em] border-2 border-brand-black bg-white text-brand-black font-bold hover:bg-brand-black hover:text-white transition-all flex items-center justify-center gap-2 disabled:opacity-50"
+                >
+                  {buyNowLoading ? 'Please wait...' : 'Checkout Now'}
+                </button>
+                {buyNowError && <p className="text-red-500 text-xs mt-2 text-center">{buyNowError}</p>}
+              </div>
             )}
           </div>
 
