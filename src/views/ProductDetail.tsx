@@ -69,7 +69,7 @@ export default function ProductDetail({ product, onBack, onNavigate, onBuyNow }:
 
   const KIDS_SIZES = ['Kids S', 'Kids M', 'Kids L'];
   const isKidsSize = KIDS_SIZES.includes(selectedLength);
-  const displayPrice = isKidsSize ? product.price * 0.85 : product.price;
+  const displayPrice = product.price;
 
   const adultSizes = product.lengths.filter(l => !KIDS_SIZES.includes(l));
   const kidsSizes = product.lengths.filter(l => KIDS_SIZES.includes(l));
@@ -113,8 +113,7 @@ export default function ProductDetail({ product, onBack, onNavigate, onBuyNow }:
       });
       const data = await res.json();
       if (!data.clientSecret) throw new Error('No client secret');
-      const productToAdd = isKidsSize ? { ...product, price: parseFloat((product.price * 0.85).toFixed(2)) } : product;
-      addToCart(productToAdd, selectedThickness, selectedLength, buildNameLabel());
+      addToCart(product, selectedThickness, selectedLength, buildNameLabel());
       onBuyNow(data.clientSecret);
     } catch {
       setBuyNowError('Please add to cart and checkout.');
@@ -123,8 +122,7 @@ export default function ProductDetail({ product, onBack, onNavigate, onBuyNow }:
   };
 
   const handleAddToCart = () => {
-    const productToAdd = isKidsSize ? { ...product, price: parseFloat((product.price * 0.85).toFixed(2)) } : product;
-    addToCart(productToAdd, selectedThickness, selectedLength, buildNameLabel());
+    addToCart(product, selectedThickness, selectedLength, buildNameLabel());
     posthog?.capture('add_to_cart', { product_id: product.id, product_name: product.name, price: displayPrice, size: selectedLength });
     setIsAdded(true);
     setTimeout(() => setIsAdded(false), 2000);
@@ -229,25 +227,14 @@ export default function ProductDetail({ product, onBack, onNavigate, onBuyNow }:
               {product.category}
             </p>
             <h1 className="text-4xl md:text-5xl mb-4">{product.name}</h1>
-            {isKidsSize ? (
-              <div className="flex flex-col gap-1">
-                <div className="flex items-baseline gap-3 flex-wrap">
-                  <p className="text-2xl font-bold text-brand-black">{formatPrice(displayPrice)}</p>
-                  <p className="text-base line-through text-brand-gray-dark/50">{formatPrice(product.price)}</p>
-                  <span className="text-[9px] uppercase tracking-widest font-bold text-emerald-600 border border-emerald-400 px-2 py-0.5">15% Off</span>
-                </div>
-                <p className="text-[10px] text-emerald-600 font-bold uppercase tracking-widest">You save {formatPrice(product.price - displayPrice)}</p>
+            <div className="flex flex-col gap-1">
+              <div className="flex items-baseline gap-3">
+                <p className="text-2xl font-bold text-brand-black">{formatPrice(product.price)}</p>
+                <p className="text-base line-through text-brand-gray-dark/50">{formatPrice(compareAtPrice)}</p>
+                <span className="text-[9px] uppercase tracking-widest font-bold text-red-600 border border-red-300 px-2 py-0.5">Sale</span>
               </div>
-            ) : (
-              <div className="flex flex-col gap-1">
-                <div className="flex items-baseline gap-3">
-                  <p className="text-2xl font-bold text-brand-black">{formatPrice(product.price)}</p>
-                  <p className="text-base line-through text-brand-gray-dark/50">{formatPrice(compareAtPrice)}</p>
-                  <span className="text-[9px] uppercase tracking-widest font-bold text-red-600 border border-red-300 px-2 py-0.5">Sale</span>
-                </div>
-                <p className="text-[10px] text-emerald-600 font-bold uppercase tracking-widest">You save {formatPrice(compareAtPrice - product.price)}</p>
-              </div>
-            )}
+              <p className="text-[10px] text-emerald-600 font-bold uppercase tracking-widest">You save {formatPrice(compareAtPrice - product.price)}</p>
+            </div>
           </div>
 
           <div className="mb-10">
