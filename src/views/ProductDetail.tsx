@@ -421,7 +421,7 @@ export default function ProductDetail({ product, onBack, onNavigate, onBuyNow, o
                           className={`px-6 py-2 text-xs uppercase tracking-widest font-bold border transition-all ${
                             selectedLength === l
                               ? 'bg-brand-black text-white border-brand-black'
-                              : 'bg-white text-brand-black border-emerald-400 hover:border-brand-black'
+                              : 'bg-white text-brand-black border-brand-gray-light hover:border-brand-black'
                           }`}
                         >
                           {l.replace('Kids ', '')}

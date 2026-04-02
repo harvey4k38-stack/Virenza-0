@@ -9,15 +9,20 @@ type MegaMenu = 'countries' | 'clubs' | 'leagues' | 'accessories' | null;
 
 const getSaleTarget = () => {
   const now = new Date();
-  const ukNow = new Date(now.toLocaleString('en-US', { timeZone: 'Europe/London' }));
-  // Next 12-hour mark: either noon (12:00) or midnight (00:00)
-  const ukTarget = new Date(ukNow);
-  if (ukNow.getHours() < 12) {
-    ukTarget.setHours(12, 0, 0, 0);
-  } else {
-    ukTarget.setHours(23, 59, 59, 999);
-  }
-  return Date.now() + (ukTarget.getTime() - ukNow.getTime());
+  // Reliably get current UK time components using Intl (works for any user timezone)
+  const parts = new Intl.DateTimeFormat('en-GB', {
+    timeZone: 'Europe/London',
+    hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: false,
+  }).formatToParts(now);
+  const ukHour = parseInt(parts.find(p => p.type === 'hour')!.value);
+  const ukMin  = parseInt(parts.find(p => p.type === 'minute')!.value);
+  const ukSec  = parseInt(parts.find(p => p.type === 'second')!.value);
+  const msSinceMidnightUK = (ukHour * 3600 + ukMin * 60 + ukSec) * 1000;
+  // Next 12-hour mark: noon or midnight
+  const msUntilTarget = msSinceMidnightUK < 12 * 3600 * 1000
+    ? 12 * 3600 * 1000 - msSinceMidnightUK
+    : 24 * 3600 * 1000 - msSinceMidnightUK;
+  return Date.now() + msUntilTarget;
 };
 let saleTarget = getSaleTarget();
 
