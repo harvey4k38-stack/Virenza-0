@@ -49,8 +49,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       `,
     });
 
-    // Store signup in Redis for future campaigns (never expires)
-    await redis.set(`discount_signup:${email.toLowerCase()}`, { email: email.toLowerCase(), code, signedUpAt: Date.now() });
+    // Store signup in Redis for future campaigns (non-blocking)
+    redis.set(`discount_signup:${email.toLowerCase()}`, { email: email.toLowerCase(), code, signedUpAt: Date.now() }).catch(() => {});
 
     // Notify admin
     await resend.emails.send({

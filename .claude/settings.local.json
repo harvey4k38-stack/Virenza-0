@@ -264,7 +264,8 @@
       "Bash(python3 << 'EOF'\nfrom PIL import Image\nimport numpy as np\n\nimg = Image.open\\(\"/Users/nocap/Downloads/Virenza - O/public/jerseys/palace-wc-4.png\"\\).convert\\(\"RGBA\"\\)\ndata = np.array\\(img\\)\n\n# Find the white pixels I painted in the star area\nr, g, b, a = data[:,:,0], data[:,:,1], data[:,:,2], data[:,:,3]\nwhite_mask = \\(r == 255\\) & \\(g == 255\\) & \\(b == 255\\) & \\(a == 255\\)\n\n# Only in the star region\nmask = np.zeros\\(r.shape, dtype=bool\\)\nmask[180:245, 590:670] = white_mask[180:245, 590:670]\nprint\\(f\"White pixels to recolour: {mask.sum\\(\\)}\"\\)\n\n# Paint with slide 1 star colour\ndata[mask] = [169, 169, 168, 255]\nImage.fromarray\\(data\\).save\\(\"/Users/nocap/Downloads/Virenza - O/public/jerseys/palace-wc-4.png\"\\)\n\n# Preview\ncrop = Image.fromarray\\(data\\).crop\\(\\(575, 175, 685, 255\\)\\)\ncrop.resize\\(\\(crop.width*5, crop.height*5\\), Image.NEAREST\\).save\\(\"/tmp/star_grey.png\"\\)\nprint\\(\"Done.\"\\)\nEOF)",
       "Bash(open \"/Users/nocap/Downloads/Virenza - O/review-picker.html\")",
       "Bash(cd \"/Users/nocap/Downloads/Virenza - O\" && npm install @vercel/kv 2>&1 | tail -5)",
-      "Bash(find /Users/nocap/Downloads -name \"*home*2026*\" -o -name \"*2026*home*\" -o -name \"*england*home*\" -o -name \"*home kit*\" 2>/dev/null | grep -v \".DS_Store\")"
+      "Bash(find /Users/nocap/Downloads -name \"*home*2026*\" -o -name \"*2026*home*\" -o -name \"*england*home*\" -o -name \"*home kit*\" 2>/dev/null | grep -v \".DS_Store\")",
+      "Bash(cd \"/Users/nocap/Downloads/Virenza - O\" && npx vercel logs 2>&1 | head -60)"
     ]
   }
 }
