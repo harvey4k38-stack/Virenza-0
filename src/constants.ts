@@ -387,6 +387,27 @@ export const REVIEWS: Review[] = [
 
 export const JERSEY_REVIEWS: Review[] = [
   {
+    id: 'jr-photo1',
+    author: 'Jay R.',
+    rating: 5,
+    comment: 'Unreal quality, looks even better in person.',
+    photo: '/reviews/review-4.jpg',
+  },
+  {
+    id: 'jr-photo2',
+    author: 'Sam K.',
+    rating: 5,
+    comment: 'Fits perfect, very happy with it.',
+    photo: '/reviews/review-17.jpg',
+  },
+  {
+    id: 'jr-photo3',
+    author: 'Chris O.',
+    rating: 5,
+    comment: 'Top quality shirt, arrived fast.',
+    photo: '/reviews/review-21.jpg',
+  },
+  {
     id: 'jr1',
     author: 'Tom H.',
     rating: 5,

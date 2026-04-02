@@ -20,6 +20,7 @@ export interface Review {
   author: string;
   rating: number;
   comment: string;
+  photo?: string;
 }
 
 export interface Category {
