@@ -37,14 +37,14 @@ export default function EmailCapturePopup() {
   const [revealedCode] = useState(pickCode);
 
   useEffect(() => {
-    if (localStorage.getItem(STORAGE_KEY)) return;
+    if (sessionStorage.getItem(STORAGE_KEY)) return;
     const timer = setTimeout(() => setVisible(true), 6000);
     return () => clearTimeout(timer);
   }, []);
 
   const dismiss = () => {
     setVisible(false);
-    localStorage.setItem(STORAGE_KEY, '1');
+    sessionStorage.setItem(STORAGE_KEY, '1');
   };
 
   const handleSubmit = async (e: FormEvent) => {
@@ -65,7 +65,7 @@ export default function EmailCapturePopup() {
     usedEmails.push(email.trim().toLowerCase());
     localStorage.setItem(USED_EMAILS_KEY, JSON.stringify(usedEmails));
     setStatus('success');
-    localStorage.setItem(STORAGE_KEY, '1');
+    sessionStorage.setItem(STORAGE_KEY, '1');
   };
 
   return (

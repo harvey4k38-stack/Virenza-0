@@ -22,7 +22,7 @@ function pickMysteryCode() {
 }
 
 function CartMysteryBox({ onCodeRevealed }: { onCodeRevealed: (code: string) => void }) {
-  const alreadyClaimed = !!localStorage.getItem(POPUP_STORAGE_KEY);
+  const alreadyClaimed = !!sessionStorage.getItem(POPUP_STORAGE_KEY);
   const [email, setEmail] = useState('');
   const [emailError, setEmailError] = useState('');
   const [revealed, setRevealed] = useState('');
@@ -44,7 +44,7 @@ function CartMysteryBox({ onCodeRevealed }: { onCodeRevealed: (code: string) => 
     }).catch(() => {});
     usedEmails.push(email.trim().toLowerCase());
     localStorage.setItem(USED_EMAILS_KEY, JSON.stringify(usedEmails));
-    localStorage.setItem(POPUP_STORAGE_KEY, '1');
+    sessionStorage.setItem(POPUP_STORAGE_KEY, '1');
     setRevealed(code);
     onCodeRevealed(code);
   };
