@@ -9,16 +9,15 @@ type MegaMenu = 'countries' | 'clubs' | 'leagues' | 'accessories' | null;
 
 const getSaleTarget = () => {
   const now = new Date();
-  // Get current time as it appears in UK (handles GMT/BST automatically)
   const ukNow = new Date(now.toLocaleString('en-US', { timeZone: 'Europe/London' }));
-  const ukMidnight = new Date(ukNow);
-  ukMidnight.setHours(23, 59, 59, 999);
-  if (ukMidnight <= ukNow) {
-    ukMidnight.setDate(ukMidnight.getDate() + 1);
-    ukMidnight.setHours(23, 59, 59, 999);
+  // Next 12-hour mark: either noon (12:00) or midnight (00:00)
+  const ukTarget = new Date(ukNow);
+  if (ukNow.getHours() < 12) {
+    ukTarget.setHours(12, 0, 0, 0);
+  } else {
+    ukTarget.setHours(23, 59, 59, 999);
   }
-  // Convert back to UTC ms
-  return Date.now() + (ukMidnight.getTime() - ukNow.getTime());
+  return Date.now() + (ukTarget.getTime() - ukNow.getTime());
 };
 let saleTarget = getSaleTarget();
 

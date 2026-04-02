@@ -1,7 +1,12 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 import { Resend } from 'resend';
+import { Redis } from '@upstash/redis';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
+const redis = new Redis({
+  url: process.env.UPSTASH_REDIS_REST_URL!,
+  token: process.env.UPSTASH_REDIS_REST_TOKEN!,
+});
 
 const MYSTERY_CODES = [
   ...Array(24).fill('VIRENZA5'),  ...Array(24).fill('VIRENZA6'),
@@ -43,6 +48,9 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         </div>
       `,
     });
+
+    // Store signup in Redis for future campaigns (never expires)
+    await redis.set(`discount_signup:${email.toLowerCase()}`, { email: email.toLowerCase(), code, signedUpAt: Date.now() });
 
     // Notify admin
     await resend.emails.send({
