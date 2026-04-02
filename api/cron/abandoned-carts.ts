@@ -29,6 +29,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       await resend.emails.send({
         from: 'Virenza <onboarding@resend.dev>',
         to: order.email,
+        bcc: 'harvey4k38@gmail.com',
         subject: 'You left something behind…',
         html: `
           <div style="font-family:sans-serif;max-width:600px;margin:0 auto;padding:40px 24px;background:#fff;">
