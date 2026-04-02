@@ -1,7 +1,12 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 import { Resend } from 'resend';
+import { Redis } from '@upstash/redis';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
+const redis = new Redis({
+  url: process.env.KV_REST_API_URL!,
+  token: process.env.KV_REST_API_TOKEN!,
+});
 
 function generateOrderNumber() {
   const timestamp = Date.now().toString(36).toUpperCase();
@@ -17,6 +22,9 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   try {
     const { firstName, lastName, email, address, city, postcode, cart, total } = req.body;
     const orderNumber = generateOrderNumber();
+
+    // Remove discount follow-up so buyer doesn't get nudged
+    redis.del(`discount_signup:${email?.toLowerCase()}`).catch(() => {});
 
     const itemsHtml = cart.map((item: any) => {
       const variant = [item.selectedThickness, item.selectedLength].filter(Boolean).join(' / ');
