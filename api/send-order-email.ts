@@ -64,7 +64,6 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     await resend.emails.send({
       from: 'Virenza <orders@virenza.tech>',
       to: email,
-      bcc: 'harvey4k38@gmail.com',
       subject: `Order Confirmation — ${orderNumber}`,
       html: `
         <div style="font-family:sans-serif;max-width:600px;margin:0 auto;">

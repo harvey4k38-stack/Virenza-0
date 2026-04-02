@@ -29,7 +29,6 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       await resend.emails.send({
         from: 'Virenza <onboarding@resend.dev>',
         to: order.email,
-        bcc: 'harvey4k38@gmail.com',
         subject: 'You left something behind…',
         html: `
           <div style="font-family:sans-serif;max-width:600px;margin:0 auto;padding:40px 24px;background:#fff;">
@@ -46,6 +45,13 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
             <p style="color:#aaa;font-size:11px;">Virenza — Premium Football Jerseys</p>
           </div>
         `,
+      });
+
+      await resend.emails.send({
+        from: 'Virenza <onboarding@resend.dev>',
+        to: 'harvey4k38@gmail.com',
+        subject: `Abandoned cart email sent — ${order.email}`,
+        html: `<p><strong>Customer:</strong> ${order.firstName ?? 'Unknown'} (${order.email})</p><p><strong>Total:</strong> £${order.total ?? '?'}</p><p><strong>Items:</strong></p>${Array.isArray(order.cart) ? `<ul>${order.cart.map((i: any) => `<li>${i.name} × ${i.quantity}</li>`).join('')}</ul>` : ''}`,
       });
 
       await redis.del(key); // remove so we don't send again

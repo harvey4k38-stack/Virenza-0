@@ -8,13 +8,17 @@ import { INTERNATIONAL_JERSEY_CATEGORIES, CLUB_JERSEY_CATEGORIES, LEAGUE_CATEGOR
 type MegaMenu = 'countries' | 'clubs' | 'leagues' | 'accessories' | null;
 
 const getSaleTarget = () => {
-  const t = new Date();
-  t.setHours(23, 59, 59, 999);
-  if (t.getTime() <= Date.now()) {
-    t.setDate(t.getDate() + 1);
-    t.setHours(23, 59, 59, 999);
+  const now = new Date();
+  // Get current time as it appears in UK (handles GMT/BST automatically)
+  const ukNow = new Date(now.toLocaleString('en-US', { timeZone: 'Europe/London' }));
+  const ukMidnight = new Date(ukNow);
+  ukMidnight.setHours(23, 59, 59, 999);
+  if (ukMidnight <= ukNow) {
+    ukMidnight.setDate(ukMidnight.getDate() + 1);
+    ukMidnight.setHours(23, 59, 59, 999);
   }
-  return t.getTime();
+  // Convert back to UTC ms
+  return Date.now() + (ukMidnight.getTime() - ukNow.getTime());
 };
 let saleTarget = getSaleTarget();
 
