@@ -59,6 +59,26 @@ export const PRODUCTS: Product[] = [
     reviewCount: 45
   },
   {
+    id: 'jg-england-2026-world-cup-home-shirt',
+    name: 'England Nike Home 2026 World Cup',
+    price: 28.99,
+    compareAtPrice: 35.99,
+    description: 'The official England Nike home shirt for the 2026 World Cup. Classic white with navy and red trim, featuring the three lions crest. The kit England will wear at the biggest tournament on the planet.',
+    category: 'jersey-england',
+    images: [
+      '/jerseys/england-home-2026-1.png',
+      '/jerseys/england-home-2026-2.png',
+      '/jerseys/external/england-world-cup-home-shirt-2026-1.jpg',
+      '/jerseys/external/england-world-cup-home-shirt-2026-2.jpg',
+    ],
+    thickness: [],
+    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL', 'Kids S', 'Kids M', 'Kids L'],
+    isBestSeller: true,
+    nameVariants: JERSEY_NAME_VARIANTS,
+    rating: 4.9,
+    reviewCount: 31,
+  },
+  {
     id: 'j-nike-away-2026',
     name: 'England Nike Away 2026 World Cup',
     price: 28.99,
