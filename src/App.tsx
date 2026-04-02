@@ -78,6 +78,7 @@ export default function App() {
       localStorage.removeItem('virenza_cart');
       window.history.replaceState({}, '', window.location.pathname);
       posthog?.capture('complete_checkout', { method: 'paypal' });
+      (window as any).ttq?.track('CompletePayment');
       setPaypalSuccess(true);
     }
   }, []);
@@ -119,12 +120,14 @@ export default function App() {
 
   const handleBeginCheckout = (cs: string) => {
     posthog?.capture('begin_checkout');
+    (window as any).ttq?.track('InitiateCheckout');
     setCheckoutClientSecret(cs);
     setView('checkout');
   };
 
   const handleCheckoutSuccess = () => {
     posthog?.capture('complete_checkout', { method: 'stripe' });
+    (window as any).ttq?.track('CompletePayment');
     handleHomeClick();
   };
 

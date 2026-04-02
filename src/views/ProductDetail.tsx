@@ -126,6 +126,17 @@ export default function ProductDetail({ product, onBack, onNavigate, onBuyNow, o
     return () => observer.disconnect();
   }, []);
 
+  // TikTok ViewContent
+  useEffect(() => {
+    (window as any).ttq?.track('ViewContent', {
+      content_id: product.id,
+      content_name: product.name,
+      content_type: 'product',
+      currency: 'GBP',
+      value: product.price,
+    });
+  }, [product.id]);
+
   const [viewerCount] = useState(() => Math.floor(Math.random() * 12) + 12);
 
   const [buyNowLoading, setBuyNowLoading] = useState(false);
@@ -154,6 +165,13 @@ export default function ProductDetail({ product, onBack, onNavigate, onBuyNow, o
   const handleAddToCart = () => {
     addToCart(product, selectedThickness, selectedLength, buildNameLabel());
     posthog?.capture('add_to_cart', { product_id: product.id, product_name: product.name, price: displayPrice, size: selectedLength });
+    (window as any).ttq?.track('AddToCart', {
+      content_id: product.id,
+      content_name: product.name,
+      content_type: 'product',
+      currency: 'GBP',
+      value: displayPrice,
+    });
     setIsAdded(true);
     setTimeout(() => setIsAdded(false), 2000);
   };
