@@ -211,23 +211,6 @@ export default function ProductDetail({ product, onBack, onNavigate, onBuyNow }:
                 {product.reviewCount} Reviews
               </span>
             </div>
-            {isJersey && (
-              <div className="space-y-3 mb-4">
-                {JERSEY_REVIEWS.slice(0, 3).map((review) => (
-                  <div key={review.id} className="border border-brand-gray-light p-4">
-                    <div className="flex items-center gap-2 mb-2">
-                      <div className="flex items-center">
-                        {[...Array(5)].map((_, i) => (
-                          <Star key={i} size={10} className={i < review.rating ? 'fill-brand-black text-brand-black' : 'text-brand-gray-light'} />
-                        ))}
-                      </div>
-                      <span className="text-[10px] uppercase tracking-widest font-bold">{review.author}</span>
-                    </div>
-                    <p className="text-xs text-brand-gray-dark leading-relaxed">{review.comment}</p>
-                  </div>
-                ))}
-              </div>
-            )}
             {reviewView && (
               <button
                 onClick={() => onNavigate?.(reviewView)}
