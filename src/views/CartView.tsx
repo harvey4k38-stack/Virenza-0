@@ -5,6 +5,7 @@ import { Trash2, Plus, Minus, ArrowRight, ShoppingBag, ChevronLeft } from 'lucid
 import GlowButton from '../components/GlowButton';
 import { Product } from '../types';
 
+const POPUP_DISMISSED_KEY = 'virenza_discount_captured';
 const CART_MYSTERY_KEY = 'virenza_cart_mystery_claimed';
 const USED_EMAILS_KEY = 'virenza_discount_emails';
 
@@ -22,7 +23,9 @@ function pickMysteryCode() {
 }
 
 function CartMysteryBox({ onCodeRevealed }: { onCodeRevealed: (code: string) => void }) {
+  const popupWasDismissed = !!sessionStorage.getItem(POPUP_DISMISSED_KEY);
   const alreadyClaimed = !!sessionStorage.getItem(CART_MYSTERY_KEY);
+  if (!popupWasDismissed) return null;
   const [email, setEmail] = useState('');
   const [emailError, setEmailError] = useState('');
   const [revealed, setRevealed] = useState('');
