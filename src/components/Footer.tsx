@@ -53,7 +53,8 @@ export default function Footer({ logo, onNavigate }: {
             <ul className="space-y-4">
               {[
                 { name: 'About Us', view: 'about' },
-              { name: 'Sizing Guide', view: 'sizing-guide' }
+              { name: 'Sizing Guide', view: 'sizing-guide' },
+              { name: 'Returns & Refunds', view: 'returns-policy' }
               ].map(item => (
                 <li key={item.name}>
                   <button 

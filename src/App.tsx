@@ -13,6 +13,7 @@ const SizingGuide = lazy(() => import('./views/SizingGuide'));
 const About = lazy(() => import('./views/About'));
 const Contact = lazy(() => import('./views/Contact'));
 const ShippingTracking = lazy(() => import('./views/ShippingTracking'));
+const ReturnsPolicy = lazy(() => import('./views/ReturnsPolicy'));
 const LeaguesView = lazy(() => import('./views/LeaguesView'));
 const JerseysView = lazy(() => import('./views/JerseysView'));
 const LeagueClubsView = lazy(() => import('./views/LeagueClubsView'));
@@ -253,6 +254,10 @@ export default function App() {
             ) : view === 'shipping-tracking' ? (
               <div key="shipping-tracking">
                 <ShippingTracking onBack={handleHomeClick} />
+              </div>
+            ) : view === 'returns-policy' ? (
+              <div key="returns-policy">
+                <ReturnsPolicy onBack={handleHomeClick} />
               </div>
             ) : (
               <div key={view}>
