@@ -203,6 +203,7 @@ export default function App() {
                   onBack={() => { setView(previousView); setSelectedProduct(null); }}
                   onNavigate={(v) => setView(v as View)}
                   onBuyNow={handleBeginCheckout}
+                  onProductClick={handleProductClick}
                 />
               </div>
             ) : view === 'cart' ? (
@@ -260,6 +261,10 @@ export default function App() {
             ) : view === 'jersey-reviews-retro-gazza' ? (
               <div key="jersey-reviews-retro-gazza">
                 <JerseyReviews jerseyId="j-retro-gazza" onBack={() => setView('product')} />
+              </div>
+            ) : view === 'jersey-reviews-england-home-2026' ? (
+              <div key="jersey-reviews-england-home-2026">
+                <JerseyReviews jerseyId="jg-england-2026-world-cup-home-shirt" onBack={() => setView('product')} />
               </div>
             ) : view === 'about' ? (
               <div key="about">

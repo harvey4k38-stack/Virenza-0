@@ -7,16 +7,17 @@ import { ChevronLeft, ChevronRight, ShieldCheck, Truck, RefreshCw, Star, Check, 
 import { useCart } from '../context/CartContext';
 import { useCurrency } from '../context/CurrencyContext';
 import { usePostHog } from 'posthog-js/react';
-import { JERSEY_REVIEWS, REVIEWS } from '../constants';
+import { JERSEY_REVIEWS, REVIEWS, PRODUCTS } from '../constants';
 
 interface ProductDetailProps {
   product: Product;
   onBack: () => void;
   onNavigate?: (view: string) => void;
   onBuyNow?: (clientSecret: string) => void;
+  onProductClick?: (product: Product) => void;
 }
 
-export default function ProductDetail({ product, onBack, onNavigate, onBuyNow }: ProductDetailProps) {
+export default function ProductDetail({ product, onBack, onNavigate, onBuyNow, onProductClick }: ProductDetailProps) {
   const [selectedImage, setSelectedImage] = useState(0);
   const [selectedThickness, setSelectedThickness] = useState(product.thickness[0]);
   const [selectedLength, setSelectedLength] = useState(product.lengths[0]);
@@ -30,6 +31,7 @@ export default function ProductDetail({ product, onBack, onNavigate, onBuyNow }:
     'j-nike-away-2026': 'jersey-reviews-nike-away',
     'j-retro-saka': 'jersey-reviews-retro-saka',
     'j-retro-gazza': 'jersey-reviews-retro-gazza',
+    'jg-england-2026-world-cup-home-shirt': 'jersey-reviews-england-home-2026',
   };
   const reviewView = reviewViewMap[product.id];
   const [isAdded, setIsAdded] = useState(false);
@@ -482,6 +484,36 @@ export default function ProductDetail({ product, onBack, onNavigate, onBuyNow }:
           </div>
         </div>
       </div>
+
+      {/* Customers Also Bought — accessories only */}
+      {!isJersey && (() => {
+        const others = PRODUCTS.filter(p => p.category === product.category && p.id !== product.id).slice(0, 4);
+        if (others.length === 0) return null;
+        return (
+          <div className="mt-24 pt-16 border-t border-brand-gray-light">
+            <h2 className="text-2xl md:text-3xl mb-10">Customers Also Bought</h2>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+              {others.map(p => (
+                <button
+                  key={p.id}
+                  onClick={() => onProductClick?.(p)}
+                  className="text-left group"
+                >
+                  <div className="aspect-square bg-brand-gray-light/10 overflow-hidden mb-3">
+                    <img
+                      src={p.images[0]}
+                      alt={p.name}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                  </div>
+                  <p className="text-[11px] uppercase tracking-widest font-bold leading-tight mb-1">{p.name}</p>
+                  <p className="text-sm font-bold">{formatPrice(p.price)}</p>
+                </button>
+              ))}
+            </div>
+          </div>
+        );
+      })()}
 
       {/* Reviews Section — accessories only */}
       {!isJersey && (

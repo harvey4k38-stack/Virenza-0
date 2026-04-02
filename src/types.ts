@@ -11,6 +11,7 @@ export interface Product {
   isBestSeller?: boolean;
   outOfStock?: boolean;
   nameVariants?: Array<{ label: string; image?: string }>;
+  versions?: Array<{ label: string; price: number; images: string[] }>;
   rating: number;
   reviewCount: number;
 }
