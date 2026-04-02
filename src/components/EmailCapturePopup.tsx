@@ -13,7 +13,7 @@ const WEIGHTED_CODES = [
   ...Array(24).fill('VIRENZA8'),
   ...Array(24).fill('VIRENZA9'),
   ...Array(20).fill('VIRENZA10'),
-  ...Array(20).fill('VIRENZA11'),
+  ...Array(20).fill('VIRENZA10'),
   ...Array(20).fill('VIRENZA12'),
   ...Array(3).fill('VIRENZA13'),
   ...Array(3).fill('VIRENZA14'),
@@ -22,7 +22,7 @@ const WEIGHTED_CODES = [
 ];
 
 function pickCode() {
-  return WEIGHTED_CODES[Math.floor(Math.random() * WEIGHTED_CODES.length)];
+  return 'VIRENZA10';
 }
 
 function getPercent(code: string) {
@@ -90,7 +90,7 @@ export default function EmailCapturePopup() {
             <div className="bg-brand-black text-white px-8 py-5 text-center">
               <p className="text-[10px] uppercase tracking-[0.4em] font-bold">Exclusive Offer</p>
               <p className="text-2xl font-bold mt-1 tracking-wide">Mystery Discount</p>
-              <p className="text-xs mt-1 opacity-70">Enter your email to reveal your code</p>
+              <p className="text-xs mt-1 opacity-70">Up to 10% off — revealed instantly</p>
             </div>
 
             <button
@@ -122,7 +122,7 @@ export default function EmailCapturePopup() {
               ) : (
                 <>
                   <p className="text-sm text-brand-gray-dark text-center mb-6">
-                    Enter your email to unlock an exclusive mystery discount on your order.
+                    Enter your email to unlock a mystery discount of up to 10% off your order.
                   </p>
                   <form onSubmit={handleSubmit} className="space-y-3">
                     <input

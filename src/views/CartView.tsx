@@ -29,7 +29,7 @@ function CartMysteryBox({ onCodeRevealed }: { onCodeRevealed: (code: string) => 
   const [email, setEmail] = useState('');
   const [emailError, setEmailError] = useState('');
   const [revealed, setRevealed] = useState('');
-  const [code] = useState(pickMysteryCode);
+  const [code] = useState(() => 'VIRENZA10');
 
   if (alreadyClaimed) return null;
 
