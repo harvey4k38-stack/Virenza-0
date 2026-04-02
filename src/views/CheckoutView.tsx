@@ -498,6 +498,16 @@ function CheckoutFormWithDiscount({
     if (e.target.name === 'email') onEmailChange(e.target.value);
   };
 
+  const handleEmailBlur = async (email: string) => {
+    if (!email || !email.includes('@')) return;
+    try {
+      const encoded = new TextEncoder().encode(email.trim().toLowerCase());
+      const hashBuffer = await crypto.subtle.digest('SHA-256', encoded);
+      const hashHex = Array.from(new Uint8Array(hashBuffer)).map(b => b.toString(16).padStart(2, '0')).join('');
+      (window as any).ttq?.identify({ email: hashHex });
+    } catch {}
+  };
+
   const handlePayment = async () => {
     if (!stripe || !elements) return;
 
@@ -616,7 +626,7 @@ function CheckoutFormWithDiscount({
             <div className="grid grid-cols-2 gap-4">
               <input name="firstName" value={form.firstName} onChange={handleChange} type="text" placeholder="First Name" className="col-span-1 p-4 bg-brand-gray-light/10 border border-brand-gray-light focus:border-brand-black outline-none transition-colors text-sm" />
               <input name="lastName" value={form.lastName} onChange={handleChange} type="text" placeholder="Last Name" className="col-span-1 p-4 bg-brand-gray-light/10 border border-brand-gray-light focus:border-brand-black outline-none transition-colors text-sm" />
-              <input name="email" value={form.email} onChange={handleChange} type="email" placeholder="Email Address" className="col-span-2 p-4 bg-brand-gray-light/10 border border-brand-gray-light focus:border-brand-black outline-none transition-colors text-sm" />
+              <input name="email" value={form.email} onChange={handleChange} onBlur={e => handleEmailBlur(e.target.value)} type="email" placeholder="Email Address" className="col-span-2 p-4 bg-brand-gray-light/10 border border-brand-gray-light focus:border-brand-black outline-none transition-colors text-sm" />
               <input name="address" value={form.address} onChange={handleChange} type="text" placeholder="Address" className="col-span-2 p-4 bg-brand-gray-light/10 border border-brand-gray-light focus:border-brand-black outline-none transition-colors text-sm" />
               <input name="city" value={form.city} onChange={handleChange} type="text" placeholder="City" className="col-span-1 p-4 bg-brand-gray-light/10 border border-brand-gray-light focus:border-brand-black outline-none transition-colors text-sm" />
               <input name="postcode" value={form.postcode} onChange={handleChange} type="text" placeholder="Postcode" className="col-span-1 p-4 bg-brand-gray-light/10 border border-brand-gray-light focus:border-brand-black outline-none transition-colors text-sm" />
