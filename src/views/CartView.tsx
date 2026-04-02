@@ -5,6 +5,87 @@ import { Trash2, Plus, Minus, ArrowRight, ShoppingBag, ChevronLeft } from 'lucid
 import GlowButton from '../components/GlowButton';
 import { Product } from '../types';
 
+const POPUP_STORAGE_KEY = 'virenza_discount_captured';
+const USED_EMAILS_KEY = 'virenza_discount_emails';
+
+const WEIGHTED_MYSTERY = [
+  ...Array(24).fill('VIRENZA5'),  ...Array(24).fill('VIRENZA6'),
+  ...Array(24).fill('VIRENZA7'),  ...Array(24).fill('VIRENZA8'),
+  ...Array(24).fill('VIRENZA9'),  ...Array(20).fill('VIRENZA10'),
+  ...Array(20).fill('VIRENZA11'), ...Array(20).fill('VIRENZA12'),
+  ...Array(3).fill('VIRENZA13'),  ...Array(3).fill('VIRENZA14'),
+  ...Array(3).fill('VIRENZA15'),  ...Array(3).fill('VIRENZA16'),
+];
+
+function pickMysteryCode() {
+  return WEIGHTED_MYSTERY[Math.floor(Math.random() * WEIGHTED_MYSTERY.length)];
+}
+
+function CartMysteryBox({ onCodeRevealed }: { onCodeRevealed: (code: string) => void }) {
+  const alreadyClaimed = !!localStorage.getItem(POPUP_STORAGE_KEY);
+  const [email, setEmail] = useState('');
+  const [emailError, setEmailError] = useState('');
+  const [revealed, setRevealed] = useState('');
+  const [code] = useState(pickMysteryCode);
+
+  if (alreadyClaimed) return null;
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const usedEmails: string[] = JSON.parse(localStorage.getItem(USED_EMAILS_KEY) ?? '[]');
+    if (usedEmails.includes(email.trim().toLowerCase())) {
+      setEmailError('This email has already claimed a discount.');
+      return;
+    }
+    fetch('/api/discount-email', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email, code }),
+    }).catch(() => {});
+    usedEmails.push(email.trim().toLowerCase());
+    localStorage.setItem(USED_EMAILS_KEY, JSON.stringify(usedEmails));
+    localStorage.setItem(POPUP_STORAGE_KEY, '1');
+    setRevealed(code);
+    onCodeRevealed(code);
+  };
+
+  const percent = parseInt(code.replace('VIRENZA', ''), 10);
+
+  if (revealed) {
+    return (
+      <div className="mb-6 border border-emerald-400 bg-emerald-50 p-4 text-center">
+        <p className="text-[10px] uppercase tracking-widest font-bold text-emerald-700 mb-1">You unlocked</p>
+        <p className="text-2xl font-bold text-emerald-700">{percent}% Off</p>
+        <p className="text-xs font-bold tracking-[0.2em] uppercase text-emerald-600 mt-1">{revealed} — applied</p>
+      </div>
+    );
+  }
+
+  return (
+    <div className="mb-6 border border-brand-gray-light p-4">
+      <p className="text-[10px] uppercase tracking-[0.3em] font-bold text-center mb-1">Mystery Discount</p>
+      <p className="text-xs text-brand-gray-dark text-center mb-3">Enter your email to unlock a mystery discount</p>
+      <form onSubmit={handleSubmit} className="space-y-2">
+        <input
+          type="email"
+          required
+          value={email}
+          onChange={e => { setEmail(e.target.value); setEmailError(''); }}
+          placeholder="Your email address"
+          className="w-full px-3 py-2.5 border border-brand-gray-light text-xs focus:outline-none focus:border-brand-black transition-colors"
+        />
+        {emailError && <p className="text-red-500 text-[10px]">{emailError}</p>}
+        <button
+          type="submit"
+          className="w-full py-2.5 bg-brand-black text-white text-[10px] uppercase tracking-[0.2em] font-bold hover:opacity-80 transition-opacity"
+        >
+          Reveal My Discount
+        </button>
+      </form>
+    </div>
+  );
+}
+
 interface CartViewProps {
   onCheckout: (clientSecret: string) => void;
   onBack: () => void;
@@ -12,15 +93,11 @@ interface CartViewProps {
 }
 
 const DISCOUNT_CODES: Record<string, number> = {
-  'VIRENZA10': 0.10,
-  'VIRENZA15': 0.15,
-  'JDBENSON': 0.25,
-  'EAMON': 0.25,
-  'GARY10': 0.10,
-  'JAY10': 0.10,
-  'DAWN10': 0.10,
-  'LP15': 0.15,
-  'PAL100': 1.00,
+  'VIRENZA5': 0.05, 'VIRENZA6': 0.06, 'VIRENZA7': 0.07, 'VIRENZA8': 0.08, 'VIRENZA9': 0.09,
+  'VIRENZA10': 0.10, 'VIRENZA11': 0.11, 'VIRENZA12': 0.12, 'VIRENZA13': 0.13, 'VIRENZA14': 0.14,
+  'VIRENZA15': 0.15, 'VIRENZA16': 0.16, 'VIRENZA20': 0.20,
+  'DPRESTON420': 0.15, 'DP420': 0.15,
+  'JDBENSON': 0.25, 'EAMON': 0.25, 'GARY10': 0.10, 'JAY10': 0.10, 'DAWN10': 0.10, 'LP15': 0.15, 'PAL100': 1.00,
 };
 
 function useCountdown() {
@@ -49,7 +126,6 @@ export default function CartView({ onCheckout, onBack, onProductClick }: CartVie
   const [loadingCheckout, setLoadingCheckout] = useState(false);
   const [discountCode, setDiscountCode] = useState('');
   const [appliedCode, setAppliedCode] = useState<string | null>(null);
-  const countdown = useCountdown();
   const [codeError, setCodeError] = useState('');
 
   const discountRate = appliedCode ? (DISCOUNT_CODES[appliedCode] ?? 0) : 0;
@@ -230,11 +306,9 @@ export default function CartView({ onCheckout, onBack, onProductClick }: CartVie
             </div>
 
             {!appliedCode && (
-              <div className="mb-4 border border-red-400 bg-red-50 px-4 py-3 text-center">
-                <p className="text-[10px] uppercase tracking-widest font-bold text-red-600 mb-1">Limited Time Offer</p>
-                <p className="text-xs text-red-700">Use code <span className="font-bold tracking-widest">VIRENZA10</span> for 10% off</p>
-                <p className="text-[10px] text-red-500 mt-1 font-bold tracking-widest">Expires in {countdown}</p>
-              </div>
+              <CartMysteryBox onCodeRevealed={(code) => {
+                setAppliedCode(code);
+              }} />
             )}
 
             <GlowButton
