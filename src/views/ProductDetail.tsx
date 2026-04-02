@@ -411,7 +411,7 @@ export default function ProductDetail({ product, onBack, onNavigate, onBuyNow, o
                 {kidsSizes.length > 0 && (
                   <div>
                     <p className="text-[9px] uppercase tracking-widest font-bold text-brand-gray-dark mb-2">
-                      Kids Sizes <span className="text-emerald-600 font-bold">— 15% Off</span>
+                      Kids Sizes
                     </p>
                     <div className="flex flex-wrap gap-3">
                       {kidsSizes.map((l) => (
