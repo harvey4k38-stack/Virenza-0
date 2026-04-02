@@ -67,7 +67,7 @@ function CartMysteryBox({ onCodeRevealed }: { onCodeRevealed: (code: string) => 
   return (
     <div className="mb-6 border border-brand-gray-light p-4">
       <p className="text-[10px] uppercase tracking-[0.3em] font-bold text-center mb-1">Mystery Discount</p>
-      <p className="text-xs text-brand-gray-dark text-center mb-3">Enter your email to unlock a mystery discount</p>
+      <p className="text-xs text-brand-gray-dark text-center mb-3">Enter your email to unlock a mystery discount of <span className="font-bold text-brand-black">up to 10% off</span></p>
       <form onSubmit={handleSubmit} className="space-y-2">
         <input
           type="email"
