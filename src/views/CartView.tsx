@@ -5,7 +5,7 @@ import { Trash2, Plus, Minus, ArrowRight, ShoppingBag, ChevronLeft } from 'lucid
 import GlowButton from '../components/GlowButton';
 import { Product } from '../types';
 
-const POPUP_STORAGE_KEY = 'virenza_discount_captured';
+const CART_MYSTERY_KEY = 'virenza_cart_mystery_claimed';
 const USED_EMAILS_KEY = 'virenza_discount_emails';
 
 const WEIGHTED_MYSTERY = [
@@ -22,7 +22,7 @@ function pickMysteryCode() {
 }
 
 function CartMysteryBox({ onCodeRevealed }: { onCodeRevealed: (code: string) => void }) {
-  const alreadyClaimed = !!sessionStorage.getItem(POPUP_STORAGE_KEY);
+  const alreadyClaimed = !!sessionStorage.getItem(CART_MYSTERY_KEY);
   const [email, setEmail] = useState('');
   const [emailError, setEmailError] = useState('');
   const [revealed, setRevealed] = useState('');
@@ -44,7 +44,7 @@ function CartMysteryBox({ onCodeRevealed }: { onCodeRevealed: (code: string) => 
     }).catch(() => {});
     usedEmails.push(email.trim().toLowerCase());
     localStorage.setItem(USED_EMAILS_KEY, JSON.stringify(usedEmails));
-    sessionStorage.setItem(POPUP_STORAGE_KEY, '1');
+    sessionStorage.setItem(CART_MYSTERY_KEY, '1');
     setRevealed(code);
     onCodeRevealed(code);
   };
