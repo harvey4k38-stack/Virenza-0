@@ -67,6 +67,15 @@ export default function Home({ onProductClick, onNavigate }: HomeProps) {
         </div>
       </section>
 
+      {/* Urgency Banner */}
+      <section className="bg-brand-black text-white py-4 px-6">
+        <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-center gap-x-8 gap-y-2 text-center">
+          <span className="text-[10px] uppercase tracking-[0.3em] font-bold">🔥 Flash Sale — Limited Time Only</span>
+          <span className="text-[10px] uppercase tracking-[0.3em] text-white/70">Free Shipping on All Orders</span>
+          <span className="text-[10px] uppercase tracking-[0.3em] font-bold text-white/90">Mystery Discount — Up to 10% Off</span>
+        </div>
+      </section>
+
       {/* Featured Products */}
       <section className="py-12">
         <div className="max-w-7xl mx-auto px-6 md:px-12">

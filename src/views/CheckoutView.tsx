@@ -53,6 +53,7 @@ function CheckoutForm({ onBack, onSuccess, finalTotal, discountApplied, cartTota
       city: form.city, postcode: form.postcode,
       cart, total: finalTotal.toFixed(2),
       discount: discountApplied ? `${_appliedPercent * 100}% off (${_appliedCode})` : null,
+      savedAt: Date.now(),
     }));
 
     const { error, paymentIntent } = await stripe.confirmPayment({
@@ -514,6 +515,7 @@ function CheckoutFormWithDiscount({
       city: form.city, postcode: form.postcode,
       cart, total: finalTotal.toFixed(2),
       discount: discountApplied ? `${_appliedPercent * 100}% off (${_appliedCode})` : null,
+      savedAt: Date.now(),
     }));
 
     const { error, paymentIntent } = await stripe.confirmPayment({

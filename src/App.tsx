@@ -4,6 +4,7 @@ import { usePostHog } from 'posthog-js/react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import EmailCapturePopup from './components/EmailCapturePopup';
+import ExitIntentPopup from './components/ExitIntentPopup';
 import Home from './views/Home';
 const ProductDetail = lazy(() => import('./views/ProductDetail'));
 const CategoryView = lazy(() => import('./views/CategoryView'));
@@ -41,6 +42,23 @@ export default function App() {
       setLogo(logoUrl);
     };
     fetchLogo();
+  }, []);
+
+  // Abandoned cart recovery
+  useEffect(() => {
+    const saved = localStorage.getItem('virenza_pending_order');
+    if (!saved) return;
+    const order = JSON.parse(saved);
+    if (!order.email || !order.savedAt) return;
+    const hourAgo = Date.now() - 60 * 60 * 1000;
+    if (order.savedAt > hourAgo) return; // not old enough
+    if (localStorage.getItem('virenza_abandoned_sent') === order.email) return; // already sent
+    fetch('/api/abandoned-cart-email', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email: order.email, firstName: order.firstName, cart: order.cart }),
+    }).catch(() => {});
+    localStorage.setItem('virenza_abandoned_sent', order.email);
   }, []);
 
   // Handle PayPal redirect return
@@ -279,6 +297,7 @@ export default function App() {
         />
       </div>
       <EmailCapturePopup />
+      <ExitIntentPopup />
       <Analytics />
     </CartProvider>
     </CurrencyProvider>
