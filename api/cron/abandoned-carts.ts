@@ -1,17 +1,21 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
-import { kv } from '@vercel/kv';
+import { Redis } from '@upstash/redis';
 import { Resend } from 'resend';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
+const redis = new Redis({
+  url: process.env.UPSTASH_REDIS_REST_URL!,
+  token: process.env.UPSTASH_REDIS_REST_TOKEN!,
+});
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (req.method !== 'GET') return res.status(405).json({ error: 'Method not allowed' });
 
-  const keys = await kv.keys('abandoned:*');
+  const keys = await redis.keys('abandoned:*');
   let sent = 0;
 
   for (const key of keys) {
-    const order: any = await kv.get(key);
+    const order: any = await redis.get(key);
     if (!order) continue;
 
     const hourAgo = Date.now() - 60 * 60 * 1000;
@@ -43,7 +47,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         `,
       });
 
-      await kv.del(key); // remove so we don't send again
+      await redis.del(key); // remove so we don't send again
       sent++;
     } catch {
       // continue to next

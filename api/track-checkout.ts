@@ -1,5 +1,10 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
-import { kv } from '@vercel/kv';
+import { Redis } from '@upstash/redis';
+
+const redis = new Redis({
+  url: process.env.UPSTASH_REDIS_REST_URL!,
+  token: process.env.UPSTASH_REDIS_REST_TOKEN!,
+});
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
@@ -8,7 +13,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (!email) return res.status(400).json({ error: 'Email required' });
 
   const key = `abandoned:${email.toLowerCase()}`;
-  await kv.set(key, { email, firstName, cart, total, savedAt: Date.now() }, { ex: 60 * 60 * 48 }); // expires after 48h
+  await redis.set(key, { email, firstName, cart, total, savedAt: Date.now() }, { ex: 60 * 60 * 48 }); // expires after 48h
 
   res.status(200).json({ success: true });
 }
