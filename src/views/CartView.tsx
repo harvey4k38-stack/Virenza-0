@@ -4,6 +4,7 @@ import { useCart } from '../context/CartContext';
 import { Trash2, Plus, Minus, ArrowRight, ShoppingBag, ChevronLeft } from 'lucide-react';
 import GlowButton from '../components/GlowButton';
 import { Product } from '../types';
+import { PRODUCTS } from '../constants';
 
 const POPUP_DISMISSED_KEY = 'virenza_discount_captured';
 const CART_MYSTERY_KEY = 'virenza_cart_mystery_claimed';
@@ -125,7 +126,7 @@ function useCountdown() {
 }
 
 export default function CartView({ onCheckout, onBack, onProductClick }: CartViewProps) {
-  const { cart, removeFromCart, updateQuantity, cartTotal, cartCount } = useCart();
+  const { cart, addToCart, removeFromCart, updateQuantity, cartTotal, cartCount } = useCart();
   const [loadingCheckout, setLoadingCheckout] = useState(false);
   const [discountCode, setDiscountCode] = useState('');
   const [appliedCode, setAppliedCode] = useState<string | null>(null);
@@ -251,6 +252,38 @@ export default function CartView({ onCheckout, onBack, onProductClick }: CartVie
             </motion.div>
           ))}
         </div>
+
+        {/* Customers Also Bought */}
+        {(() => {
+          const cartIds = new Set(cart.map(i => i.id));
+          const cartCategories = [...new Set(cart.map(i => i.category))];
+          const suggestions = PRODUCTS.filter(p => cartCategories.includes(p.category) && !cartIds.has(p.id)).slice(0, 4);
+          if (suggestions.length === 0) return null;
+          return (
+            <div className="lg:col-span-2 pt-8 border-t border-brand-gray-light">
+              <h2 className="text-sm font-bold uppercase tracking-[0.2em] mb-6">Customers Also Bought</h2>
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                {suggestions.map(p => (
+                  <div key={p.id} className="group">
+                    <button onClick={() => onProductClick(p)} className="w-full text-left">
+                      <div className="aspect-square bg-brand-gray-light/10 overflow-hidden mb-2">
+                        <img src={p.images[0]} alt={p.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" referrerPolicy="no-referrer" />
+                      </div>
+                      <p className="text-[10px] uppercase tracking-widest font-bold leading-tight mb-1 line-clamp-2">{p.name}</p>
+                      <p className="text-xs font-bold mb-2">£{p.price.toFixed(2)}</p>
+                    </button>
+                    <button
+                      onClick={() => addToCart(p, p.thickness[0], p.lengths[0])}
+                      className="w-full py-2 text-[9px] uppercase tracking-widest font-bold border border-brand-black hover:bg-brand-black hover:text-white transition-all"
+                    >
+                      Add to Cart
+                    </button>
+                  </div>
+                ))}
+              </div>
+            </div>
+          );
+        })()}
 
         {/* Summary */}
         <div className="lg:col-span-1">
