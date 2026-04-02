@@ -517,6 +517,11 @@ function CheckoutFormWithDiscount({
       discount: discountApplied ? `${_appliedPercent * 100}% off (${_appliedCode})` : null,
       savedAt: Date.now(),
     }));
+    fetch('/api/track-checkout', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email: form.email, firstName: form.firstName, cart, total: finalTotal.toFixed(2) }),
+    }).catch(() => {});
 
     const { error, paymentIntent } = await stripe.confirmPayment({
       elements,
