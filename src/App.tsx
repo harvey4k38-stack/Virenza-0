@@ -21,6 +21,7 @@ const LeagueClubsView = lazy(() => import('./views/LeagueClubsView'));
 const PalaceReviews = lazy(() => import('./views/PalaceReviews'));
 const JerseyReviews = lazy(() => import('./views/JerseyReviews'));
 const VIPMembership = lazy(() => import('./views/VIPMembership'));
+const Giveaway = lazy(() => import('./views/Giveaway'));
 import { Product } from './types';
 import { PRODUCTS, LEAGUE_TO_CLUBS, LEAGUE_CATEGORIES, INTERNATIONAL_CATEGORY_IDS, JERSEY_CATEGORIES } from './constants';
 import { CartProvider } from './context/CartContext';
@@ -63,13 +64,16 @@ export default function App() {
     localStorage.setItem('virenza_abandoned_sent', order.email);
   }, []);
 
-  // Handle VIP subscription redirect
+  // Handle VIP + giveaway redirects
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
-    const vipParam = params.get('vip');
-    if (vipParam === 'success') {
+    if (params.get('vip') === 'success') {
       window.history.replaceState({}, '', window.location.pathname);
       setView('vip');
+    }
+    if (params.get('giveaway') === 'success') {
+      window.history.replaceState({}, '', window.location.pathname);
+      setView('giveaway');
     }
   }, []);
 
@@ -164,6 +168,11 @@ export default function App() {
     handleHomeClick();
   };
 
+  useEffect(() => {
+    (window as any).__virenzaGoGiveaway = () => setView('giveaway');
+    return () => { delete (window as any).__virenzaGoGiveaway; };
+  }, []);
+
   const getFilteredProducts = () => {
     if (view === 'chains') return PRODUCTS.filter(p => p.category === 'chains');
     if (view === 'bracelets') return PRODUCTS.filter(p => p.category === 'bracelets');
@@ -212,6 +221,7 @@ export default function App() {
           onCart={() => setView('cart')}
           onAbout={() => setView('about')}
           onVip={() => setView('vip')}
+          onGiveaway={() => setView('giveaway')}
           logo={logo}
         />
         
@@ -322,6 +332,10 @@ export default function App() {
             ) : view === 'vip' ? (
               <div key="vip">
                 <VIPMembership onBack={handleHomeClick} onManage={() => {}} />
+              </div>
+            ) : view === 'giveaway' ? (
+              <div key="giveaway">
+                <Giveaway onBack={handleHomeClick} />
               </div>
             ) : (
               <div key={view}>

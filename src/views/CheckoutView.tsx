@@ -16,6 +16,7 @@ let _appliedPercent = 0;
 interface CheckoutViewProps {
   onBack: () => void;
   onSuccess: () => void;
+  onGiveaway?: () => void;
   initialClientSecret?: string;
 }
 
@@ -124,10 +125,21 @@ function CheckoutForm({ onBack, onSuccess, finalTotal, discountApplied, cartTota
               Order #{orderNumber}
             </p>
           )}
-          <p className="text-brand-gray-dark mb-12">
+          <p className="text-brand-gray-dark mb-8">
             Thank you for your purchase. Your order has been received and is being processed.
             A confirmation email has been sent to you.
           </p>
+          <div className="w-full max-w-md border-2 border-black p-6 mb-8 text-left">
+            <p className="text-[10px] uppercase tracking-[0.3em] font-bold mb-1">🏆 While you're here</p>
+            <p className="text-sm font-bold uppercase tracking-widest mb-2">Enter this week's jersey giveaway</p>
+            <p className="text-xs text-brand-gray-dark mb-4">Win a free jersey — drawn every Friday at 8pm UK. Tickets from £1.99. Max 3 per draw.</p>
+            <button
+              onClick={() => { onSuccess(); setTimeout(() => (window as any).__virenzaGoGiveaway?.(), 50); }}
+              className="w-full py-3 bg-black text-white text-[10px] uppercase tracking-[0.2em] font-bold hover:opacity-80 transition-opacity"
+            >
+              Enter Giveaway →
+            </button>
+          </div>
           <GlowButton onClick={onSuccess} className="px-12 py-4 text-xs uppercase tracking-widest">
             Return to Store
           </GlowButton>
@@ -608,10 +620,21 @@ function CheckoutFormWithDiscount({
               Order #{orderNumber}
             </p>
           )}
-          <p className="text-brand-gray-dark mb-12">
+          <p className="text-brand-gray-dark mb-8">
             Thank you for your purchase. Your order has been received and is being processed.
             A confirmation email has been sent to you.
           </p>
+          <div className="w-full max-w-md border-2 border-black p-6 mb-8 text-left">
+            <p className="text-[10px] uppercase tracking-[0.3em] font-bold mb-1">🏆 While you're here</p>
+            <p className="text-sm font-bold uppercase tracking-widest mb-2">Enter this week's jersey giveaway</p>
+            <p className="text-xs text-brand-gray-dark mb-4">Win a free jersey — drawn every Friday at 8pm UK. Tickets from £1.99. Max 3 per draw.</p>
+            <button
+              onClick={() => { onSuccess(); setTimeout(() => (window as any).__virenzaGoGiveaway?.(), 50); }}
+              className="w-full py-3 bg-black text-white text-[10px] uppercase tracking-[0.2em] font-bold hover:opacity-80 transition-opacity"
+            >
+              Enter Giveaway →
+            </button>
+          </div>
           <GlowButton onClick={onSuccess} className="px-12 py-4 text-xs uppercase tracking-widest">
             Return to Store
           </GlowButton>

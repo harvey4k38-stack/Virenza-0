@@ -36,12 +36,13 @@ const fmtCountdown = () => {
   return `${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
 };
 
-export default function Navbar({ onHome, onNavigate, onCart, onAbout, onVip, logo }: {
+export default function Navbar({ onHome, onNavigate, onCart, onAbout, onVip, onGiveaway, logo }: {
   onHome: () => void,
   onNavigate: (cat: string) => void,
   onCart: () => void,
   onAbout: () => void,
   onVip: () => void,
+  onGiveaway: () => void,
   logo: string | null
 }) {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -101,7 +102,10 @@ export default function Navbar({ onHome, onNavigate, onCart, onAbout, onVip, log
       {/* Sale Banner */}
       <div className="bg-brand-black text-white text-center py-2 px-4">
         <p className="text-[10px] uppercase tracking-[0.3em] font-bold">
-          🔥 Sale — 20% Off All Jerseys &nbsp;·&nbsp; Ends in <span className="tabular-nums">{countdown}</span> &nbsp;·&nbsp; Free Worldwide Shipping
+          🔥 Sale — 20% Off All Jerseys &nbsp;·&nbsp; Ends in <span className="tabular-nums">{countdown}</span> &nbsp;·&nbsp;{' '}
+          <button onClick={onGiveaway} className="underline underline-offset-2 hover:opacity-80 transition-opacity">
+            🏆 Win a Free Jersey
+          </button>
         </p>
       </div>
 
@@ -491,6 +495,12 @@ export default function Navbar({ onHome, onNavigate, onCart, onAbout, onVip, log
             onClick={() => { onVip(); setIsMobileMenuOpen(false); }}
           >
             <Crown size={13} /> VIP Membership
+          </button>
+          <button
+            className="text-xs uppercase tracking-[0.2em] font-bold text-left"
+            onClick={() => { onGiveaway(); setIsMobileMenuOpen(false); }}
+          >
+            🏆 Weekly Giveaway
           </button>
         </div>
       </motion.div>
