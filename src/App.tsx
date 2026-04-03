@@ -20,6 +20,7 @@ const JerseysView = lazy(() => import('./views/JerseysView'));
 const LeagueClubsView = lazy(() => import('./views/LeagueClubsView'));
 const PalaceReviews = lazy(() => import('./views/PalaceReviews'));
 const JerseyReviews = lazy(() => import('./views/JerseyReviews'));
+const VIPMembership = lazy(() => import('./views/VIPMembership'));
 import { Product } from './types';
 import { PRODUCTS, LEAGUE_TO_CLUBS, LEAGUE_CATEGORIES, INTERNATIONAL_CATEGORY_IDS, JERSEY_CATEGORIES } from './constants';
 import { CartProvider } from './context/CartContext';
@@ -60,6 +61,16 @@ export default function App() {
       body: JSON.stringify({ email: order.email, firstName: order.firstName, cart: order.cart }),
     }).catch(() => {});
     localStorage.setItem('virenza_abandoned_sent', order.email);
+  }, []);
+
+  // Handle VIP subscription redirect
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const vipParam = params.get('vip');
+    if (vipParam === 'success') {
+      window.history.replaceState({}, '', window.location.pathname);
+      setView('vip');
+    }
   }, []);
 
   // Handle PayPal redirect return
@@ -306,6 +317,10 @@ export default function App() {
             ) : view === 'returns-policy' ? (
               <div key="returns-policy">
                 <ReturnsPolicy onBack={handleHomeClick} />
+              </div>
+            ) : view === 'vip' ? (
+              <div key="vip">
+                <VIPMembership onBack={handleHomeClick} onManage={() => {}} />
               </div>
             ) : (
               <div key={view}>

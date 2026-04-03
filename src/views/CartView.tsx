@@ -131,11 +131,39 @@ export default function CartView({ onCheckout, onBack, onProductClick }: CartVie
   const [discountCode, setDiscountCode] = useState('');
   const [appliedCode, setAppliedCode] = useState<string | null>(null);
   const [codeError, setCodeError] = useState('');
+  const [vipEmail, setVipEmail] = useState('');
+  const [vipChecking, setVipChecking] = useState(false);
+  const [isVipMember, setIsVipMember] = useState(false);
+  const [vipError, setVipError] = useState('');
+
+  const handleVipCheck = async () => {
+    if (!vipEmail) return;
+    setVipChecking(true);
+    setVipError('');
+    try {
+      const res = await fetch('/api/check-member', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: vipEmail }),
+      });
+      const { isMember } = await res.json();
+      if (isMember) {
+        setIsVipMember(true);
+      } else {
+        setVipError('No active VIP membership found for this email.');
+      }
+    } catch {
+      setVipError('Could not verify. Please try again.');
+    }
+    setVipChecking(false);
+  };
 
   const afterBundle = cartTotal - bundleDiscount;
+  const vipDiscount = isVipMember ? afterBundle * 0.15 : 0;
+  const afterVip = afterBundle - vipDiscount;
   const discountRate = appliedCode ? (DISCOUNT_CODES[appliedCode] ?? 0) : 0;
-  const discountAmount = afterBundle * discountRate;
-  const finalTotal = afterBundle - discountAmount;
+  const discountAmount = afterVip * discountRate;
+  const finalTotal = afterVip - discountAmount;
 
   const handleApplyCode = () => {
     const upper = discountCode.trim().toUpperCase();
@@ -311,6 +339,38 @@ export default function CartView({ onCheckout, onBack, onProductClick }: CartVie
               Order Summary
             </h2>
             
+            {/* VIP Member */}
+            <div className="mb-6">
+              {isVipMember ? (
+                <div className="flex items-center justify-between text-xs uppercase tracking-widest text-amber-600 font-bold border border-amber-400 px-3 py-2">
+                  <span>👑 VIP Member — 15% off</span>
+                  <button onClick={() => { setIsVipMember(false); setVipEmail(''); }} className="text-brand-gray-dark hover:text-red-500 transition-colors ml-2">✕</button>
+                </div>
+              ) : (
+                <div>
+                  <p className="text-[10px] uppercase tracking-widest text-brand-gray-dark mb-2">VIP Member? Enter your email</p>
+                  <div className="flex gap-2">
+                    <input
+                      type="email"
+                      value={vipEmail}
+                      onChange={e => { setVipEmail(e.target.value); setVipError(''); }}
+                      onKeyDown={e => e.key === 'Enter' && handleVipCheck()}
+                      placeholder="Member email"
+                      className="flex-1 px-3 py-2 border border-brand-gray-light text-xs focus:outline-none focus:border-brand-black transition-colors"
+                    />
+                    <button
+                      onClick={handleVipCheck}
+                      disabled={vipChecking}
+                      className="px-4 py-2 bg-brand-black text-white text-[10px] uppercase tracking-widest hover:opacity-80 transition-opacity disabled:opacity-50"
+                    >
+                      {vipChecking ? '...' : 'Apply'}
+                    </button>
+                  </div>
+                  {vipError && <p className="text-red-500 text-[10px] mt-1">{vipError}</p>}
+                </div>
+              )}
+            </div>
+
             {/* Discount Code */}
             <div className="mb-6">
               {appliedCode ? (
@@ -354,6 +414,12 @@ export default function CartView({ onCheckout, onBack, onProductClick }: CartVie
                 <div className="flex justify-between text-xs uppercase tracking-widest text-emerald-600">
                   <span>Bundle — {jerseyDiscountRate * 100}% off jerseys</span>
                   <span className="font-bold">−£{jerseyBundleDiscount.toFixed(2)}</span>
+                </div>
+              )}
+              {isVipMember && (
+                <div className="flex justify-between text-xs uppercase tracking-widest text-amber-600">
+                  <span>👑 VIP Member (15%)</span>
+                  <span className="font-bold">−£{vipDiscount.toFixed(2)}</span>
                 </div>
               )}
               {appliedCode && (

@@ -102,6 +102,14 @@ export default function Footer({ logo, onNavigate, onDiscountClick }: {
                   Mystery Discount
                 </button>
               </li>
+              <li>
+                <button
+                  onClick={() => onNavigate?.('vip')}
+                  className="text-sm text-brand-gray-dark hover:text-brand-black transition-colors font-bold"
+                >
+                  👑 VIP Membership
+                </button>
+              </li>
             </ul>
           </div>
         </div>
