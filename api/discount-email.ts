@@ -29,7 +29,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   try {
     // Send code to customer
     await resend.emails.send({
-      from: 'Virenza <onboarding@resend.dev>',
+      from: 'Virenza <orders@virenza.tech>',
       to: email,
       subject: `Your mystery discount — ${percent}% off`,
       html: `
@@ -54,7 +54,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
     // Notify admin
     await resend.emails.send({
-      from: 'Virenza <onboarding@resend.dev>',
+      from: 'Virenza <orders@virenza.tech>',
       to: 'harvey4k38@gmail.com',
       subject: 'New mystery discount signup',
       html: `<p><strong>Email:</strong> ${email}</p><p>Sent code: ${code} (${percent}% off)</p>`,

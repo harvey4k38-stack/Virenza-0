@@ -30,6 +30,7 @@ type View = 'home' | 'product' | 'cart' | 'checkout' | 'sizing-guide' | 'about' 
 
 export default function App() {
   const [view, setView] = useState<View>('home');
+  const [discountPopupOpen, setDiscountPopupOpen] = useState(false);
   const [previousView, setPreviousView] = useState<View>('home');
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const [logo, setLogo] = useState<string | null>(null);
@@ -78,7 +79,19 @@ export default function App() {
       localStorage.removeItem('virenza_cart');
       window.history.replaceState({}, '', window.location.pathname);
       posthog?.capture('complete_checkout', { method: 'paypal' });
-      (window as any).ttq?.track('CompletePayment');
+      if (saved) {
+        const o = JSON.parse(saved);
+        (window as any).ttq?.track('CompletePayment', {
+          value: parseFloat(o.total ?? 0),
+          currency: 'GBP',
+          contents: (o.cart ?? []).map((item: any) => ({
+            content_id: item.id,
+            content_name: item.name,
+            quantity: item.quantity,
+            price: item.price,
+          })),
+        });
+      }
       setPaypalSuccess(true);
     }
   }, []);
@@ -118,16 +131,25 @@ export default function App() {
     setSelectedProduct(null);
   };
 
-  const handleBeginCheckout = (cs: string) => {
+  const handleBeginCheckout = (cs: string, cartItems?: any[], total?: number) => {
     posthog?.capture('begin_checkout');
-    (window as any).ttq?.track('InitiateCheckout');
+    (window as any).ttq?.track('InitiateCheckout', {
+      value: total ?? 0,
+      currency: 'GBP',
+      contents: (cartItems ?? []).map((item: any) => ({
+        content_id: item.id,
+        content_name: item.name,
+        quantity: item.quantity,
+        price: item.price,
+      })),
+    });
     setCheckoutClientSecret(cs);
     setView('checkout');
   };
 
   const handleCheckoutSuccess = () => {
     posthog?.capture('complete_checkout', { method: 'stripe' });
-    (window as any).ttq?.track('CompletePayment');
+    // CompletePayment is fired with full data inside CheckoutView
     handleHomeClick();
   };
 
@@ -299,12 +321,13 @@ export default function App() {
           </Suspense>
         </div>
 
-        <Footer 
-          logo={logo} 
+        <Footer
+          logo={logo}
           onNavigate={(v) => setView(v as View)}
+          onDiscountClick={() => setDiscountPopupOpen(true)}
         />
       </div>
-      <EmailCapturePopup />
+      <EmailCapturePopup forceOpen={discountPopupOpen} onClose={() => setDiscountPopupOpen(false)} />
       <ExitIntentPopup />
       <Analytics />
     </CartProvider>

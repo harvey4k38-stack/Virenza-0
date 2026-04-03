@@ -15,7 +15,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
   try {
     await resend.emails.send({
-      from: 'Virenza <onboarding@resend.dev>',
+      from: 'Virenza <orders@virenza.tech>',
       to: email,
       subject: 'You left something behind…',
       html: `
@@ -36,7 +36,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     });
 
     await resend.emails.send({
-      from: 'Virenza <onboarding@resend.dev>',
+      from: 'Virenza <orders@virenza.tech>',
       to: 'harvey4k38@gmail.com',
       subject: 'Abandoned cart recovery email sent',
       html: `<p><strong>Email:</strong> ${email}</p><p><strong>Name:</strong> ${firstName ?? 'Unknown'}</p>`,

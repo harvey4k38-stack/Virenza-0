@@ -91,7 +91,7 @@ function CartMysteryBox({ onCodeRevealed }: { onCodeRevealed: (code: string) => 
 }
 
 interface CartViewProps {
-  onCheckout: (clientSecret: string) => void;
+  onCheckout: (clientSecret: string, cartItems?: any[], total?: number) => void;
   onBack: () => void;
   onProductClick: (product: Product) => void;
 }
@@ -156,9 +156,9 @@ export default function CartView({ onCheckout, onBack, onProductClick }: CartVie
         body: JSON.stringify({ amount: finalTotal }),
       });
       const { clientSecret } = await res.json();
-      onCheckout(clientSecret ?? '');
+      onCheckout(clientSecret ?? '', cart, finalTotal);
     } catch {
-      onCheckout('');
+      onCheckout('', cart, finalTotal);
     }
   };
 
@@ -257,7 +257,7 @@ export default function CartView({ onCheckout, onBack, onProductClick }: CartVie
         {(() => {
           const cartIds = new Set(cart.map(i => i.id));
           const cartCategories = [...new Set(cart.map(i => i.category))];
-          const suggestions = PRODUCTS.filter(p => cartCategories.includes(p.category) && !cartIds.has(p.id)).slice(0, 4);
+          const suggestions = PRODUCTS.filter(p => cartCategories.includes(p.category) && !cartIds.has(p.id) && !p.id.startsWith('j-retro')).slice(0, 4);
           if (suggestions.length === 0) return null;
           return (
             <div className="lg:col-span-2 pt-8 border-t border-brand-gray-light">

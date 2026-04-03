@@ -13,7 +13,7 @@ interface ProductDetailProps {
   product: Product;
   onBack: () => void;
   onNavigate?: (view: string) => void;
-  onBuyNow?: (clientSecret: string) => void;
+  onBuyNow?: (clientSecret: string, cartItems?: any[], total?: number) => void;
   onProductClick?: (product: Product) => void;
 }
 
@@ -53,7 +53,7 @@ export default function ProductDetail({ product, onBack, onNavigate, onBuyNow, o
 
   const [stock, setStock] = useState<Record<string, number>>(() => {
     const counts: Record<string, number> = {};
-    ['S','M','L','XL','XXL'].forEach(s => { counts[s] = Math.floor(Math.random() * 4) + 2; });
+    ['S','M','L','XL','XXL'].forEach(s => { counts[s] = Math.floor(Math.random() * 4) + 4; });
     return counts;
   });
 
@@ -155,7 +155,7 @@ export default function ProductDetail({ product, onBack, onNavigate, onBuyNow, o
       const data = await res.json();
       if (!data.clientSecret) throw new Error('No client secret');
       addToCart(product, selectedThickness, selectedLength, buildNameLabel());
-      onBuyNow(data.clientSecret);
+      onBuyNow(data.clientSecret, [{ id: product.id, name: product.name, quantity: 1, price: displayPrice }], displayPrice);
     } catch {
       setBuyNowError('Please add to cart and checkout.');
     }
@@ -551,7 +551,7 @@ export default function ProductDetail({ product, onBack, onNavigate, onBuyNow, o
 
       {/* Customers Also Bought — accessories only */}
       {!isJersey && (() => {
-        const others = PRODUCTS.filter(p => p.category === product.category && p.id !== product.id).slice(0, 4);
+        const others = PRODUCTS.filter(p => p.category === product.category && p.id !== product.id && !p.id.startsWith('j-retro')).slice(0, 4);
         if (others.length === 0) return null;
         return (
           <div className="mt-24 pt-16 border-t border-brand-gray-light">

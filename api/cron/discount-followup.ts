@@ -27,7 +27,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
     try {
       await resend.emails.send({
-        from: 'Virenza <onboarding@resend.dev>',
+        from: 'Virenza <orders@virenza.tech>',
         to: signup.email,
         subject: 'Still thinking about it? Your discount is waiting',
         html: `

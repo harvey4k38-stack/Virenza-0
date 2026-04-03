@@ -1,7 +1,8 @@
 
-export default function Footer({ logo, onNavigate }: { 
+export default function Footer({ logo, onNavigate, onDiscountClick }: {
   logo: string | null,
-  onNavigate?: (view: string) => void 
+  onNavigate?: (view: string) => void,
+  onDiscountClick?: () => void
 }) {
   return (
     <footer className="bg-white border-t border-brand-gray-light pt-24 pb-12">
@@ -91,6 +92,14 @@ export default function Footer({ logo, onNavigate }: {
                   className="text-sm text-brand-gray-dark hover:text-brand-black transition-colors"
                 >
                   Shipping & Tracking
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={onDiscountClick}
+                  className="text-sm text-brand-gray-dark hover:text-brand-black transition-colors"
+                >
+                  Mystery Discount
                 </button>
               </li>
             </ul>

@@ -12,7 +12,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     const { orderNumber, email } = req.body;
 
     await resend.emails.send({
-      from: 'Virenza <onboarding@resend.dev>',
+      from: 'Virenza <orders@virenza.tech>',
       to: 'harvey4k38@gmail.com',
       subject: `Tracking Request — ${orderNumber}`,
       html: `

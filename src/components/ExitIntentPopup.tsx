@@ -13,6 +13,7 @@ export default function ExitIntentPopup() {
 
   useEffect(() => {
     if (sessionStorage.getItem(EXIT_KEY)) return;
+    if (localStorage.getItem('virenza_discount_captured')) return;
     const handleMouseLeave = (e: MouseEvent) => {
       if (e.clientY <= 0) {
         setVisible(true);

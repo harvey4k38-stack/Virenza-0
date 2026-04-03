@@ -5,22 +5,6 @@ import { X } from 'lucide-react';
 const STORAGE_KEY = 'virenza_discount_captured';
 const USED_EMAILS_KEY = 'virenza_discount_emails';
 
-// Weights: 5-9 = 24 each (62.5%), 10-12 = 20 each (31.25%), 13-16 = 3 each (6.25%)
-const WEIGHTED_CODES = [
-  ...Array(24).fill('VIRENZA5'),
-  ...Array(24).fill('VIRENZA6'),
-  ...Array(24).fill('VIRENZA7'),
-  ...Array(24).fill('VIRENZA8'),
-  ...Array(24).fill('VIRENZA9'),
-  ...Array(20).fill('VIRENZA10'),
-  ...Array(20).fill('VIRENZA10'),
-  ...Array(20).fill('VIRENZA12'),
-  ...Array(3).fill('VIRENZA13'),
-  ...Array(3).fill('VIRENZA14'),
-  ...Array(3).fill('VIRENZA15'),
-  ...Array(3).fill('VIRENZA16'),
-];
-
 function pickCode() {
   return 'VIRENZA10';
 }
@@ -29,22 +13,34 @@ function getPercent(code: string) {
   return parseInt(code.replace('VIRENZA', ''), 10);
 }
 
-export default function EmailCapturePopup() {
+interface Props {
+  forceOpen?: boolean;
+  onClose?: () => void;
+}
+
+export default function EmailCapturePopup({ forceOpen, onClose }: Props) {
   const [visible, setVisible] = useState(false);
   const [email, setEmail] = useState('');
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
   const [emailError, setEmailError] = useState('');
   const [revealedCode] = useState(pickCode);
 
+  // Auto-show once ever (localStorage persists across sessions)
   useEffect(() => {
-    if (sessionStorage.getItem(STORAGE_KEY)) return;
+    if (localStorage.getItem(STORAGE_KEY)) return;
     const timer = setTimeout(() => setVisible(true), 6000);
     return () => clearTimeout(timer);
   }, []);
 
+  // Manual trigger
+  useEffect(() => {
+    if (forceOpen) setVisible(true);
+  }, [forceOpen]);
+
   const dismiss = () => {
     setVisible(false);
-    sessionStorage.setItem(STORAGE_KEY, '1');
+    localStorage.setItem(STORAGE_KEY, '1');
+    onClose?.();
   };
 
   const handleSubmit = async (e: FormEvent) => {
@@ -56,7 +52,6 @@ export default function EmailCapturePopup() {
       return;
     }
     setStatus('loading');
-    // Send email in background — show code regardless of API result
     fetch('/api/discount-email', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -65,7 +60,7 @@ export default function EmailCapturePopup() {
     usedEmails.push(email.trim().toLowerCase());
     localStorage.setItem(USED_EMAILS_KEY, JSON.stringify(usedEmails));
     setStatus('success');
-    sessionStorage.setItem(STORAGE_KEY, '1');
+    localStorage.setItem(STORAGE_KEY, '1');
   };
 
   return (

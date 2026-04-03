@@ -553,6 +553,23 @@ function CheckoutFormWithDiscount({
       localStorage.removeItem('virenza_pending_order');
       setIsProcessing(false);
     } else if (paymentIntent?.status === 'succeeded') {
+      // Fire TikTok CompletePayment with full data
+      try {
+        const encoded = new TextEncoder().encode(form.email.trim().toLowerCase());
+        const hashBuffer = await crypto.subtle.digest('SHA-256', encoded);
+        const hashHex = Array.from(new Uint8Array(hashBuffer)).map(b => b.toString(16).padStart(2, '0')).join('');
+        (window as any).ttq?.identify({ email: hashHex });
+      } catch {}
+      (window as any).ttq?.track('CompletePayment', {
+        value: finalTotal,
+        currency: 'GBP',
+        contents: cart.map((item: any) => ({
+          content_id: item.id,
+          content_name: item.name,
+          quantity: item.quantity,
+          price: item.price,
+        })),
+      });
       if (discountApplied && form.email) {
         const used: string[] = JSON.parse(localStorage.getItem(USED_CODES_KEY) ?? '[]');
         used.push(form.email.toLowerCase());
