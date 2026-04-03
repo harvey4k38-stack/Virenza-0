@@ -241,11 +241,11 @@ function HeroCard({ giveaway, email, emailSet }: { giveaway: typeof GIVEAWAYS[0]
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 border border-brand-gray-light overflow-hidden w-full">
       {/* Image side */}
-      <div className="relative bg-zinc-100 aspect-[4/3] md:aspect-auto md:min-h-[420px]">
+      <div className="relative bg-[#1a1a1a] aspect-[4/3] md:aspect-auto md:min-h-[420px]">
         <img
           src={giveaway.image}
           alt={giveaway.prize}
-          className="absolute inset-0 w-full h-full object-cover"
+          className="absolute inset-0 w-full h-full object-contain"
         />
         <div className="absolute top-4 left-4 bg-black text-white text-[9px] uppercase tracking-[0.25em] px-3 py-1.5 font-bold">
           ⭐ Best Seller
