@@ -8,7 +8,7 @@ interface GiveawayProps {
 const GIVEAWAYS = [
   {
     type: 'best-seller',
-    label: 'This Week\'s Star Prize',
+    label: 'This Week\'s Best Seller',
     prize: 'Palace x Nike 2026 World Cup Jersey',
     image: '/jerseys/palace-wc-1.png',
     ticketPrice: 2.99,
