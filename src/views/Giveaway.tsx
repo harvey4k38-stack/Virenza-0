@@ -375,7 +375,7 @@ export default function Giveaway({ onBack }: GiveawayProps) {
             { icon: <Zap size={12} />, text: 'Drawn every Friday 8pm UK' },
             { icon: <Users size={12} />, text: 'Max 3 tickets per person' },
             { icon: <Gift size={12} />, text: 'Winner gets free jersey' },
-            { icon: <Trophy size={12} />, text: 'Results on our Instagram' },
+            { icon: <Trophy size={12} />, text: 'Results on our socials' },
           ].map(({ icon, text }) => (
             <div key={text} className="flex items-center gap-2 text-[10px] uppercase tracking-widest text-brand-gray-dark font-bold">
               {icon} {text}
@@ -391,7 +391,7 @@ export default function Giveaway({ onBack }: GiveawayProps) {
           {!emailSet ? (
             <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-end">
               <div className="flex-1 max-w-md">
-                <p className="text-[11px] uppercase tracking-widest font-bold mb-2">Enter your email to unlock all draws</p>
+                <p className="text-[11px] uppercase tracking-widest font-bold mb-2">Enter your email — we'll contact you if you win</p>
                 <input
                   type="email"
                   value={email}
@@ -405,7 +405,7 @@ export default function Giveaway({ onBack }: GiveawayProps) {
                 onClick={() => email && setEmailSet(true)}
                 className="px-8 py-3 bg-black text-white text-[10px] uppercase tracking-[0.25em] font-bold hover:opacity-80 transition-opacity whitespace-nowrap"
               >
-                Unlock Draws →
+                Get Started →
               </button>
             </div>
           ) : (
