@@ -16,9 +16,10 @@ function getPercent(code: string) {
 interface Props {
   forceOpen?: boolean;
   onClose?: () => void;
+  onGiveaway?: () => void;
 }
 
-export default function EmailCapturePopup({ forceOpen, onClose }: Props) {
+export default function EmailCapturePopup({ forceOpen, onClose, onGiveaway }: Props) {
   const [visible, setVisible] = useState(false);
   const [email, setEmail] = useState('');
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
@@ -144,6 +145,21 @@ export default function EmailCapturePopup({ forceOpen, onClose }: Props) {
                   >
                     No thanks
                   </button>
+
+                  {/* Giveaway teaser */}
+                  <div className="mt-6 pt-5 border-t border-brand-gray-light">
+                    <button
+                      type="button"
+                      onClick={onGiveaway}
+                      className="w-full flex items-center justify-between group"
+                    >
+                      <div className="text-left">
+                        <p className="text-[9px] uppercase tracking-[0.3em] text-brand-gray-dark mb-0.5">Also this week</p>
+                        <p className="text-xs font-black uppercase tracking-widest group-hover:opacity-70 transition-opacity">🏆 Win the Palace Jersey — from £2.99</p>
+                      </div>
+                      <span className="text-brand-gray-dark group-hover:text-brand-black transition-colors text-xs">→</span>
+                    </button>
+                  </div>
                 </>
               )}
             </div>

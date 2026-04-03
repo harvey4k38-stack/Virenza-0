@@ -357,7 +357,7 @@ export default function App() {
           onDiscountClick={() => setDiscountPopupOpen(true)}
         />
       </div>
-      <EmailCapturePopup forceOpen={discountPopupOpen} onClose={() => setDiscountPopupOpen(false)} />
+      <EmailCapturePopup forceOpen={discountPopupOpen} onClose={() => setDiscountPopupOpen(false)} onGiveaway={() => { setDiscountPopupOpen(false); setView('giveaway'); }} />
       <ExitIntentPopup />
       <Analytics />
     </CartProvider>
