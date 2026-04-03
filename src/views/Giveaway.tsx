@@ -19,7 +19,7 @@ const GIVEAWAYS = [
     type: 'featured',
     label: 'Featured Jersey',
     prize: 'Random Featured Jersey',
-    image: '/jerseys/external/barcelona-x-travis-scott-white-shirt-2024-25-1.jpg',
+    image: 'https://cdn.shopify.com/s/files/1/0869/8052/6405/files/barcelona-travis-scott-2024-away-shirt-8764442.jpg',
     ticketPrice: 3.99,
     highlight: false,
   },
