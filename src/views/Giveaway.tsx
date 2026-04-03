@@ -154,6 +154,7 @@ function MiniCard({ giveaway, email }: { giveaway: typeof GIVEAWAYS[0]; email: s
             <p className="text-[9px] uppercase tracking-widest text-brand-gray-dark">per ticket</p>
           </div>
           <div className="text-right">
+            <p className="text-[10px] font-black uppercase tracking-widest text-emerald-600">{Math.round(giveaway.value / giveaway.ticketPrice)}x value</p>
             {currentTickets !== null && currentTickets > 0 && (
               <p className="text-[9px] text-brand-gray-dark">{currentTickets}/3 tickets entered</p>
             )}
