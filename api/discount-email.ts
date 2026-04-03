@@ -42,7 +42,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
             <span style="font-size:28px;font-weight:800;letter-spacing:0.3em;text-transform:uppercase;">${code}</span>
           </div>
           <p style="color:#555;font-size:13px;margin-bottom:32px;">Valid on all jerseys. One use per customer.</p>
-          <a href="https://virenza.store" style="display:inline-block;background:#000;color:#fff;padding:14px 32px;text-decoration:none;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.2em;">Shop Now</a>
+          <a href="https://virenza.tech" style="display:inline-block;background:#000;color:#fff;padding:14px 32px;text-decoration:none;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.2em;">Shop Now</a>
           <hr style="border:none;border-top:1px solid #e5e5e5;margin-top:40px;margin-bottom:16px;" />
           <p style="color:#aaa;font-size:11px;">Virenza — Premium Football Jerseys</p>
         </div>
