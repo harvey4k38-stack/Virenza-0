@@ -1,6 +1,7 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 import { Resend } from 'resend';
 import { Redis } from '@upstash/redis';
+import { createHash } from 'crypto';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 const redis = new Redis({
@@ -14,6 +15,51 @@ function generateOrderNumber() {
   return `VRZ-${timestamp}-${random}`;
 }
 
+function sha256(value: string) {
+  return createHash('sha256').update(value.trim().toLowerCase()).digest('hex');
+}
+
+async function fireTikTokPurchase(email: string, total: string, cart: any[], req: VercelRequest) {
+  const pixelId = process.env.TIKTOK_PIXEL_ID;
+  const accessToken = process.env.TIKTOK_ACCESS_TOKEN;
+  if (!pixelId || !accessToken) return;
+
+  const contents = cart.map((item: any) => ({
+    content_id: item.id,
+    content_name: item.name,
+    quantity: item.quantity,
+    price: item.price,
+  }));
+
+  const payload = {
+    pixel_code: pixelId,
+    event_source: 'web',
+    data: [{
+      event: 'CompletePayment',
+      event_time: Math.floor(Date.now() / 1000),
+      event_id: `order-${Date.now()}`,
+      user: {
+        email: sha256(email),
+        ip: (req.headers['x-forwarded-for'] as string)?.split(',')[0] ?? '',
+        user_agent: req.headers['user-agent'] ?? '',
+      },
+      page: { url: 'https://www.virenza.tech/' },
+      properties: {
+        currency: 'GBP',
+        value: parseFloat(total),
+        content_type: 'product',
+        contents,
+      },
+    }],
+  };
+
+  fetch(`https://business-api.tiktok.com/open_api/v1.3/event/track/`, {
+    method: 'POST',
+    headers: { 'Access-Token': accessToken, 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload),
+  }).catch(() => {});
+}
+
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
@@ -25,6 +71,9 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
     // Remove discount follow-up so buyer doesn't get nudged
     redis.del(`discount_signup:${email?.toLowerCase()}`).catch(() => {});
+
+    // TikTok Events API — server-side purchase tracking
+    fireTikTokPurchase(email, total, cart, req);
 
     const itemsHtml = cart.map((item: any) => {
       const variant = [item.selectedThickness, item.selectedLength].filter(Boolean).join(' / ');
