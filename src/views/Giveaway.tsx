@@ -132,12 +132,14 @@ function GiveawayCard({ giveaway, email }: { giveaway: typeof GIVEAWAYS[0]; emai
         <img
           src={giveaway.image}
           alt={giveaway.prize}
-          className={`w-full h-full object-cover transition-all duration-300 ${giveaway.highlight ? '' : 'blur-md scale-110'}`}
+          className={`w-full h-full object-cover transition-all duration-300 ${giveaway.highlight ? '' : 'grayscale blur-[3px] scale-105 brightness-75'}`}
           referrerPolicy="no-referrer"
         />
         {!giveaway.highlight && (
-          <div className="absolute inset-0 flex items-center justify-center bg-black/30">
-            <span className="text-white font-black text-6xl opacity-90">?</span>
+          <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/50">
+            <span className="text-white font-black text-5xl mb-2 drop-shadow-lg">?</span>
+            <span className="text-white text-[9px] uppercase tracking-[0.3em] font-bold opacity-90">Mystery Prize</span>
+            <span className="text-white/60 text-[8px] uppercase tracking-widest mt-1">Revealed on Draw</span>
           </div>
         )}
       </div>
