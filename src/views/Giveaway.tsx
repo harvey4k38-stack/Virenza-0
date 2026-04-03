@@ -122,19 +122,22 @@ function GiveawayCard({ giveaway, email }: { giveaway: typeof GIVEAWAYS[0]; emai
   };
 
   return (
-    <div className={`border ${giveaway.highlight ? 'border-black border-2' : 'border-brand-gray-light'} relative`}>
+    <div className={`border ${giveaway.highlight ? 'border-2 border-black' : 'border border-brand-gray-light'}`}>
       {giveaway.highlight && (
-        <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-black text-white text-[9px] uppercase tracking-[0.3em] px-3 py-1 font-bold whitespace-nowrap">
-          This Week's Feature
+        <div className="bg-black text-white text-[9px] uppercase tracking-[0.3em] px-3 py-2 font-bold text-center">
+          ⭐ This Week's Best Seller
         </div>
       )}
-      <div className="aspect-[4/3] overflow-hidden bg-brand-gray-light/20 relative">
+      <div className="aspect-square overflow-hidden bg-brand-gray-light/20 relative">
         <img
           src={giveaway.image}
           alt={giveaway.prize}
-          className={`w-full h-full object-cover transition-all duration-300 ${giveaway.highlight ? '' : 'grayscale blur-[3px] scale-105 brightness-75'}`}
+          className={`w-full h-full object-cover object-top transition-all duration-300 ${giveaway.highlight ? '' : 'grayscale blur-[3px] scale-105 brightness-75'}`}
           referrerPolicy="no-referrer"
         />
+        {giveaway.highlight && (
+          <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-black/40 to-transparent" />
+        )}
         {!giveaway.highlight && (
           <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/50">
             <span className="text-white font-black text-5xl mb-2 drop-shadow-lg">?</span>
