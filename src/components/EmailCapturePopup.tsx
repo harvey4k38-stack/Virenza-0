@@ -150,7 +150,7 @@ export default function EmailCapturePopup({ forceOpen, onClose, onGiveaway }: Pr
                   <div className="mt-6 pt-5 border-t border-brand-gray-light">
                     <button
                       type="button"
-                      onClick={onGiveaway}
+                      onClick={() => onGiveaway?.()}
                       className="w-full flex items-center justify-between group"
                     >
                       <div className="text-left">

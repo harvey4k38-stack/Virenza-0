@@ -290,7 +290,7 @@ function HeroCard({ giveaway, email, emailSet }: { giveaway: typeof GIVEAWAYS[0]
                 </div>
               </div>
             </div>
-            {!emailSet && <p className="text-[11px] text-brand-gray-dark">Enter your email below to unlock draws</p>}
+            {!emailSet && <p className="text-[11px] text-brand-gray-dark">Enter your email above to get started</p>}
             {error && <p className="text-red-500 text-[11px]">{error}</p>}
             <button
               onClick={handleEnter}

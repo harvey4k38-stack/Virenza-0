@@ -83,7 +83,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   const allEmails = [
     ...new Set([
       ...SIGNUP_EMAILS.map(e => e.toLowerCase().trim()),
-      ...ORDER_EMAILS,
+      ...ORDER_EMAILS.map(e => e.toLowerCase().trim()),
     ]),
   ];
 
