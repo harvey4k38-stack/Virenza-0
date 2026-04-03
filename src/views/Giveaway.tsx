@@ -239,9 +239,9 @@ function HeroCard({ giveaway, email, emailSet }: { giveaway: typeof GIVEAWAYS[0]
   };
 
   return (
-    <div className="grid md:grid-cols-2 border border-brand-gray-light overflow-hidden">
+    <div className="flex flex-col md:flex-row border border-brand-gray-light overflow-hidden">
       {/* Image side */}
-      <div className="relative bg-zinc-100 min-h-[360px]">
+      <div className="relative bg-zinc-100 min-h-[360px] md:w-1/2 flex-shrink-0">
         <img
           src={giveaway.image}
           alt={giveaway.prize}
@@ -257,7 +257,7 @@ function HeroCard({ giveaway, email, emailSet }: { giveaway: typeof GIVEAWAYS[0]
       </div>
 
       {/* Content side */}
-      <div className="p-8 flex flex-col justify-center bg-white">
+      <div className="p-8 flex flex-col justify-center bg-white md:w-1/2 min-w-0">
         <p className="text-[10px] uppercase tracking-[0.3em] text-brand-gray-dark mb-2">{giveaway.label}</p>
         <h2 className="text-2xl font-black uppercase tracking-tight leading-tight mb-2">{giveaway.prize}</h2>
         <p className="text-brand-gray-dark text-sm mb-6">
@@ -321,7 +321,7 @@ export default function Giveaway({ onBack }: GiveawayProps) {
   const [bestSeller, ...otherDraws] = GIVEAWAYS;
 
   return (
-    <main className="pt-28 pb-24">
+    <main className="pt-28 pb-24 overflow-x-hidden">
 
       {/* Hero Banner */}
       <div className="bg-black text-white">
