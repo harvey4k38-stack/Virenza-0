@@ -28,7 +28,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   const { email } = req.body;
   if (!email) return res.status(400).json({ tickets: {} });
   const weekId = getWeekId();
-  const types = ['featured', 'special', 'world-cup', 'any'];
+  const types = ['best-seller', 'featured', 'special', 'world-cup', 'any'];
   const results: Record<string, number> = {};
   for (const type of types) {
     const entry: any = await redis.get(`giveaway:${type}:${weekId}:${email.toLowerCase().trim()}`);

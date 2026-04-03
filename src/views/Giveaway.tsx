@@ -8,18 +8,26 @@ interface GiveawayProps {
 
 const GIVEAWAYS = [
   {
-    type: 'featured',
-    label: 'Featured Jersey',
+    type: 'best-seller',
+    label: 'Best Seller Jersey',
     prize: 'Palace x Nike 2026 World Cup Jersey',
     image: '/jerseys/palace-wc-1.png',
-    ticketPrice: 3.99,
+    ticketPrice: 2.99,
     highlight: true,
+  },
+  {
+    type: 'featured',
+    label: 'Featured Jersey',
+    prize: 'Random Featured Jersey',
+    image: '/jerseys/england-home-2026-1.png',
+    ticketPrice: 3.99,
+    highlight: false,
   },
   {
     type: 'special',
     label: 'Special Edition Jersey',
     prize: 'Random Special Edition Jersey',
-    image: '/jerseys/palace-wc-5.png',
+    image: '/jerseys/retro-saka-1.png',
     ticketPrice: 4.99,
     highlight: false,
   },
@@ -27,7 +35,7 @@ const GIVEAWAYS = [
     type: 'world-cup',
     label: 'World Cup Jersey',
     prize: 'Random 2026 World Cup Jersey',
-    image: '/jerseys/palace-wc-2.png',
+    image: '/jerseys/nike-away-2026-front.png',
     ticketPrice: 2.99,
     highlight: false,
   },
@@ -35,7 +43,7 @@ const GIVEAWAYS = [
     type: 'any',
     label: 'Any Jersey',
     prize: 'Any Random Jersey from the Store',
-    image: '/jerseys/palace-wc-4.png',
+    image: '/jerseys/retro-gazza-1.png',
     ticketPrice: 1.99,
     highlight: false,
   },
@@ -120,8 +128,18 @@ function GiveawayCard({ giveaway, email }: { giveaway: typeof GIVEAWAYS[0]; emai
           This Week's Feature
         </div>
       )}
-      <div className="aspect-[4/3] overflow-hidden bg-brand-gray-light/20">
-        <img src={giveaway.image} alt={giveaway.prize} className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+      <div className="aspect-[4/3] overflow-hidden bg-brand-gray-light/20 relative">
+        <img
+          src={giveaway.image}
+          alt={giveaway.prize}
+          className={`w-full h-full object-cover transition-all duration-300 ${giveaway.highlight ? '' : 'blur-md scale-110'}`}
+          referrerPolicy="no-referrer"
+        />
+        {!giveaway.highlight && (
+          <div className="absolute inset-0 flex items-center justify-center bg-black/30">
+            <span className="text-white font-black text-6xl opacity-90">?</span>
+          </div>
+        )}
       </div>
       <div className="p-6">
         <p className="text-[10px] uppercase tracking-[0.3em] text-brand-gray-dark mb-1">{giveaway.label}</p>

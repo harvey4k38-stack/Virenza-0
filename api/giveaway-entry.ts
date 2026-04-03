@@ -7,10 +7,11 @@ const redis = new Redis({
 });
 
 export const GIVEAWAY_TYPES: Record<string, { name: string; prize: string; price: number }> = {
-  featured:  { name: 'Featured Jersey Giveaway',     prize: 'Palace x Nike 2026 World Cup Jersey',  price: 399 },
-  special:   { name: 'Special Edition Giveaway',     prize: 'Random Special Edition Jersey',         price: 499 },
-  'world-cup': { name: 'World Cup Jersey Giveaway',  prize: 'Random 2026 World Cup Jersey',          price: 299 },
-  any:       { name: 'Any Jersey Giveaway',           prize: 'Any Random Jersey from the Store',     price: 199 },
+  'best-seller': { name: 'Best Seller Jersey Giveaway', prize: 'Palace x Nike 2026 World Cup Jersey', price: 299 },
+  featured:  { name: 'Featured Jersey Giveaway',        prize: 'Random Featured Jersey',               price: 399 },
+  special:   { name: 'Special Edition Giveaway',        prize: 'Random Special Edition Jersey',        price: 499 },
+  'world-cup': { name: 'World Cup Jersey Giveaway',     prize: 'Random 2026 World Cup Jersey',         price: 299 },
+  any:       { name: 'Any Jersey Giveaway',              prize: 'Any Random Jersey from the Store',    price: 199 },
 };
 
 function getWeekId() {

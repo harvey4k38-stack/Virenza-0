@@ -20,7 +20,8 @@ async function getRawBody(req: VercelRequest): Promise<Buffer> {
 }
 
 const PRIZE_NAMES: Record<string, string> = {
-  featured: 'Palace x Nike 2026 World Cup Jersey',
+  'best-seller': 'Palace x Nike 2026 World Cup Jersey',
+  featured: 'Random Featured Jersey',
   special: 'Random Special Edition Jersey',
   'world-cup': 'Random 2026 World Cup Jersey',
   any: 'Any Random Jersey from the Store',

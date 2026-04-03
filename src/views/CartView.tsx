@@ -303,8 +303,8 @@ export default function CartView({ onCheckout, onBack, onProductClick }: CartVie
         {/* Customers Also Bought */}
         {(() => {
           const cartIds = new Set(cart.map(i => i.id));
-          const cartCategories = [...new Set(cart.map(i => i.category))];
-          const suggestions = PRODUCTS.filter(p => cartCategories.includes(p.category) && !cartIds.has(p.id) && !p.id.startsWith('j-retro')).slice(0, 4);
+          const ALSO_BOUGHT_IDS = ['jg-england-2026-world-cup-home-shirt', 'j-nike-away-2026'];
+          const suggestions = PRODUCTS.filter(p => ALSO_BOUGHT_IDS.includes(p.id) && !cartIds.has(p.id));
           if (suggestions.length === 0) return null;
           return (
             <div className="lg:col-span-2 pt-8 border-t border-brand-gray-light">
