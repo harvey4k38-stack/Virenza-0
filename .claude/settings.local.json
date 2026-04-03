@@ -265,7 +265,9 @@
       "Bash(open \"/Users/nocap/Downloads/Virenza - O/review-picker.html\")",
       "Bash(cd \"/Users/nocap/Downloads/Virenza - O\" && npm install @vercel/kv 2>&1 | tail -5)",
       "Bash(find /Users/nocap/Downloads -name \"*home*2026*\" -o -name \"*2026*home*\" -o -name \"*england*home*\" -o -name \"*home kit*\" 2>/dev/null | grep -v \".DS_Store\")",
-      "Bash(cd \"/Users/nocap/Downloads/Virenza - O\" && npx vercel logs 2>&1 | head -60)"
+      "Bash(cd \"/Users/nocap/Downloads/Virenza - O\" && npx vercel logs 2>&1 | head -60)",
+      "Bash(ls \"/Users/nocap/Downloads/Virenza - O/public/jerseys/external/\" | grep -E \"\\\\-1\\\\.\\(jpg|png\\)$\")",
+      "Bash(open -a \"Google Chrome\" /Users/nocap/Desktop/giveaway-picker.html || open -a \"Safari\" /Users/nocap/Desktop/giveaway-picker.html)"
     ]
   }
 }

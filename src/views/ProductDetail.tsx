@@ -546,6 +546,20 @@ export default function ProductDetail({ product, onBack, onNavigate, onBuyNow, o
               <p className="text-[10px] uppercase tracking-widest font-bold">30-Day Returns</p>
             </button>
           </div>
+
+          {/* Giveaway banner */}
+          {isJersey && (
+            <button
+              onClick={() => onNavigate?.('giveaway')}
+              className="w-full mt-8 border border-dashed border-brand-gray-light py-4 px-6 flex items-center justify-between hover:border-black transition-colors"
+            >
+              <div className="text-left">
+                <p className="text-[10px] uppercase tracking-[0.25em] font-bold text-brand-gray-dark mb-0.5">Out of your price range?</p>
+                <p className="text-xs font-bold uppercase tracking-widest">Enter the weekly giveaway — tickets from £1.99 →</p>
+              </div>
+              <span className="text-xl">🏆</span>
+            </button>
+          )}
         </div>
       </div>
 
