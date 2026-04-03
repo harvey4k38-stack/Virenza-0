@@ -47,7 +47,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     const { email, quantity, weekId, type } = session.metadata ?? {};
     if (!email || !quantity || !weekId || !type) return res.status(200).end();
 
-    const key = `giveaway:${type}:${weekId}:${email}`;
+    const key = `giveaway:${type}:${weekId}:${email.toLowerCase().trim()}`;
     const existing: any = (await redis.get(key)) ?? { email, tickets: 0, type };
     existing.tickets = Math.min((existing.tickets ?? 0) + parseInt(quantity), 3);
     existing.lastEnteredAt = Date.now();
