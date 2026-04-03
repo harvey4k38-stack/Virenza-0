@@ -140,8 +140,8 @@ export const PRODUCTS: Product[] = [
   {
     id: '1',
     name: 'Virenza Classic Tennis Chain',
-    price: 32.99,
-    compareAtPrice: 38.99,
+    price: 45.99,
+    compareAtPrice: 51.99,
     description: 'Our signature tennis chain featuring hand-set stones. A timeless statement piece that exudes luxury and class.',
     category: 'chains',
     images: [
@@ -159,8 +159,8 @@ export const PRODUCTS: Product[] = [
   {
     id: '2',
     name: 'Elite Iced Tennis Chain',
-    price: 38.99,
-    compareAtPrice: 48.99,
+    price: 51.99,
+    compareAtPrice: 61.99,
     description: 'An elite version of our tennis chain with larger stones and a more secure clasp for maximum brilliance.',
     category: 'chains',
     images: [
@@ -178,8 +178,8 @@ export const PRODUCTS: Product[] = [
   {
     id: '3',
     name: 'Sovereign Cuban Chain',
-    price: 38.99,
-    compareAtPrice: 49.99,
+    price: 51.99,
+    compareAtPrice: 62.99,
     description: 'The pinnacle of our chain collection. A bold Cuban link crafted for those who demand the best — heavy, refined, and unmistakable.',
     category: 'chains',
     images: [
@@ -197,8 +197,8 @@ export const PRODUCTS: Product[] = [
   {
     id: '9',
     name: 'Aurum Link Chain',
-    price: 37.99,
-    compareAtPrice: 45.99,
+    price: 50.99,
+    compareAtPrice: 58.99,
     description: 'A sleek gold box chain with a clean geometric link structure. Minimal, precise and effortlessly luxurious.',
     category: 'chains',
     images: [
@@ -216,8 +216,8 @@ export const PRODUCTS: Product[] = [
   {
     id: '8',
     name: 'Silver Rope Chain',
-    price: 32.99,
-    compareAtPrice: 38.99,
+    price: 45.99,
+    compareAtPrice: 51.99,
     description: 'A classic silver rope chain with a twisted design that catches the light. Timeless, versatile and built for everyday wear.',
     category: 'chains',
     images: [
@@ -235,8 +235,8 @@ export const PRODUCTS: Product[] = [
   {
     id: '7',
     name: 'Sovereign Link Chain',
-    price: 44.99,
-    compareAtPrice: 54.99,
+    price: 57.99,
+    compareAtPrice: 67.99,
     description: 'A bold gold Cuban link chain crafted for those who command attention. Heavy, warm-toned, and built to last.',
     category: 'chains',
     images: [

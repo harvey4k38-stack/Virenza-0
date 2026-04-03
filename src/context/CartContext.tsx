@@ -9,6 +9,11 @@ interface CartContextType {
   clearCart: () => void;
   cartCount: number;
   cartTotal: number;
+  bundleDiscount: number;
+  chainBundleDiscount: number;
+  jerseyBundleDiscount: number;
+  jerseyDiscountRate: number;
+  hasJerseyBundle: boolean;
 }
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
@@ -66,10 +71,26 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
   };
 
   const cartCount = cart.reduce((total, item) => total + item.quantity, 0);
-  const cartTotal = cart.reduce((total, item) => total + item.price * item.quantity, 0);
+  const rawTotal = cart.reduce((total, item) => total + item.price * item.quantity, 0);
+
+  const hasJerseyBundle = cart.some(item => item.category.startsWith('jersey-'));
+
+  // 40% off chains when jersey in cart
+  const chainBundleDiscount = hasJerseyBundle
+    ? cart.filter(item => item.category === 'chains').reduce((total, item) => total + item.price * item.quantity * 0.4, 0)
+    : 0;
+
+  // Jersey quantity discount: 2=10%, 3=20%, 5+=25%
+  const jerseyCount = cart.filter(item => item.category.startsWith('jersey-')).reduce((sum, item) => sum + item.quantity, 0);
+  const jerseyDiscountRate = jerseyCount >= 5 ? 0.25 : jerseyCount >= 3 ? 0.20 : jerseyCount >= 2 ? 0.10 : 0;
+  const jerseySubtotal = cart.filter(item => item.category.startsWith('jersey-')).reduce((sum, item) => sum + item.price * item.quantity, 0);
+  const jerseyBundleDiscount = jerseySubtotal * jerseyDiscountRate;
+
+  const bundleDiscount = chainBundleDiscount + jerseyBundleDiscount;
+  const cartTotal = rawTotal;
 
   return (
-    <CartContext.Provider value={{ cart, addToCart, removeFromCart, updateQuantity, clearCart, cartCount, cartTotal }}>
+    <CartContext.Provider value={{ cart, addToCart, removeFromCart, updateQuantity, clearCart, cartCount, cartTotal, bundleDiscount, chainBundleDiscount, jerseyBundleDiscount, jerseyDiscountRate, hasJerseyBundle }}>
       {children}
     </CartContext.Provider>
   );

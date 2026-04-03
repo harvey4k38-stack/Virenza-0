@@ -126,15 +126,16 @@ function useCountdown() {
 }
 
 export default function CartView({ onCheckout, onBack, onProductClick }: CartViewProps) {
-  const { cart, addToCart, removeFromCart, updateQuantity, cartTotal, cartCount } = useCart();
+  const { cart, addToCart, removeFromCart, updateQuantity, cartTotal, cartCount, bundleDiscount, chainBundleDiscount, jerseyBundleDiscount, jerseyDiscountRate, hasJerseyBundle } = useCart();
   const [loadingCheckout, setLoadingCheckout] = useState(false);
   const [discountCode, setDiscountCode] = useState('');
   const [appliedCode, setAppliedCode] = useState<string | null>(null);
   const [codeError, setCodeError] = useState('');
 
+  const afterBundle = cartTotal - bundleDiscount;
   const discountRate = appliedCode ? (DISCOUNT_CODES[appliedCode] ?? 0) : 0;
-  const discountAmount = cartTotal * discountRate;
-  const finalTotal = cartTotal - discountAmount;
+  const discountAmount = afterBundle * discountRate;
+  const finalTotal = afterBundle - discountAmount;
 
   const handleApplyCode = () => {
     const upper = discountCode.trim().toUpperCase();
@@ -186,6 +187,24 @@ export default function CartView({ onCheckout, onBack, onProductClick }: CartVie
         </button>
         <h1 className="text-2xl font-bold uppercase tracking-[0.2em]">Your Basket ({cartCount})</h1>
       </div>
+
+      {/* Bundle Promo Banner */}
+      {(() => {
+        const jerseyCount = cart.filter(i => i.category.startsWith('jersey-')).reduce((s, i) => s + i.quantity, 0);
+        const hasChain = cart.some(i => i.category === 'chains');
+        const msgs: string[] = [];
+        if (hasChain && !hasJerseyBundle) msgs.push('Add a jersey to get 40% off your chain');
+        if (jerseyCount === 0) msgs.push('Buy 2+ jerseys for 10% off, 3+ for 20% off, 5+ for 25% off');
+        else if (jerseyCount === 1) msgs.push('Add 1 more jersey for 10% off all jerseys');
+        else if (jerseyCount === 2) msgs.push('Add 1 more jersey to upgrade to 20% off all jerseys');
+        else if (jerseyCount >= 3 && jerseyCount < 5) msgs.push(`Add ${5 - jerseyCount} more jersey${5 - jerseyCount > 1 ? 's' : ''} to upgrade to 25% off all jerseys`);
+        if (msgs.length === 0) return null;
+        return (
+          <div className="mb-8 bg-black text-white px-6 py-3 text-center">
+            {msgs.map((msg, i) => <p key={i} className="text-[11px] uppercase tracking-[0.2em] font-bold">{msg}</p>)}
+          </div>
+        );
+      })()}
 
       <div className="grid lg:grid-cols-3 gap-16">
         {/* Cart Items */}
@@ -325,6 +344,18 @@ export default function CartView({ onCheckout, onBack, onProductClick }: CartVie
                 <span className="text-brand-gray-dark">Subtotal</span>
                 <span className="font-bold">£{cartTotal.toFixed(2)}</span>
               </div>
+              {chainBundleDiscount > 0 && (
+                <div className="flex justify-between text-xs uppercase tracking-widest text-emerald-600">
+                  <span>Bundle — Chain 40% off</span>
+                  <span className="font-bold">−£{chainBundleDiscount.toFixed(2)}</span>
+                </div>
+              )}
+              {jerseyBundleDiscount > 0 && (
+                <div className="flex justify-between text-xs uppercase tracking-widest text-emerald-600">
+                  <span>Bundle — {jerseyDiscountRate * 100}% off jerseys</span>
+                  <span className="font-bold">−£{jerseyBundleDiscount.toFixed(2)}</span>
+                </div>
+              )}
               {appliedCode && (
                 <div className="flex justify-between text-xs uppercase tracking-widest text-emerald-600">
                   <span>Discount ({discountRate * 100}%)</span>
