@@ -206,11 +206,12 @@ export default function App() {
     <CurrencyProvider>
     <CartProvider>
       <div className="min-h-screen flex flex-col">
-        <Navbar 
-          onHome={handleHomeClick} 
-          onNavigate={handleCategoryClick} 
-          onCart={() => setView('cart')} 
+        <Navbar
+          onHome={handleHomeClick}
+          onNavigate={handleCategoryClick}
+          onCart={() => setView('cart')}
           onAbout={() => setView('about')}
+          onVip={() => setView('vip')}
           logo={logo}
         />
         

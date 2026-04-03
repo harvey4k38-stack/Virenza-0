@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from 'motion/react';
-import { ShoppingBag, Menu, X, Search, ChevronDown } from 'lucide-react';
+import { ShoppingBag, Menu, X, Search, ChevronDown, Crown } from 'lucide-react';
 import { useState, useEffect, useRef } from 'react';
 import { useCart } from '../context/CartContext';
 import { useCurrency, CURRENCIES, type Currency } from '../context/CurrencyContext';
@@ -36,11 +36,12 @@ const fmtCountdown = () => {
   return `${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
 };
 
-export default function Navbar({ onHome, onNavigate, onCart, onAbout, logo }: {
+export default function Navbar({ onHome, onNavigate, onCart, onAbout, onVip, logo }: {
   onHome: () => void,
   onNavigate: (cat: string) => void,
   onCart: () => void,
   onAbout: () => void,
+  onVip: () => void,
   logo: string | null
 }) {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -181,6 +182,12 @@ export default function Navbar({ onHome, onNavigate, onCart, onAbout, logo }: {
 
           {/* Right icons */}
           <div className="flex gap-6 items-center ml-auto">
+            <button
+              onClick={onVip}
+              className="hidden sm:flex items-center gap-1.5 bg-black text-white px-3 py-1.5 text-[9px] uppercase tracking-[0.2em] font-bold hover:opacity-80 transition-opacity whitespace-nowrap"
+            >
+              <Crown size={11} /> VIP
+            </button>
             <button className="hover:opacity-70 transition-opacity hidden sm:block">
               <Search size={18} />
             </button>
@@ -478,6 +485,12 @@ export default function Navbar({ onHome, onNavigate, onCart, onAbout, logo }: {
             onClick={() => { onAbout(); setIsMobileMenuOpen(false); }}
           >
             About
+          </button>
+          <button
+            className="flex items-center gap-2 text-xs uppercase tracking-[0.2em] font-bold text-left bg-black text-white px-4 py-2.5 w-full"
+            onClick={() => { onVip(); setIsMobileMenuOpen(false); }}
+          >
+            <Crown size={13} /> VIP Membership
           </button>
         </div>
       </motion.div>
