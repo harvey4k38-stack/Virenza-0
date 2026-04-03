@@ -132,7 +132,7 @@ function GiveawayCard({ giveaway, email }: { giveaway: typeof GIVEAWAYS[0]; emai
         <img
           src={giveaway.image}
           alt={giveaway.prize}
-          className={`w-full h-full object-contain transition-all duration-300 ${giveaway.highlight ? '' : 'grayscale blur-[3px] scale-105 brightness-75'}`}
+          className={`w-full h-full object-contain scale-110 transition-all duration-300 ${giveaway.highlight ? '' : 'grayscale blur-[3px] brightness-75'}`}
           referrerPolicy="no-referrer"
         />
         {giveaway.highlight && (
