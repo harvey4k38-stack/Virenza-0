@@ -239,13 +239,13 @@ function HeroCard({ giveaway, email, emailSet }: { giveaway: typeof GIVEAWAYS[0]
   };
 
   return (
-    <div className="flex flex-col md:flex-row border border-brand-gray-light overflow-hidden">
+    <div className="grid grid-cols-1 md:grid-cols-2 border border-brand-gray-light overflow-hidden w-full">
       {/* Image side */}
-      <div className="relative bg-zinc-100 min-h-[360px] md:w-1/2 flex-shrink-0">
+      <div className="relative bg-zinc-100 aspect-[4/3] md:aspect-auto md:min-h-[420px]">
         <img
           src={giveaway.image}
           alt={giveaway.prize}
-          className="w-full h-full object-cover absolute inset-0"
+          className="absolute inset-0 w-full h-full object-cover"
         />
         <div className="absolute top-4 left-4 bg-black text-white text-[9px] uppercase tracking-[0.25em] px-3 py-1.5 font-bold">
           ⭐ Best Seller
@@ -257,7 +257,7 @@ function HeroCard({ giveaway, email, emailSet }: { giveaway: typeof GIVEAWAYS[0]
       </div>
 
       {/* Content side */}
-      <div className="p-8 flex flex-col justify-center bg-white md:w-1/2 min-w-0">
+      <div className="p-8 flex flex-col justify-center bg-white">
         <p className="text-[10px] uppercase tracking-[0.3em] text-brand-gray-dark mb-2">{giveaway.label}</p>
         <h2 className="text-2xl font-black uppercase tracking-tight leading-tight mb-2">{giveaway.prize}</h2>
         <p className="text-brand-gray-dark text-sm mb-6">
@@ -414,11 +414,11 @@ export default function Giveaway({ onBack }: GiveawayProps) {
           )}
         </div>
 
-        {/* Star Prize */}
+        {/* Best Seller */}
         <div className="pt-12 pb-10">
           <div className="flex items-center gap-3 mb-6">
             <span className="text-yellow-500 text-lg">⭐</span>
-            <h2 className="text-[11px] uppercase tracking-[0.35em] font-black">This Week's Star Prize</h2>
+            <h2 className="text-[11px] uppercase tracking-[0.35em] font-black">This Week's Best Seller</h2>
             <div className="flex-1 h-px bg-brand-gray-light" />
             <span className="text-[10px] uppercase tracking-widest text-brand-gray-dark">£{bestSeller.ticketPrice.toFixed(2)} / ticket</span>
           </div>
