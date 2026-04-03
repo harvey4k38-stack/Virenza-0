@@ -122,21 +122,18 @@ function GiveawayCard({ giveaway, email }: { giveaway: typeof GIVEAWAYS[0]; emai
   };
 
   return (
-    <div className={`border ${giveaway.highlight ? 'border-2 border-black' : 'border border-brand-gray-light'}`}>
-      {giveaway.highlight && (
-        <div className="bg-black text-white text-[9px] uppercase tracking-[0.3em] px-3 py-2 font-bold text-center">
-          ⭐ This Week's Best Seller
-        </div>
-      )}
-      <div className="aspect-square overflow-hidden bg-black relative">
+    <div className="border border-brand-gray-light">
+      <div className="aspect-square overflow-hidden bg-brand-gray-light/20 relative">
         <img
           src={giveaway.image}
           alt={giveaway.prize}
-          className={`w-full h-full object-contain scale-110 transition-all duration-300 ${giveaway.highlight ? '' : 'grayscale blur-[3px] brightness-75'}`}
+          className={`w-full h-full object-cover transition-all duration-300 ${!giveaway.highlight ? 'grayscale blur-[3px] brightness-75' : ''}`}
           referrerPolicy="no-referrer"
         />
         {giveaway.highlight && (
-          <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-black/40 to-transparent" />
+          <div className="absolute top-3 left-3 bg-black text-white text-[9px] uppercase tracking-[0.2em] px-2 py-1 font-bold">
+            ⭐ Best Seller
+          </div>
         )}
         {!giveaway.highlight && (
           <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/50">
