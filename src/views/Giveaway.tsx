@@ -128,7 +128,7 @@ function GiveawayCard({ giveaway, email }: { giveaway: typeof GIVEAWAYS[0]; emai
           ⭐ This Week's Best Seller
         </div>
       )}
-      <div className="aspect-square overflow-hidden bg-brand-gray-light/20 relative">
+      <div className="aspect-square overflow-hidden bg-black relative">
         <img
           src={giveaway.image}
           alt={giveaway.prize}
