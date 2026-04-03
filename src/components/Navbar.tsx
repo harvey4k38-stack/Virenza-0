@@ -104,7 +104,7 @@ export default function Navbar({ onHome, onNavigate, onCart, onAbout, onVip, onG
         <p className="text-[10px] uppercase tracking-[0.3em] font-bold">
           🔥 Sale — 20% Off All Jerseys &nbsp;·&nbsp; Ends in <span className="tabular-nums">{countdown}</span> &nbsp;·&nbsp;{' '}
           <button onClick={onGiveaway} className="underline underline-offset-2 hover:opacity-80 transition-opacity">
-            🏆 Win a Free Jersey
+            🏆 Weekly Jersey Giveaway
           </button>
         </p>
       </div>
