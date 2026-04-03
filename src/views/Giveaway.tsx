@@ -125,8 +125,6 @@ function MiniCard({ giveaway, email }: { giveaway: typeof GIVEAWAYS[0]; email: s
     }
   };
 
-  const multiplier = Math.round(giveaway.value / giveaway.ticketPrice);
-
   return (
     <div className="border border-brand-gray-light hover:border-black transition-colors group">
       {/* Image */}
@@ -143,9 +141,8 @@ function MiniCard({ giveaway, email }: { giveaway: typeof GIVEAWAYS[0]; email: s
           </div>
           <span className="text-white text-[9px] uppercase tracking-[0.3em] font-bold mt-2 drop-shadow">Mystery Prize</span>
         </div>
-        <div className="absolute top-0 left-0 right-0 bg-black text-white text-[8px] uppercase tracking-[0.25em] font-bold px-3 py-1.5 flex items-center justify-between">
+        <div className="absolute top-0 left-0 right-0 bg-black text-white text-[8px] uppercase tracking-[0.25em] font-bold px-3 py-1.5">
           <span>{giveaway.label}</span>
-          <span className="text-yellow-400">Worth £{giveaway.value.toFixed(2)}</span>
         </div>
       </div>
 
@@ -157,7 +154,6 @@ function MiniCard({ giveaway, email }: { giveaway: typeof GIVEAWAYS[0]; email: s
             <p className="text-[9px] uppercase tracking-widest text-brand-gray-dark">per ticket</p>
           </div>
           <div className="text-right">
-            <p className="text-[10px] font-black uppercase tracking-widest text-emerald-600">{multiplier}x value</p>
             {currentTickets !== null && currentTickets > 0 && (
               <p className="text-[9px] text-brand-gray-dark">{currentTickets}/3 tickets entered</p>
             )}
