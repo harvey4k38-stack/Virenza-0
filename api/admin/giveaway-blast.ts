@@ -33,40 +33,57 @@ const SIGNUP_EMAILS = [
   'Stephen.hannington16@gmail.com',
 ];
 
+// Stripe customer emails
+const ORDER_EMAILS = [
+  'deanwedge1984@gmail.com',
+  'paulwoodward4@icloud.com',
+  'adambarnaby7@icloud.com',
+  'tom.ashworth.14@hotmail.com',
+  'jaydenpettettis@gmail.com',
+  'dylanninja10@outlook.com',
+  'harrym16@icloud.com',
+  'emma@wearekk.com',
+  'ellischiverton@yahoo.com',
+  'joelpickett10@icloud.com',
+  'michaelmimms123@live.co.uk',
+  'paulnmorris0@gmail.com',
+  'craigcarter75@gmail.com',
+  'envi-green@mail.com',
+  'gabrieltmcmahon@gmail.com',
+  'joshparker41@btinternet.com',
+  'jacobsimpson0600@gmail.com',
+  'tattooedbear07@gmail.com',
+  'newstreetjoinery@outlook.com',
+  'zootbarr@yahoo.com',
+  'sal.huss@hotmail.co.uk',
+  'richardcommons21@gmail.com',
+  'j.luc@hotmail.co.uk',
+  'georgenevsharris@gmail.com',
+  'tomlong983@gmail.com',
+  'charliegriffiths428@gmail.com',
+  'boothby81@hotmail.com',
+  'jocaesar1980@gmail.com',
+  'stevekimber21281@gmail.com',
+  'jody.hedges@hotmail.co.uk',
+  'brenna246@outlook.com',
+  'shaunyboyhill40@gmail.com',
+  'lewisrayrussel@icloud.co.uk',
+  'bobbyholland200614@gmail.com',
+  'jamie.benson1989@gmail.com',
+  'eamonosh@hotmail.co.uk',
+  'churchlouie2000@gmail.com',
+  'jakub200710@gmail.com',
+  'louispilling1@gmail.com',
+];
+
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (req.method !== 'GET') return res.status(405).json({ error: 'Method not allowed' });
-
-  const Stripe = (await import('stripe')).default;
-  const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
-
-  // Fetch all customer emails from Stripe orders
-  const orderEmails: string[] = [];
-  let hasMore = true;
-  let startingAfter: string | undefined;
-
-  while (hasMore) {
-    const charges = await stripe.charges.list({
-      limit: 100,
-      ...(startingAfter ? { starting_after: startingAfter } : {}),
-    });
-
-    for (const charge of charges.data) {
-      if (charge.status === 'succeeded' && charge.receipt_email) {
-        orderEmails.push(charge.receipt_email.toLowerCase().trim());
-      }
-    }
-
-    hasMore = charges.has_more;
-    if (charges.data.length > 0) {
-      startingAfter = charges.data[charges.data.length - 1].id;
-    }
-  }
 
   // Combine and deduplicate
   const allEmails = [
     ...new Set([
       ...SIGNUP_EMAILS.map(e => e.toLowerCase().trim()),
-      ...orderEmails,
+      ...ORDER_EMAILS,
     ]),
   ];
 
@@ -152,5 +169,5 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     }
   }
 
-  res.status(200).json({ total: allEmails.length, sent, failed, orderEmailsFound: orderEmails.length });
+  res.status(200).json({ total: allEmails.length, sent, failed });
 }
