@@ -71,9 +71,13 @@ export default function App() {
       window.history.replaceState({}, '', window.location.pathname);
       setView('vip');
     }
-    if (params.get('giveaway') === 'success') {
+    if (params.get('giveaway') === 'success' || params.get('view') === 'giveaway') {
       window.history.replaceState({}, '', window.location.pathname);
       setView('giveaway');
+    }
+    if (params.get('view') === 'vip') {
+      window.history.replaceState({}, '', window.location.pathname);
+      setView('vip');
     }
   }, []);
 

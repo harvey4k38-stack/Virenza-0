@@ -24,13 +24,13 @@ function pickMysteryCode() {
 }
 
 function CartMysteryBox({ onCodeRevealed }: { onCodeRevealed: (code: string) => void }) {
-  const popupWasDismissed = !!sessionStorage.getItem(POPUP_DISMISSED_KEY);
+  const popupWasDismissed = !!localStorage.getItem(POPUP_DISMISSED_KEY);
   const alreadyClaimed = !!sessionStorage.getItem(CART_MYSTERY_KEY);
   if (!popupWasDismissed) return null;
   const [email, setEmail] = useState('');
   const [emailError, setEmailError] = useState('');
   const [revealed, setRevealed] = useState('');
-  const [code] = useState(() => 'VIRENZA10');
+  const [code] = useState(() => pickMysteryCode());
 
   if (alreadyClaimed) return null;
 
