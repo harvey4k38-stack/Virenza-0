@@ -723,7 +723,6 @@ function CheckoutFormWithDiscount({
               </div>
             ) : (
               <>
-                <p className="text-xs text-brand-gray-dark mb-3">No code? <span className="font-bold text-brand-black">Enter your email on our site to unlock a mystery discount of up to 10% off.</span></p>
                 <div className="flex gap-3">
                   <input
                     type="text"
