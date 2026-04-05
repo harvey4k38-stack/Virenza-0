@@ -499,6 +499,24 @@ function CheckoutFormWithDiscount({
         });
         const emailData = await emailRes.json();
         if (emailData.orderNumber) setOrderNumber(emailData.orderNumber);
+        // Fire TikTok events for Apple/Google Pay
+        try {
+          const payerEmail = e.payerEmail ?? '';
+          if (payerEmail) {
+            const encoded = new TextEncoder().encode(payerEmail.trim().toLowerCase());
+            const hashBuffer = await crypto.subtle.digest('SHA-256', encoded);
+            const hashHex = Array.from(new Uint8Array(hashBuffer)).map(b => b.toString(16).padStart(2, '0')).join('');
+            (window as any).ttq?.identify({ email: hashHex });
+          }
+        } catch {}
+        const ttqContents = cart.map((item: any) => ({
+          content_id: item.id,
+          content_name: item.name,
+          quantity: item.quantity,
+          price: parseFloat(item.price) || 0,
+        }));
+        (window as any).ttq?.track('CompletePayment', { value: finalTotal, currency: 'GBP', contents: ttqContents });
+        (window as any).ttq?.track('Purchase', { value: finalTotal, currency: 'GBP', contents: ttqContents });
         clearCart();
         setIsSuccess(true);
       } catch { e.complete('fail'); }
