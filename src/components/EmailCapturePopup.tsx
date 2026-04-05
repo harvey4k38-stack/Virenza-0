@@ -44,7 +44,7 @@ export default function EmailCapturePopup({ forceOpen, onClose, onGiveaway }: Pr
     onClose?.();
   };
 
-  const handleSubmit = async (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent): Promise<void> => {
     e.preventDefault();
     setEmailError('');
     const usedEmails: string[] = JSON.parse(localStorage.getItem(USED_EMAILS_KEY) ?? '[]');
@@ -60,6 +60,13 @@ export default function EmailCapturePopup({ forceOpen, onClose, onGiveaway }: Pr
     }).catch(() => {});
     usedEmails.push(email.trim().toLowerCase());
     localStorage.setItem(USED_EMAILS_KEY, JSON.stringify(usedEmails));
+    // Hash email and identify to TikTok for better event matching
+    try {
+      const encoded = new TextEncoder().encode(email.trim().toLowerCase());
+      const hashBuffer = await crypto.subtle.digest('SHA-256', encoded);
+      const hashHex = Array.from(new Uint8Array(hashBuffer)).map(b => b.toString(16).padStart(2, '0')).join('');
+      (window as any).ttq?.identify({ email: hashHex });
+    } catch {}
     setStatus('success');
     localStorage.setItem(STORAGE_KEY, '1');
   };
