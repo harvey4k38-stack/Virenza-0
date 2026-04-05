@@ -30,11 +30,12 @@ export default function CategoryView({ title, products, onProductClick, onBack }
 
       {products.length > 0 ? (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {products.map((product) => (
-            <ProductCard 
-              key={product.id} 
-              product={product} 
-              onClick={onProductClick} 
+          {products.map((product, index) => (
+            <ProductCard
+              key={product.id}
+              product={product}
+              onClick={onProductClick}
+              priority={index < 4}
             />
           ))}
         </div>

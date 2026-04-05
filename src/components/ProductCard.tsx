@@ -8,6 +8,7 @@ interface ProductCardProps {
   product: Product;
   onClick: (product: Product) => void;
   key?: string | number;
+  priority?: boolean;
 }
 
 function getCategoryLabel(category: string) {
@@ -17,7 +18,7 @@ function getCategoryLabel(category: string) {
   return '';
 }
 
-export default function ProductCard({ product, onClick }: ProductCardProps) {
+export default function ProductCard({ product, onClick, priority = false }: ProductCardProps) {
   const [showNotify, setShowNotify] = useState(false);
   const [email, setEmail] = useState('');
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
@@ -59,7 +60,8 @@ export default function ProductCard({ product, onClick }: ProductCardProps) {
           <img
             src={product.images[0]}
             alt={product.name}
-            loading="lazy"
+            loading={priority ? 'eager' : 'lazy'}
+            fetchPriority={priority ? 'high' : 'auto'}
             referrerPolicy="no-referrer"
             className={`w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 ${product.outOfStock ? 'brightness-75' : ''}`}
           />
