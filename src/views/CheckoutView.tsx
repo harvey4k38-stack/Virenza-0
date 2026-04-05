@@ -459,13 +459,13 @@ function CheckoutFormWithDiscount({
       requestPayerName: true,
       requestPayerEmail: true,
       requestShipping: true,
-      shippingOptions: [{ id: 'free', label: 'Free Shipping', detail: 'Delivered in 10-12 working days', amount: 0 }],
+      shippingOptions: [{ id: 'free', label: 'Free Shipping', detail: 'Delivered in 7-12 working days', amount: 0 }],
     });
     pr.canMakePayment().then(result => {
       if (result) setPaymentRequest(pr);
     });
     pr.on('shippingaddresschange', (e) => {
-      e.updateWith({ status: 'success', shippingOptions: [{ id: 'free', label: 'Free Shipping', detail: 'Delivered in 10-12 working days', amount: 0 }] });
+      e.updateWith({ status: 'success', shippingOptions: [{ id: 'free', label: 'Free Shipping', detail: 'Delivered in 7-12 working days', amount: 0 }] });
     });
     pr.on('paymentmethod', async (e) => {
       try {
