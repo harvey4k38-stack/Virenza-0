@@ -36,6 +36,25 @@ const PALACE_NAME_VARIANTS = [
 
 export const PRODUCTS: Product[] = [
 
+  // ── Mystery Jersey ────────────────────────────────────────────────────────
+
+  {
+    id: 'j-mystery',
+    name: 'Mystery Football Jersey',
+    price: 24.99,
+    compareAtPrice: 34.95,
+    description: `🎁 You won't know what you're getting — that's the point.\n\nEvery Mystery Jersey is a surprise pick from our full collection. Could be anything. That's what makes it special.\n\n──────────────────────\n🏆 WHAT YOU COULD RECEIVE\n──────────────────────\n\n🏴󠁧󠁢󠁥󠁮󠁧󠁿 ENGLAND\n• Palace x Nike 2026 World Cup Jersey\n• England Nike Home 2026 World Cup\n• England Nike Away 2026 World Cup\n• England 1990 Retro (Gazza)\n• England Retro Classic (Saka)\n\n🇪🇸 LA LIGA\n• Real Madrid Home & Away\n• Barcelona Home & Away\n• Atletico Madrid\n\n🇩🇪 BUNDESLIGA\n• Bayern Munich Home & Away\n• Borussia Dortmund\n\n🇮🇹 SERIE A\n• AC Milan Home & Away\n• Inter Milan\n• Juventus\n\n🇫🇷 LIGUE 1\n• PSG Home & Away\n• Marseille\n\n🏴󠁧󠁢󠁳󠁣󠁴󠁿 PREMIER LEAGUE\n• Manchester City Home & Away\n• Manchester United Home & Away\n• Arsenal Home & Away\n• Chelsea Home & Away\n• Liverpool Home & Away\n• Tottenham\n• Newcastle\n• Aston Villa\n\n🏴󠁧󠁢󠁥󠁮󠁧󠁿 CHAMPIONSHIP\n• Leeds United\n• Sheffield United\n• Sunderland\n• Norwich City\n• Derby County\n\n🌍 INTERNATIONAL\n• Brazil Home & Away\n• Argentina Home & Away\n• France Home & Away\n• Germany Home & Away\n• Portugal\n• Italy\n• Netherlands\n• Spain\n• USA 2026 World Cup\n• Mexico 2026 World Cup\n\n🔁 RETRO & SPECIAL EDITIONS\n• Various retro club & international kits\n• Limited special edition jerseys\n\n──────────────────────\n📦 HOW IT WORKS\n──────────────────────\n\n1. Choose your size\n2. Place your order\n3. We pick a jersey from our collection\n4. It arrives — surprise revealed\n\nEvery jersey is quality checked before dispatch. You will always receive a jersey worth more than you paid.\n\n⚡ Limited quantities — each mystery box is one of a kind.`,
+    category: 'jersey-england',
+    images: [
+      '/jerseys/palace-wc-5.png',
+    ],
+    thickness: [],
+    lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL', 'Kids S', 'Kids M', 'Kids L'],
+    isBestSeller: false,
+    rating: 4.7,
+    reviewCount: 12,
+  },
+
   // ── Jerseys with images ───────────────────────────────────────────────────
 
   {
