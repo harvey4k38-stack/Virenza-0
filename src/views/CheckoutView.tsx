@@ -447,6 +447,7 @@ function CheckoutFormWithDiscount({
   const [form, setForm] = useState({
     firstName: '', lastName: '', email: '', address: '', city: '', postcode: ''
   });
+  const [postcodeLoading, setPostcodeLoading] = useState(false);
   const [paymentRequest, setPaymentRequest] = useState<PaymentRequest | null>(null);
 
   useEffect(() => {
@@ -508,6 +509,21 @@ function CheckoutFormWithDiscount({
     const updated = { ...form, [e.target.name]: e.target.value };
     setForm(updated);
     if (e.target.name === 'email') onEmailChange(e.target.value);
+  };
+
+  const handlePostcodeBlur = async (postcode: string) => {
+    const clean = postcode.trim().replace(/\s+/g, '');
+    if (clean.length < 5) return;
+    setPostcodeLoading(true);
+    try {
+      const res = await fetch(`https://api.postcodes.io/postcodes/${encodeURIComponent(clean)}`);
+      const data = await res.json();
+      if (data.status === 200 && data.result) {
+        const town = data.result.admin_district || data.result.parish || data.result.region || '';
+        if (town) setForm(prev => ({ ...prev, city: town }));
+      }
+    } catch {}
+    setPostcodeLoading(false);
   };
 
   const handleEmailBlur = async (email: string) => {
@@ -664,12 +680,15 @@ function CheckoutFormWithDiscount({
               Shipping Information
             </h2>
             <div className="grid grid-cols-2 gap-4">
-              <input name="firstName" value={form.firstName} onChange={handleChange} type="text" placeholder="First Name" className="col-span-1 p-4 bg-brand-gray-light/10 border border-brand-gray-light focus:border-brand-black outline-none transition-colors text-sm" />
-              <input name="lastName" value={form.lastName} onChange={handleChange} type="text" placeholder="Last Name" className="col-span-1 p-4 bg-brand-gray-light/10 border border-brand-gray-light focus:border-brand-black outline-none transition-colors text-sm" />
-              <input name="email" value={form.email} onChange={handleChange} onBlur={e => handleEmailBlur(e.target.value)} type="email" placeholder="Email Address" className="col-span-2 p-4 bg-brand-gray-light/10 border border-brand-gray-light focus:border-brand-black outline-none transition-colors text-sm" />
-              <input name="address" value={form.address} onChange={handleChange} type="text" placeholder="Address" className="col-span-2 p-4 bg-brand-gray-light/10 border border-brand-gray-light focus:border-brand-black outline-none transition-colors text-sm" />
-              <input name="city" value={form.city} onChange={handleChange} type="text" placeholder="City" className="col-span-1 p-4 bg-brand-gray-light/10 border border-brand-gray-light focus:border-brand-black outline-none transition-colors text-sm" />
-              <input name="postcode" value={form.postcode} onChange={handleChange} type="text" placeholder="Postcode" className="col-span-1 p-4 bg-brand-gray-light/10 border border-brand-gray-light focus:border-brand-black outline-none transition-colors text-sm" />
+              <input name="firstName" value={form.firstName} onChange={handleChange} type="text" placeholder="First Name" autoComplete="given-name" className="col-span-1 p-4 bg-brand-gray-light/10 border border-brand-gray-light focus:border-brand-black outline-none transition-colors text-sm" />
+              <input name="lastName" value={form.lastName} onChange={handleChange} type="text" placeholder="Last Name" autoComplete="family-name" className="col-span-1 p-4 bg-brand-gray-light/10 border border-brand-gray-light focus:border-brand-black outline-none transition-colors text-sm" />
+              <input name="email" value={form.email} onChange={handleChange} onBlur={e => handleEmailBlur(e.target.value)} type="email" placeholder="Email Address" autoComplete="email" className="col-span-2 p-4 bg-brand-gray-light/10 border border-brand-gray-light focus:border-brand-black outline-none transition-colors text-sm" />
+              <input name="postcode" value={form.postcode} onChange={handleChange} onBlur={e => handlePostcodeBlur(e.target.value)} type="text" placeholder="Postcode" autoComplete="postal-code" className="col-span-2 p-4 bg-brand-gray-light/10 border border-brand-gray-light focus:border-brand-black outline-none transition-colors text-sm uppercase" />
+              <input name="address" value={form.address} onChange={handleChange} type="text" placeholder="House number & street" autoComplete="address-line1" className="col-span-2 p-4 bg-brand-gray-light/10 border border-brand-gray-light focus:border-brand-black outline-none transition-colors text-sm" />
+              <div className="col-span-2 relative">
+                <input name="city" value={form.city} onChange={handleChange} type="text" placeholder={postcodeLoading ? 'Looking up postcode...' : 'City / Town'} autoComplete="address-level2" className="w-full p-4 bg-brand-gray-light/10 border border-brand-gray-light focus:border-brand-black outline-none transition-colors text-sm" />
+                {postcodeLoading && <div className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 border-2 border-brand-gray-light border-t-brand-black rounded-full animate-spin" />}
+              </div>
             </div>
           </section>
 

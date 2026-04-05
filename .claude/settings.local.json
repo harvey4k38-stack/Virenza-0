@@ -268,7 +268,9 @@
       "Bash(cd \"/Users/nocap/Downloads/Virenza - O\" && npx vercel logs 2>&1 | head -60)",
       "Bash(ls \"/Users/nocap/Downloads/Virenza - O/public/jerseys/external/\" | grep -E \"\\\\-1\\\\.\\(jpg|png\\)$\")",
       "Bash(open -a \"Google Chrome\" /Users/nocap/Desktop/giveaway-picker.html || open -a \"Safari\" /Users/nocap/Desktop/giveaway-picker.html)",
-      "Bash(open \"/Users/nocap/Downloads/Virenza - O/all-emails.txt\")"
+      "Bash(open \"/Users/nocap/Downloads/Virenza - O/all-emails.txt\")",
+      "Bash(sed -i '' 's/Fulfilment \\(53 × £12.50\\),-£662.50/Fulfilment \\(52 × £12.50 + 1 × £37.50\\),-£687.50/g' \"/Users/nocap/Downloads/Virenza-PL.csv\"\nsed -i '' 's/TOTAL COSTS,-£1462.50/TOTAL COSTS,-£1487.50/g' \"/Users/nocap/Downloads/Virenza-PL.csv\"\nsed -i '' 's/NET PROFIT \\\\/ LOSS,£244.33/NET PROFIT \\\\/ LOSS,£219.33/g' \"/Users/nocap/Downloads/Virenza-PL.csv\"\nsed -i '' 's/Gross Margin per Order,£20.63/Gross Margin per Order,£20.13/g' \"/Users/nocap/Downloads/Virenza-PL.csv\"\nsed -i '' 's/Gross Margin %,62.3%/Gross Margin %,60.7%/g' \"/Users/nocap/Downloads/Virenza-PL.csv\"\nsed -i '' 's/Profit per day,£24.43/Profit per day,£21.93/g' \"/Users/nocap/Downloads/Virenza-PL.csv\"\nsed -i '' 's/15,£94.37,£12.50,£81.87/15,£94.37,£37.50,£56.87/g' \"/Users/nocap/Downloads/Virenza-PL.csv\")",
+      "Bash(open \"/Users/nocap/Downloads/Virenza-PL.csv\")"
     ]
   }
 }
