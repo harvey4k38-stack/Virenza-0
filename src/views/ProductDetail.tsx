@@ -565,7 +565,7 @@ export default function ProductDetail({ product, onBack, onNavigate, onBuyNow, o
 
       {/* Customers Also Bought */}
       {(() => {
-        const ALSO_BOUGHT_IDS = ['jg-england-2026-world-cup-home-shirt', 'j-nike-away-2026'];
+        const ALSO_BOUGHT_IDS = ['j-mystery', 'jg-england-2026-world-cup-home-shirt', 'j-nike-away-2026'];
         const others = PRODUCTS.filter(p => ALSO_BOUGHT_IDS.includes(p.id) && p.id !== product.id);
         if (others.length === 0) return null;
         return (
