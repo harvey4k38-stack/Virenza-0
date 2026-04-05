@@ -100,16 +100,15 @@ export default function App() {
       posthog?.capture('complete_checkout', { method: 'paypal' });
       if (saved) {
         const o = JSON.parse(saved);
-        (window as any).ttq?.track('CompletePayment', {
-          value: parseFloat(o.total ?? 0),
-          currency: 'GBP',
-          contents: (o.cart ?? []).map((item: any) => ({
-            content_id: item.id,
-            content_name: item.name,
-            quantity: item.quantity,
-            price: item.price,
-          })),
-        });
+        const ttqValue = parseFloat(o.total) || 0;
+        const ttqContents = (o.cart ?? []).map((item: any) => ({
+          content_id: item.id,
+          content_name: item.name,
+          quantity: item.quantity,
+          price: parseFloat(item.price) || 0,
+        }));
+        (window as any).ttq?.track('CompletePayment', { value: ttqValue, currency: 'GBP', contents: ttqContents });
+        (window as any).ttq?.track('Purchase', { value: ttqValue, currency: 'GBP', contents: ttqContents });
       }
       setPaypalSuccess(true);
     }

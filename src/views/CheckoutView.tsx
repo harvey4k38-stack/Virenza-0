@@ -459,13 +459,13 @@ function CheckoutFormWithDiscount({
       requestPayerName: true,
       requestPayerEmail: true,
       requestShipping: true,
-      shippingOptions: [{ id: 'free', label: 'Free Shipping', detail: 'Delivered in 7-10 working days', amount: 0 }],
+      shippingOptions: [{ id: 'free', label: 'Free Shipping', detail: 'Delivered in 10-15 working days', amount: 0 }],
     });
     pr.canMakePayment().then(result => {
       if (result) setPaymentRequest(pr);
     });
     pr.on('shippingaddresschange', (e) => {
-      e.updateWith({ status: 'success', shippingOptions: [{ id: 'free', label: 'Free Shipping', detail: 'Delivered in 7-10 working days', amount: 0 }] });
+      e.updateWith({ status: 'success', shippingOptions: [{ id: 'free', label: 'Free Shipping', detail: 'Delivered in 10-15 working days', amount: 0 }] });
     });
     pr.on('paymentmethod', async (e) => {
       try {
@@ -588,16 +588,14 @@ function CheckoutFormWithDiscount({
         const hashHex = Array.from(new Uint8Array(hashBuffer)).map(b => b.toString(16).padStart(2, '0')).join('');
         (window as any).ttq?.identify({ email: hashHex });
       } catch {}
-      (window as any).ttq?.track('CompletePayment', {
-        value: finalTotal,
-        currency: 'GBP',
-        contents: cart.map((item: any) => ({
-          content_id: item.id,
-          content_name: item.name,
-          quantity: item.quantity,
-          price: item.price,
-        })),
-      });
+      const ttqContents = cart.map((item: any) => ({
+        content_id: item.id,
+        content_name: item.name,
+        quantity: item.quantity,
+        price: parseFloat(item.price) || 0,
+      }));
+      (window as any).ttq?.track('CompletePayment', { value: finalTotal, currency: 'GBP', contents: ttqContents });
+      (window as any).ttq?.track('Purchase', { value: finalTotal, currency: 'GBP', contents: ttqContents });
       if (discountApplied && form.email) {
         const used: string[] = JSON.parse(localStorage.getItem(USED_CODES_KEY) ?? '[]');
         used.push(form.email.toLowerCase());
