@@ -75,7 +75,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     redis.set(`order:${orderNumber}`, JSON.stringify(orderData)).catch(() => {});
     redis.zadd('orders_index', { score: createdAt, member: orderNumber }).catch(() => {});
 
-    // Remove discount follow-up so buyer doesn't get nudged
+    // Remove abandoned cart and discount follow-up so buyer doesn't get nudged
+    redis.del(`abandoned:${email?.toLowerCase()}`).catch(() => {});
     redis.del(`discount_signup:${email?.toLowerCase()}`).catch(() => {});
 
     // TikTok Events API — server-side purchase tracking
