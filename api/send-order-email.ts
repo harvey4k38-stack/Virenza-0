@@ -68,6 +68,12 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   try {
     const { firstName, lastName, email, address, city, postcode, cart, total } = req.body;
     const orderNumber = generateOrderNumber();
+    const createdAt = Date.now();
+
+    // Save order to Redis for admin dashboard
+    const orderData = { orderNumber, firstName, lastName, email, address, city, postcode, cart, total, createdAt, status: 'unfulfilled' };
+    redis.set(`order:${orderNumber}`, JSON.stringify(orderData)).catch(() => {});
+    redis.zadd('orders_index', { score: createdAt, member: orderNumber }).catch(() => {});
 
     // Remove discount follow-up so buyer doesn't get nudged
     redis.del(`discount_signup:${email?.toLowerCase()}`).catch(() => {});

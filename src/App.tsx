@@ -22,6 +22,7 @@ const PalaceReviews = lazy(() => import('./views/PalaceReviews'));
 const JerseyReviews = lazy(() => import('./views/JerseyReviews'));
 const VIPMembership = lazy(() => import('./views/VIPMembership'));
 const Giveaway = lazy(() => import('./views/Giveaway'));
+const AdminOrders = lazy(() => import('./views/AdminOrders'));
 import { Product } from './types';
 import { PRODUCTS, LEAGUE_TO_CLUBS, LEAGUE_CATEGORIES, INTERNATIONAL_CATEGORY_IDS, JERSEY_CATEGORIES } from './constants';
 import { CartProvider } from './context/CartContext';
@@ -79,6 +80,10 @@ export default function App() {
       window.history.replaceState({}, '', window.location.pathname);
       setView('vip');
     }
+    if (params.get('view') === 'admin') {
+      window.history.replaceState({}, '', window.location.pathname);
+      setView('admin');
+    }
   }, []);
 
   // Handle PayPal redirect return
@@ -122,13 +127,29 @@ export default function App() {
   const posthog = usePostHog();
   const pageEntryTime = useRef<number>(Date.now());
 
+  // Capture UTM params on first load and store in sessionStorage
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const utmSource = params.get('utm_source');
+    if (utmSource) {
+      const utmData = {
+        utm_source: utmSource,
+        utm_medium: params.get('utm_medium') ?? '',
+        utm_campaign: params.get('utm_campaign') ?? '',
+        utm_id: params.get('utm_id') ?? '',
+      };
+      sessionStorage.setItem('virenza_utm', JSON.stringify(utmData));
+    }
+  }, []);
+
   // Track page views + time on page
   useEffect(() => {
     const pageName = view === 'product' && selectedProduct ? `product:${selectedProduct.id}` : view;
     const timeSpent = Math.round((Date.now() - pageEntryTime.current) / 1000);
+    const utm = JSON.parse(sessionStorage.getItem('virenza_utm') ?? '{}');
     if (timeSpent > 1) posthog?.capture('page_exit', { page: pageName, seconds: timeSpent });
     pageEntryTime.current = Date.now();
-    posthog?.capture('$pageview', { page: pageName });
+    posthog?.capture('$pageview', { page: pageName, ...utm });
   }, [view, selectedProduct]);
 
   const handleProductClick = (product: Product) => {
@@ -339,6 +360,10 @@ export default function App() {
             ) : view === 'giveaway' ? (
               <div key="giveaway">
                 <Giveaway onBack={handleHomeClick} />
+              </div>
+            ) : view === 'admin' ? (
+              <div key="admin">
+                <AdminOrders />
               </div>
             ) : (
               <div key={view}>
