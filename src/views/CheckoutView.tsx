@@ -8,7 +8,7 @@ import GlowButton from '../components/GlowButton';
 
 const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY ?? '');
 
-const DISCOUNT_CODES: Record<string, number> = { 'VIRENZA5': 0.05, 'VIRENZA6': 0.06, 'VIRENZA7': 0.07, 'VIRENZA8': 0.08, 'VIRENZA9': 0.09, 'VIRENZA10': 0.10, 'VIRENZA11': 0.11, 'VIRENZA12': 0.12, 'VIRENZA13': 0.13, 'VIRENZA14': 0.14, 'VIRENZA15': 0.15, 'VIRENZA16': 0.16, 'DPRESTON420': 0.15, 'DP420': 0.15, 'VIRENZA20': 0.20, 'PLXENG20': 0.20 };
+const DISCOUNT_CODES: Record<string, number> = { 'VIRENZA5': 0.05, 'VIRENZA6': 0.06, 'VIRENZA7': 0.07, 'VIRENZA8': 0.08, 'VIRENZA9': 0.09, 'VIRENZA10': 0.10, 'VIRENZA11': 0.11, 'VIRENZA12': 0.12, 'VIRENZA13': 0.13, 'VIRENZA14': 0.14, 'VIRENZA15': 0.15, 'VIRENZA16': 0.16, 'DPRESTON420': 0.15, 'DP420': 0.15, 'VIRENZA20': 0.20, 'PLXENG20': 0.20, 'JDBENSON': 0.25, 'EAMON': 0.25, 'GARY10': 0.10, 'JAY10': 0.10, 'DAWN10': 0.10, 'LP15': 0.15, 'PAL100': 1.00 };
 const USED_CODES_KEY = 'virenza_used_discount';
 let _appliedCode = '';
 let _appliedPercent = 0;
@@ -459,13 +459,13 @@ function CheckoutFormWithDiscount({
       requestPayerName: true,
       requestPayerEmail: true,
       requestShipping: true,
-      shippingOptions: [{ id: 'free', label: 'Free Shipping', detail: 'Delivered in 7-12 working days', amount: 0 }],
+      shippingOptions: [{ id: 'free', label: 'Free Shipping', detail: 'Delivered in 10-15 working days', amount: 0 }],
     });
     pr.canMakePayment().then(result => {
       if (result) setPaymentRequest(pr);
     });
     pr.on('shippingaddresschange', (e) => {
-      e.updateWith({ status: 'success', shippingOptions: [{ id: 'free', label: 'Free Shipping', detail: 'Delivered in 7-12 working days', amount: 0 }] });
+      e.updateWith({ status: 'success', shippingOptions: [{ id: 'free', label: 'Free Shipping', detail: 'Delivered in 10-15 working days', amount: 0 }] });
     });
     pr.on('paymentmethod', async (e) => {
       try {

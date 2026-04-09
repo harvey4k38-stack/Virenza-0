@@ -65,7 +65,7 @@ export default function ShippingTracking({ onBack }: ShippingTrackingProps) {
             <Truck size={24} className="mb-6" />
             <h3 className="text-[10px] uppercase tracking-widest font-bold mb-3">Delivery Time</h3>
             <p className="text-sm text-brand-gray-dark leading-relaxed">
-              Standard shipping typically takes <strong>7-12 working days</strong> from dispatch. You will receive tracking information once your order has shipped.
+              Standard shipping typically takes <strong>10-15 working days</strong> from dispatch. You will receive tracking information once your order has shipped.
             </p>
           </div>
           <div className="border border-brand-gray-light p-8">
@@ -83,7 +83,7 @@ export default function ShippingTracking({ onBack }: ShippingTrackingProps) {
           <div>
             <p className="text-[10px] uppercase tracking-widest font-bold mb-1">Jersey Orders — High Demand</p>
             <p className="text-sm text-brand-gray-dark leading-relaxed">
-              Due to high demand, please allow <strong className="text-brand-black">7-12 working days</strong> for delivery. We're working hard to get every order out as quickly as possible and appreciate your patience.
+              Due to high demand, please allow <strong className="text-brand-black">10-15 working days</strong> for delivery. We're working hard to get every order out as quickly as possible and appreciate your patience.
             </p>
           </div>
         </div>

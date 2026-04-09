@@ -456,7 +456,7 @@ export default function ProductDetail({ product, onBack, onNavigate, onBuyNow, o
             <div className="flex items-start gap-3 mb-6 p-4 border border-brand-gray-light bg-brand-gray-light/10">
               <Truck size={14} className="text-brand-gray-dark mt-0.5 flex-shrink-0" />
               <p className="text-[10px] uppercase tracking-widest font-bold text-brand-gray-dark leading-relaxed">
-                Estimated delivery: 7-12 working days
+                Estimated delivery: 10-15 working days
               </p>
             </div>
           )}
@@ -565,7 +565,7 @@ export default function ProductDetail({ product, onBack, onNavigate, onBuyNow, o
 
       {/* Customers Also Bought */}
       {(() => {
-        const ALSO_BOUGHT_IDS = ['j-mystery', 'jg-england-2026-world-cup-home-shirt', 'j-nike-away-2026'];
+        const ALSO_BOUGHT_IDS = ['j-mystery', 'j-nike-away-2026'];
         const others = PRODUCTS.filter(p => ALSO_BOUGHT_IDS.includes(p.id) && p.id !== product.id);
         if (others.length === 0) return null;
         return (
