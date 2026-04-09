@@ -110,14 +110,6 @@ export default function Footer({ logo, onNavigate, onDiscountClick }: {
                   👑 VIP Membership
                 </button>
               </li>
-              <li>
-                <button
-                  onClick={() => onNavigate?.('giveaway')}
-                  className="text-sm text-brand-gray-dark hover:text-brand-black transition-colors font-bold"
-                >
-                  🏆 Weekly Giveaway
-                </button>
-              </li>
             </ul>
           </div>
         </div>
