@@ -3,7 +3,7 @@ import { CartItem, Product } from '../types';
 
 interface CartContextType {
   cart: CartItem[];
-  addToCart: (product: Product, thickness?: string, length?: string, name?: string) => void;
+  addToCart: (product: Product, thickness?: string, length?: string, name?: string, priceOverride?: number) => void;
   removeFromCart: (productId: string) => void;
   updateQuantity: (productId: string, quantity: number) => void;
   clearCart: () => void;
@@ -32,7 +32,7 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
     localStorage.setItem('virenza_cart', JSON.stringify(cart));
   }, [cart]);
 
-  const addToCart = (product: Product, thickness?: string, length?: string, name?: string) => {
+  const addToCart = (product: Product, thickness?: string, length?: string, name?: string, priceOverride?: number) => {
     setCart((prevCart) => {
       const existingItemIndex = prevCart.findIndex(
         (item) =>
@@ -48,7 +48,8 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
         return newCart;
       }
 
-      return [...prevCart, { ...product, quantity: 1, selectedThickness: thickness, selectedLength: length, selectedName: name }];
+      const finalProduct = priceOverride !== undefined ? { ...product, price: priceOverride } : product;
+      return [...prevCart, { ...finalProduct, quantity: 1, selectedThickness: thickness, selectedLength: length, selectedName: name }];
     });
   };
 

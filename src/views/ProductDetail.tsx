@@ -71,7 +71,9 @@ export default function ProductDetail({ product, onBack, onNavigate, onBuyNow, o
 
   const KIDS_SIZES = ['Kids S', 'Kids M', 'Kids L'];
   const isKidsSize = KIDS_SIZES.includes(selectedLength);
-  const displayPrice = product.price;
+  const PALACE_FREE_VARIANTS = ['No Name / Number', 'PALACE 7'];
+  const personalisationSurcharge = isPalaceJersey && selectedVariant && !PALACE_FREE_VARIANTS.includes(selectedVariant) ? 7.99 : 0;
+  const displayPrice = product.price + personalisationSurcharge;
 
   const adultSizes = product.lengths.filter(l => !KIDS_SIZES.includes(l));
   const kidsSizes = product.lengths.filter(l => KIDS_SIZES.includes(l));
@@ -154,7 +156,7 @@ export default function ProductDetail({ product, onBack, onNavigate, onBuyNow, o
       });
       const data = await res.json();
       if (!data.clientSecret) throw new Error('No client secret');
-      addToCart(product, selectedThickness, selectedLength, buildNameLabel());
+      addToCart(product, selectedThickness, selectedLength, buildNameLabel(), displayPrice);
       onBuyNow(data.clientSecret, [{ id: product.id, name: product.name, quantity: 1, price: displayPrice }], displayPrice);
     } catch {
       setBuyNowError('Please add to cart and checkout.');
@@ -163,7 +165,7 @@ export default function ProductDetail({ product, onBack, onNavigate, onBuyNow, o
   };
 
   const handleAddToCart = () => {
-    addToCart(product, selectedThickness, selectedLength, buildNameLabel());
+    addToCart(product, selectedThickness, selectedLength, buildNameLabel(), displayPrice);
     posthog?.capture('add_to_cart', { product_id: product.id, product_name: product.name, price: displayPrice, size: selectedLength });
     (window as any).ttq?.track('AddToCart', {
       content_id: product.id,
@@ -277,10 +279,13 @@ export default function ProductDetail({ product, onBack, onNavigate, onBuyNow, o
             <h1 className="text-4xl md:text-5xl mb-4">{product.name}</h1>
             <div className="flex flex-col gap-1">
               <div className="flex items-baseline gap-3">
-                <p className="text-2xl font-bold text-brand-black">{formatPrice(product.price)}</p>
+                <p className="text-2xl font-bold text-brand-black">{formatPrice(displayPrice)}</p>
                 <p className="text-base line-through text-brand-gray-dark/50">{formatPrice(compareAtPrice)}</p>
                 <span className="text-[9px] uppercase tracking-widest font-bold text-red-600 border border-red-300 px-2 py-0.5">Sale</span>
               </div>
+              {personalisationSurcharge > 0 && (
+                <p className="text-[10px] text-brand-gray-dark uppercase tracking-widest">Includes £7.99 personalisation</p>
+              )}
               <p className="text-[10px] text-emerald-600 font-bold uppercase tracking-widest">You save {formatPrice(compareAtPrice - product.price)}</p>
             </div>
           </div>
@@ -316,19 +321,27 @@ export default function ProductDetail({ product, onBack, onNavigate, onBuyNow, o
                 <div>
                   <p className="text-[10px] uppercase tracking-widest font-bold mb-4">Player Name</p>
                   <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 max-h-64 overflow-y-auto pr-1">
-                    {product.nameVariants.map((v) => (
-                      <button
-                        key={v.label}
-                        onClick={() => setSelectedVariant(v.label)}
-                        className={`px-3 py-2 border-2 transition-all text-left ${
-                          selectedVariant === v.label
-                            ? 'border-brand-black bg-brand-black text-white'
-                            : 'border-brand-gray-light hover:border-brand-black'
-                        }`}
-                      >
-                        <span className="text-[9px] uppercase tracking-wider font-bold leading-tight">{v.label}</span>
-                      </button>
-                    ))}
+                    {product.nameVariants.map((v) => {
+                      const isFree = !isPalaceJersey || PALACE_FREE_VARIANTS.includes(v.label);
+                      return (
+                        <button
+                          key={v.label}
+                          onClick={() => setSelectedVariant(v.label)}
+                          className={`px-3 py-2 border-2 transition-all text-left ${
+                            selectedVariant === v.label
+                              ? 'border-brand-black bg-brand-black text-white'
+                              : 'border-brand-gray-light hover:border-brand-black'
+                          }`}
+                        >
+                          <span className="text-[9px] uppercase tracking-wider font-bold leading-tight block">{v.label}</span>
+                          {isPalaceJersey && (
+                            <span className={`text-[8px] font-bold ${selectedVariant === v.label ? 'text-white/70' : 'text-brand-gray-dark'}`}>
+                              {isFree ? 'Free' : '+£7.99'}
+                            </span>
+                          )}
+                        </button>
+                      );
+                    })}
                   </div>
                   {selectedVariant === 'Customize Name' && (
                     <div className="space-y-4 mt-4">
