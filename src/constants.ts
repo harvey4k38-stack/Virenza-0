@@ -29,9 +29,10 @@ const JERSEY_NAME_VARIANTS = [
 ];
 
 const PALACE_NAME_VARIANTS = [
-  ...JERSEY_NAME_VARIANTS.slice(0, 14),
+  { label: 'No Name / Number' },
+  { label: 'Customize Name' },
   { label: 'PALACE 7' },
-  ...JERSEY_NAME_VARIANTS.slice(14),
+  ...JERSEY_NAME_VARIANTS.slice(2),
 ];
 
 export const PRODUCTS: Product[] = [
@@ -41,12 +42,12 @@ export const PRODUCTS: Product[] = [
   {
     id: 'j-mystery',
     name: 'Mystery Football Jersey',
-    price: 24.99,
+    price: 29.99,
     compareAtPrice: 34.95,
-    description: `🎁 You won't know what you're getting — that's the point.\n\nEvery Mystery Jersey is a surprise pick from our full collection. Could be anything. That's what makes it special.\n\n──────────────────────\n🏆 WHAT YOU COULD RECEIVE\n──────────────────────\n\n🏴󠁧󠁢󠁥󠁮󠁧󠁿 ENGLAND\n• Palace x Nike 2026 World Cup Jersey\n• England Nike Home 2026 World Cup\n• England Nike Away 2026 World Cup\n• England 1990 Retro (Gazza)\n• England Retro Classic (Saka)\n\n🇪🇸 LA LIGA\n• Real Madrid Home & Away\n• Barcelona Home & Away\n• Atletico Madrid\n\n🇩🇪 BUNDESLIGA\n• Bayern Munich Home & Away\n• Borussia Dortmund\n\n🇮🇹 SERIE A\n• AC Milan Home & Away\n• Inter Milan\n• Juventus\n\n🇫🇷 LIGUE 1\n• PSG Home & Away\n• Marseille\n\n🏴󠁧󠁢󠁳󠁣󠁴󠁿 PREMIER LEAGUE\n• Manchester City Home & Away\n• Manchester United Home & Away\n• Arsenal Home & Away\n• Chelsea Home & Away\n• Liverpool Home & Away\n• Tottenham\n• Newcastle\n• Aston Villa\n\n🏴󠁧󠁢󠁥󠁮󠁧󠁿 CHAMPIONSHIP\n• Leeds United\n• Sheffield United\n• Sunderland\n• Norwich City\n• Derby County\n\n🌍 INTERNATIONAL\n• Brazil Home & Away\n• Argentina Home & Away\n• France Home & Away\n• Germany Home & Away\n• Portugal\n• Italy\n• Netherlands\n• Spain\n• USA 2026 World Cup\n• Mexico 2026 World Cup\n\n🔁 RETRO & SPECIAL EDITIONS\n• Various retro club & international kits\n• Limited special edition jerseys\n\n──────────────────────\n📦 HOW IT WORKS\n──────────────────────\n\n1. Choose your size\n2. Place your order\n3. We pick a jersey from our collection\n4. It arrives — surprise revealed\n\nEvery jersey is quality checked before dispatch. You will always receive a jersey worth more than you paid.\n\n⚡ Limited quantities — each mystery box is one of a kind.`,
+    description: `🎁 You won't know what you're getting — that's the point.\n\nEvery Mystery Jersey is a surprise pick from our full collection. Premier League clubs, international sides, retro classics, limited editions — we've got them all. Could be anything. That's what makes it special.\n\n──────────────────────\n📦 HOW IT WORKS\n──────────────────────\n\n1. Choose your size\n2. Place your order\n3. We pick a jersey from our collection\n4. It arrives — surprise revealed\n\nEvery jersey is quality checked before dispatch.\n\n⚡ Limited quantities — once they're gone, they're gone.`,
     category: 'mystery',
     images: [
-      '/jerseys/palace-wc-5.png',
+      '/jerseys/mystery.png',
     ],
     thickness: [],
     lengths: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL', 'Kids S', 'Kids M', 'Kids L'],
@@ -733,6 +734,7 @@ export const FEATURED_PRODUCT_IDS = [
   'j-palace-wc',
   'jg-25-26-barcelona-edition-football-shirt',
   'jg-england-2026-world-cup-home-shirt',
+  'j-mystery',
   'jg-benfica-away-shirt-2025-26',
   'jg-las-palmas-away-shirt-2024-25-copy',
   'jg-barcelona-2025-bright-pink-special-shirt',
