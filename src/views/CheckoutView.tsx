@@ -248,8 +248,11 @@ function CheckoutForm({ onBack, onSuccess, finalTotal, discountApplied, cartTota
                       <span className="text-[10px] font-bold">£{(item.price * item.quantity).toFixed(2)}</span>
                     </div>
                     <p className="text-[8px] text-brand-gray-dark uppercase tracking-widest mt-1">
-                      Qty: {item.quantity} | {item.selectedThickness} | {item.selectedLength}
+                      Qty: {item.quantity} | {item.selectedLength}
                     </p>
+                    {item.selectedName && (
+                      <p className="text-[8px] font-bold uppercase tracking-widest mt-0.5">Personalisation: {item.selectedName}</p>
+                    )}
                   </div>
                 </div>
               ))}
@@ -806,8 +809,11 @@ function CheckoutFormWithDiscount({
                       <span className="text-[10px] font-bold">£{(item.price * item.quantity).toFixed(2)}</span>
                     </div>
                     <p className="text-[8px] text-brand-gray-dark uppercase tracking-widest mt-1">
-                      Qty: {item.quantity} | {item.selectedThickness} | {item.selectedLength}
+                      Qty: {item.quantity} | {item.selectedLength}
                     </p>
+                    {item.selectedName && (
+                      <p className="text-[8px] font-bold uppercase tracking-widest mt-0.5">Personalisation: {item.selectedName}</p>
+                    )}
                   </div>
                 </div>
               ))}

@@ -268,7 +268,8 @@ export default function CartView({ onCheckout, onBack, onProductClick }: CartVie
                 
                 <div className="text-[10px] text-brand-gray-dark uppercase tracking-widest space-y-1 mb-4">
                   {item.selectedThickness && <p>Thickness: {item.selectedThickness}</p>}
-                  {item.selectedLength && <p>Length: {item.selectedLength}</p>}
+                  {item.selectedLength && <p>Size: {item.selectedLength}</p>}
+                  {item.selectedName && <p className="text-brand-black font-bold">Personalisation: {item.selectedName}</p>}
                 </div>
 
                 <div className="mt-auto flex justify-between items-center">
@@ -303,7 +304,7 @@ export default function CartView({ onCheckout, onBack, onProductClick }: CartVie
         {/* Customers Also Bought */}
         {(() => {
           const cartIds = new Set(cart.map(i => i.id));
-          const ALSO_BOUGHT_IDS = ['jg-england-2026-world-cup-home-shirt', 'j-nike-away-2026'];
+          const ALSO_BOUGHT_IDS = ['j-mystery', 'jg-england-2026-world-cup-home-shirt', 'j-nike-away-2026'];
           const suggestions = PRODUCTS.filter(p => ALSO_BOUGHT_IDS.includes(p.id) && !cartIds.has(p.id));
           if (suggestions.length === 0) return null;
           return (
@@ -311,8 +312,8 @@ export default function CartView({ onCheckout, onBack, onProductClick }: CartVie
               <h2 className="text-sm font-bold uppercase tracking-[0.2em] mb-6">Customers Also Bought</h2>
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
                 {suggestions.map(p => (
-                  <div key={p.id} className="group">
-                    <button onClick={() => onProductClick(p)} className="w-full text-left">
+                  <div key={p.id} className="group flex flex-col">
+                    <button onClick={() => onProductClick(p)} className="w-full text-left flex-1">
                       <div className="aspect-square bg-brand-gray-light/10 overflow-hidden mb-2">
                         <img src={p.images[0]} alt={p.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" referrerPolicy="no-referrer" />
                       </div>
@@ -321,7 +322,7 @@ export default function CartView({ onCheckout, onBack, onProductClick }: CartVie
                     </button>
                     <button
                       onClick={() => addToCart(p, p.thickness[0], p.lengths[0])}
-                      className="w-full py-2 text-[9px] uppercase tracking-widest font-bold border border-brand-black hover:bg-brand-black hover:text-white transition-all"
+                      className="w-full py-2 text-[9px] uppercase tracking-widest font-bold border border-brand-black hover:bg-brand-black hover:text-white transition-all mt-auto"
                     >
                       Add to Cart
                     </button>
