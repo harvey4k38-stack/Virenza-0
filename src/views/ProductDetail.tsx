@@ -72,7 +72,9 @@ export default function ProductDetail({ product, onBack, onNavigate, onBuyNow, o
   const KIDS_SIZES = ['Kids S', 'Kids M', 'Kids L'];
   const isKidsSize = KIDS_SIZES.includes(selectedLength);
   const PALACE_FREE_VARIANTS = ['No Name / Number', 'PALACE 7'];
-  const personalisationSurcharge = isPalaceJersey && selectedVariant && !PALACE_FREE_VARIANTS.includes(selectedVariant) ? 7.99 : 0;
+  const personalisationSurcharge = isPalaceJersey && selectedVariant && !PALACE_FREE_VARIANTS.includes(selectedVariant)
+    ? selectedVariant === 'Customize Name' ? 7.99 : 4.99
+    : 0;
   const displayPrice = product.price + personalisationSurcharge;
 
   const adultSizes = product.lengths.filter(l => !KIDS_SIZES.includes(l));
@@ -284,7 +286,7 @@ export default function ProductDetail({ product, onBack, onNavigate, onBuyNow, o
                 <span className="text-[9px] uppercase tracking-widest font-bold text-red-600 border border-red-300 px-2 py-0.5">Sale</span>
               </div>
               {personalisationSurcharge > 0 && (
-                <p className="text-[10px] text-brand-gray-dark uppercase tracking-widest">Includes £7.99 personalisation</p>
+                <p className="text-[10px] text-brand-gray-dark uppercase tracking-widest">Includes £{personalisationSurcharge.toFixed(2)} personalisation</p>
               )}
               <p className="text-[10px] text-emerald-600 font-bold uppercase tracking-widest">You save {formatPrice(compareAtPrice - product.price)}</p>
             </div>
@@ -336,7 +338,7 @@ export default function ProductDetail({ product, onBack, onNavigate, onBuyNow, o
                           <span className="text-[9px] uppercase tracking-wider font-bold leading-tight block">{v.label}</span>
                           {isPalaceJersey && (
                             <span className={`text-[8px] font-bold ${selectedVariant === v.label ? 'text-white/70' : 'text-brand-gray-dark'}`}>
-                              {isFree ? 'Free' : '+£7.99'}
+                              {isFree ? 'Free' : v.label === 'Customize Name' ? '+£7.99' : '+£4.99'}
                             </span>
                           )}
                         </button>
