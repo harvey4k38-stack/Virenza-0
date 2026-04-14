@@ -1322,7 +1322,6 @@ export const NEW_PRODUCTS: Product[] = [
     id: 'jg-barca-travis-scott-cactus-jack-24-25-away-shirt',
     name: 'Barcelona × Travis Scott 2024 Away Shirt',
     price: 37.99,
-    compareAtPrice: 47.99,
     description: 'The Barcelona × Travis Scott 2024 Away Shirt — the Cactus Jack x Barca collaboration on the away kit. A cultural landmark in football fashion.',
     category: 'jersey-barcelona',
     images: [

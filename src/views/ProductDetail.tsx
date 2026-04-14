@@ -51,9 +51,14 @@ export default function ProductDetail({ product, onBack, onNavigate, onBuyNow, o
     return () => clearInterval(interval);
   }, [isPalaceJersey]);
 
+  const isTravisScott = product.id === 'jg-barca-travis-scott-cactus-jack-24-25-away-shirt';
   const [stock, setStock] = useState<Record<string, number>>(() => {
     const counts: Record<string, number> = {};
-    ['S','M','L','XL','XXL'].forEach(s => { counts[s] = Math.floor(Math.random() * 4) + 4; });
+    if (isTravisScott) {
+      product.lengths.forEach(s => { counts[s] = Math.floor(Math.random() * 2) + 1; });
+    } else {
+      ['S','M','L','XL','XXL'].forEach(s => { counts[s] = Math.floor(Math.random() * 4) + 4; });
+    }
     return counts;
   });
 
@@ -282,13 +287,19 @@ export default function ProductDetail({ product, onBack, onNavigate, onBuyNow, o
             <div className="flex flex-col gap-1">
               <div className="flex items-baseline gap-3">
                 <p className="text-2xl font-bold text-brand-black">{formatPrice(displayPrice)}</p>
-                <p className="text-base line-through text-brand-gray-dark/50">{formatPrice(compareAtPrice)}</p>
-                <span className="text-[9px] uppercase tracking-widest font-bold text-red-600 border border-red-300 px-2 py-0.5">Sale</span>
+                {product.compareAtPrice && (
+                  <>
+                    <p className="text-base line-through text-brand-gray-dark/50">{formatPrice(compareAtPrice)}</p>
+                    <span className="text-[9px] uppercase tracking-widest font-bold text-red-600 border border-red-300 px-2 py-0.5">Sale</span>
+                  </>
+                )}
               </div>
               {personalisationSurcharge > 0 && (
                 <p className="text-[10px] text-brand-gray-dark uppercase tracking-widest">Includes £{personalisationSurcharge.toFixed(2)} personalisation</p>
               )}
-              <p className="text-[10px] text-emerald-600 font-bold uppercase tracking-widest">You save {formatPrice(compareAtPrice - product.price)}</p>
+              {product.compareAtPrice && (
+                <p className="text-[10px] text-emerald-600 font-bold uppercase tracking-widest">You save {formatPrice(compareAtPrice - product.price)}</p>
+              )}
             </div>
           </div>
 
@@ -432,7 +443,7 @@ export default function ProductDetail({ product, onBack, onNavigate, onBuyNow, o
                         >
                           {l}
                         </button>
-                        {stock[l] !== undefined && l !== 'XXXL' && l !== 'XXXXL' && (
+                        {stock[l] !== undefined && (isTravisScott || (l !== 'XXXL' && l !== 'XXXXL')) && (
                           <span className="text-[9px] font-bold uppercase tracking-wide text-red-500">
                             Only {stock[l]} left
                           </span>
