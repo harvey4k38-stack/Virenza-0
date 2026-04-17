@@ -128,8 +128,8 @@ export default function CheckoutView({ onBack, onSuccess }: CheckoutViewProps) {
           const { tokenResult } = event.detail;
           if (tokenResult?.status === 'OK') await processWalletPayment(tokenResult.token);
         });
-      } catch (e) {
-        console.log('Apple Pay not available:', e);
+      } catch (e: any) {
+        console.warn('Apple Pay init failed:', e?.message ?? e);
       }
     };
     init().catch(e => setSqError(e.message ?? e.toString() ?? 'Payment form failed to load'));
@@ -371,8 +371,8 @@ export default function CheckoutView({ onBack, onSuccess }: CheckoutViewProps) {
               Payment
             </h2>
             <div className="mb-6 space-y-3">
-              <div id="sq-apple-pay-button" className={hasApplePay ? 'h-[48px]' : 'hidden'} />
-              <div id="sq-google-pay-button" className={hasGooglePay ? 'h-[48px]' : 'hidden'} />
+              <div id="sq-apple-pay-button" className="min-h-[48px]" />
+              <div id="sq-google-pay-button" className="min-h-[48px]" />
               {(hasGooglePay || hasApplePay) && (
                 <div className="flex items-center gap-3 mt-4">
                   <div className="flex-1 h-px bg-brand-gray-light" />
