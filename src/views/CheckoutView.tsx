@@ -72,7 +72,7 @@ export default function CheckoutView({ onBack, onSuccess }: CheckoutViewProps) {
           '.input-container': { borderColor: '#e5e5e5', borderRadius: '0px' },
           '.input-container.is-focus': { borderColor: '#000000' },
           '.input-container.is-error': { borderColor: '#dc2626' },
-          'input': { fontFamily: 'Inter, sans-serif', fontSize: '14px', color: '#000000' },
+          'input': { fontSize: '14px', color: '#000000' },
           'input::placeholder': { color: '#9ca3af' },
         },
       });
