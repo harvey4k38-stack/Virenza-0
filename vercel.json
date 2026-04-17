@@ -2,14 +2,9 @@
   "framework": "vite",
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
-  "rewrites": [{ "source": "/((?!api/|.well-known/).*)", "destination": "/index.html" }],
-  "redirects": [
-    {
-      "source": "/((?!\\.well-known).*)",
-      "has": [{ "type": "host", "value": "virenza.tech" }],
-      "destination": "https://www.virenza.tech/$1",
-      "permanent": false
-    }
+  "rewrites": [
+    { "source": "/.well-known/apple-developer-merchantid-domain-association", "destination": "/api/well-known/apple-developer-merchantid-domain-association" },
+    { "source": "/((?!api/).*)", "destination": "/index.html" }
   ],
   "functions": {
     "api/subscription-webhook.ts": { "maxDuration": 30 }
@@ -19,6 +14,14 @@
     { "path": "/api/cron/discount-followup", "schedule": "*/30 * * * *" }
   ],
   "headers": [
+    {
+      "source": "/.well-known/apple-developer-merchantid-domain-association",
+      "headers": [
+        { "key": "Content-Type", "value": "application/json" },
+        { "key": "Content-Disposition", "value": "attachment" },
+        { "key": "Cache-Control", "value": "no-cache" }
+      ]
+    },
     {
       "source": "/",
       "headers": [{ "key": "Cache-Control", "value": "no-cache, no-store, must-revalidate" }]
