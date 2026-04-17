@@ -545,14 +545,6 @@ export default function ProductDetail({ product, onBack, onNavigate, onBuyNow, o
             </span>
           </div>
 
-          {/* Buy now pay later */}
-          <div className="flex items-center gap-3 p-3 border border-brand-gray-light mb-6 bg-brand-gray-light/5">
-            <div className="text-[10px] uppercase tracking-widest font-bold text-brand-gray-dark">Buy now, pay later with</div>
-            <div className="flex items-center gap-3">
-              <span className="text-xs font-bold tracking-wide bg-[#00D64F] text-white px-2 py-0.5 rounded-sm">Clearpay</span>
-              <span className="text-xs font-bold tracking-wide text-[#FFB3C7]" style={{fontStyle:'italic'}}>Klarna</span>
-            </div>
-          </div>
 
           {/* Features */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-12 border-t border-brand-gray-light">

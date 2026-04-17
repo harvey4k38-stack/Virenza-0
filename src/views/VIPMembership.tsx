@@ -128,7 +128,7 @@ export default function VIPMembership({ onBack, onManage }: VIPMembershipProps) 
             </GlowButton>
           </form>
           <p className="text-[10px] text-brand-gray-dark text-center mt-4 uppercase tracking-widest">
-            Secure payment via Stripe · Cancel anytime
+            Secure payment · Cancel anytime
           </p>
         </div>
 
