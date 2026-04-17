@@ -678,10 +678,9 @@ export default function ProductDetail({ product, onBack, onNavigate, onBuyNow, o
               <button
                 type="button"
                 onClick={handleBuyNow}
-                disabled={buyNowLoading}
-                className="flex-1 py-4 text-xs uppercase tracking-[0.2em] font-bold border-2 border-brand-black bg-white text-brand-black hover:bg-brand-black hover:text-white transition-all disabled:opacity-50"
+                className="flex-1 py-4 text-xs uppercase tracking-[0.2em] font-bold border-2 border-brand-black bg-white text-brand-black hover:bg-brand-black hover:text-white transition-all"
               >
-                {buyNowLoading ? '...' : 'Buy Now'}
+                Buy Now
               </button>
             )}
           </motion.div>
