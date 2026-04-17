@@ -5,7 +5,7 @@ import { ChevronLeft, ShieldCheck, Lock, CheckCircle2, Tag } from 'lucide-react'
 import GlowButton from '../components/GlowButton';
 
 const SQUARE_APP_ID = 'sq0idp-rIRWM4XyN8qda0IECdiBPw';
-const SQUARE_LOCATION_ID = import.meta.env.VITE_SQUARE_LOCATION_ID ?? '';
+const SQUARE_LOCATION_ID = 'L5W2Z3AV5TJFE';
 
 const DISCOUNT_CODES: Record<string, number> = {
   'VIRENZA5': 0.05, 'VIRENZA6': 0.06, 'VIRENZA7': 0.07, 'VIRENZA8': 0.08,
@@ -47,8 +47,18 @@ export default function CheckoutView({ onBack, onSuccess }: CheckoutViewProps) {
 
   useEffect(() => {
     const init = async () => {
+      // Load Square SDK if not already present
       if (!(window as any).Square) {
         await new Promise<void>((resolve, reject) => {
+          // Check if script already added
+          if (document.querySelector('script[src*="squarecdn.com"]')) {
+            // Wait for it to load
+            const check = setInterval(() => {
+              if ((window as any).Square) { clearInterval(check); resolve(); }
+            }, 100);
+            setTimeout(() => { clearInterval(check); reject(new Error('Square SDK timed out')); }, 10000);
+            return;
+          }
           const script = document.createElement('script');
           script.src = 'https://web.squarecdn.com/v1/square.js';
           script.onload = () => resolve();
