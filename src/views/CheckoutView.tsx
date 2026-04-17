@@ -42,10 +42,13 @@ export default function CheckoutView({ onBack, onSuccess }: CheckoutViewProps) {
     firstName: '', lastName: '', email: '', address: '', city: '', postcode: ''
   });
   const cardRef = useRef<any>(null);
+  const initRef = useRef(false);
 
   const finalTotal = discountApplied ? cartTotal * (1 - _appliedPercent) : cartTotal;
 
   useEffect(() => {
+    if (initRef.current) return;
+    initRef.current = true;
     const init = async () => {
       // Load Square SDK if not already present
       if (!(window as any).Square) {
