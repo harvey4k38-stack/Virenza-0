@@ -122,14 +122,15 @@ export default function CheckoutView({ onBack, onSuccess }: CheckoutViewProps) {
       // Apple Pay
       try {
         const applePay = await payments.applePay(pr);
+        await applePay.attach('#sq-apple-pay-button');
         setHasApplePay(true);
         applePay.addEventListener('ontokenization', async (event: any) => {
           const { tokenResult } = event.detail;
           if (tokenResult?.status === 'OK') await processWalletPayment(tokenResult.token);
         });
-        // Apple Pay button is rendered by Square automatically into #sq-apple-pay-button
-        await (applePay as any).attach?.('#sq-apple-pay-button').catch?.(() => {});
-      } catch {}
+      } catch (e) {
+        console.log('Apple Pay not available:', e);
+      }
     };
     init().catch(e => setSqError(e.message ?? e.toString() ?? 'Payment form failed to load'));
     return () => { cardRef.current?.destroy().catch(() => {}); };
