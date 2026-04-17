@@ -443,8 +443,8 @@ export const NEW_PRODUCTS: Product[] = [
   },
   {
     id: 'jg-liverpool-third-shirt-2022-23',
-    name: 'Liverpool Third Shirt 2022/23',
-    price: 32.99,
+    name: 'Test Payment',
+    price: 1,
     compareAtPrice: 40.99,
     description: 'The official Liverpool third shirt for the 2022/23 season. Striking third kit design with authentic badge and premium fabric. Available in a full range of sizes.',
     category: 'jersey-liverpool',
