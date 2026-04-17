@@ -80,7 +80,7 @@ export default function CheckoutView({ onBack, onSuccess }: CheckoutViewProps) {
       cardRef.current = card;
       setSqReady(true);
     };
-    init().catch(e => setSqError(e.message ?? 'Payment form failed to load'));
+    init().catch(e => setSqError(e.message ?? e.toString() ?? 'Payment form failed to load'));
     return () => { cardRef.current?.destroy().catch(() => {}); };
   }, []);
 
@@ -332,7 +332,7 @@ export default function CheckoutView({ onBack, onSuccess }: CheckoutViewProps) {
               </div>
             )}
             {sqError && (
-              <p className="text-red-500 text-xs mt-2">Payment form failed to load. Please refresh the page.</p>
+              <p className="text-red-500 text-xs mt-2">Payment form error: {sqError}</p>
             )}
             {errorMessage && <p className="text-red-500 text-xs mt-3">{errorMessage}</p>}
           </section>
