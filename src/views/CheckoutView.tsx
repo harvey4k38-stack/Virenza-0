@@ -43,19 +43,34 @@ export default function CheckoutView({ onBack, onSuccess }: CheckoutViewProps) {
   });
   const cardRef = useRef<any>(null);
   const initRef = useRef(false);
+  const paymentRequestRef = useRef<any>(null);
+  const formRef = useRef(form);
+  const [hasGooglePay, setHasGooglePay] = useState(false);
+  const [hasApplePay, setHasApplePay] = useState(false);
 
   const finalTotal = discountApplied ? cartTotal * (1 - _appliedPercent) : cartTotal;
+  const finalTotalRef = useRef(finalTotal);
+
+  // Keep refs in sync
+  useEffect(() => { formRef.current = form; }, [form]);
+  useEffect(() => { finalTotalRef.current = finalTotal; }, [finalTotal]);
+
+  // Update payment request total when discount applied
+  useEffect(() => {
+    if (paymentRequestRef.current) {
+      paymentRequestRef.current.update({
+        total: { amount: finalTotal.toFixed(2), label: 'Virenza Order' },
+      });
+    }
+  }, [finalTotal]);
 
   useEffect(() => {
     if (initRef.current) return;
     initRef.current = true;
     const init = async () => {
-      // Load Square SDK if not already present
       if (!(window as any).Square) {
         await new Promise<void>((resolve, reject) => {
-          // Check if script already added
           if (document.querySelector('script[src*="squarecdn.com"]')) {
-            // Wait for it to load
             const check = setInterval(() => {
               if ((window as any).Square) { clearInterval(check); resolve(); }
             }, 100);
@@ -70,6 +85,8 @@ export default function CheckoutView({ onBack, onSuccess }: CheckoutViewProps) {
         });
       }
       const payments = (window as any).Square.payments(SQUARE_APP_ID, SQUARE_LOCATION_ID);
+
+      // Card form
       const card = await payments.card({
         style: {
           '.input-container': { borderColor: '#e5e5e5', borderRadius: '0px' },
@@ -82,6 +99,37 @@ export default function CheckoutView({ onBack, onSuccess }: CheckoutViewProps) {
       await card.attach('#sq-card-container');
       cardRef.current = card;
       setSqReady(true);
+
+      // Payment request for Google Pay / Apple Pay
+      const pr = payments.paymentRequest({
+        countryCode: 'GB',
+        currencyCode: 'GBP',
+        total: { amount: finalTotalRef.current.toFixed(2), label: 'Virenza Order' },
+      });
+      paymentRequestRef.current = pr;
+
+      // Google Pay
+      try {
+        const googlePay = await payments.googlePay(pr);
+        await googlePay.attach('#sq-google-pay-button');
+        setHasGooglePay(true);
+        googlePay.addEventListener('ontokenization', async (event: any) => {
+          const { tokenResult } = event.detail;
+          if (tokenResult?.status === 'OK') await processWalletPayment(tokenResult.token);
+        });
+      } catch {}
+
+      // Apple Pay
+      try {
+        const applePay = await payments.applePay(pr);
+        setHasApplePay(true);
+        applePay.addEventListener('ontokenization', async (event: any) => {
+          const { tokenResult } = event.detail;
+          if (tokenResult?.status === 'OK') await processWalletPayment(tokenResult.token);
+        });
+        // Apple Pay button is rendered by Square automatically into #sq-apple-pay-button
+        await (applePay as any).attach?.('#sq-apple-pay-button').catch?.(() => {});
+      } catch {}
     };
     init().catch(e => setSqError(e.message ?? e.toString() ?? 'Payment form failed to load'));
     return () => { cardRef.current?.destroy().catch(() => {}); };
@@ -116,6 +164,65 @@ export default function CheckoutView({ onBack, onSuccess }: CheckoutViewProps) {
     setPostcodeLoading(false);
   };
 
+  const processPaymentToken = async (token: string, total: number, overrideForm?: typeof form) => {
+    const f = overrideForm ?? formRef.current;
+    setIsProcessing(true);
+    setErrorMessage('');
+
+    const payRes = await fetch('/api/create-square-payment', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ sourceId: token, amount: total, idempotencyKey: `${f.email}-${Date.now()}` }),
+    });
+    const payData = await payRes.json();
+    if (!payData.success) {
+      setErrorMessage(payData.error ?? 'Payment failed. Please try again.');
+      setIsProcessing(false);
+      return false;
+    }
+
+    // TikTok
+    try {
+      const encoded = new TextEncoder().encode(f.email.trim().toLowerCase());
+      const hashBuffer = await crypto.subtle.digest('SHA-256', encoded);
+      const hashHex = Array.from(new Uint8Array(hashBuffer)).map(b => b.toString(16).padStart(2, '0')).join('');
+      (window as any).ttq?.identify({ email: hashHex });
+    } catch {}
+    const ttqContents = cart.map((item: any) => ({ content_id: item.id, content_name: item.name, quantity: item.quantity, price: parseFloat(item.price) || 0 }));
+    (window as any).ttq?.track('CompletePayment', { value: total, currency: 'GBP', contents: ttqContents });
+    (window as any).ttq?.track('Purchase', { value: total, currency: 'GBP', contents: ttqContents });
+
+    if (discountApplied && f.email) {
+      const used: string[] = JSON.parse(localStorage.getItem(USED_CODES_KEY) ?? '[]');
+      used.push(f.email.toLowerCase());
+      localStorage.setItem(USED_CODES_KEY, JSON.stringify(used));
+    }
+
+    const emailRes = await fetch('/api/send-order-email', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        firstName: f.firstName, lastName: f.lastName, email: f.email,
+        address: f.address, city: f.city, postcode: f.postcode,
+        cart, total: total.toFixed(2),
+        discount: discountApplied ? `${_appliedPercent * 100}% off (${_appliedCode})` : null,
+      }),
+    });
+    const emailData = await emailRes.json();
+    if (emailData.orderNumber) setOrderNumber(emailData.orderNumber);
+    clearCart();
+    setIsSuccess(true);
+    setIsProcessing(false);
+    return true;
+  };
+
+  const processWalletPayment = async (token: string) => {
+    const f = formRef.current;
+    const total = finalTotalRef.current;
+    if (!f.email) { setErrorMessage('Please enter your email address first.'); return; }
+    await processPaymentToken(token, total);
+  };
+
   const handleApplyDiscount = () => {
     setDiscountError('');
     const code = discountInput.trim().toUpperCase();
@@ -133,86 +240,21 @@ export default function CheckoutView({ onBack, onSuccess }: CheckoutViewProps) {
 
   const handlePayment = async () => {
     if (!cardRef.current || !sqReady) return;
-
     if (!form.firstName || !form.lastName || !form.email || !form.address || !form.city || !form.postcode) {
       setErrorMessage('Please fill in all shipping details before proceeding.');
       return;
     }
-
-    setIsProcessing(true);
-    setErrorMessage('');
-
-    // Tokenize card
-    const result = await cardRef.current.tokenize();
-    if (result.status !== 'OK') {
-      setErrorMessage(result.errors?.[0]?.message ?? 'Card details invalid. Please check and try again.');
-      setIsProcessing(false);
-      return;
-    }
-
-    // Track checkout
     fetch('/api/track-checkout', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email: form.email, firstName: form.firstName, cart, total: finalTotal.toFixed(2) }),
     }).catch(() => {});
-
-    // Charge via Square
-    const payRes = await fetch('/api/create-square-payment', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        sourceId: result.token,
-        amount: finalTotal,
-        idempotencyKey: `${form.email}-${Date.now()}`,
-      }),
-    });
-    const payData = await payRes.json();
-
-    if (!payData.success) {
-      setErrorMessage(payData.error ?? 'Payment failed. Please try again.');
-      setIsProcessing(false);
+    const result = await cardRef.current.tokenize();
+    if (result.status !== 'OK') {
+      setErrorMessage(result.errors?.[0]?.message ?? 'Card details invalid. Please check and try again.');
       return;
     }
-
-    // TikTok tracking
-    try {
-      const encoded = new TextEncoder().encode(form.email.trim().toLowerCase());
-      const hashBuffer = await crypto.subtle.digest('SHA-256', encoded);
-      const hashHex = Array.from(new Uint8Array(hashBuffer)).map(b => b.toString(16).padStart(2, '0')).join('');
-      (window as any).ttq?.identify({ email: hashHex });
-    } catch {}
-    const ttqContents = cart.map((item: any) => ({
-      content_id: item.id, content_name: item.name,
-      quantity: item.quantity, price: parseFloat(item.price) || 0,
-    }));
-    (window as any).ttq?.track('CompletePayment', { value: finalTotal, currency: 'GBP', contents: ttqContents });
-    (window as any).ttq?.track('Purchase', { value: finalTotal, currency: 'GBP', contents: ttqContents });
-
-    if (discountApplied && form.email) {
-      const used: string[] = JSON.parse(localStorage.getItem(USED_CODES_KEY) ?? '[]');
-      used.push(form.email.toLowerCase());
-      localStorage.setItem(USED_CODES_KEY, JSON.stringify(used));
-    }
-
-    // Send order confirmation email
-    const emailRes = await fetch('/api/send-order-email', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        firstName: form.firstName, lastName: form.lastName,
-        email: form.email, address: form.address,
-        city: form.city, postcode: form.postcode,
-        cart, total: finalTotal.toFixed(2),
-        discount: discountApplied ? `${_appliedPercent * 100}% off (${_appliedCode})` : null,
-      }),
-    });
-    const emailData = await emailRes.json();
-    if (emailData.orderNumber) setOrderNumber(emailData.orderNumber);
-
-    clearCart();
-    setIsSuccess(true);
-    setIsProcessing(false);
+    await processPaymentToken(result.token, finalTotal, form);
   };
 
   if (isSuccess) {
@@ -327,6 +369,17 @@ export default function CheckoutView({ onBack, onSuccess }: CheckoutViewProps) {
               <span className="w-6 h-6 bg-brand-black text-white rounded-full flex items-center justify-center text-[10px]">3</span>
               Payment
             </h2>
+            {(hasGooglePay || hasApplePay) && (
+              <div className="mb-6 space-y-3">
+                {hasApplePay && <div id="sq-apple-pay-button" className="h-[48px]" />}
+                {hasGooglePay && <div id="sq-google-pay-button" className="h-[48px]" />}
+                <div className="flex items-center gap-3 mt-4">
+                  <div className="flex-1 h-px bg-brand-gray-light" />
+                  <span className="text-[10px] uppercase tracking-widest text-brand-gray-dark font-bold">or pay by card</span>
+                  <div className="flex-1 h-px bg-brand-gray-light" />
+                </div>
+              </div>
+            )}
             <div id="sq-card-container" className="min-h-[90px]" />
             {!sqReady && !sqError && (
               <div className="flex items-center gap-2 text-xs text-brand-gray-dark mt-3">
