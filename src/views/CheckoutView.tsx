@@ -37,7 +37,6 @@ export default function CheckoutView({ onBack, onSuccess }: CheckoutViewProps) {
   const [errorMessage, setErrorMessage] = useState('');
   const [sqReady, setSqReady] = useState(false);
   const [sqError, setSqError] = useState('');
-  const [applePayDebug, setApplePayDebug] = useState('');
   const [postcodeLoading, setPostcodeLoading] = useState(false);
   const [form, setForm] = useState({
     firstName: '', lastName: '', email: '', address: '', city: '', postcode: ''
@@ -122,19 +121,14 @@ export default function CheckoutView({ onBack, onSuccess }: CheckoutViewProps) {
 
       // Apple Pay
       try {
-        setApplePayDebug('Initializing...');
         const applePay = await payments.applePay(pr);
-        setApplePayDebug('Attaching...');
         await applePay.attach('#sq-apple-pay-button');
-        setApplePayDebug('OK');
         setHasApplePay(true);
         applePay.addEventListener('ontokenization', async (event: any) => {
           const { tokenResult } = event.detail;
           if (tokenResult?.status === 'OK') await processWalletPayment(tokenResult.token);
         });
-      } catch (e: any) {
-        setApplePayDebug('ERR: ' + (e?.message ?? String(e)));
-      }
+      } catch {}
     };
     init().catch(e => setSqError(e.message ?? e.toString() ?? 'Payment form failed to load'));
     return () => { cardRef.current?.destroy().catch(() => {}); };
@@ -375,8 +369,7 @@ export default function CheckoutView({ onBack, onSuccess }: CheckoutViewProps) {
               Payment
             </h2>
             <div className="mb-6 space-y-3">
-              {applePayDebug && <p className="text-xs text-red-500 font-mono">AP: {applePayDebug}</p>}
-              <div id="sq-apple-pay-button" className="min-h-[48px]" />
+<div id="sq-apple-pay-button" className="min-h-[48px]" />
               <div id="sq-google-pay-button" className="min-h-[48px]" />
               {(hasGooglePay || hasApplePay) && (
                 <div className="flex items-center gap-3 mt-4">
