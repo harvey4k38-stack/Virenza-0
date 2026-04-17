@@ -106,6 +106,8 @@ export default function CheckoutView({ onBack, onSuccess }: CheckoutViewProps) {
         countryCode: 'GB',
         currencyCode: 'GBP',
         total: { amount: finalTotalRef.current.toFixed(2), label: 'Virenza Order' },
+        requestBillingContact: true,
+        requestShippingContact: true,
       });
       paymentRequestRef.current = pr;
 
@@ -118,7 +120,7 @@ export default function CheckoutView({ onBack, onSuccess }: CheckoutViewProps) {
           setHasGooglePay(true);
           googlePay.addEventListener('ontokenization', async (event: any) => {
             const { tokenResult } = event.detail;
-            if (tokenResult?.status === 'OK') await processWalletPayment(tokenResult.token);
+            if (tokenResult?.status === 'OK') await processWalletPayment(tokenResult.token, tokenResult.details);
           });
         } catch {}
       }
@@ -217,11 +219,22 @@ export default function CheckoutView({ onBack, onSuccess }: CheckoutViewProps) {
     return true;
   };
 
-  const processWalletPayment = async (token: string) => {
+  const processWalletPayment = async (token: string, contactDetails?: any) => {
     const f = formRef.current;
     const total = finalTotalRef.current;
-    if (!f.email) { setErrorMessage('Please enter your email address first.'); return; }
-    await processPaymentToken(token, total);
+    const shipping = contactDetails?.shippingContact;
+    const billing = contactDetails?.billingContact;
+    const contact = shipping ?? billing;
+    const walletForm = contact ? {
+      firstName: contact.givenName ?? f.firstName,
+      lastName: contact.familyName ?? f.lastName,
+      email: contact.email ?? f.email,
+      address: contact.addressLines?.[0] ?? f.address,
+      city: contact.city ?? contact.locality ?? f.city,
+      postcode: contact.postalCode ?? f.postcode,
+    } : f;
+    if (!walletForm.email) { setErrorMessage('Please enter your email address first.'); return; }
+    await processPaymentToken(token, total, walletForm);
   };
 
   const handleApplyDiscount = () => {
@@ -376,7 +389,7 @@ export default function CheckoutView({ onBack, onSuccess }: CheckoutViewProps) {
                   onClick={async () => {
                     if (!applePayRef.current) return;
                     const result = await applePayRef.current.tokenize();
-                    if (result?.status === 'OK') await processWalletPayment(result.token);
+                    if (result?.status === 'OK') await processWalletPayment(result.token, result.details);
                   }}
                   className="w-full h-[48px] bg-black text-white flex items-center justify-center gap-2 rounded-md text-[15px] font-medium"
                   style={{ fontFamily: '-apple-system, BlinkMacSystemFont, sans-serif' }}
