@@ -42,6 +42,7 @@ export default function CheckoutView({ onBack, onSuccess }: CheckoutViewProps) {
     firstName: '', lastName: '', email: '', address: '', city: '', postcode: ''
   });
   const cardRef = useRef<any>(null);
+  const applePayRef = useRef<any>(null);
   const initRef = useRef(false);
   const paymentRequestRef = useRef<any>(null);
   const formRef = useRef(form);
@@ -122,12 +123,8 @@ export default function CheckoutView({ onBack, onSuccess }: CheckoutViewProps) {
       // Apple Pay
       try {
         const applePay = await payments.applePay(pr);
-        await applePay.attach('#sq-apple-pay-button');
+        applePayRef.current = applePay;
         setHasApplePay(true);
-        applePay.addEventListener('ontokenization', async (event: any) => {
-          const { tokenResult } = event.detail;
-          if (tokenResult?.status === 'OK') await processWalletPayment(tokenResult.token);
-        });
       } catch {}
     };
     init().catch(e => setSqError(e.message ?? e.toString() ?? 'Payment form failed to load'));
@@ -369,7 +366,20 @@ export default function CheckoutView({ onBack, onSuccess }: CheckoutViewProps) {
               Payment
             </h2>
             <div className="mb-6 space-y-3">
-<div id="sq-apple-pay-button" className="min-h-[48px]" />
+{hasApplePay && (
+                <button
+                  onClick={async () => {
+                    if (!applePayRef.current) return;
+                    const result = await applePayRef.current.tokenize();
+                    if (result?.status === 'OK') await processWalletPayment(result.token);
+                  }}
+                  className="w-full h-[48px] bg-black text-white flex items-center justify-center gap-2 rounded-md text-[15px] font-medium"
+                  style={{ fontFamily: '-apple-system, BlinkMacSystemFont, sans-serif' }}
+                >
+                  <svg viewBox="0 0 24 24" className="w-5 h-5 fill-white"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                  Pay
+                </button>
+              )}
               <div id="sq-google-pay-button" className="min-h-[48px]" />
               {(hasGooglePay || hasApplePay) && (
                 <div className="flex items-center gap-3 mt-4">
