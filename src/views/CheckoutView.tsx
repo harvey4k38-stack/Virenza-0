@@ -111,19 +111,7 @@ export default function CheckoutView({ onBack, onSuccess }: CheckoutViewProps) {
       });
       paymentRequestRef.current = pr;
 
-      // Google Pay — hide on Apple devices
       const isAppleDevice = 'ApplePaySession' in window;
-      if (!isAppleDevice) {
-        try {
-          const googlePay = await payments.googlePay(pr);
-          await googlePay.attach('#sq-google-pay-button');
-          setHasGooglePay(true);
-          googlePay.addEventListener('ontokenization', async (event: any) => {
-            const { tokenResult } = event.detail;
-            if (tokenResult?.status === 'OK') await processWalletPayment(tokenResult.token, tokenResult.details);
-          });
-        } catch {}
-      }
 
       // Apple Pay — only on Apple devices
       if (isAppleDevice) {
@@ -398,8 +386,7 @@ export default function CheckoutView({ onBack, onSuccess }: CheckoutViewProps) {
                   Pay
                 </button>
               )}
-              <div id="sq-google-pay-button" className="min-h-[48px]" />
-              {(hasGooglePay || hasApplePay) && (
+              {hasApplePay && (
                 <div className="flex items-center gap-3 mt-4">
                   <div className="flex-1 h-px bg-brand-gray-light" />
                   <span className="text-[10px] uppercase tracking-widest text-brand-gray-dark font-bold">or pay by card</span>
