@@ -37,7 +37,9 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     }
 
     const errorDetail = data.errors?.[0]?.detail ?? data.errors?.[0]?.code ?? 'Payment failed';
-    return res.status(400).json({ error: errorDetail });
+    const errorCategory = data.errors?.[0]?.category ?? '';
+    console.error('Square payment failed:', JSON.stringify(data.errors));
+    return res.status(400).json({ error: `${errorDetail} [${errorCategory}]` });
   } catch (err: any) {
     console.error('Square payment error:', err.message);
     return res.status(500).json({ error: 'Payment processing error. Please try again.' });
