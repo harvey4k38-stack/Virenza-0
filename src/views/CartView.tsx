@@ -176,19 +176,9 @@ export default function CartView({ onCheckout, onBack, onProductClick }: CartVie
     }
   };
 
-  const handleCheckout = async () => {
+  const handleCheckout = () => {
     setLoadingCheckout(true);
-    try {
-      const res = await fetch('/api/create-payment-intent', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ amount: finalTotal }),
-      });
-      const { clientSecret } = await res.json();
-      onCheckout(clientSecret ?? '', cart, finalTotal);
-    } catch {
-      onCheckout('', cart, finalTotal);
-    }
+    onCheckout('', cart, finalTotal);
   };
 
   if (cartCount === 0) {

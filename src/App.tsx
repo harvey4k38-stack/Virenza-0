@@ -187,7 +187,7 @@ export default function App() {
   };
 
   const handleCheckoutSuccess = () => {
-    posthog?.capture('complete_checkout', { method: 'stripe' });
+    posthog?.capture('complete_checkout', { method: 'square' });
     // CompletePayment is fired with full data inside CheckoutView
     handleHomeClick();
   };
