@@ -18,6 +18,7 @@
       "source": "/.well-known/apple-developer-merchantid-domain-association",
       "headers": [
         { "key": "Content-Type", "value": "application/json" },
+        { "key": "Content-Disposition", "value": "attachment" },
         { "key": "Cache-Control", "value": "no-cache" }
       ]
     },
