@@ -370,17 +370,17 @@ export default function CheckoutView({ onBack, onSuccess }: CheckoutViewProps) {
               <span className="w-6 h-6 bg-brand-black text-white rounded-full flex items-center justify-center text-[10px]">3</span>
               Payment
             </h2>
-            {(hasGooglePay || hasApplePay) && (
-              <div className="mb-6 space-y-3">
-                {hasApplePay && <div id="sq-apple-pay-button" className="h-[48px]" />}
-                {hasGooglePay && <div id="sq-google-pay-button" className="h-[48px]" />}
+            <div className="mb-6 space-y-3">
+              <div id="sq-apple-pay-button" className={hasApplePay ? 'h-[48px]' : 'hidden'} />
+              <div id="sq-google-pay-button" className={hasGooglePay ? 'h-[48px]' : 'hidden'} />
+              {(hasGooglePay || hasApplePay) && (
                 <div className="flex items-center gap-3 mt-4">
                   <div className="flex-1 h-px bg-brand-gray-light" />
                   <span className="text-[10px] uppercase tracking-widest text-brand-gray-dark font-bold">or pay by card</span>
                   <div className="flex-1 h-px bg-brand-gray-light" />
                 </div>
-              </div>
-            )}
+              )}
+            </div>
             <div id="sq-card-container" className="min-h-[90px]" />
             {!sqReady && !sqError && (
               <div className="flex items-center gap-2 text-xs text-brand-gray-dark mt-3">
