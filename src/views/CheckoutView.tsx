@@ -109,23 +109,28 @@ export default function CheckoutView({ onBack, onSuccess }: CheckoutViewProps) {
       });
       paymentRequestRef.current = pr;
 
-      // Google Pay
-      try {
-        const googlePay = await payments.googlePay(pr);
-        await googlePay.attach('#sq-google-pay-button');
-        setHasGooglePay(true);
-        googlePay.addEventListener('ontokenization', async (event: any) => {
-          const { tokenResult } = event.detail;
-          if (tokenResult?.status === 'OK') await processWalletPayment(tokenResult.token);
-        });
-      } catch {}
+      // Google Pay — hide on Apple devices
+      const isAppleDevice = 'ApplePaySession' in window;
+      if (!isAppleDevice) {
+        try {
+          const googlePay = await payments.googlePay(pr);
+          await googlePay.attach('#sq-google-pay-button');
+          setHasGooglePay(true);
+          googlePay.addEventListener('ontokenization', async (event: any) => {
+            const { tokenResult } = event.detail;
+            if (tokenResult?.status === 'OK') await processWalletPayment(tokenResult.token);
+          });
+        } catch {}
+      }
 
-      // Apple Pay
-      try {
-        const applePay = await payments.applePay(pr);
-        applePayRef.current = applePay;
-        setHasApplePay(true);
-      } catch {}
+      // Apple Pay — only on Apple devices
+      if (isAppleDevice) {
+        try {
+          const applePay = await payments.applePay(pr);
+          applePayRef.current = applePay;
+          setHasApplePay(true);
+        } catch {}
+      }
     };
     init().catch(e => setSqError(e.message ?? e.toString() ?? 'Payment form failed to load'));
     return () => { cardRef.current?.destroy().catch(() => {}); };
