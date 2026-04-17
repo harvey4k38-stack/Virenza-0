@@ -3,6 +3,14 @@
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
   "rewrites": [{ "source": "/((?!api/|.well-known/).*)", "destination": "/index.html" }],
+  "redirects": [
+    {
+      "source": "/((?!\\.well-known).*)",
+      "has": [{ "type": "host", "value": "virenza.tech" }],
+      "destination": "https://www.virenza.tech/$1",
+      "permanent": false
+    }
+  ],
   "functions": {
     "api/subscription-webhook.ts": { "maxDuration": 30 }
   },
