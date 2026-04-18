@@ -169,32 +169,6 @@ export default function CheckoutView({ onBack, onSuccess }: CheckoutViewProps) {
     });
     const payData = await payRes.json();
     if (!payData.success) {
-      // 3D Secure required — trigger buyer verification and retry
-      if (payData.code === 'CARD_DECLINED_VERIFICATION_REQUIRED' && paymentsRef.current && !verificationToken) {
-        try {
-          const verifyResult = await paymentsRef.current.verifyBuyer(token, {
-            amount: total.toFixed(2),
-            currencyCode: 'GBP',
-            intent: 'CHARGE',
-            billingContact: {
-              givenName: f.firstName,
-              familyName: f.lastName,
-              email: f.email,
-              addressLines: [f.address],
-              city: f.city,
-              postalCode: f.postcode,
-              countryCode: 'GB',
-            },
-          });
-          if (verifyResult?.token) {
-            return processPaymentToken(token, total, f, verifyResult.token);
-          }
-        } catch (e: any) {
-          setErrorMessage('3D Secure verification failed. Please try again or use a different card.');
-          setIsProcessing(false);
-          return false;
-        }
-      }
       setErrorMessage(payData.error ?? 'Payment failed. Please try again.');
       setIsProcessing(false);
       return false;
@@ -284,7 +258,30 @@ export default function CheckoutView({ onBack, onSuccess }: CheckoutViewProps) {
       setErrorMessage(result.errors?.[0]?.message ?? 'Card details invalid. Please check and try again.');
       return;
     }
-    await processPaymentToken(result.token, finalTotal, form);
+    let verificationToken: string | undefined;
+    if (paymentsRef.current) {
+      try {
+        const verifyResult = await paymentsRef.current.verifyBuyer(result.token, {
+          amount: finalTotal.toFixed(2),
+          currencyCode: 'GBP',
+          intent: 'CHARGE',
+          billingContact: {
+            givenName: form.firstName,
+            familyName: form.lastName,
+            email: form.email,
+            addressLines: [form.address],
+            city: form.city,
+            postalCode: form.postcode,
+            countryCode: 'GB',
+          },
+        });
+        verificationToken = verifyResult?.token;
+      } catch {
+        setErrorMessage('Payment verification failed. Please try again.');
+        return;
+      }
+    }
+    await processPaymentToken(result.token, finalTotal, form, verificationToken);
   };
 
   if (isSuccess) {
