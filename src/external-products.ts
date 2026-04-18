@@ -412,7 +412,7 @@ export const NEW_PRODUCTS: Product[] = [
   {
     id: 'jg-liverpool-home-shirt-2025-26',
     name: 'Liverpool Home Shirt 2025/26',
-    price: 1.00,
+    price: 32.99,
     compareAtPrice: 40.99,
     description: 'The official Liverpool home shirt for the 2025/26 season. Classic home colours with authentic badge and premium fabric. Available in a full range of sizes.',
     category: 'jersey-liverpool',
