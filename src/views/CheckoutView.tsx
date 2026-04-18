@@ -43,6 +43,7 @@ export default function CheckoutView({ onBack, onSuccess }: CheckoutViewProps) {
   });
   const cardRef = useRef<any>(null);
   const applePayRef = useRef<any>(null);
+  const paymentsRef = useRef<any>(null);
   const initRef = useRef(false);
   const paymentRequestRef = useRef<any>(null);
   const formRef = useRef(form);
@@ -86,6 +87,7 @@ export default function CheckoutView({ onBack, onSuccess }: CheckoutViewProps) {
         });
       }
       const payments = (window as any).Square.payments(SQUARE_APP_ID, SQUARE_LOCATION_ID);
+      paymentsRef.current = payments;
 
       // Card form
       const card = await payments.card({
@@ -155,7 +157,7 @@ export default function CheckoutView({ onBack, onSuccess }: CheckoutViewProps) {
     setPostcodeLoading(false);
   };
 
-  const processPaymentToken = async (token: string, total: number, overrideForm?: typeof form) => {
+  const processPaymentToken = async (token: string, total: number, overrideForm?: typeof form, verificationToken?: string) => {
     const f = overrideForm ?? formRef.current;
     setIsProcessing(true);
     setErrorMessage('');
@@ -163,10 +165,36 @@ export default function CheckoutView({ onBack, onSuccess }: CheckoutViewProps) {
     const payRes = await fetch('/api/create-square-payment', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ sourceId: token, amount: total, idempotencyKey: `${f.email}-${Date.now()}` }),
+      body: JSON.stringify({ sourceId: token, amount: total, idempotencyKey: `${f.email}-${Date.now()}`, verificationToken }),
     });
     const payData = await payRes.json();
     if (!payData.success) {
+      // 3D Secure required — trigger buyer verification and retry
+      if (payData.code === 'CARD_DECLINED_VERIFICATION_REQUIRED' && paymentsRef.current && !verificationToken) {
+        try {
+          const verifyResult = await paymentsRef.current.verifyBuyer(token, {
+            amount: total.toFixed(2),
+            currencyCode: 'GBP',
+            intent: 'CHARGE',
+            billingContact: {
+              givenName: f.firstName,
+              familyName: f.lastName,
+              email: f.email,
+              addressLines: [f.address],
+              city: f.city,
+              postalCode: f.postcode,
+              countryCode: 'GB',
+            },
+          });
+          if (verifyResult?.token) {
+            return processPaymentToken(token, total, f, verifyResult.token);
+          }
+        } catch (e: any) {
+          setErrorMessage('3D Secure verification failed. Please try again or use a different card.');
+          setIsProcessing(false);
+          return false;
+        }
+      }
       setErrorMessage(payData.error ?? 'Payment failed. Please try again.');
       setIsProcessing(false);
       return false;
