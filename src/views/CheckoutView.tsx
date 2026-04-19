@@ -169,6 +169,27 @@ export default function CheckoutView({ onBack, onSuccess }: CheckoutViewProps) {
     });
     const payData = await payRes.json();
     if (!payData.success) {
+      if (payData.code === 'CARD_DECLINED_VERIFICATION_REQUIRED' && paymentsRef.current && !verificationToken) {
+        try {
+          const verifyResult = await paymentsRef.current.verifyBuyer(token, {
+            amount: total.toFixed(2),
+            currencyCode: 'GBP',
+            intent: 'CHARGE',
+            billingContact: {
+              givenName: f.firstName,
+              familyName: f.lastName,
+              email: f.email,
+              addressLines: [f.address],
+              city: f.city,
+              postalCode: f.postcode,
+              countryCode: 'GB',
+            },
+          });
+          if (verifyResult?.token) {
+            return processPaymentToken(token, total, f, verifyResult.token);
+          }
+        } catch {}
+      }
       setErrorMessage(payData.error ?? 'Payment failed. Please try again.');
       setIsProcessing(false);
       return false;
@@ -275,9 +296,16 @@ export default function CheckoutView({ onBack, onSuccess }: CheckoutViewProps) {
             countryCode: 'GB',
           },
         });
-        verificationToken = verifyResult?.token;
+        if (verifyResult?.token) {
+          verificationToken = verifyResult.token;
+        } else if (verifyResult?.status && verifyResult.status !== 'OK') {
+          setErrorMessage('Payment verification was cancelled. Please try again.');
+          setIsProcessing(false);
+          return;
+        }
       } catch {
         setErrorMessage('Payment verification failed. Please try again.');
+        setIsProcessing(false);
         return;
       }
     }
