@@ -330,6 +330,7 @@ export default function CheckoutView({ onBack, onSuccess, initialClientSecret = 
   const [discountError, setDiscountError] = useState('');
   const [clientSecret, setClientSecret] = useState(initialClientSecret);
   const [formEmail, setFormEmail] = useState('');
+  const [loadError, setLoadError] = useState('');
 
   const finalTotal = discountApplied ? cartTotal * (1 - _appliedPercent) : cartTotal;
 
@@ -343,7 +344,14 @@ export default function CheckoutView({ onBack, onSuccess, initialClientSecret = 
       body: JSON.stringify({ amount: finalTotal }),
     })
       .then(r => r.json())
-      .then(d => { setClientSecret(d.clientSecret ?? ''); });
+      .then(d => {
+        if (d.clientSecret) {
+          setClientSecret(d.clientSecret);
+        } else {
+          setLoadError('Payment system unavailable. Please try again later.');
+        }
+      })
+      .catch(() => setLoadError('Failed to load checkout. Please refresh and try again.'));
   }, [finalTotal]);
 
   const handleApplyDiscount = () => {
@@ -360,6 +368,17 @@ export default function CheckoutView({ onBack, onSuccess, initialClientSecret = 
     _appliedPercent = percent;
     setDiscountApplied(true);
   };
+
+  if (loadError) {
+    return (
+      <main className="pt-32 pb-24 max-w-3xl mx-auto px-6 text-center">
+        <button onClick={onBack} className="flex items-center gap-2 text-[10px] uppercase tracking-widest font-bold hover:opacity-60 transition-opacity mb-12">
+          <ChevronLeft size={14} /> Back
+        </button>
+        <p className="text-red-500 text-sm">{loadError}</p>
+      </main>
+    );
+  }
 
   if (!clientSecret) {
     // Show skeleton checkout page while payment intent loads in background
