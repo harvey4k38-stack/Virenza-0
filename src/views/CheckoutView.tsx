@@ -192,7 +192,7 @@ function CheckoutForm({ onBack, onSuccess, finalTotal, discountApplied, cartTota
               <div className="flex items-center gap-3 p-4 border border-emerald-400 bg-emerald-50">
                 <Tag size={16} className="text-emerald-600" />
                 <span className="text-xs font-bold uppercase tracking-widest text-emerald-700">
-                  {_appliedCode} — {_appliedPercent * 100}% off applied
+                  {vipApplied ? '👑 VIP Member — 15% off automatically applied' : `${_appliedCode} — ${_appliedPercent * 100}% off applied`}
                 </span>
               </div>
             ) : (
@@ -331,6 +331,26 @@ export default function CheckoutView({ onBack, onSuccess, initialClientSecret = 
   const [clientSecret, setClientSecret] = useState(initialClientSecret);
   const [formEmail, setFormEmail] = useState('');
   const [loadError, setLoadError] = useState('');
+  const [vipApplied, setVipApplied] = useState(false);
+
+  const handleEmailChange = async (email: string) => {
+    setFormEmail(email);
+    if (!email.includes('@') || discountApplied) return;
+    try {
+      const res = await fetch('/api/check-member', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email }),
+      });
+      const { isMember } = await res.json();
+      if (isMember && !discountApplied) {
+        _appliedCode = 'VIP15';
+        _appliedPercent = 0.15;
+        setDiscountApplied(true);
+        setVipApplied(true);
+      }
+    } catch {}
+  };
 
   const finalTotal = discountApplied ? cartTotal * (1 - _appliedPercent) : cartTotal;
 
@@ -441,7 +461,7 @@ export default function CheckoutView({ onBack, onSuccess, initialClientSecret = 
         discountError={discountError}
         onDiscountInputChange={setDiscountInput}
         onApplyDiscount={handleApplyDiscount}
-        onEmailChange={setFormEmail}
+        onEmailChange={handleEmailChange}
       />
     </Elements>
   );
@@ -740,7 +760,7 @@ function CheckoutFormWithDiscount({
               <div className="flex items-center gap-3 p-4 border border-emerald-400 bg-emerald-50">
                 <Tag size={16} className="text-emerald-600" />
                 <span className="text-xs font-bold uppercase tracking-widest text-emerald-700">
-                  {_appliedCode} — {_appliedPercent * 100}% off applied
+                  {vipApplied ? '👑 VIP Member — 15% off automatically applied' : `${_appliedCode} — ${_appliedPercent * 100}% off applied`}
                 </span>
               </div>
             ) : (
