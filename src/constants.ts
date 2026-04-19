@@ -61,7 +61,7 @@ export const PRODUCTS: Product[] = [
   {
     id: 'j-palace-wc',
     name: 'Palace x Nike 2026 World Cup Jersey',
-    price: 34.95,
+    price: 39.99,
     compareAtPrice: 49.99,
     description: 'The Palace x Nike 2026 World Cup jersey. Featuring a St George stained-glass graphic across the full body with co-branded Palace x Nike badge.\n\nPersonalise the back with a name and number — or keep it plain by selecting No Name / Number below.',
     category: 'jersey-england',
