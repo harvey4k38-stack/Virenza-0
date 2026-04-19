@@ -222,9 +222,8 @@ export default function CartView({ onCheckout, onBack, onProductClick }: CartVie
         const hasChain = cart.some(i => i.category === 'chains');
         const msgs: string[] = [];
         if (hasChain && !hasJerseyBundle) msgs.push('Add a jersey to get 40% off your chain');
-        if (jerseyCount === 0) msgs.push('Buy 2+ jerseys for 10% off, 3+ for 20% off');
+        if (jerseyCount === 0) msgs.push('Buy 2+ jerseys for 10% off');
         else if (jerseyCount === 1) msgs.push('Add 1 more jersey for 10% off all jerseys');
-        else if (jerseyCount === 2) msgs.push('Add 1 more jersey to upgrade to 20% off all jerseys');
         if (msgs.length === 0) return null;
         return (
           <div className="mb-8 bg-black text-white px-6 py-3 text-center">
