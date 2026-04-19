@@ -164,7 +164,7 @@ export default function CheckoutView({ onBack, onSuccess }: CheckoutViewProps) {
     const payRes = await fetch('/api/create-square-payment', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ sourceId: token, amount: total, idempotencyKey: `${f.email}-${Date.now()}`, verificationToken }),
+      body: JSON.stringify({ sourceId: token, amount: total, idempotencyKey: `${f.email}-${total}-${Math.round(Date.now() / 10000)}`, verificationToken }),
     });
     const payData = await payRes.json();
     if (!payData.success) {
