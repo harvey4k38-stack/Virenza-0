@@ -8,7 +8,7 @@ import GlowButton from '../components/GlowButton';
 
 const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY ?? '');
 
-const DISCOUNT_CODES: Record<string, number> = { 'VIRENZA5': 0.05, 'VIRENZA6': 0.06, 'VIRENZA7': 0.07, 'VIRENZA8': 0.08, 'VIRENZA9': 0.09, 'VIRENZA10': 0.10, 'VIRENZA11': 0.11, 'VIRENZA12': 0.12, 'VIRENZA13': 0.13, 'VIRENZA14': 0.14, 'VIRENZA15': 0.15, 'VIRENZA16': 0.16, 'DPRESTON420': 0.15, 'DP420': 0.15, 'PLXENG20': 0.20, 'WC2026': 0.26, 'JDBENSON': 0.25, 'EAMON': 0.25, 'GARY10': 0.10, 'JAY10': 0.10, 'DAWN10': 0.10, 'LP15': 0.15, 'PAL100': 1.00 };
+const DISCOUNT_CODES: Record<string, number> = { 'VIRENZA5': 0.05, 'VIRENZA6': 0.06, 'VIRENZA7': 0.07, 'VIRENZA8': 0.08, 'VIRENZA9': 0.09, 'VIRENZA10': 0.10, 'VIRENZA11': 0.11, 'VIRENZA12': 0.12, 'VIRENZA13': 0.13, 'VIRENZA14': 0.14, 'VIRENZA15': 0.15, 'VIRENZA16': 0.16, 'DPRESTON420': 0.15, 'DP420': 0.15, 'PLXENG20': 0.20, 'WC2026': 0.26, 'JDBENSON': 0.25, 'EAMON': 0.25, 'GARY10': 0.10, 'JAY10': 0.10, 'DAWN10': 0.10, 'LP15': 0.15, 'PAL100': 1.00, 'CALLUM25': 0.25 };
 const USED_CODES_KEY = 'virenza_used_discount';
 let _appliedCode = '';
 let _appliedPercent = 0;
@@ -387,6 +387,7 @@ export default function CheckoutView({ onBack, onSuccess, initialClientSecret = 
     _appliedCode = code;
     _appliedPercent = percent;
     setDiscountApplied(true);
+    setVipApplied(false);
   };
 
   if (loadError) {
@@ -462,6 +463,7 @@ export default function CheckoutView({ onBack, onSuccess, initialClientSecret = 
         onDiscountInputChange={setDiscountInput}
         onApplyDiscount={handleApplyDiscount}
         onEmailChange={handleEmailChange}
+        vipApplied={vipApplied}
       />
     </Elements>
   );
@@ -473,11 +475,12 @@ interface FullFormProps extends InnerFormProps {
   onDiscountInputChange: (v: string) => void;
   onApplyDiscount: () => void;
   onEmailChange: (email: string) => void;
+  vipApplied: boolean;
 }
 
 function CheckoutFormWithDiscount({
   onBack, onSuccess, finalTotal, discountApplied, cartTotal,
-  discountInput, discountError, onDiscountInputChange, onApplyDiscount, onEmailChange,
+  discountInput, discountError, onDiscountInputChange, onApplyDiscount, onEmailChange, vipApplied,
 }: FullFormProps) {
   const stripe = useStripe();
   const elements = useElements();
@@ -756,21 +759,29 @@ function CheckoutFormWithDiscount({
               <span className="w-6 h-6 bg-brand-black text-white rounded-full flex items-center justify-center text-[10px]">2</span>
               Discount Code
             </h2>
-            {discountApplied ? (
+            {discountApplied && !vipApplied ? (
               <div className="flex items-center gap-3 p-4 border border-emerald-400 bg-emerald-50">
                 <Tag size={16} className="text-emerald-600" />
                 <span className="text-xs font-bold uppercase tracking-widest text-emerald-700">
-                  {vipApplied ? '👑 VIP Member — 15% off automatically applied' : `${_appliedCode} — ${_appliedPercent * 100}% off applied`}
+                  {`${_appliedCode} — ${_appliedPercent * 100}% off applied`}
                 </span>
               </div>
             ) : (
               <>
+                {vipApplied && (
+                  <div className="flex items-center gap-3 p-4 border border-emerald-400 bg-emerald-50 mb-3">
+                    <Tag size={16} className="text-emerald-600" />
+                    <span className="text-xs font-bold uppercase tracking-widest text-emerald-700">
+                      👑 VIP Member — 15% off automatically applied
+                    </span>
+                  </div>
+                )}
                 <div className="flex gap-3">
                   <input
                     type="text"
                     value={discountInput}
                     onChange={e => onDiscountInputChange(e.target.value)}
-                    placeholder="Enter discount code"
+                    placeholder={vipApplied ? 'Have a higher discount code?' : 'Enter discount code'}
                     className="flex-1 p-4 bg-brand-gray-light/10 border border-brand-gray-light focus:border-brand-black outline-none transition-colors text-sm"
                   />
                   <button
