@@ -192,7 +192,7 @@ function CheckoutForm({ onBack, onSuccess, finalTotal, discountApplied, cartTota
               <div className="flex items-center gap-3 p-4 border border-emerald-400 bg-emerald-50">
                 <Tag size={16} className="text-emerald-600" />
                 <span className="text-xs font-bold uppercase tracking-widest text-emerald-700">
-                  {vipApplied ? '👑 VIP Member — 15% off automatically applied' : `${_appliedCode} — ${_appliedPercent * 100}% off applied`}
+                  {`${_appliedCode} — ${_appliedPercent * 100}% off applied`}
                 </span>
               </div>
             ) : (
