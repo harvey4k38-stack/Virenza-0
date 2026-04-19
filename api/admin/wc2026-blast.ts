@@ -141,13 +141,11 @@ const html = `
   <hr style="border:none;border-top:1px solid #e5e5e5;margin-bottom:28px;" />
 
   <p style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.2em;color:#888;margin-bottom:12px;">🔥 Best Seller</p>
-  <a href="https://www.virenza.tech" style="text-decoration:none;color:#000;">
-    <img src="https://www.virenza.tech/jerseys/palace-wc-1.png" alt="Palace x Nike 2026 World Cup Jersey" style="width:100%;max-width:560px;display:block;margin-bottom:16px;" />
-    <h3 style="font-size:16px;font-weight:800;text-transform:uppercase;letter-spacing:0.1em;margin:0 0 6px;">Palace x Nike 2026 World Cup Jersey</h3>
-    <p style="color:#555;font-size:13px;margin:0 0 4px;">St George stained-glass design · Co-branded Palace x Nike</p>
-    <p style="font-size:15px;font-weight:800;margin:0 0 16px;"><span style="text-decoration:line-through;color:#aaa;font-weight:400;margin-right:8px;">£49.99</span>£39.99 — or <strong>£29.59 with WC2026</strong></p>
-    <a href="https://www.virenza.tech" style="display:inline-block;background:#000;color:#fff;padding:14px 32px;text-decoration:none;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.2em;">Shop Now →</a>
-  </a>
+  <img src="https://www.virenza.tech/jerseys/palace-wc-1.png" alt="Palace x Nike 2026 World Cup Jersey" style="width:100%;max-width:560px;display:block;margin-bottom:16px;" />
+  <h3 style="font-size:16px;font-weight:800;text-transform:uppercase;letter-spacing:0.1em;margin:0 0 6px;">Palace x Nike 2026 World Cup Jersey</h3>
+  <p style="color:#555;font-size:13px;margin:0 0 4px;">St George stained-glass design · Co-branded Palace x Nike</p>
+  <p style="font-size:15px;font-weight:800;margin:0 0 20px;"><span style="text-decoration:line-through;color:#aaa;font-weight:400;margin-right:8px;">£49.99</span>£39.99 — or <strong>£29.59 with WC2026</strong></p>
+  <a href="https://www.virenza.tech" style="display:inline-block;background:#000;color:#fff;padding:16px 40px;text-decoration:none;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.2em;">Shop Now →</a>
 
   <hr style="border:none;border-top:1px solid #e5e5e5;margin-top:40px;margin-bottom:16px;" />
   <p style="color:#aaa;font-size:11px;">Apply code <strong>WC2026</strong> at checkout. One use per customer. Valid while stock lasts.</p>
