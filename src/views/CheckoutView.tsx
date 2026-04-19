@@ -159,7 +159,6 @@ export default function CheckoutView({ onBack, onSuccess }: CheckoutViewProps) {
 
   const processPaymentToken = async (token: string, total: number, overrideForm?: typeof form, verificationToken?: string) => {
     const f = overrideForm ?? formRef.current;
-    setIsProcessing(true);
     setErrorMessage('');
 
     const payRes = await fetch('/api/create-square-payment', {
@@ -264,11 +263,12 @@ export default function CheckoutView({ onBack, onSuccess }: CheckoutViewProps) {
   };
 
   const handlePayment = async () => {
-    if (!cardRef.current || !sqReady) return;
+    if (!cardRef.current || !sqReady || isProcessing) return;
     if (!form.firstName || !form.lastName || !form.email || !form.address || !form.city || !form.postcode) {
       setErrorMessage('Please fill in all shipping details before proceeding.');
       return;
     }
+    setIsProcessing(true);
     fetch('/api/track-checkout', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
