@@ -121,7 +121,6 @@ export default function Footer({ logo, onNavigate, onDiscountClick }: {
           <div className="flex gap-8">
             <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg" alt="Visa" className="h-4 opacity-40 grayscale" />
             <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="Mastercard" className="h-4 opacity-40 grayscale" />
-            <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" alt="PayPal" className="h-4 opacity-40 grayscale" />
           </div>
         </div>
       </div>
