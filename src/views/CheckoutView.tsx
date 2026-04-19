@@ -277,6 +277,7 @@ export default function CheckoutView({ onBack, onSuccess }: CheckoutViewProps) {
     const result = await cardRef.current.tokenize();
     if (result.status !== 'OK') {
       setErrorMessage(result.errors?.[0]?.message ?? 'Card details invalid. Please check and try again.');
+      setIsProcessing(false);
       return;
     }
     let verificationToken: string | undefined;
