@@ -429,9 +429,14 @@ export default function CheckoutView({ onBack, onSuccess }: CheckoutViewProps) {
 {hasApplePay && (
                 <button
                   onClick={async () => {
-                    if (!applePayRef.current) return;
+                    if (!applePayRef.current || isProcessing) return;
+                    setIsProcessing(true);
                     const result = await applePayRef.current.tokenize();
-                    if (result?.status === 'OK') await processWalletPayment(result.token, result.details);
+                    if (result?.status === 'OK') {
+                      await processWalletPayment(result.token, result.details);
+                    } else {
+                      setIsProcessing(false);
+                    }
                   }}
                   className="w-full h-[48px] bg-black text-white flex items-center justify-center gap-2 rounded-md text-[15px] font-medium"
                   style={{ fontFamily: '-apple-system, BlinkMacSystemFont, sans-serif' }}
