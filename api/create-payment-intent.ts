@@ -18,7 +18,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     const paymentIntent = await stripe.paymentIntents.create({
       amount: Math.round(amount * 100),
       currency: 'gbp',
-      payment_method_types: ['card'],
+      payment_method_types: ['card', 'klarna', 'afterpay_clearpay'],
     });
 
     res.status(200).json({ clientSecret: paymentIntent.client_secret });
