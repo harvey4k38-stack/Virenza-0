@@ -120,6 +120,7 @@ const EMAILS = [
   'toby.herbert@outlook.com',
   'tom.millerr@outlook.com',
   'tomrich191094@googlemail.com',
+  'hdhesi4@gmail.com',
 ];
 
 const html = `
