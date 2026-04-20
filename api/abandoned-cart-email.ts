@@ -28,7 +28,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
           <p style="color:#555;font-size:14px;margin-bottom:24px;">Your items are still waiting. Complete your order before they sell out.</p>
           ${cartLines ? `<ul style="padding-left:16px;color:#333;font-size:14px;margin-bottom:24px;">${cartLines}</ul>` : ''}
           <p style="color:#555;font-size:14px;margin-bottom:32px;">Use code <strong style="letter-spacing:0.15em;">VIRENZA10</strong> for 10% off when you return.</p>
-          <a href="https://virenza.tech" style="display:inline-block;background:#000;color:#fff;padding:14px 32px;text-decoration:none;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.2em;">Complete My Order</a>
+          <a href="https://www.virenza.tech" style="display:inline-block;background:#000;color:#fff;padding:14px 32px;text-decoration:none;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.2em;">Complete My Order →</a>
           <hr style="border:none;border-top:1px solid #e5e5e5;margin-top:40px;margin-bottom:16px;" />
           <p style="color:#aaa;font-size:11px;">Virenza — Premium Football Jerseys</p>
         </div>
