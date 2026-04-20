@@ -374,9 +374,9 @@ export default function CheckoutView({ onBack, onSuccess, initialClientSecret = 
       .catch(() => setLoadError('Failed to load checkout. Please refresh and try again.'));
   }, [finalTotal]);
 
-  const handleApplyDiscount = () => {
+  const handleApplyDiscount = (rawCode?: string) => {
     setDiscountError('');
-    const code = discountInput.trim().toUpperCase();
+    const code = (rawCode ?? discountInput).trim().toUpperCase();
     const percent = DISCOUNT_CODES[code];
     if (!percent) { setDiscountError('Invalid discount code.'); return; }
     const used: string[] = JSON.parse(localStorage.getItem(USED_CODES_KEY) ?? '[]');
@@ -473,7 +473,7 @@ interface FullFormProps extends InnerFormProps {
   discountInput: string;
   discountError: string;
   onDiscountInputChange: (v: string) => void;
-  onApplyDiscount: () => void;
+  onApplyDiscount: (code?: string) => void;
   onEmailChange: (email: string) => void;
   vipApplied: boolean;
 }
@@ -785,7 +785,7 @@ function CheckoutFormWithDiscount({
                     className="flex-1 p-4 bg-brand-gray-light/10 border border-brand-gray-light focus:border-brand-black outline-none transition-colors text-sm"
                   />
                   <button
-                    onClick={onApplyDiscount}
+                    onClick={() => onApplyDiscount(discountInput)}
                     className="px-6 py-4 border border-brand-black text-[10px] uppercase tracking-widest font-bold hover:bg-brand-black hover:text-white transition-colors"
                   >
                     Apply
