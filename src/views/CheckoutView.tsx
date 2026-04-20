@@ -324,7 +324,9 @@ function DiscountInput({ form }: { form: { email: string } }) {
 }
 
 export default function CheckoutView({ onBack, onSuccess, initialClientSecret = '' }: CheckoutViewProps) {
-  const { cartTotal } = useCart();
+  const { cartTotal, jerseyBundleDiscount, jerseyDiscountRate } = useCart();
+  const bundleTotal = cartTotal - jerseyBundleDiscount;
+  const hasActiveJerseyBundle = jerseyBundleDiscount > 0;
   const [discountApplied, setDiscountApplied] = useState(false);
   const [discountInput, setDiscountInput] = useState('');
   const [discountError, setDiscountError] = useState('');
@@ -335,7 +337,7 @@ export default function CheckoutView({ onBack, onSuccess, initialClientSecret = 
 
   const handleEmailChange = async (email: string) => {
     setFormEmail(email);
-    if (!email.includes('@') || discountApplied) return;
+    if (!email.includes('@') || discountApplied || hasActiveJerseyBundle) return;
     try {
       const res = await fetch('/api/check-member', {
         method: 'POST',
@@ -352,7 +354,7 @@ export default function CheckoutView({ onBack, onSuccess, initialClientSecret = 
     } catch {}
   };
 
-  const finalTotal = discountApplied ? cartTotal * (1 - _appliedPercent) : cartTotal;
+  const finalTotal = hasActiveJerseyBundle ? bundleTotal : discountApplied ? cartTotal * (1 - _appliedPercent) : cartTotal;
 
   useEffect(() => {
     // Only re-fetch when discount changes the total (initial secret already provided)
@@ -464,6 +466,8 @@ export default function CheckoutView({ onBack, onSuccess, initialClientSecret = 
         onApplyDiscount={handleApplyDiscount}
         onEmailChange={handleEmailChange}
         vipApplied={vipApplied}
+        hasActiveJerseyBundle={hasActiveJerseyBundle}
+        jerseyDiscountRate={jerseyDiscountRate}
       />
     </Elements>
   );
@@ -476,11 +480,14 @@ interface FullFormProps extends InnerFormProps {
   onApplyDiscount: (code?: string) => void;
   onEmailChange: (email: string) => void;
   vipApplied: boolean;
+  hasActiveJerseyBundle: boolean;
+  jerseyDiscountRate: number;
 }
 
 function CheckoutFormWithDiscount({
   onBack, onSuccess, finalTotal, discountApplied, cartTotal,
   discountInput, discountError, onDiscountInputChange, onApplyDiscount, onEmailChange, vipApplied,
+  hasActiveJerseyBundle, jerseyDiscountRate,
 }: FullFormProps) {
   const stripe = useStripe();
   const elements = useElements();
@@ -759,7 +766,14 @@ function CheckoutFormWithDiscount({
               <span className="w-6 h-6 bg-brand-black text-white rounded-full flex items-center justify-center text-[10px]">2</span>
               Discount Code
             </h2>
-            {discountApplied && !vipApplied ? (
+            {hasActiveJerseyBundle ? (
+              <div className="flex items-center gap-3 p-4 border border-emerald-400 bg-emerald-50">
+                <Tag size={16} className="text-emerald-600" />
+                <span className="text-xs font-bold uppercase tracking-widest text-emerald-700">
+                  {`Bundle discount — ${jerseyDiscountRate * 100}% off applied`}
+                </span>
+              </div>
+            ) : discountApplied && !vipApplied ? (
               <div className="flex items-center gap-3 p-4 border border-emerald-400 bg-emerald-50">
                 <Tag size={16} className="text-emerald-600" />
                 <span className="text-xs font-bold uppercase tracking-widest text-emerald-700">
@@ -873,13 +887,18 @@ function CheckoutFormWithDiscount({
                 <span className="text-brand-gray-dark">Subtotal</span>
                 <span className="font-bold">£{cartTotal.toFixed(2)}</span>
               </div>
-              {discountApplied && (
+              {hasActiveJerseyBundle && (
+                <div className="flex justify-between text-[10px] uppercase tracking-widest">
+                  <span className="text-emerald-600">Bundle ({jerseyDiscountRate * 100}% off)</span>
+                  <span className="font-bold text-emerald-600">−£{(cartTotal - finalTotal).toFixed(2)}</span>
+                </div>
+              )}
+              {discountApplied && !hasActiveJerseyBundle && (
                 <div className="flex justify-between text-[10px] uppercase tracking-widest">
                   <span className="text-emerald-600">Discount ({_appliedPercent * 100}%)</span>
                   <span className="font-bold text-emerald-600">−£{(cartTotal * _appliedPercent).toFixed(2)}</span>
                 </div>
-              )}
-              <div className="flex justify-between text-[10px] uppercase tracking-widest">
+              )}              <div className="flex justify-between text-[10px] uppercase tracking-widest">
                 <span className="text-brand-gray-dark">Shipping</span>
                 <span className="font-bold text-emerald-600">Free</span>
               </div>

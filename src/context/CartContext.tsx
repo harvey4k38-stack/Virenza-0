@@ -82,7 +82,7 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
     : 0;
 
   const jerseyCount = cart.filter(item => item.category.startsWith('jersey-')).reduce((sum, item) => sum + item.quantity, 0);
-  const jerseyDiscountRate = 0;
+  const jerseyDiscountRate = jerseyCount >= 5 ? 0.35 : jerseyCount >= 3 ? 0.25 : 0;
   const jerseySubtotal = cart.filter(item => item.category.startsWith('jersey-')).reduce((sum, item) => sum + item.price * item.quantity, 0);
   const jerseyBundleDiscount = jerseySubtotal * jerseyDiscountRate;
 
